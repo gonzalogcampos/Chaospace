@@ -1,0 +1,3 @@
+/home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/build/CMakeFiles/edit_cache.dir
+/home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/build/CMakeFiles/rebuild_cache.dir
+/home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/build/CMakeFiles/prueba.dir
