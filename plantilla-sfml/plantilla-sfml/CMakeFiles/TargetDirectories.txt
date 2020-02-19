@@ -1,3 +1,0 @@
-/home/dgm86/Escritorio/Chaospace/plantilla-sfml/plantilla-sfml/CMakeFiles/edit_cache.dir
-/home/dgm86/Escritorio/Chaospace/plantilla-sfml/plantilla-sfml/CMakeFiles/rebuild_cache.dir
-/home/dgm86/Escritorio/Chaospace/plantilla-sfml/plantilla-sfml/CMakeFiles/prueba.dir

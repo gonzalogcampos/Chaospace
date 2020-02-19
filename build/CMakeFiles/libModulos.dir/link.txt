@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibModulos.a  CMakeFiles/libModulos.dir/modulos/mimodulo.cpp.o
+/usr/bin/ranlib liblibModulos.a

@@ -1,0 +1,6 @@
+/home/usuario/Documentos/Chaospace/build/CMakeFiles/rebuild_cache.dir
+/home/usuario/Documentos/Chaospace/build/CMakeFiles/edit_cache.dir
+/home/usuario/Documentos/Chaospace/build/CMakeFiles/MiJuego.dir
+/home/usuario/Documentos/Chaospace/build/CMakeFiles/libModulos.dir
+/home/usuario/Documentos/Chaospace/build/modulos/CMakeFiles/edit_cache.dir
+/home/usuario/Documentos/Chaospace/build/modulos/CMakeFiles/rebuild_cache.dir
