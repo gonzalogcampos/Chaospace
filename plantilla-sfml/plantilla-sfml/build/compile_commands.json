@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/build",
-  "command": "/usr/bin/g++-5      -std=c++1y -Wall -Wextra -g   -o CMakeFiles/prueba.dir/main.cpp.o -c /home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/main.cpp",
-  "file": "/home/dgm86/Escritorio/plantilla-sfml/plantilla-sfml/main.cpp"
-}
-]

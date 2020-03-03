@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/usuario/Documentos/Chaospace/modulos/mimodulo.cpp
+mimodulo.h
+/home/usuario/Documentos/Chaospace/modulos/mimodulo.h
+iostream
+-
+
+/home/usuario/Documentos/Chaospace/modulos/mimodulo.h
+
