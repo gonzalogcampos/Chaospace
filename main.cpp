@@ -13,7 +13,7 @@ int main() {
   //Creamos una ventana
   sf::RenderWindow window(sf::VideoMode(640, 480), "P0. Fundamentos de los Videojuegos. DCCIA");
 
-  //Cargo la imagen donde reside la textura del sprite
+  //Cargo la imagen donde reside la textura del sprites
   sf::Texture tex;
   if (!tex.loadFromFile("resources/sprites.png")) {
     std::cerr << "Error cargando la imagen sprites.png";
