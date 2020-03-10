@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/Chaospace.dir/main.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/main.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/main.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Ai.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ai.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ai.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Bullet.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Bullet.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Bullet.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Controller.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Controller.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Controller.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Game.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Game.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Game.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Hud.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Hud.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Hud.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Interface.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Interface.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Interface.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Life.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Life.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Life.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Npc.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Npc.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Npc.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Map.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Map.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Map.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Object.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Object.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Object.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Player.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Player.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Player.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/PowerUp.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/PowerUp.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/PowerUp.cpp"
+},
+{
+  "directory": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build",
+  "command": "/usr/bin/g++-5    -I\"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers\"   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/sources/src/Ship.cpp.o -c \"/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ship.cpp\"",
+  "file": "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ship.cpp"
+}
+]

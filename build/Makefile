@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/Documentos/Chaospace
+CMAKE_SOURCE_DIR = "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/Documentos/Chaospace/build
+CMAKE_BINARY_DIR = "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Documentos/Chaospace/build/CMakeFiles /home/usuario/Documentos/Chaospace/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build/CMakeFiles" "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Documentos/Chaospace/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MiJuego
+# Target rules for targets named Chaospace
 
 # Build rule for target.
-MiJuego: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MiJuego
-.PHONY : MiJuego
+Chaospace: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Chaospace
+.PHONY : Chaospace
 
 # fast build rule for target.
-MiJuego/fast:
-	$(MAKE) -f CMakeFiles/MiJuego.dir/build.make CMakeFiles/MiJuego.dir/build
-.PHONY : MiJuego/fast
+Chaospace/fast:
+	$(MAKE) -f CMakeFiles/Chaospace.dir/build.make CMakeFiles/Chaospace.dir/build
+.PHONY : Chaospace/fast
 
 #=============================================================================
 # Target rules for targets named libModulos
@@ -142,7 +142,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/MiJuego.dir/build.make CMakeFiles/MiJuego.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/Chaospace.dir/build.make CMakeFiles/Chaospace.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -151,7 +151,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/MiJuego.dir/build.make CMakeFiles/MiJuego.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/Chaospace.dir/build.make CMakeFiles/Chaospace.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -160,35 +160,359 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/MiJuego.dir/build.make CMakeFiles/MiJuego.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/Chaospace.dir/build.make CMakeFiles/Chaospace.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-modulos/mimodulo.o: modulos/mimodulo.cpp.o
+sources/src/Ai.o: sources/src/Ai.cpp.o
 
-.PHONY : modulos/mimodulo.o
+.PHONY : sources/src/Ai.o
 
 # target to build an object file
-modulos/mimodulo.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/modulos/mimodulo.cpp.o
-.PHONY : modulos/mimodulo.cpp.o
+sources/src/Ai.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ai.cpp.o
+.PHONY : sources/src/Ai.cpp.o
 
-modulos/mimodulo.i: modulos/mimodulo.cpp.i
+sources/src/Ai.i: sources/src/Ai.cpp.i
 
-.PHONY : modulos/mimodulo.i
+.PHONY : sources/src/Ai.i
 
 # target to preprocess a source file
-modulos/mimodulo.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/modulos/mimodulo.cpp.i
-.PHONY : modulos/mimodulo.cpp.i
+sources/src/Ai.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ai.cpp.i
+.PHONY : sources/src/Ai.cpp.i
 
-modulos/mimodulo.s: modulos/mimodulo.cpp.s
+sources/src/Ai.s: sources/src/Ai.cpp.s
 
-.PHONY : modulos/mimodulo.s
+.PHONY : sources/src/Ai.s
 
 # target to generate assembly for a file
-modulos/mimodulo.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/modulos/mimodulo.cpp.s
-.PHONY : modulos/mimodulo.cpp.s
+sources/src/Ai.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ai.cpp.s
+.PHONY : sources/src/Ai.cpp.s
+
+sources/src/Bullet.o: sources/src/Bullet.cpp.o
+
+.PHONY : sources/src/Bullet.o
+
+# target to build an object file
+sources/src/Bullet.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Bullet.cpp.o
+.PHONY : sources/src/Bullet.cpp.o
+
+sources/src/Bullet.i: sources/src/Bullet.cpp.i
+
+.PHONY : sources/src/Bullet.i
+
+# target to preprocess a source file
+sources/src/Bullet.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Bullet.cpp.i
+.PHONY : sources/src/Bullet.cpp.i
+
+sources/src/Bullet.s: sources/src/Bullet.cpp.s
+
+.PHONY : sources/src/Bullet.s
+
+# target to generate assembly for a file
+sources/src/Bullet.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Bullet.cpp.s
+.PHONY : sources/src/Bullet.cpp.s
+
+sources/src/Controller.o: sources/src/Controller.cpp.o
+
+.PHONY : sources/src/Controller.o
+
+# target to build an object file
+sources/src/Controller.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Controller.cpp.o
+.PHONY : sources/src/Controller.cpp.o
+
+sources/src/Controller.i: sources/src/Controller.cpp.i
+
+.PHONY : sources/src/Controller.i
+
+# target to preprocess a source file
+sources/src/Controller.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Controller.cpp.i
+.PHONY : sources/src/Controller.cpp.i
+
+sources/src/Controller.s: sources/src/Controller.cpp.s
+
+.PHONY : sources/src/Controller.s
+
+# target to generate assembly for a file
+sources/src/Controller.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Controller.cpp.s
+.PHONY : sources/src/Controller.cpp.s
+
+sources/src/Game.o: sources/src/Game.cpp.o
+
+.PHONY : sources/src/Game.o
+
+# target to build an object file
+sources/src/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Game.cpp.o
+.PHONY : sources/src/Game.cpp.o
+
+sources/src/Game.i: sources/src/Game.cpp.i
+
+.PHONY : sources/src/Game.i
+
+# target to preprocess a source file
+sources/src/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Game.cpp.i
+.PHONY : sources/src/Game.cpp.i
+
+sources/src/Game.s: sources/src/Game.cpp.s
+
+.PHONY : sources/src/Game.s
+
+# target to generate assembly for a file
+sources/src/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Game.cpp.s
+.PHONY : sources/src/Game.cpp.s
+
+sources/src/Hud.o: sources/src/Hud.cpp.o
+
+.PHONY : sources/src/Hud.o
+
+# target to build an object file
+sources/src/Hud.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Hud.cpp.o
+.PHONY : sources/src/Hud.cpp.o
+
+sources/src/Hud.i: sources/src/Hud.cpp.i
+
+.PHONY : sources/src/Hud.i
+
+# target to preprocess a source file
+sources/src/Hud.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Hud.cpp.i
+.PHONY : sources/src/Hud.cpp.i
+
+sources/src/Hud.s: sources/src/Hud.cpp.s
+
+.PHONY : sources/src/Hud.s
+
+# target to generate assembly for a file
+sources/src/Hud.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Hud.cpp.s
+.PHONY : sources/src/Hud.cpp.s
+
+sources/src/Interface.o: sources/src/Interface.cpp.o
+
+.PHONY : sources/src/Interface.o
+
+# target to build an object file
+sources/src/Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Interface.cpp.o
+.PHONY : sources/src/Interface.cpp.o
+
+sources/src/Interface.i: sources/src/Interface.cpp.i
+
+.PHONY : sources/src/Interface.i
+
+# target to preprocess a source file
+sources/src/Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Interface.cpp.i
+.PHONY : sources/src/Interface.cpp.i
+
+sources/src/Interface.s: sources/src/Interface.cpp.s
+
+.PHONY : sources/src/Interface.s
+
+# target to generate assembly for a file
+sources/src/Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Interface.cpp.s
+.PHONY : sources/src/Interface.cpp.s
+
+sources/src/Life.o: sources/src/Life.cpp.o
+
+.PHONY : sources/src/Life.o
+
+# target to build an object file
+sources/src/Life.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Life.cpp.o
+.PHONY : sources/src/Life.cpp.o
+
+sources/src/Life.i: sources/src/Life.cpp.i
+
+.PHONY : sources/src/Life.i
+
+# target to preprocess a source file
+sources/src/Life.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Life.cpp.i
+.PHONY : sources/src/Life.cpp.i
+
+sources/src/Life.s: sources/src/Life.cpp.s
+
+.PHONY : sources/src/Life.s
+
+# target to generate assembly for a file
+sources/src/Life.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Life.cpp.s
+.PHONY : sources/src/Life.cpp.s
+
+sources/src/Map.o: sources/src/Map.cpp.o
+
+.PHONY : sources/src/Map.o
+
+# target to build an object file
+sources/src/Map.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Map.cpp.o
+.PHONY : sources/src/Map.cpp.o
+
+sources/src/Map.i: sources/src/Map.cpp.i
+
+.PHONY : sources/src/Map.i
+
+# target to preprocess a source file
+sources/src/Map.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Map.cpp.i
+.PHONY : sources/src/Map.cpp.i
+
+sources/src/Map.s: sources/src/Map.cpp.s
+
+.PHONY : sources/src/Map.s
+
+# target to generate assembly for a file
+sources/src/Map.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Map.cpp.s
+.PHONY : sources/src/Map.cpp.s
+
+sources/src/Npc.o: sources/src/Npc.cpp.o
+
+.PHONY : sources/src/Npc.o
+
+# target to build an object file
+sources/src/Npc.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Npc.cpp.o
+.PHONY : sources/src/Npc.cpp.o
+
+sources/src/Npc.i: sources/src/Npc.cpp.i
+
+.PHONY : sources/src/Npc.i
+
+# target to preprocess a source file
+sources/src/Npc.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Npc.cpp.i
+.PHONY : sources/src/Npc.cpp.i
+
+sources/src/Npc.s: sources/src/Npc.cpp.s
+
+.PHONY : sources/src/Npc.s
+
+# target to generate assembly for a file
+sources/src/Npc.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Npc.cpp.s
+.PHONY : sources/src/Npc.cpp.s
+
+sources/src/Object.o: sources/src/Object.cpp.o
+
+.PHONY : sources/src/Object.o
+
+# target to build an object file
+sources/src/Object.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Object.cpp.o
+.PHONY : sources/src/Object.cpp.o
+
+sources/src/Object.i: sources/src/Object.cpp.i
+
+.PHONY : sources/src/Object.i
+
+# target to preprocess a source file
+sources/src/Object.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Object.cpp.i
+.PHONY : sources/src/Object.cpp.i
+
+sources/src/Object.s: sources/src/Object.cpp.s
+
+.PHONY : sources/src/Object.s
+
+# target to generate assembly for a file
+sources/src/Object.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Object.cpp.s
+.PHONY : sources/src/Object.cpp.s
+
+sources/src/Player.o: sources/src/Player.cpp.o
+
+.PHONY : sources/src/Player.o
+
+# target to build an object file
+sources/src/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Player.cpp.o
+.PHONY : sources/src/Player.cpp.o
+
+sources/src/Player.i: sources/src/Player.cpp.i
+
+.PHONY : sources/src/Player.i
+
+# target to preprocess a source file
+sources/src/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Player.cpp.i
+.PHONY : sources/src/Player.cpp.i
+
+sources/src/Player.s: sources/src/Player.cpp.s
+
+.PHONY : sources/src/Player.s
+
+# target to generate assembly for a file
+sources/src/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Player.cpp.s
+.PHONY : sources/src/Player.cpp.s
+
+sources/src/PowerUp.o: sources/src/PowerUp.cpp.o
+
+.PHONY : sources/src/PowerUp.o
+
+# target to build an object file
+sources/src/PowerUp.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/PowerUp.cpp.o
+.PHONY : sources/src/PowerUp.cpp.o
+
+sources/src/PowerUp.i: sources/src/PowerUp.cpp.i
+
+.PHONY : sources/src/PowerUp.i
+
+# target to preprocess a source file
+sources/src/PowerUp.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/PowerUp.cpp.i
+.PHONY : sources/src/PowerUp.cpp.i
+
+sources/src/PowerUp.s: sources/src/PowerUp.cpp.s
+
+.PHONY : sources/src/PowerUp.s
+
+# target to generate assembly for a file
+sources/src/PowerUp.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/PowerUp.cpp.s
+.PHONY : sources/src/PowerUp.cpp.s
+
+sources/src/Ship.o: sources/src/Ship.cpp.o
+
+.PHONY : sources/src/Ship.o
+
+# target to build an object file
+sources/src/Ship.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ship.cpp.o
+.PHONY : sources/src/Ship.cpp.o
+
+sources/src/Ship.i: sources/src/Ship.cpp.i
+
+.PHONY : sources/src/Ship.i
+
+# target to preprocess a source file
+sources/src/Ship.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ship.cpp.i
+.PHONY : sources/src/Ship.cpp.i
+
+sources/src/Ship.s: sources/src/Ship.cpp.s
+
+.PHONY : sources/src/Ship.s
+
+# target to generate assembly for a file
+sources/src/Ship.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sources/src/Ship.cpp.s
+.PHONY : sources/src/Ship.cpp.s
 
 # Help Target
 help:
@@ -197,15 +521,51 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... Chaospace"
 	@echo "... edit_cache"
-	@echo "... MiJuego"
 	@echo "... libModulos"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... modulos/mimodulo.o"
-	@echo "... modulos/mimodulo.i"
-	@echo "... modulos/mimodulo.s"
+	@echo "... sources/src/Ai.o"
+	@echo "... sources/src/Ai.i"
+	@echo "... sources/src/Ai.s"
+	@echo "... sources/src/Bullet.o"
+	@echo "... sources/src/Bullet.i"
+	@echo "... sources/src/Bullet.s"
+	@echo "... sources/src/Controller.o"
+	@echo "... sources/src/Controller.i"
+	@echo "... sources/src/Controller.s"
+	@echo "... sources/src/Game.o"
+	@echo "... sources/src/Game.i"
+	@echo "... sources/src/Game.s"
+	@echo "... sources/src/Hud.o"
+	@echo "... sources/src/Hud.i"
+	@echo "... sources/src/Hud.s"
+	@echo "... sources/src/Interface.o"
+	@echo "... sources/src/Interface.i"
+	@echo "... sources/src/Interface.s"
+	@echo "... sources/src/Life.o"
+	@echo "... sources/src/Life.i"
+	@echo "... sources/src/Life.s"
+	@echo "... sources/src/Map.o"
+	@echo "... sources/src/Map.i"
+	@echo "... sources/src/Map.s"
+	@echo "... sources/src/Npc.o"
+	@echo "... sources/src/Npc.i"
+	@echo "... sources/src/Npc.s"
+	@echo "... sources/src/Object.o"
+	@echo "... sources/src/Object.i"
+	@echo "... sources/src/Object.s"
+	@echo "... sources/src/Player.o"
+	@echo "... sources/src/Player.i"
+	@echo "... sources/src/Player.s"
+	@echo "... sources/src/PowerUp.o"
+	@echo "... sources/src/PowerUp.i"
+	@echo "... sources/src/PowerUp.s"
+	@echo "... sources/src/Ship.o"
+	@echo "... sources/src/Ship.i"
+	@echo "... sources/src/Ship.s"
 .PHONY : help
 
 

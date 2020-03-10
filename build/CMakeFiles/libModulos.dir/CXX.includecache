@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ai.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Bullet.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Controller.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Game.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Hud.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Interface.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Life.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Map.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Npc.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Object.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Player.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/PowerUp.cpp
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/src/Ship.cpp
+

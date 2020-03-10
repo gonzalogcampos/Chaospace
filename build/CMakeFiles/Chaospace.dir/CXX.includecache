@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/include/config.h
+
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/main.cpp
+SFML/Graphics.hpp
+-
+iostream
+-
+include/config.h
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/include/config.h
+sources/headers/Juego.h
+/home/alex/Escritorio/Universidad/FV/2a matricula/Juego grupal/mis ejecutables/Chaospace/sources/headers/Juego.h
+
