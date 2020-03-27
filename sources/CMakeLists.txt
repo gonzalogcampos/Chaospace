@@ -9,7 +9,7 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/src/Life.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/Npc.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/Map.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/Object.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/GameObject.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/PowerUp.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/Ship.cpp"
