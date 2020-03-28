@@ -1,13 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "include/config.h"
-#include "sources/headers/Juego.h"
+#include <Game.h>
 
 int main() {
-  Juego nuevo;
+  Game nuevo;
 
-  nuevo.inicio();
+  nuevo.run();
 
   return EXIT_SUCCESS;
 }

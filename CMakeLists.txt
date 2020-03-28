@@ -4,7 +4,8 @@ project(Chaospace)
 #Añadir tantos subdirectorios como se necesiten
 #En cada subdirectorio debe haber un fichero CMakeLists.txt
 #Habitualmente cada subdirectorio determinará una libreria 
-add_library(libModulos STATIC)
+add_library(modulos STATIC)
+
 add_subdirectory(sources)
 
 #Opciones a pasar al compilador de C++
@@ -16,9 +17,9 @@ add_executable(Chaospace main.cpp)
 #Añadir todos los objetos (ficheros o) que requiera el ejecutable. 
 #Habitualmente todas las librerias definidas mediante subcarpetas
 #aportaran código
-target_link_libraries(Chaospace libModulos)
+target_link_libraries(Chaospace modulos)
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 #Para usar SFML
 find_package(SFML REQUIRED system window graphics network audio)
 if (SFML_FOUND)
@@ -26,3 +27,14 @@ if (SFML_FOUND)
     target_link_libraries(Chaospace ${SFML_LIBRARIES})
 endif()
 
+
+set(dir ${CMAKE_CURRENT_SOURCE_DIR}/bin/)
+set(EXECUTABLE_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
+set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir})
+set(CMAKE_BUILD_FILES_DIRECTORY ${dir})
+set(CMAKE_BUILD_DIRECTORY ${dir})
+set(CMAKE_BINARY_DIR  ${dir})
+set(EXECUTABLE_OUTPUT_PATH ${dir})
+set(LIBRARY_OUTPUT_PATH ${dir}lib)
+set(CMAKE_CACHEFILE_DIR ${dir})
