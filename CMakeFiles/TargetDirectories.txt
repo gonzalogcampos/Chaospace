@@ -1,6 +1,6 @@
-/home/usuario/Documentos/Chaospace/CMakeFiles/edit_cache.dir
-/home/usuario/Documentos/Chaospace/CMakeFiles/rebuild_cache.dir
-/home/usuario/Documentos/Chaospace/CMakeFiles/Chaospace.dir
-/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir
-/home/usuario/Documentos/Chaospace/sources/CMakeFiles/edit_cache.dir
-/home/usuario/Documentos/Chaospace/sources/CMakeFiles/rebuild_cache.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/rebuild_cache.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/Chaospace.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/CMakeFiles/rebuild_cache.dir

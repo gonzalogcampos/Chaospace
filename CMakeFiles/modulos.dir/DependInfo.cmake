@@ -4,20 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/usuario/Documentos/Chaospace/sources/Components/Ai.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/Components/Ai.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/Components/Controller.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/Components/Controller.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/Components/Life.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/Components/Life.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GUI/Hud.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GUI/Hud.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GUI/Interface.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GUI/Interface.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/Game.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/Game.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/Bullet.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Bullet.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/GameObject.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/GameObject.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/Npc.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Npc.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/Player.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Player.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/PowerUp.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/PowerUp.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/GameObjects/Ship.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Ship.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/Map.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/Map.cpp.o"
-  "/home/usuario/Documentos/Chaospace/sources/State/PlayState.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/sources/State/PlayState.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Components/Ai.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/Components/Ai.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Components/Controller.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/Components/Controller.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Components/Life.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/Components/Life.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GUI/Hud.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GUI/Hud.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GUI/Interface.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GUI/Interface.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Game.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/Game.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/Bullet.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Bullet.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/GameObject.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/GameObject.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/Npc.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Npc.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/Player.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Player.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/PowerUp.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/PowerUp.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects/Ship.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/GameObjects/Ship.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Map.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/Map.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/State/PlayState.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/sources/State/PlayState.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

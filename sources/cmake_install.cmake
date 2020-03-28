@@ -1,4 +1,4 @@
-# Install script for directory: /home/usuario/Documentos/Chaospace/sources
+# Install script for directory: /mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

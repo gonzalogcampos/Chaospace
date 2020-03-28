@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++1y -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/usuario/Documentos/Chaospace/sources/Components -I/home/usuario/Documentos/Chaospace/sources/GameObjects -I/home/usuario/Documentos/Chaospace/sources/GUI -I/home/usuario/Documentos/Chaospace/sources/State -I/home/usuario/Documentos/Chaospace/sources 
+CXX_INCLUDES = -I"/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/Components" -I"/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GameObjects" -I"/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/GUI" -I"/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources/State" -I"/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/sources" 
 

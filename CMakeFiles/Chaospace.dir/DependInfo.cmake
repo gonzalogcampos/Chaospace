@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/usuario/Documentos/Chaospace/main.cpp" "/home/usuario/Documentos/Chaospace/CMakeFiles/Chaospace.dir/main.cpp.o"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/main.cpp" "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/Chaospace.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,7 +19,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/usuario/Documentos/Chaospace/CMakeFiles/modulos.dir/DependInfo.cmake"
+  "/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/CMakeFiles/modulos.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
