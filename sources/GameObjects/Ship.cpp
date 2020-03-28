@@ -18,6 +18,14 @@ void Ship::shoot(){ //Metodo que controla y permite el disparo efectuado por un 
 
 } 
 
+void Ship::hpUp(){ //Metodo auxiliar utilizado para subir en 1 el valor de la vida de la nave.
+    hp++;
+}
+
+void Ship::hpDown(){ //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
+    hp--;
+}
+
 sf::Sprite Ship::getSprite(){ //Metodo que permite recoger el Sprite de un Ship.
     return sprite;
 } 
