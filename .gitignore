@@ -1,7 +1,7 @@
-##CMakeFiles
-#CMakeCache.txt
-#Makefile
-#sources/Makefile
-#cmake_install.cmake
-#sources/CMakeFiles
-#sources/cmake_install.cmake
+CMakeFiles
+CMakeCache.txt
+Makefile
+sources/Makefile
+cmake_install.cmake
+sources/CMakeFiles
+sources/cmake_install.cmake
