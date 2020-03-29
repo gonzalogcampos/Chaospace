@@ -24,7 +24,8 @@ class Render
         sf::RenderWindow* window;
         std::map<std::string, sf::Texture*> textures;
         std::map<Rint, sf::Sprite*> sprites;
-
+        Rint spritesCont;
+        float globalScale;
     public:
         static Render* getInstance()
         {
@@ -48,6 +49,10 @@ class Render
 
         void clearMemory();
 
+        void setGlobalScale(float scale);
+
+        float getGlobalScale();
+
         //Textures function
 
         bool loadTexture(std::string texture);
@@ -68,7 +73,7 @@ class Render
 
         bool drawSprite(Rint sprite);
 
-        bool drawSprite(Rint sprite, Rvect position, float rotation = 0.f, float scale = 0.f);
+        bool drawSprite(Rint sprite, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
 
 
 };
