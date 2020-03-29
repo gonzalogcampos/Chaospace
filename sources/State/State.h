@@ -6,7 +6,8 @@ class State
 public:
 
     enum stateType {
-        PLAY
+        PLAY,
+        TEST
     };
 
     virtual ~State() {};
