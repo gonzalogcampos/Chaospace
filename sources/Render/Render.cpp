@@ -72,7 +72,9 @@ Borra toda la memoria reservada.
 */
 void Render::clearMemory()
 {
-    //TODO
+    sprites.clear();
+    textures.clear();
+
     spritesCont = 0;
 }
 

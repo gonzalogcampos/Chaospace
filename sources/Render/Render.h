@@ -21,11 +21,17 @@ class Render
 {
     private:
         Render(){};
+
         sf::RenderWindow* window;
+
         std::map<std::string, sf::Texture*> textures;
+
         std::map<Rint, sf::Sprite*> sprites;
+
         Rint spritesCont;
+        
         float globalScale;
+
     public:
         static Render* getInstance()
         {
