@@ -4,7 +4,9 @@
 class TestState : public State 
 {
     private:
-        TestState(){}         
+        TestState(){}
+        unsigned int sprite1, sprite2, sprite3; 
+        float rot = 0;      
     public:
 
          static TestState* getInstance(){

@@ -1,4 +1,5 @@
 #include <Render.h>
+#include <iostream>
 
 /*
 Destructor que llama a  la  funcion close de Render.
@@ -16,7 +17,7 @@ void Render::init()
     // Create the main window
     window = new sf::RenderWindow(sf::VideoMode(800, 600), "Chaospace | The game 2020");
 
-    spritesCont = 0;
+    spritesCont = 1;
 
     globalScale = 1;
 }
@@ -75,7 +76,7 @@ void Render::clearMemory()
     sprites.clear();
     textures.clear();
 
-    spritesCont = 0;
+    spritesCont = 1;
 }
 
 /*
@@ -142,13 +143,13 @@ sf::Texture* Render::getTexture(std::string texture)
 
 /*
 Carga un sprite con la textura pasada por parametro.
-Devuelve el ide en sprite. Devuelve dalse si no existe la textura
+Devuelve el ide en sprite. Devuelve 0 si no existe la textura
 y no carga nada.
 */
-bool Render::createSprite(Rint &sprite, std::string texture)
+Rint Render::createSprite(std::string texture)
 {
     if(!loadTexture(texture))
-        return false;
+        return 0;
     
     Rint id = spritesCont;
     spritesCont++;
@@ -157,31 +158,27 @@ bool Render::createSprite(Rint &sprite, std::string texture)
 
     sprites.insert(std::pair<Rint, sf::Sprite*>(id, s));
 
-    sprite = id;
-
-    return true;
+    return id;
 }
 
 /*
 Carga un sprite con la textura recortada por rectangle pasada por parametro.
-Devuelve el id en sprite. Devuelve dalse si no existe la textura
+Devuelve el id en sprite. Devuelve 0 si no existe la textura
 y no carga nada.
 */
-bool Render::createSprite(Rint &sprite,  std::string texture, Rrect rectangle)
+Rint Render::createSprite(std::string texture, Rrect rectangle)
 {
         if(!loadTexture(texture))
-        return false;
+        return 0;
     
     Rint id = spritesCont;
     spritesCont++;
 
-    sf::Sprite* s = new sf::Sprite(*getTexture(texture), sf::IntRect(rectangle[0], rectangle[1], rectangle[2], rectangle[3]));
+    sf::Sprite* s = new sf::Sprite(*getTexture(texture), sf::IntRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h));
 
     sprites.insert(std::pair<Rint, sf::Sprite*>(id, s));
 
-    sprite = id;
-
-    return true;
+    return id;
 }
 
 /*
@@ -222,6 +219,8 @@ bool Render::drawSprite(Rint sprite)
     bool r = false;
     if(sprites.find(sprite)!=sprites.end())
     {
+        sprites.find(sprite)->second->setScale(sf::Vector2f(1, 1));
+        sprites.find(sprite)->second->scale(sf::Vector2f(globalScale, globalScale));
         window->draw(*sprites.find(sprite)->second);
         
         r=true;
@@ -254,7 +253,7 @@ bool Render::drawSprite(Rint sprite, Rvect position, float rotation, float scale
     s->setScale(sf::Vector2f(scale, scale));
     s->scale(sf::Vector2f(globalScale, globalScale));
     s->setRotation(rotation);
-    s->setPosition(sf::Vector2f(position[0], position[1])); 
+    s->setPosition(sf::Vector2f(position.x, position.y)); 
 
     window->draw(*s);
 

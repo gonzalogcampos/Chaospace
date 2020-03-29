@@ -10,8 +10,20 @@
     Variables predefinidas para gestionar funciones del render
 */
 typedef unsigned int Rint;
-typedef int Rrect[4];
-typedef int Rvect[2];
+struct Rrect
+{
+    int x;
+    int y;
+    int w;
+    int h;
+    Rrect(int x, int y, int w, int h){this->x = x; this->y = y;this->w = w; this->h = h;}
+};
+struct Rvect
+{
+    float x;
+    float y;
+    Rvect(float x,float y){this->x = x; this->y = y;}
+};
 
 
 /*
@@ -28,8 +40,8 @@ class Render
 
         std::map<Rint, sf::Sprite*> sprites;
 
-        Rint spritesCont;
-        
+        Rint spritesCont = 1;
+
         float globalScale;
 
     public:
@@ -69,9 +81,9 @@ class Render
 
         //Sprites functions
 
-        bool createSprite(Rint &sprite,  std::string texture);
+        Rint createSprite(std::string texture);
 
-        bool createSprite(Rint &sprite,  std::string texture, Rrect rectangle);
+        Rint createSprite(std::string texture, Rrect rectangle);
 
         sf::Sprite* getSprite(Rint sprite);
 
