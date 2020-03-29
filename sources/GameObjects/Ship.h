@@ -4,6 +4,8 @@
 
 using namespace std;
 
+class Bullet;
+
 class Ship: public GameObject{
     protected:
         int hp; //Variable responsable del control de la vida tanto del Player como de los Enemigos.

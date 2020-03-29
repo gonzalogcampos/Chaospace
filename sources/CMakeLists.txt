@@ -23,6 +23,8 @@ target_sources(modulos PRIVATE
 
     "${CMAKE_CURRENT_SOURCE_DIR}/State/PlayState.cpp"
 
+    "${CMAKE_CURRENT_SOURCE_DIR}/Render/Render.cpp"
+
     "${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Map.cpp"
 )
@@ -33,6 +35,7 @@ target_include_directories(modulos PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects"
     "${CMAKE_CURRENT_SOURCE_DIR}/GUI"
     "${CMAKE_CURRENT_SOURCE_DIR}/State"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Render"
     "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 

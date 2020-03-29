@@ -1,22 +1,25 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "Game.h"
+#include <Game.h>
 #include <PlayState.h>
+#include <Render.h>
 
 void Game::run()
 {
-    inicio();
-
-    while(true)
+    while(Render::getInstance()->isWindowOpen())
     {    
+        Render::getInstance()->preLoop();
+        
         state->update(0.1f);
+
+        Render::getInstance()->postLoop();
     }
 }
 
 void Game::inicio()
 {
-
     setState(State::stateType::PLAY);
+    Render::getInstance()->init();
 }
 
 void Game::setState(State::stateType type)

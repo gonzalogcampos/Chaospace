@@ -4,8 +4,10 @@
 #include <Game.h>
 
 int main() {
+  
   Game nuevo;
 
+  nuevo.inicio();
   nuevo.run();
 
   return EXIT_SUCCESS;
