@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
+#include <vector>
 
 //Cabecera de SFML
 #include <SFML/Graphics.hpp>
@@ -26,6 +27,24 @@ struct Rvect
 };
 
 
+class Animation
+{
+    private:
+        Rint frames;
+        Rint fps;
+        float dt;
+        Rint drawing;
+        std::vector<Rint> sprites;
+
+    public:
+    Animation(Rint fps);
+    ~Animation();
+    void addFrame(Rint frame);
+    void draw(float dt);
+    void draw(float dt, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
+};
+
+
 /*
     Clase Render singleton
 */
@@ -40,7 +59,11 @@ class Render
 
         std::map<Rint, sf::Sprite*> sprites;
 
+        std::map<Rint, Animation*> animations;
+
+
         Rint spritesCont = 1;
+        Rint animationsCont = 1;
 
         float globalScale;
 
@@ -92,6 +115,20 @@ class Render
         bool drawSprite(Rint sprite);
 
         bool drawSprite(Rint sprite, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
+
+        //Animation functions
+
+        Rint createAnimation(float fps);
+
+        bool addFrameToAnimation(Rint animation, Rint sprite);
+
+        Animation* getAnimation(Rint animation);
+
+        bool deleteAnimation(Rint animation);
+
+        bool drawAnimation(Rint animation, float dt);
+
+        bool drawAnimation(Rint animation, float dt, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
 
 
 };

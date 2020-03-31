@@ -259,3 +259,178 @@ bool Render::drawSprite(Rint sprite, Rvect position, float rotation, float scale
 
     return true;   
 }
+
+
+/*
+Crea una animacion con los fps dados y devuelve el id de ella.
+*/
+Rint Render::createAnimation(float fps)
+{
+    Rint id = animationsCont;
+    animationsCont++;
+
+    Animation* a = new Animation(fps);
+
+    animations.insert(std::pair<Rint, Animation*>(id, a));
+
+    return id;
+}
+
+/*
+Si encuentra la animacion , le añade el fotograma sprite, y devuelve true, sino devuelve false.
+*/
+bool Render::addFrameToAnimation(Rint animation, Rint sprite)
+{
+    bool r = false;
+    if(animations.find(animation)!=animations.end())
+    {
+        animations.find(animation)->second->addFrame(sprite);
+        r=true;
+    }
+
+    return r;
+}
+
+/*
+Devuelve un puntero al objeto animation. En caso de no existir devuelve nullptr.
+*/
+Animation* Render::getAnimation(Rint animation)
+{
+    if(animations.find(animation)!=animations.end())
+        return animations.find(animation)->second;
+
+    return nullptr;
+}
+
+/*
+Llama al desctructor de la case animation, que a su vez llama al destructor de todos los sprites, y se 
+libera toda la memoria. En caso de que no encuentre la animacion devuelve false.
+*/
+bool Render::deleteAnimation(Rint animation)
+{
+    bool r = false;
+    if(animations.find(animation)!=animations.end())
+    {
+        delete animations.find(animation)->second;
+        animations.erase(animation);
+        r=true;
+    }
+
+    return r;
+}
+
+/*
+Si encuentra la animacion, dibuja el fotograma correspondiente sin aplicarle ninguna transfomrmacion y devuelve true.
+En caso de no encontrar la animacion devuelve false.
+*/
+bool Render::drawAnimation(Rint animation, float dt)
+{
+    bool r = false;
+    if(animations.find(animation)!=animations.end())
+    {
+        animations.find(animation)->second->draw(dt);        
+        r=true;
+    }
+
+    return r;
+}
+
+/*
+Si encuentra la animacion, dibuja el fotograma correspondiente aplicandole las transformaciones dadas por parametro y devuelve true.
+En caso de no encontrar la animacion devuelve false.
+*/
+bool Render::drawAnimation(Rint animation, float dt, Rvect position, float rotation, float scale, bool centered)
+{
+    bool r = false;
+    if(animations.find(animation)!=animations.end())
+    {
+        animations.find(animation)->second->draw(dt, position, rotation, scale, centered);        
+        r=true;
+    }
+
+    return r;
+}
+
+
+
+
+
+
+
+/*
+=============================================================================================
+=============================================================================================
+====================    Funciones de la clase Animacion     =================================
+=============================================================================================
+=============================================================================================
+*/
+/*
+Crea una animacion con la velodicad en fps a la que se cambiara de frame.
+*/
+Animation::Animation(Rint fps)
+{
+    frames = 0;
+    this->fps = fps;
+    dt = 0.f;
+    drawing = 0;
+}
+
+
+/*
+Llama a la funcin deleteSprite de la clase Render de todos los sprites que tiene la animacion.
+*/
+Animation::~Animation()
+{
+    for(size_t i = 0; i< sprites.size(); i++)
+    {
+        if(sprites.at(i))
+            Render::getInstance()->deleteSprite(sprites.at(i));
+    }
+    sprites.clear();
+}
+
+/*
+Añade un nuevo fotograma a la animacion.
+*/
+void Animation::addFrame(Rint frame)
+{
+    sprites.push_back(frame);
+    frames++;
+}
+
+/*
+Dibuja la animacion.
+*/
+void Animation::draw(float dt)
+{
+    this->dt += dt;
+
+    if(this->dt<1/fps)
+    {
+        this->dt = 0.f;
+        drawing++;
+
+        if(drawing>=frames)
+            drawing = 0;
+    }
+    Render::getInstance()->drawSprite(sprites.at(drawing));
+}
+
+/*
+Dibuja la animacion aplicandole las transformaciones pasadas por parametro
+*/
+void Animation::draw(float dt, Rvect position, float rotation, float scale, bool centered)
+{
+    this->dt += dt;
+
+    if(this->dt<1/fps)
+    {
+        this->dt = 0.f;
+        drawing++;
+
+        if(drawing>=frames)
+            drawing = 0;
+    }
+
+    Render::getInstance()->drawSprite(sprites.at(drawing), position, rotation, scale, centered);
+}
