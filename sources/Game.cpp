@@ -19,7 +19,7 @@ void Game::run()
 
 void Game::inicio()
 {
-    setState(State::stateType::PLAY);
+    setState(State::stateType::TEST);
     Render::getInstance()->init();
 }
 
