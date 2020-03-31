@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CMake Run",
+            "label": "CMake",
             "command": "cmake",
             "args": [".", "-B./build"],
             "group": {
@@ -14,7 +14,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Compile",
+            "label": "Compilar",
             "command": "make",
             "args": ["-C", "./build"],
             "group": {
@@ -24,7 +24,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Compile all",
+            "label": "Compilar todo",
             "command": "make all",
             "args": ["-C", "./build"],
             "group": {
@@ -34,7 +34,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Run game",
+            "label": "Chaospace",
             "command": "./bin/Chaospace",
             "group": {
                 "kind": "build",
@@ -43,7 +43,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Clear CMake F&F",
+            "label": "Borrar CMake",
             "command": "rm",
             "args": ["-r", "build"],
             "group": {
