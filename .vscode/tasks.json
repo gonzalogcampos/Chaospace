@@ -6,7 +6,7 @@
         {
             "label": "CMake Run",
             "command": "cmake",
-            "args": ["."],
+            "args": [".", "-B./build"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -16,6 +16,7 @@
         {
             "label": "Compile",
             "command": "make",
+            "args": ["-C", "./build"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -25,6 +26,7 @@
         {
             "label": "Compile all",
             "command": "make all",
+            "args": ["-C", "./build"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -43,14 +45,7 @@
         {
             "label": "Clear CMake F&F",
             "command": "rm",
-            "args": ["cmake_install.cmake",
-                "Makefile",
-                "CMakeCache.txt",
-                "sources/cmake_install.cmake",
-                "sources/Makefile",
-                "-r",
-                "CMakeFiles",
-                "sources/CMakeFiles"],
+            "args": ["-r", "build"],
             "group": {
                 "kind": "build",
                 "isDefault": true
