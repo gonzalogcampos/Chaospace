@@ -87,6 +87,16 @@ Pvect Physics::getVelocity()
     return this->velocity;
 }
 
+void Physics::setOrient(float orient)
+{
+    this->orient = orient;
+}
+
+float Physics::getOrient()
+{
+    return orient;
+}
+
 void Physics::setCircleBB(float radious)
 {
     type=BoundingBox::CIRCLE;
@@ -121,8 +131,11 @@ bool Physics::colides(Physics* target)
 
     if(!target)
         return false;
+    if(target->getBBType()==NOCOLIDER || type==NOCOLIDER)
+    {
+        ret = false;
 
-    if(target->getBBType()==RECTANGLE && type==RECTANGLE)
+    }else if(target->getBBType()==RECTANGLE && type==RECTANGLE)
     {
         float ax = position.x - (dimensions.x/2);
         float ay = position.y - (dimensions.y/2);

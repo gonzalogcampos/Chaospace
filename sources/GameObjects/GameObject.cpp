@@ -1,26 +1,57 @@
 
-#include "GameObject.h"
+#include <GameObject.h>
+#include <Physics.h>
+#include <Render.h>
 
 
 GameObject::GameObject()
 {
-
+    physics = new Physics();
 }
 
 GameObject::~GameObject()
 {
-    //Dtor
+    delete physics;
 }
 
-bool GameObject::checkColision(GameObject Object)
+Physics* GameObject::getPhysics()
 {
-    bool collides=false;
-
-    if(colisionBox.getGlobalBounds().intersects(Object.getBounds())){
-        collides=true;
-    }
-    return collides;
+    return physics;
 }
+
+void GameObject::setAnimation(unsigned int animation)
+{
+    this->animation = animation;
+}
+
+
+bool GameObject::checkColision(GameObject* object)
+{
+    if(!object)
+        return false;
+
+    return physics->colides(object->getPhysics());
+}
+
+void GameObject::update(float dt)
+{
+    physics->update(dt);
+    Render::getInstance()->drawAnimation(animation, 
+                                            dt, 
+                                            Rvect(physics->getPosition().x, physics->getPosition().y),
+                                            physics->getOrient());    
+}
+
+
+
+
+
+
+/*
+
+OBSOLETO
+
+*/
 
 sf::FloatRect GameObject::getBounds()
 {
@@ -36,8 +67,5 @@ void GameObject::draw(sf::RenderWindow& window)
 {
     window.draw(sprite);
 }
-
-
-
 
 

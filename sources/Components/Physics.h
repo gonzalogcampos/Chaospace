@@ -3,6 +3,7 @@
 
 enum BoundingBox
 {
+    NOCOLIDER,
     CIRCLE,
     RECTANGLE
 };
@@ -18,6 +19,7 @@ class Physics
     private:
 
         Pvect position;
+        float orient;
         Pvect velocity;
 
         BoundingBox type;
@@ -43,6 +45,9 @@ class Physics
         void setPolarVelocity(float orient, float velocity);
         Pvect getPolarVelocity();
         Pvect getVelocity();
+
+        void setOrient(float orient);
+        float getOrient();
 
         /*
         Funciones relativas al bb

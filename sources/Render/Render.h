@@ -128,7 +128,7 @@ class Render
 
         bool drawAnimation(Rint animation, float dt);
 
-        bool drawAnimation(Rint animation, float dt, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
+        bool drawAnimation(Rint animation, float dt, Rvect position, float rotation = 0.f, float scale = 1.f, bool centered = true);
 
 
 };
