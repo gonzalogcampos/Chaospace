@@ -1,15 +1,23 @@
 #include <Physics.h>
 #include <cmath>
 
+/*
+Constructor por defecto.
+Situa el objeto en el 0-0, sin velocidad y sin BB
+*/
 Physics::Physics()
 {
     position = Pvect(0.f, 0.f);
     velocity = Pvect(0.f, 0.f);
     dimensions = Pvect(0.f, 0.f);
-    type=BoundingBox::CIRCLE;
+    type=BoundingBox::NOCOLIDER;
     radious = 1.f;
 }
 
+/*
+Constructor que setea la posicion en position.
+Sin velocidad y son BB
+*/
 Physics::Physics(Pvect position)
 {
     this->position = position;
@@ -17,27 +25,39 @@ Physics::Physics(Pvect position)
     dimensions = Pvect(0.f, 0.f);
 
 
-    type=BoundingBox::CIRCLE;
+    type=BoundingBox::NOCOLIDER;
 
     radious = 1.f;
 }
 
+/*
+Setea la posicion a la pasada por parametro
+*/
 void Physics::setPosition(Pvect position)
 {
     this->position = position;
 }
 
+/*
+Devuelve la posicion.
+*/
 Pvect Physics::getPosition()
 {
     return position;
 }
 
+/*
+Setea la velocidad en cordenadas cartesianas pasada por parametro.
+*/
 void Physics::setVelocity(Pvect velocity)
 {
     this->velocity = velocity;
 
 }
 
+/*
+Setea la velocidad en coordenadas polares pasada por parametro.
+*/
 void Physics::setPolarVelocity(float orient, float velocity)
 {
     float toRadians = 3.1415926/180;
@@ -45,6 +65,9 @@ void Physics::setPolarVelocity(float orient, float velocity)
     this->velocity.y = velocity*sin(orient*toRadians);
 }
 
+/*
+Devuelve la velocidad en coordenadas polares (v, theta)
+*/
 Pvect Physics::getPolarVelocity()
 {
     float v , theta;
@@ -82,49 +105,92 @@ Pvect Physics::getPolarVelocity()
     return Pvect(v, theta);
 }
 
+/*
+Devuelve la velocidad en coordenadas cartesianas.
+*/
 Pvect Physics::getVelocity()
 {
     return this->velocity;
 }
 
+/*
+Setea la orientacion del objeto en grados siendo (1,0) 0º
+*/
 void Physics::setOrient(float orient)
 {
     this->orient = orient;
 }
 
+/*
+Devuelve la orientacion del objeto en grados siendo (1,0) 0º
+*/
 float Physics::getOrient()
 {
     return orient;
 }
 
+/*
+Setea el BB a un circulo de radio radious centrado en la posicion del objeto.
+*/
 void Physics::setCircleBB(float radious)
 {
     type=BoundingBox::CIRCLE;
     this->radious = radious;
 }
 
+/*
+Setea el BB a un rectangulo con las dimensiiones pasadas por parameetro centrado en la posicion del objeto.
+*/
 void Physics::setRectangleBB(Pvect dimensions)
 {
     type=BoundingBox::RECTANGLE;
     this->dimensions = dimensions;
 }
+
+/*
+Hace que el objeto no tengo BB y por tanto no colisione.
+*/
+void Physics::setNoBB()
+{
+    type = BoundingBox::NOCOLIDER;
+}
+
+/*
+Devuelve el tipo de BB (Circular, Rectangular, NoBB).
+*/
 BoundingBox Physics::getBBType()
 {
     return type;
 }
+
+/*
+Devuelve el radio del BB circular
+*/
 float Physics::getRadious()
 {
     return radious;
 }
+
+/*
+Devuelve las dimensiones de BB rectangular
+*/
 Pvect Physics::getDimensions()
 {
     return dimensions;
 }
+
+/*
+Actualiza la posicion del objeto.
+*/
 void Physics::update(float dt)
 {
     position.x += velocity.x*dt;
     position.y += velocity.y*dt;
 }
+
+/*
+Devuelve true si colisiona con el target, false en caso contrario.
+*/
 bool Physics::colides(Physics* target)
 {
     bool ret = false;
@@ -218,6 +284,10 @@ bool Physics::colides(Physics* target)
     return ret;
 }
 
+
+/*
+Por hacer en caso de que queramos que los objetos no se muevan cuando colisionen.
+*/
 void Physics::moveBack()
 {
     //TODO
