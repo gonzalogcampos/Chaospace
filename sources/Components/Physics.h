@@ -54,6 +54,7 @@ class Physics
         */
         void setCircleBB(float radious);
         void setRectangleBB(Pvect dimensions);
+        void setNoBB();
         BoundingBox getBBType();
         float getRadious();
         Pvect getDimensions();
