@@ -1,14 +1,16 @@
 #include <Ship.h>
 
 Ship::Ship(){ //Constructor por defecto de la clase Ship.
-
+    wpn = 1;
 }
 
+/*
 Ship::Ship(sf::Texture t){ //Para crear el Ship sera necesario pasar una textura y que pueda asi tener un Sprite.
     textura = t;
     sprite.setTexture(t); //Colocamos el Sprite segun la textura que se haya pasado.
     wpn = 1; //Ponemos el arma al 1, que sera el disparo sencillo estandar.
 } 
+*/
 
 Ship::~Ship(){ //Metodo destructor de un Ship.
 
@@ -40,6 +42,8 @@ void Ship::setWpn(int i){ //Metodo para cambiar el tipo de arma que lleva una na
     //}
 }
 
+/*
 sf::Sprite Ship::getSprite(){ //Metodo que permite recoger el Sprite de un Ship.
     return sprite;
 } 
+*/

@@ -32,5 +32,5 @@ class Ship: public GameObject{
 
         void setWpn(int i); //Metodo para cambiar el tipo de arma que lleva una nave.
 
-        sf::Sprite getSprite(); //Metodo que permite recoger el Sprite de un Ship.
+        //sf::Sprite getSprite(); //Metodo que permite recoger el Sprite de un Ship.
 };

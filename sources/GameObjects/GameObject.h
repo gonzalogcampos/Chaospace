@@ -16,9 +16,9 @@ class GameObject{
         void update(float dt);
 
         //OBSOLETO
-        sf::FloatRect getBounds(); // Method to obtain the global bounds of the hitbox
-        sf::Vector2f getPosition();// Method that returns the actual position of the colisionBox
-        void draw(sf::RenderWindow &window); // Draw method 
+        //sf::FloatRect getBounds(); // Method to obtain the global bounds of the hitbox
+        //sf::Vector2f getPosition();// Method that returns the actual position of the colisionBox
+        //void draw(sf::RenderWindow &window); // Draw method 
         
         
 
@@ -28,8 +28,8 @@ class GameObject{
 
 
         //OBSOLETO
-        sf::Sprite sprite;
-        sf::Texture textura;
-        sf::RectangleShape colisionBox;
+        //sf::Sprite sprite;
+        //sf::Texture textura;
+        //sf::RectangleShape colisionBox;
 
 };

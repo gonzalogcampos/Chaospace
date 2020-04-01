@@ -53,6 +53,7 @@ OBSOLETO
 
 */
 
+/*
 sf::FloatRect GameObject::getBounds()
 {
     return colisionBox.getGlobalBounds();
@@ -67,5 +68,4 @@ void GameObject::draw(sf::RenderWindow& window)
 {
     window.draw(sprite);
 }
-
-
+*/

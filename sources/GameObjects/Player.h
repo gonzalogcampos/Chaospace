@@ -9,7 +9,7 @@ class Player : public Ship {
     public: 
     Player(); //Cosntructor por defecto de la clase Player.
 
-    Player(sf::Texture t); //Metodo constructor de la clase Player. Es necesario pasarle una Textura.
+    //Player(sf::Texture t); //Metodo constructor de la clase Player. Es necesario pasarle una Textura.
 
     ~Player(); //Metodo destructor de la clase Player.
 
