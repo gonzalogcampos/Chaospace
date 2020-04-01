@@ -9,6 +9,7 @@
 target_sources(modulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/Components/Ai.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Components/Controller.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Components/Physics.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Components/Life.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Bullet.cpp"
