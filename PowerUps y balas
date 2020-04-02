@@ -39,7 +39,7 @@ por último, los legendarios aparecerán muy pocas veces pero ofrecerán una ven
             5. Regenerar vida actual
                 - Velocidad de disparo = velocidad de disparo anterior
                 - Velocidad de movimiento = velocidad de movimiento anterior
-                - Duración: 20s
+                - Duración: -
                 - Daño = daño anterior
                 - Vida = vida cargada 100%
 
