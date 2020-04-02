@@ -31,8 +31,63 @@ void Player::setPUp(int i){ //Metodo para cambiar el powerUp pasivo actual del P
     //}
 } 
 
-//Override del metodo move()
+void Player::move(sf::Event *e){
 
-//Override del metodo shoot()
+    switch(e->type){
+        case sf::Event::KeyPressed:
+
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+                    //set_frame(*spr_personaje1,{4,0});
+                    //spr_personaje1->setPosition(spr_personaje1->getPosition().x,spr_personaje1->getPosition().y - 10);   
+                    movement.y -=3;
+                    getSprite().move(movement); //TENGO QUE RECUPERAR EL SPRITE AUN          
+                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+                    //set_frame(*spr_personaje1,{0,0});
+                    //spr_personaje1->setPosition(spr_personaje1->getPosition().x,spr_personaje1->getPosition().y + 10);
+                    movement.y +=3;
+                    getSprite().move(movement); //TENGO QUE RECUPERAR EL SPRITE AUN
+                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+                    //set_frame(*spr_personaje1,{7,0});
+                    //spr_personaje1->setPosition(spr_personaje1->getPosition().x + 10,spr_personaje1->getPosition().y);
+                    movement.x +=3;
+                    getSprite().move(movement); //TENGO QUE RECUPERAR EL SPRITE AUN
+                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+                    //set_frame(*spr_personaje1,{3,0});
+                    //spr_personaje1->setPosition(spr_personaje1->getPosition().x - 10,spr_personaje1->getPosition().y);
+                    movement.x -=3;
+                    getSprite().move(movement); //TENGO QUE RECUPERAR EL SPRITE AUN
+                }
+
+            break;
+    }
+}
+
+void Player::shoot(){
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
+        sf::Vector2f bullet_pos = sf::Vector2f(spr_personaje1->getPosition().x+40,spr_personaje1->getPosition().y-4);
+        Bullet *n_bullet = new Bullet(bullet_pos);
+        bullets.push_back(n_bullet);
+    }
+    for(unsigned i = 0; i < bullets.size(); i++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if(bullets.at(i)->getPositionBullet().x > 800 || bullets.at(i)->getPositionBullet().x < 0 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
+            //En caso de cumplirse la condicion, borramos dicha bala.
+            delete bullets.at(i);
+            bullets.erase(bullets.begin()+i);
+
+        } else if(bullets.at(i)->getPositionBullet().y > 720 || bullets.at(i)->getPositionBullet().y < 0 ) { //Aqui controlamos que se salgan de la pantalla verticalmente.
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete bullets.at(i);
+            bullets.erase(bullets.begin()+i);
+        
+        } else {
+            //Llamar al update de la bala
+            bullets.at(i)->update();
+        }
+    }
+
+     //mov_nave=sf::Vector2f(0.f,0.f);
+}
 
 //Override del metodo de colisiones
