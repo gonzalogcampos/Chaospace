@@ -75,7 +75,7 @@ por último, los legendarios aparecerán muy pocas veces pero ofrecerán una ven
                 - Daño en área (es decir, un disparo normal que cuando impacta con un NPC afecta a un área determinada al rededor de él) 
                 - Velocidad de disparo = velocidad de disparo anterior
                 - Velocidad de movimiento = velocidad de movimiento anterior
-                - Duración: 10s
+                - Duración:  10s
                 - Daño = daño * 4/3
                 - Vida = vida anterior
             
