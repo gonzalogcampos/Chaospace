@@ -111,3 +111,8 @@ por último, los legendarios aparecerán muy pocas veces pero ofrecerán una ven
                 - Vida = vida anterior
 
 
+    - Easter Egg 
+        - Es un desafío oculto que se completa tras hacer una serie de objetivos. En nuestro caso, si el player consigue matar a 20 NPCs sin ser dañado, 
+            sale en pantalla como que ha completado el desafío y se le almacenará "x" puntuación extra en el txt. 
+            (Esto es una idea, no es necesario implementarla)
+
