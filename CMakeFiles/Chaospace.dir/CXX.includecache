@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/hgfs/Universidad/FV/2a matricula/Juego grupal/Chaospace/main.cpp
+SFML/Graphics.hpp
+-
+iostream
+-
+Game.h
+-
+
+sources/Game.h
+State.h
+-
+
+sources/State/State.h
+

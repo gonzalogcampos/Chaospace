@@ -1,5 +1,9 @@
 #pragma once
 #include <vector>
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "tinyxml2.h"
+
 
 class Player;
 class Ship;
@@ -10,6 +14,10 @@ class Map
         std::vector<Ship*> ships;
         Player* player;
 
+        sf::Texture mapTexture;
+        sf::Sprite* tileSprites;
+        sf::Sprite**** mapSprite;
+        int width, height;
     public:
 
         /*
@@ -44,5 +52,14 @@ class Map
         */
         void loadLevel();
 
+        /*
+        Carga toda la información del mapa
+        */
+        void loadMapInfo();
+
+        /*
+        Dibujado del mapa
+        */  
+        void draw();
 
 };

@@ -29,6 +29,7 @@ target_sources(modulos PRIVATE
 
     "${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Map.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2.cpp"
 )
 
 #Y donde se encuentran los .h
