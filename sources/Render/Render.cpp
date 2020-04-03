@@ -422,8 +422,8 @@ Dibuja la animacion aplicandole las transformaciones pasadas por parametro
 void Animation::draw(float dt, Rvect position, float rotation, float scale, bool centered)
 {
     this->dt += dt;
-
-    if(this->dt<1/fps)
+    float et = 1.f/fps;
+    if(this->dt<et)
     {
         this->dt = 0.f;
         drawing++;
