@@ -38,6 +38,12 @@ void Physics::setPosition(Pvect position)
     this->position = position;
 }
 
+void Physics::addPosition(Pvect position)
+{
+    this->position = Pvect(this->position.x + position.x, this->position.y + position.y);
+
+}
+
 /*
 Devuelve la posicion.
 */
@@ -53,6 +59,14 @@ void Physics::setVelocity(Pvect velocity)
 {
     this->velocity = velocity;
 
+}
+
+/*
+Anade la velocidad cardinal pasada por parametro.
+*/
+void Physics::addVelocity(Pvect velocity)
+{
+    this->velocity = Pvect(this->velocity.x + velocity.x, this->velocity.y + velocity.y);
 }
 
 /*
@@ -129,6 +143,23 @@ float Physics::getOrient()
     return orient;
 }
 
+
+/*
+Setea la velocidad maxima del objeto
+*/
+void Physics::setMaxVelocity(float velocity)
+{
+    maxVelocity = velocity;
+}
+
+/*
+Devuelve la velocidadmacima del objeto
+*/
+float Physics::getMaxVelocity()
+{
+    return maxVelocity;
+}
+
 /*
 Setea el BB a un circulo de radio radious centrado en la posicion del objeto.
 */
@@ -184,6 +215,10 @@ Actualiza la posicion del objeto.
 */
 void Physics::update(float dt)
 {
+
+    if(getPolarVelocity().x>maxVelocity)
+        setPolarVelocity(maxVelocity, getPolarVelocity().y);
+
     position.x += velocity.x*dt;
     position.y += velocity.y*dt;
 }

@@ -1,10 +1,8 @@
 #pragma once
 
-#include <iostream>
+#include <vector>
 #include "GameObject.h"
-#include "Bullet.h"
 
-using namespace std;
 
 class Bullet;
 
@@ -12,15 +10,17 @@ class Ship: public GameObject{
     protected:
         int hp; //Variable responsable del control de la vida tanto del Player como de los Enemigos.
         int wpn; //Variable que dependiendo del valor, indicara el tipo de disparo de la nave.
-        vector<Bullet*> bullets; //Vector de punteros a las balas que contendra el Player o un enemigo.
+        std::vector<Bullet*> bullets; //Vector de punteros a las balas que contendra el Player o un enemigo.
         bool alive;
 
     public:
         Ship(); //Constructor por defecto de la clase Ship.
 
-        Ship(sf::Texture t); //Para crear el Ship sera necesario pasar una textura y que pueda asi tener un Sprite.
+        //Ship(sf::Texture t); //Para crear el Ship sera necesario pasar una textura y que pueda asi tener un Sprite.
 
         ~Ship(); //Metodo destructor de un Ship.
+
+        std::vector<Bullet*>* getBullets();
 
         void move(); //Metodo que permite el movimiento de un Ship.
 
@@ -34,5 +34,5 @@ class Ship: public GameObject{
 
         void setWpn(int i); //Metodo para cambiar el tipo de arma que lleva una nave.
 
-        sf::Sprite getSprite(); //Metodo que permite recoger el Sprite de un Ship.
+        //sf::Sprite getSprite(); //Metodo que permite recoger el Sprite de un Ship.
 };

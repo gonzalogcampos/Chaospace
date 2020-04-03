@@ -1,4 +1,6 @@
 #include <Ship.h>
+#include "Bullet.h"
+
 
 Ship::Ship(){ //Constructor por defecto de la clase Ship.
     wpn = 1;
@@ -14,7 +16,12 @@ Ship::Ship(sf::Texture t){ //Para crear el Ship sera necesario pasar una textura
 
 Ship::~Ship(){ //Metodo destructor de un Ship.
 
-} 
+}
+
+std::vector<Bullet*>* Ship::getBullets()
+{
+    return &bullets;
+}
 
 void Ship::move(){ //Metodo que permite el movimiento de un Ship.
 

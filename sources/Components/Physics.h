@@ -27,6 +27,8 @@ class Physics
         Pvect dimensions;
         float radious;
 
+        float maxVelocity = 10000.f;
+
     public:
 
         /*
@@ -39,15 +41,20 @@ class Physics
         Getters & Setters
         */
         void setPosition(Pvect position);
+        void addPosition(Pvect position);
         Pvect getPosition();
 
         void setVelocity(Pvect velocity);
+        void addVelocity(Pvect velocity);
         void setPolarVelocity(float orient, float velocity);
         Pvect getPolarVelocity();
         Pvect getVelocity();
 
         void setOrient(float orient);
         float getOrient();
+
+        void setMaxVelocity(float velocity);
+        float getMaxVelocity();
 
         /*
         Funciones relativas al bb

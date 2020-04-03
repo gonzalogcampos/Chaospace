@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#pragma once
 
 class Physics;
 
