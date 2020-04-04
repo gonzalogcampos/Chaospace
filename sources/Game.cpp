@@ -1,7 +1,9 @@
+#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <Game.h>
 #include <PlayState.h>
+#include <MenuState.h>
 #include <TestState.h>
 #include <Render.h>
 
@@ -17,9 +19,10 @@ void Game::run()
     }
 }
 
+
 void Game::inicio()
 {
-    setState(State::stateType::TEST);
+    setState(State::stateType::MENUINICIAL);
     Render::getInstance()->init();
 }
 
@@ -33,6 +36,10 @@ void Game::setState(State::stateType type)
         case State::stateType::TEST:
             state = TestState::getInstance();
             break;
+        case State::stateType::MENUINICIAL:
+            state = MenuState::getInstance();
+            break;
     }
+    std::cout<<"Estoy aqui\n";
     state->initState();
 }

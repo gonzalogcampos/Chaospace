@@ -3,7 +3,9 @@
 #include <Render.h>
 #include <iostream>
 
-void MenuState::initState(){} 
+void MenuState::initState(){
+
+} 
 
 
 void MenuState::update(float dt){
