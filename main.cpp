@@ -4,11 +4,8 @@
 #include <Game.h>
 
 int main() {
-  
-  Game nuevo;
-
-  nuevo.inicio();
-  nuevo.run();
+  Game::getInstance()->inicio();
+  Game::getInstance()->run();
 
   return EXIT_SUCCESS;
 }

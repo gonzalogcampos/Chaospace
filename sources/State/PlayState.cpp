@@ -4,7 +4,7 @@
 
 void PlayState::initState()
 {
-    type = State::PLAY;
+    type = State::PLAY;                       
     
     if(!loaded)
     {

@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <Game.h>
@@ -10,7 +9,8 @@
 void Game::run()
 {
     while(Render::getInstance()->isWindowOpen())
-    {    
+    {
+
         Render::getInstance()->preLoop();
         
         state->update(0.1f);
@@ -26,6 +26,7 @@ void Game::inicio()
     Render::getInstance()->init();
 }
 
+
 void Game::setState(State::stateType type)
 {
     switch(type)
@@ -40,6 +41,16 @@ void Game::setState(State::stateType type)
             state = MenuState::getInstance();
             break;
     }
-    std::cout<<"Estoy aqui\n";
     state->initState();
+
+    switch (this->state->type)
+        {
+        case State::stateType::TEST:
+            break;
+        case State::stateType::MENUINICIAL:
+            break;
+        
+        default:
+            break;
+        }
 }
