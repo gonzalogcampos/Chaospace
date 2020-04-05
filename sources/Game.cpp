@@ -5,23 +5,26 @@
 #include <MenuState.h>
 #include <TestState.h>
 #include <Render.h>
+#include <Clock.h>
+
 
 void Game::run()
 {
     while(Render::getInstance()->isWindowOpen())
     {
-
+        if(clock->canContinue())
+        {
         Render::getInstance()->preLoop();
-        
-        state->update(0.1f);
-
+        state->update(clock->getElapsedTime());
         Render::getInstance()->postLoop();
+        }
     }
 }
 
 
 void Game::inicio()
 {
+    clock = new Clock();
     setState(State::stateType::MENUINICIAL);
     Render::getInstance()->init();
 }

@@ -1,10 +1,11 @@
 #pragma once
 #include <State.h>
 
-
+class Clock;
 class Game
 {
-    private:;
+    private:
+        Clock* clock;
         State* state;
         Game(){}
     public:

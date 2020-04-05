@@ -15,7 +15,7 @@ Inicializa el render creando una nueva ventana y reservando memoria para ella.
 void Render::init()
 {
     // Create the main window
-    window = new sf::RenderWindow(sf::VideoMode(800, 600), "Chaospace | The game 2020");
+    window = new sf::RenderWindow(sf::VideoMode(1080, 720), "Chaospace | The game 2020");
 
     spritesCont = 1;
 
