@@ -1,26 +1,21 @@
 #pragma once
-
-//#include <iostream>
-//#include <SFML/Graphics.hpp>
-#include <GameObject.h>
-
-class Bullet: public GameObject{
+#include <SFML/Graphics.hpp>
+#include <iostream>
+class Bullet{
     private:
-        //sf::CircleShape hitbox;
-        //sf::Vector2f movement;
+        
+        sf::CircleShape hitbox;
+        sf::Vector2f movimiento;
 
     public:
-        Bullet(); //Metodo constructor por defecto de la clase Bullet.
+        Bullet(sf::Vector2f pos);
+        virtual ~Bullet();
 
-        //Bullet(sf::Vector2f pos); //Metodo constructor mediante paso por parametro de la posicion.
+        void moverse();
+        sf::Vector2f getPositionBala();
 
-        virtual ~Bullet(); //Metodo destructor de la clase Bullet.
 
-        void moveM(); //Metodo que permite el movimiento de la bala.
 
-        //sf::Vector2f getPositionBullet(); //Metodo auxiliar que nos permite recuperar la posicion del Bullet.
-
-        void update(); //Metodo update, para sobreescribir el de la clase padre.
-
-        //void draw(sf::RenderWindow& renderWindow);
+        void update();
+        void draw(sf::RenderWindow& renderWindow);
 };

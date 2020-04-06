@@ -1,43 +1,43 @@
 #include "Bullet.h"
-#include <Physics.h>
 
-Bullet::Bullet(){ //Metodo constructor por defecto de la clase Bullet.
-    physics->setPolarVelocity(10.f, 180.f);
-    physics->setCircleBB(10.f);
-} 
 
-/*
-Bullet::Bullet(sf::Vector2f pos){ //Metodo constructor mediante paso por parametro de la posicion.
-    
-    //movement = sf::Vector2f(0.f, 0.f); //Simplemente se inicializan los valores del Bullet a los predterminados.
-    physics->setPolarVelocity(10.f, 180.f);
-    physics->setCircleBB(10.f);
-    //hitbox = sf::CircleShape(10.0);
-    //hitbox.setFillColor(sf::Color::Green);
-    //hitbox.setOrigin(10.f/2,10.f/2); //Quiza hay que cambiar esto posteriormente?
-    //hitbox.setPosition(pos);    
+Bullet::Bullet(sf::Vector2f pos)
+{   
+    movimiento = sf::Vector2f(0.f, 0.f);
+
+    hitbox = sf::CircleShape(10.0);
+    hitbox.setFillColor(sf::Color::Green);
+    hitbox.setOrigin(10.f/2,10.f/2);
+    hitbox.setPosition(pos);
+
 }
-*/
 
-Bullet::~Bullet(){ //Metodo destructor de la clase Bullet.
+Bullet::~Bullet()
+{
+    //Destructor
+}
 
-} 
 
-/*
-void Bullet::moveM(){ //Metodo que permite el movimiento de la bala.
-    movement.x += 3;
-    hitbox.move(movement);
-} 
-*/
+void Bullet::update()
+{
+    // Mover la bala a la izquierda
+    moverse();
 
-/*
-sf::Vector2f Bullet::getPositionBullet(){ //Metodo auxiliar que nos permite recuperar la posicion del Bullet.
+}
+
+void Bullet::moverse() 
+{
+    movimiento.x -= 3;
+    hitbox.move(movimiento);
+}
+
+
+sf::Vector2f Bullet::getPositionBala() 
+{
     return hitbox.getPosition();
 }
-*/
 
-void Bullet::update(){ //Metodo update, para sobreescribir el de la clase padre.
-    //En proceso
-} 
-
-//void Bullet::draw(sf::RenderWindow& renderWindow);
+void Bullet::draw(sf::RenderWindow& renderWindow)
+{
+    renderWindow.draw(hitbox);
+}
