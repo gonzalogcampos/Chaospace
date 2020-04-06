@@ -1,0 +1,114 @@
+#include "Menu.h"
+#include "Render.h"
+
+float HEIGHT_MODEL_SCALE = 1.f;
+float WIDTH_MODEL_SCALE = 1.f;
+
+void Menu::down(){
+    
+    if(at<0.2){return;}
+
+    at = 0.f;
+
+    buttons[focus]->unfocus();
+    if(focus >= buttons.size() - 1){
+        focus = 0;
+    }else{
+        focus++;
+    }
+
+    buttons[focus]->focus();
+};
+
+void Menu::up()
+{   
+    if(at<0.2){return;}
+
+    at = 0.f;
+    buttons[focus]->unfocus();
+    
+    if(focus <= 0){
+        focus = buttons.size()-1;
+
+    }else{
+        
+        focus--;
+    }
+    buttons[focus]->focus();
+}
+
+
+int Menu::click()
+{
+    if(!buttons.empty() && focus>=0 && focus<buttons.size()){
+        return buttons[focus]->getID();
+    }
+
+    return -1;
+}
+
+void Menu::clear()
+{   
+    for(size_t i = 0; i<buttons.size(); i++) 
+        delete buttons.at(i); 
+    
+    buttons.clear();
+    
+}
+
+void Menu::update(float dt)
+{
+    //Time
+    at+=dt;
+
+    for(size_t i=0; i<buttons.size(); i++){
+        buttons[i]->update();
+    }
+}
+
+void Menu::setBackground(char* b){}
+
+Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)
+{
+    this->id = id;
+    this->x = x;
+    this->y = y;
+                                                std::cout<<"LLega\n";
+    spritenormal = Render::getInstance() -> createSprite(pathnormal);
+    spritefocus = Render::getInstance() -> createSprite(pathfocus);
+    sprite = spritenormal;
+
+}
+
+Button::~Button()
+{
+    Render::getInstance()->deleteSprite(spritenormal);
+    Render::getInstance()->deleteSprite(spritefocus);
+
+}
+
+void Button::focus()
+{
+
+sprite = spritefocus;
+
+}
+
+void Button::unfocus()
+{
+    sprite = spritenormal;
+}
+
+void Button::setPosition(float x, float y)
+{
+    this->x = x;
+    this->y = y;
+
+    update();
+}
+
+void Button::update()
+{
+    Render::getInstance() -> drawSprite(sprite, Rvect(x, y));
+ 
+}

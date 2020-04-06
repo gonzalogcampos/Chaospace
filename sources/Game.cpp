@@ -24,9 +24,9 @@ void Game::run()
 
 void Game::inicio()
 {
+    Render::getInstance()->init();
     clock = new Clock();
     setState(State::stateType::MENUINICIAL);
-    Render::getInstance()->init();
 }
 
 

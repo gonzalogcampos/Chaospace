@@ -39,6 +39,21 @@ bool Render::isWindowOpen()
     return window->isOpen();
 }
 
+/*
+Devuelve la altura de la ventana.
+*/
+float Render::getWindowWidth(){
+    
+    return window->getSize().x;
+}
+
+/*
+Devuelve la anchura de la ventana
+*/
+float Render::getWindowHeight(){
+    
+    return window->getSize().y;
+}
 
 /*
 Funcion que se llama cuando incia el loop antes de pintar sprites.
