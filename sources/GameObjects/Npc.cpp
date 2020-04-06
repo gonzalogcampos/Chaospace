@@ -10,32 +10,39 @@
     
     Npc::Npc(int IA, float posX, float posY){
         tipo=IA;
-        /*switch (tipo)
+        switch (tipo)
         {
         case 1:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 2:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 3:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 4:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 5:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=5;
             break;
         case 6:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=5;
             break;
         
         default:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         }
-        */
+        
 
         
         X=posX;
@@ -53,7 +60,7 @@
 
     Npc::~Npc(){
 
-    } //Metodo destructor de la clase Player.
+    } //Metodo destructor de la clase NPC.
 
     void Npc::IA(int tipo){
 
@@ -114,7 +121,7 @@
 
             }
             //std::cout<<"Entro2"<<std::endl;
-            if(contador==20){
+            if(contador==cadencia){
              //std::cout<<"Entro"<<std::endl;
                Ship::shoot();
                contador=0;
@@ -126,7 +133,7 @@
             Y=Y+0.1;*/
              vx = -200.f;
              vy = -100.f;
-            if(contador==20){
+            if(contador==cadencia){
                 Ship::shoot();
                 contador=0;
               }
@@ -137,7 +144,7 @@
             Y=Y-0.02;*/
             vx = -200.f;
             vy = +100.f;
-             if(contador==20){
+             if(contador==cadencia){
                 Ship::shoot();
                 contador=0;
               }
