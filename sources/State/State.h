@@ -8,7 +8,8 @@ public:
     enum stateType {
         PLAY,
         TEST,
-        MENUINICIAL
+        MENUINICIAL,
+        MENUFINAL
     };
 
     virtual ~State() {};

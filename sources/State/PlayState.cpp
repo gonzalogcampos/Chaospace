@@ -1,6 +1,8 @@
 #include "PlayState.h"
 #include <Render.h>
 #include <Map.h>
+#include "Game.h"
+#include <iostream>
 
 void PlayState::initState()
 {
@@ -18,7 +20,12 @@ void PlayState::initState()
 
 void PlayState::update(float dt)
 {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+    
+        Game::getInstance()->setState(State::stateType::MENUFINAL);
+    }
     Map::getInstance()->update(dt);
+
 }
 
 

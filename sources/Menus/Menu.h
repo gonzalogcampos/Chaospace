@@ -37,8 +37,7 @@ class Menu
 
     public:
 
-        Menu(){
-            focus = 0;}
+        Menu(){focus = 0;}
         ~Menu(){clear();}
         void clear();
         void down();

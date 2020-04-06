@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <Game.h>
 #include <PlayState.h>
+#include <FinalState.h>
 #include <MenuState.h>
 #include <TestState.h>
 #include <Render.h>
@@ -43,6 +44,9 @@ void Game::setState(State::stateType type)
         case State::stateType::MENUINICIAL:
             state = MenuState::getInstance();
             break;
+        case State::stateType::MENUFINAL:
+            state = FinalState::getInstance();
+            break;
     }
     state->initState();
 
@@ -50,7 +54,11 @@ void Game::setState(State::stateType type)
         {
         case State::stateType::TEST:
             break;
+        case State::stateType::PLAY:
+            break;
         case State::stateType::MENUINICIAL:
+            break;
+        case State::stateType::MENUFINAL:
             break;
         
         default:

@@ -3,6 +3,7 @@
 #include <Render.h>
 #include <iostream>
 
+
 //Constructor por defecto de la clase Player.
 Player::Player(float x, float y)
 {
@@ -84,6 +85,9 @@ void Player::move()
             theta+=180;
     }
     physics->setOrient(theta);
+
+
+
 }
 
 //Override del metodo de colisiones

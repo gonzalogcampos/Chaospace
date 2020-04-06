@@ -4,6 +4,7 @@
 #include <Ship.h>
 #include <Npc.h>
 
+
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
