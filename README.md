@@ -24,3 +24,6 @@ Hay una serie de tareas (Ctr + Shift + B) preparadas para COMPILAR, EJECUTAR, CM
 
 El ejecutable se encuentra en la caperta *bin*
 La ejecucion por consola tiene que hacerse desde la caperta Chaosace para que los recursos se usen correctamente (./bin/Chaosace)
+
+
+    Dado que no se ha modificado no la historia ni la jugabilidad, no se han realizado cambios en el tensheet.
