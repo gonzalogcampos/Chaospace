@@ -1,5 +1,8 @@
 #include "Map.h"
 #include "Player.h"
+#include "tinyxml2.h"
+#include "Render.h"
+#include <iostream>
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
@@ -10,9 +13,11 @@ Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
+    draw();
     tryCreate(dt);
     updateObjects(dt);
     updateColisions();
+    
 }
 
 /*
@@ -29,6 +34,7 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
+    loadMapInfo("mapa1"); 
 
 }
 
@@ -64,8 +70,48 @@ void Map::loadLevel()
 /*
 Carga toda la información del mapa
 */
-void Map::loadMapInfo()
+void Map::loadMapInfo(std::string rutaMapa)
 {
+    
+    tinyxml2::XMLDocument document;
+    tinyxml2::XMLElement* xmlMap;
+    tinyxml2::XMLElement* imageLayer;
+    
+    /*
+    char* url;
+    strcpy(url,"./resources/maps/");
+    strcat(url, map);
+    string ruta(url);
+    ruta += "/";
+    strcat(url,"/mapa.tmx");
+    */
+
+    document.LoadFile(rutaMapa.c_str());
+    std::cout << "carga el mapa correctamente" << std::endl;
+    //xmlMap = document.FirstChildElement("map");
+    fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
+    // fondo = Render::getInstance()->createAnimation(1.f);
+    // paredes = Render::getInstance()->createSprite("/resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
+    /*
+    imageLayer = xmlMap->FirstChildElement("imagelayer");
+    while(imageLayer) {
+        if(((std::string)imageLayer->Attribute("name")).compare("fondo") == 0) 
+        {
+            ruta = ruta + (string)imageLayer->FirstChildElement("image")->Attribute("source");
+            fondo = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
+
+        } 
+        else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
+        {
+            ruta = ruta + (string)imageLayer->FirstChildElement("image")->Attribute("source");
+            paredes = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
+
+        }
+
+        imageLayer = imageLayer->NextSiblingElement("imagelayer");
+    }
+    */
+   
 
 }
 
@@ -74,17 +120,19 @@ Dibujado del mapa
 */  
 void Map::draw()
 {
-
+    Render::getInstance()->drawSprite(fondo, Rvect(-mapPosition*0.1, 0), 0.f, 1.f, false);
+    //Render::getInstance()->drawSprite(paredes, Rvect(0, 0), 0.f, 1.f, false);
 }
 
-float Map::getMapPosition()
+float Map::getMapIncPosition()
 {
-    return mapPosition;
+    return mapIncPosition;
 }
         
-float Map::setMapPosition(float dx)
+float Map::moveMap(float dx)
 {
-    mapPosition = dx;
+    mapPosition += dx;
+    mapIncPosition = dx;
 }
 float Map::getPlayerX(){
     
