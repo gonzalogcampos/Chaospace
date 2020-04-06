@@ -18,7 +18,7 @@ class Map
 
 
         int level = 0;
-        float enemiesPerSecond = .1f;
+        float enemiesPerSecond = .001f;
         float incEnemiesPerSecond = .1f;
     public:
 
@@ -30,6 +30,7 @@ class Map
         bool update(float dt);
 
         void updateObjects(float dt);
+
         void updateColisions();
 
         void clear();

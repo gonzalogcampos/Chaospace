@@ -57,6 +57,9 @@
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
 
+        physics->setRectangleBB(Pvect(123.f,115.f));
+
+
     }
     
     

@@ -10,6 +10,8 @@ Player::Player(float x, float y)
     hp = 3;
     powerUp = 0;
     physics->setPosition(Pvect(x, y));
+    physics->setRectangleBB(Pvect(10.f,10.f));
+
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
 }

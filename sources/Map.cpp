@@ -46,7 +46,8 @@ Devuelve el player creado
 */
 Player* Map::createPlayer(float x, float y)
 {
-    return new Player(x, y);
+    Player* p = new Player(x, y);
+    return p;
 }
  
 
@@ -118,17 +119,25 @@ void Map::updateObjects(float dt)
 void Map::updateColisions()
 {
     size_t s = player->getBullets()->size();
-    for(size_t i = 0; i<s; i++)
+    for(auto it = player->getBullets()->begin(); it<player->getBullets()->end(); it++)
     {
-        Physics* p = player->getBullets()->at(i)->getPhysics();
-        for(auto it = npcs.begin(); it<npcs.end(); it++)
+        Physics* p = (*it)->getPhysics();
+        bool colision = false;
+        for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
         {
-            if(p->colides((*it)->getPhysics()))
+            if(p->colides((*jt)->getPhysics()))
             {
-                delete *it;
-                npcs.erase(it);
-                it--;
+                delete *jt;
+                npcs.erase(jt);
+                colision = true;
             }
+        }
+        if(colision)
+        {
+            delete *it;
+            player->getBullets()->erase(it);
+            it--;
+            colision = false;
         }
     }
 }
