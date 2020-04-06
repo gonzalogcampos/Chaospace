@@ -44,7 +44,7 @@ bool Render::isWindowOpen()
 Funcion que se llama cuando incia el loop antes de pintar sprites.
 Comprueba que la ventana este abierta, y borra todo lo dibujado antes.
 */
-void Render::preLoop()
+void Render::preLoop(float dt)
 {
         // Process events
         sf::Event event;
@@ -328,7 +328,7 @@ bool Render::deleteAnimation(Rint animation)
 Si encuentra la animacion, dibuja el fotograma correspondiente sin aplicarle ninguna transfomrmacion y devuelve true.
 En caso de no encontrar la animacion devuelve false.
 */
-bool Render::drawAnimation(Rint animation, float dt)
+bool Render::drawAnimation(Rint animation)
 {
     bool r = false;
     if(animations.find(animation)!=animations.end())
@@ -344,7 +344,7 @@ bool Render::drawAnimation(Rint animation, float dt)
 Si encuentra la animacion, dibuja el fotograma correspondiente aplicandole las transformaciones dadas por parametro y devuelve true.
 En caso de no encontrar la animacion devuelve false.
 */
-bool Render::drawAnimation(Rint animation, float dt, Rvect position, float rotation, float scale, bool centered)
+bool Render::drawAnimation(Rint animation, Rvect position, float rotation, float scale, bool centered)
 {
     bool r = false;
     if(animations.find(animation)!=animations.end())

@@ -14,7 +14,7 @@ void Game::run()
     {
         if(clock->canContinue())
         {
-        Render::getInstance()->preLoop();
+        Render::getInstance()->preLoop(clock->getElapsedTime());
         state->update(clock->getElapsedTime());
         Render::getInstance()->postLoop();
         }

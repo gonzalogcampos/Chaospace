@@ -66,6 +66,7 @@ class Render
         Rint animationsCont = 1;
 
         float globalScale;
+        float dt = 0.f;
 
     public:
         static Render* getInstance()
@@ -84,7 +85,7 @@ class Render
 
         bool isWindowOpen();
 
-        void preLoop();
+        void preLoop(float dt);
 
         void postLoop();
 
@@ -128,9 +129,9 @@ class Render
 
         bool deleteAnimation(Rint animation);
 
-        bool drawAnimation(Rint animation, float dt);
+        bool drawAnimation(Rint animation);
 
-        bool drawAnimation(Rint animation, float dt, Rvect position, float rotation = 0.f, float scale = 1.f, bool centered = true);
+        bool drawAnimation(Rint animation, Rvect position, float rotation = 0.f, float scale = 1.f, bool centered = true);
 
 
 };

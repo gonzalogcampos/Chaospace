@@ -2,11 +2,14 @@
 #include <Physics.h>
 #include <Render.h>
 //Constructor por defecto de la clase Player.
-Player::Player()
+Player::Player(float x, float y)
 {
     wpn = 1;
     hp = 3;
     powerUp = 0;
+    physics->setPosition(Pvect(x, y));
+    animation = Render::getInstance()->createAnimation(15);
+    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
 }
 
 //Metodo destructor de la clase Player.
