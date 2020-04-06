@@ -37,7 +37,7 @@ Devuelve una nave creada
 */
 Npc* Map::createNpc()
 {
-    Npc* npc = new Npc(4, 1200.f, 400.f);
+    Npc* npc = new Npc(4, 1200.f, rand()%400);
     npcs.push_back(npc);
 }
 
