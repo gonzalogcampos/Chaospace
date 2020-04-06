@@ -1,16 +1,12 @@
-#include "Map.h"
-#include "Player.h"
+#include <Map.h>
 #include "tinyxml2.h"
 #include "Render.h"
-#include <iostream>
-#include <Map.h>
 #include <Player.h>
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
 #include <cstdlib>
 #include <Game.h>
-#include <iostream>
 
 
 /*
@@ -168,10 +164,9 @@ float Map::getPlayerY(){
 
 void Map::tryCreate(float dt)
 {
-   float tryPerSecond = 1 / dt;
    
    float prob = (enemiesPerSecond + level*incEnemiesPerSecond);
-   int r = rand() % (int)tryPerSecond;
+   int r = rand()%10000;
    if(r<prob)
    {
        createNpc();
