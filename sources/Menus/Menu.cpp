@@ -53,6 +53,8 @@ void Menu::clear()
         delete buttons.at(i); 
     
     buttons.clear();
+
+    Render::getInstance() -> deleteSprite(titulo);
     
 }
 
@@ -61,6 +63,8 @@ void Menu::update(float dt)
     //Time
     at+=dt;
 
+    
+    Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
     for(size_t i=0; i<buttons.size(); i++){
         buttons.at(i)->update();
     }
@@ -113,7 +117,4 @@ void Button::update()
 {
     Render::getInstance() -> drawSprite(sprite, Rvect(x, y));
 
-    Rint titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
-    Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
- 
 }

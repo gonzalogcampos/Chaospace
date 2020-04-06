@@ -16,7 +16,7 @@ class FinalMenu : public Menu
             
             buttons.at(focus)->focus();
         
-
+            titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
 
         }
 

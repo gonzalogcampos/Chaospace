@@ -33,6 +33,7 @@ class Menu
         std::vector<Button*> buttons;
         std::size_t focus;
         float at;
+        unsigned int titulo;
 
     public:
 

@@ -15,10 +15,11 @@ class MainMenu : public Menu
             buttons.push_back(button);
             
             buttons.at(focus)->focus();
-        
 
+            titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
 
         }
 
         ~MainMenu(){}
+
 };
