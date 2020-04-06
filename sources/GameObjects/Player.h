@@ -1,6 +1,5 @@
 #pragma once
 #include <Ship.h>
-#include <Render.h>
 
 class Player : public Ship {
     protected:

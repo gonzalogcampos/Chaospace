@@ -1,5 +1,6 @@
 
- #include "Npc.h"
+#include "Npc.h"
+#include <Render.h>
 
  
     Npc::Npc() {} //Cosntructor por defecto de la clase Player.
