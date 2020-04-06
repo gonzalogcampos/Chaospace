@@ -1,8 +1,9 @@
 #include "Map.h"
 #include "Player.h"
-#include <iostream>
 #include <Ship.h>
 #include <Npc.h>
+#include <Physics.h>
+#include <cstdlib>
 
 
 /*
@@ -10,8 +11,9 @@ Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
-    player->update (dt);
-    npc->update(dt);
+    tryCreate(dt);
+    updateObjects(dt);
+    updateColisions();
 }
 
 /*
@@ -27,26 +29,26 @@ Inicia el mapa
 */
 void Map::init()
 {
-    player = createPlayer(100.f, 360.f);
-    npc = new Npc(4, 600.f, 360.f);
+    loadLevel();
 
 }
 
 /*
 Devuelve una nave creada
 */
-Ship* Map::createShip()
-{
-
+Npc* Map::createNpc()
+{   int tipo = rand() % 7;
+    Npc* npc = new Npc(tipo+1, 1200.f, 400.f);
+    npcs.push_back(npc);
 }
-
 
 /* 
 Devuelve el player creado
 */
 Player* Map::createPlayer(float x, float y)
 {
-    return new Player(x, y);
+    Player* p = new Player(x, y);
+    return p;
 }
  
 
@@ -55,7 +57,9 @@ Carga un nivel
 */
 void Map::loadLevel()
 {
-
+    mapPosition = 0.f;
+    level++;
+    player = createPlayer(100.f, 360.f);
 }
 
 /*
@@ -72,4 +76,69 @@ Dibujado del mapa
 void Map::draw()
 {
 
+}
+
+float Map::getMapPosition()
+{
+    return mapPosition;
+}
+        
+float Map::setMapPosition(float dx)
+{
+    mapPosition = dx;
+}
+float Map::getPlayerX(){
+    
+    return player->getPhysics()->getPosition().x;
+
+}
+
+float Map::getPlayerY(){
+    return player->getPhysics()->getPosition().y;
+}
+
+void Map::tryCreate(float dt)
+{
+   float tryPerSecond = 1 / dt;
+   
+   float prob = (enemiesPerSecond + level*incEnemiesPerSecond);
+   int r = rand() % (int)tryPerSecond;
+   if(r<prob)
+   {
+       createNpc();
+   }
+}
+
+void Map::updateObjects(float dt)
+{
+    player->update (dt);
+
+    for(size_t i = 0; i<npcs.size(); i++)
+        npcs.at(i)->update(dt);
+}
+
+void Map::updateColisions()
+{
+    size_t s = player->getBullets()->size();
+    for(auto it = player->getBullets()->begin(); it<player->getBullets()->end(); it++)
+    {
+        Physics* p = (*it)->getPhysics();
+        bool colision = false;
+        for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
+        {
+            if(p->colides((*jt)->getPhysics()))
+            {
+                delete *jt;
+                npcs.erase(jt);
+                colision = true;
+            }
+        }
+        if(colision)
+        {
+            delete *it;
+            player->getBullets()->erase(it);
+            it--;
+            colision = false;
+        }
+    }
 }

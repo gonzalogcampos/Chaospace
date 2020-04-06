@@ -1,5 +1,6 @@
 #include <Physics.h>
 #include <cmath>
+#include <Map.h>
 
 /*
 Constructor por defecto.
@@ -223,8 +224,7 @@ void Physics::update(float dt)
        setPolarVelocity(maxVelocity, getPolarVelocity().y);
     }
 
-    this->position.x += this->velocity.x*dt;
-
+    position.x += velocity.x*dt - Map::getInstance()->getMapPosition();
     position.y += velocity.y*dt;
 }
 

@@ -73,7 +73,6 @@ Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)
     this->id = id;
     this->x = x;
     this->y = y;
-                                
     spritenormal = Render::getInstance() -> createSprite(pathnormal);
     spritefocus = Render::getInstance() -> createSprite(pathfocus);
     sprite = spritenormal;

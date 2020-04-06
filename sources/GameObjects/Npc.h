@@ -8,7 +8,7 @@ using namespace std;
 class Npc : public Ship {
     private:
    
-    int tipo;
+    int tipo, cadencia;
     int X,Y,XPlayer, YPlayer;
     int contador=0;
     unsigned int nave;

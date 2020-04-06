@@ -55,12 +55,12 @@ void Ship::update(float dt)
 {
     for(unsigned i = 0; i < bullets.size(); i++) {
         //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
-        if(bullets.at(i)->getPhysics()->getPosition().x > 800 || bullets.at(i)->getPhysics()->getPosition().x < 0 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
+        if(bullets.at(i)->getPhysics()->getPosition().x > 2000 || bullets.at(i)->getPhysics()->getPosition().x < -100 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
             //En caso de cumplirse la condicion, borramos dicha bala.
             delete bullets.at(i);
             bullets.erase(bullets.begin()+i);
 
-        } else if(bullets.at(i)->getPhysics()->getPosition().y > 720 || bullets.at(i)->getPhysics()->getPosition().y < 0 ) { //Aqui controlamos que se salgan de la pantalla verticalmente.
+        } else if(bullets.at(i)->getPhysics()->getPosition().y > 800 || bullets.at(i)->getPhysics()->getPosition().y < -100 ) { //Aqui controlamos que se salgan de la pantalla verticalmente.
             //Cumplida la condicion, procedemos a borrar la bala.
             delete bullets.at(i);
             bullets.erase(bullets.begin()+i);

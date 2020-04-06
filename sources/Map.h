@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 
-
 class Player;
 class Ship;
 class GameObject;
@@ -12,8 +11,15 @@ class Map
     private:
         //std::vector<Ship*> ships;
         Player* player;
-        Npc* npc;
+        std::vector<Npc*> npcs;
         Map(){}
+        float mapPosition;
+
+
+
+        int level = 0;
+        float enemiesPerSecond = .001f;
+        float incEnemiesPerSecond = .1f;
     public:
 
         static Map* getInstance()
@@ -23,11 +29,15 @@ class Map
         }
         bool update(float dt);
 
+        void updateObjects(float dt);
+
+        void updateColisions();
+
         void clear();
 
         void init();
 
-        Ship* createShip();
+        Npc* createNpc();
 
         Player* createPlayer(float x, float y);
 
@@ -36,5 +46,14 @@ class Map
         void loadMapInfo();
 
         void draw();
+
+        float getMapPosition();
+        
+        float setMapPosition(float dx);
+        float getPlayerX();
+
+        float getPlayerY();
+
+        void tryCreate(float dt);
 
 };

@@ -2,6 +2,7 @@
 #include "Npc.h"
 #include <Render.h>
 #include <Physics.h>
+#include <Map.h>
 #include <iostream>
 
  
@@ -9,32 +10,43 @@
     
     Npc::Npc(int IA, float posX, float posY){
         tipo=IA;
-        /*switch (tipo)
+        switch (tipo)
         {
         case 1:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 2:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 3:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 4:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         case 5:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=5;
             break;
         case 6:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=5;
+            break;
+          case 7:
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=5;
             break;
         
         default:
-            nave=Render::getInstance()->createSprite("resources/naveE.png");
+            //nave=Render::getInstance()->createSprite("resources/naveE.png");
+            cadencia=10;
             break;
         }
-        */
+        
 
         
         X=posX;
@@ -45,6 +57,9 @@
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
 
+        physics->setRectangleBB(Pvect(123.f,115.f));
+
+
     }
     
     
@@ -52,7 +67,7 @@
 
     Npc::~Npc(){
 
-    } //Metodo destructor de la clase Player.
+    } //Metodo destructor de la clase NPC.
 
     void Npc::IA(int tipo){
 
@@ -71,16 +86,19 @@
         float vy = 0.f;
         contador++;
         Render::getInstance()->drawSprite(nave);
+        float dx = Map::getInstance()->getPlayerX()-physics->getPosition().x;
+        float dy = Map::getInstance()->getPlayerY()-physics->getPosition().y;
+        //std::cout<<"x:"<<dx<<" y:"<<dy<<std::endl;
         switch (tipo)
         {
         case 1:
             Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             vx = -200.f;
-            if(Y<YPlayer){
+            if(Y<Map::getInstance()->getPlayerY()){
                              vy = +100.f;
 
             }
-            if(Y>YPlayer){
+            if(Y>Map::getInstance()->getPlayerY()){
                               vy = -100.f;
 
             }
@@ -104,8 +122,16 @@
             /*Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             X=X-0.1;*/
             vx = -200.f;
+            if(Y<Map::getInstance()->getPlayerY()){
+                             vy = +100.f;
+
+            }
+            if(Y>Map::getInstance()->getPlayerY()){
+                              vy = -100.f;
+
+            }
             //std::cout<<"Entro2"<<std::endl;
-            if(contador==20){
+            if(contador==cadencia){
              //std::cout<<"Entro"<<std::endl;
                Ship::shoot();
                contador=0;
@@ -117,7 +143,7 @@
             Y=Y+0.1;*/
              vx = -200.f;
              vy = -100.f;
-            if(contador==20){
+            if(contador==cadencia){
                 Ship::shoot();
                 contador=0;
               }
@@ -128,12 +154,64 @@
             Y=Y-0.02;*/
             vx = -200.f;
             vy = +100.f;
-             if(contador==20){
+             if(contador==cadencia){
                 Ship::shoot();
                 contador=0;
               }
             break;
-        
+        case 7:
+         vx = -200.f;
+            if(Y<Map::getInstance()->getPlayerY()){
+                             vy = +100.f;
+
+            }
+            if(Y>Map::getInstance()->getPlayerY()){
+                              vy = -100.f;
+
+            }
+            //calcular angulo hacia el player
+            float theta;
+    if(dx == 0.f && dy == 0.f)
+    {
+        theta = 0.f;
+    }else if(dx == 0.f)
+    {
+        if(dy < 0)
+        {
+            theta = 270.f;
+        }else
+        {
+            theta = 90.f;
+        }
+    }else if(dy == 0.f)
+    {
+        if(dx < 0)
+        {
+            theta = 180.f;
+        }else
+        {
+            theta = 0.f;
+        }
+    }else
+    {
+        float toDegrees = 180/3.1415926;
+        theta = atan(dy/dx)*toDegrees;
+        if(dx<0)
+            theta+=180;
+    }
+    physics->setOrient(theta);
+    
+
+    //physics->setOrient(180.f);
+
+            if(contador==cadencia){
+            
+               Ship::shoot();
+               contador=0;
+              }     
+
+            break;
+
         default:
             break;
         }
