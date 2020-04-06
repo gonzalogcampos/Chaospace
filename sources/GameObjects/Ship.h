@@ -1,7 +1,6 @@
 #pragma once
-#include "Render.h"
 #include <vector>
-#include "GameObject.h"
+#include <GameObject.h>
 
 
 class Bullet;
@@ -15,14 +14,9 @@ class Ship: public GameObject{
 
     public:
         Ship(); //Constructor por defecto de la clase Ship.
-
-        //Ship(sf::Texture t); //Para crear el Ship sera necesario pasar una textura y que pueda asi tener un Sprite.
-
         ~Ship(); //Metodo destructor de un Ship.
 
         std::vector<Bullet*>* getBullets();
-
-        void move(); //Metodo que permite el movimiento de un Ship.
 
         void shoot(); //Metodo que controla y permite el disparo efectuado por un Ship.
 
@@ -34,5 +28,6 @@ class Ship: public GameObject{
 
         void setWpn(int i); //Metodo para cambiar el tipo de arma que lleva una nave.
 
-        //sf::Sprite getSprite(); //Metodo que permite recoger el Sprite de un Ship.
+        void update(float dt);
+
 };

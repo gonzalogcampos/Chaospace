@@ -1,5 +1,4 @@
 #pragma once
-
 #include <Ship.h>
 #include <Render.h>
 
@@ -14,12 +13,12 @@ class Player : public Ship {
 
         ~Player(); //Metodo destructor de la clase Player.
 
-        void move(sf::Event *e); //Sobrecarga del metodo de movimiento la clase padre.
-
-        void shoot(); //Sobrecarga del metodo de disparo de la clase padre.
+        void move(); //Sobrecarga del metodo de movimiento la clase padre.
 
         int getPUp(); //Metodo para recuperar el powerUp pasivo actual del Player.
 
         void setPUp(int i); //Metodo para cambiar el powerUp pasivo actual del Player.
+        
+        void update(float dt);
 };
 

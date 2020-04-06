@@ -1,43 +1,19 @@
-#include "Bullet.h"
+#include <Bullet.h>
+#include <Physics.h>
+#include <Render.h>
 
-
-Bullet::Bullet(sf::Vector2f pos)
+Bullet::Bullet(float x, float y, float v, float dir, int type)
 {   
-    movimiento = sf::Vector2f(0.f, 0.f);
-
-    hitbox = sf::CircleShape(10.0);
-    hitbox.setFillColor(sf::Color::Green);
-    hitbox.setOrigin(10.f/2,10.f/2);
-    hitbox.setPosition(pos);
-
+    physics->setPosition(Pvect(x, y));
+    physics->setPolarVelocity(dir, v);
+    physics->setCircleBB(10.f);
+    physics->setOrient(dir);
+    animation = Render::getInstance()->createAnimation(15);
+    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/laser.png"));
 }
 
 Bullet::~Bullet()
 {
     //Destructor
-}
-
-
-void Bullet::update()
-{
-    // Mover la bala a la izquierda
-    moverse();
-
-}
-
-void Bullet::moverse() 
-{
-    movimiento.x -= 3;
-    hitbox.move(movimiento);
-}
-
-
-sf::Vector2f Bullet::getPositionBala() 
-{
-    return hitbox.getPosition();
-}
-
-void Bullet::draw(sf::RenderWindow& renderWindow)
-{
-    renderWindow.draw(hitbox);
+    Render::getInstance()->deleteAnimation(animation);
 }
