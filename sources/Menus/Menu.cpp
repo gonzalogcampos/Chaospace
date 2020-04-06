@@ -109,5 +109,8 @@ void Button::setPosition(float x, float y)
 void Button::update()
 {
     Render::getInstance() -> drawSprite(sprite, Rvect(x, y));
+
+    Rint titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
+    Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
  
 }
