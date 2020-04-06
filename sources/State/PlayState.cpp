@@ -24,8 +24,13 @@ void PlayState::update(float dt)
     
         Game::getInstance()->setState(State::stateType::MENUFINAL);
     }
-    Map::getInstance()->update(dt);
 
+    if(!Map::getInstance()->update(dt))
+    {
+        Map::getInstance()->clear();
+        loaded = false;
+        Game::getInstance()->setState(State::MENUFINAL);
+    }
 }
 
 

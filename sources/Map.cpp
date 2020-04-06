@@ -1,9 +1,11 @@
-#include "Map.h"
-#include "Player.h"
+#include <Map.h>
+#include <Player.h>
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
 #include <cstdlib>
+#include <Game.h>
+#include <iostream>
 
 
 /*
@@ -11,9 +13,15 @@ Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
+    if(player==nullptr)
+    {
+        //Hemos muerto
+        return false;
+    }
     tryCreate(dt);
     updateObjects(dt);
     updateColisions();
+    return true;
 }
 
 /*
@@ -21,7 +29,19 @@ Borra toda la informacion del mapa
 */
 void Map::clear()
 { 
- 
+    for(auto it = npcs.begin(); it<npcs.end(); it++)
+    {
+        delete *it;
+    }
+    npcs.clear();
+
+    if(player)
+    {
+        delete player;
+        player = nullptr;
+    }
+    level = -1;
+    mapPosition = 0.f;
 }
  
 /*
@@ -30,7 +50,6 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
-
 }
 
 /*
@@ -139,6 +158,30 @@ void Map::updateColisions()
             player->getBullets()->erase(it);
             it--;
             colision = false;
+        }
+    }
+
+
+    for(auto it = npcs.begin(); it<npcs.end(); it++)
+    {
+        bool colision = false;
+        for(auto jt = (*it)->getBullets()->begin(); jt<(*it)->getBullets()->end() && !colision; jt++)
+        {
+            if(player->getPhysics()->colides((*jt)->getPhysics()))
+            {
+                colision = true;
+                delete *jt;
+                (*it)->getBullets()->erase(jt);
+                jt--;
+
+                if(player->hpDown())
+                {
+                    delete player;
+                    player = nullptr;
+
+                    return;
+                }
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject::GameObject()
 GameObject::~GameObject()
 {
     delete physics;
+    Render::getInstance()->deleteAnimation(animation);
 }
 
 Physics* GameObject::getPhysics()
