@@ -41,10 +41,10 @@ void Player::move()
     float vx = 0.f;
     float vy = 0.f;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        vy = -200.f;        
+        vy = -400.f;        
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        vy = 200.f;
+        vy = 400.f;
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         vx = 200.f;
