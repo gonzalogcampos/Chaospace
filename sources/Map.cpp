@@ -25,7 +25,7 @@ Inicia el mapa
 */
 void Map::init()
 {
-    player = createPlayer(10.f, 10.f);
+    player = createPlayer(100.f, 360.f);
 
 }
 

@@ -18,7 +18,7 @@ std::vector<Bullet*>* Ship::getBullets()
 //Metodo que controla y permite el disparo efectuado por un Ship.
 void Ship::shoot()
 {
-    Bullet *n_bullet = new Bullet(physics->getPosition().x, physics->getPosition().x, 10.f, physics->getOrient(), 1);
+    Bullet *n_bullet = new Bullet(physics->getPosition().x, physics->getPosition().y, 1000.f, physics->getOrient(), 1);
     bullets.push_back(n_bullet);
 } 
 
@@ -49,7 +49,6 @@ void Ship::setWpn(int i)
 
 void Ship::update(float dt)
 {
-    GameObject::update(dt);
     for(unsigned i = 0; i < bullets.size(); i++) {
         //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
         if(bullets.at(i)->getPhysics()->getPosition().x > 800 || bullets.at(i)->getPhysics()->getPosition().x < 0 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
@@ -67,4 +66,6 @@ void Ship::update(float dt)
             bullets.at(i)->update(dt);
         }
     }
+    GameObject::update(dt);
+
 }

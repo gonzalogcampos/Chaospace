@@ -1,6 +1,5 @@
 #include <Physics.h>
 #include <cmath>
-#include <iostream>
 
 /*
 Constructor por defecto.
@@ -86,22 +85,15 @@ Devuelve la velocidad en coordenadas polares (v, theta)
 Pvect Physics::getPolarVelocity()
 {
 
-    
-    std::cout<<"GPV 1\n";
+
     float v = 1.f;
     float theta = 1.f;
-    std::cout<<"Velocity: ";
-    std::cout<<this->velocity.x<<" "<<this->velocity.y<<"\n";
     if(velocity.x == 0.f && velocity.y == 0.f)
     {
-    std::cout<<"GPV 2\n";
-
         v = 0.f;
         theta = 0.f;
     }else if(velocity.x == 0.f)
     {
-    std::cout<<"GPV 3\n";
-
         v = std::abs(velocity.y);
         if(velocity.y < 0)
         {
@@ -112,8 +104,6 @@ Pvect Physics::getPolarVelocity()
         }
     }else if(velocity.y == 0.f)
     {
-    std::cout<<"GPV 4\n";
-
         v = std::abs(velocity.x);
         if(velocity.x < 0)
         {
@@ -124,8 +114,6 @@ Pvect Physics::getPolarVelocity()
         }
     }else
     {
-    std::cout<<"GPV 5\n";
-
         float toDegrees = 180/3.1415926;
         v = sqrt(pow(velocity.x, 2) + pow(velocity.y, 2));
         theta = atan(velocity.y/velocity.x)*toDegrees;
@@ -230,17 +218,12 @@ Actualiza la posicion del objeto.
 */
 void Physics::update(float dt)
 {
-    std::cout<<"Update Phis 1\n";
     if(getPolarVelocity().x>maxVelocity)
     {
-        std::cout<<"Update Phis 2\n";
-
        setPolarVelocity(maxVelocity, getPolarVelocity().y);
     }
 
-    std::cout<<"Update Phis 3\n";
     this->position.x += this->velocity.x*dt;
-    std::cout<<"Update Phis 4\n";
 
     position.y += velocity.y*dt;
 }

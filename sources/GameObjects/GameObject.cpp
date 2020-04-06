@@ -2,7 +2,6 @@
 #include <GameObject.h>
 #include <Physics.h>
 #include <Render.h>
-#include <iostream>
 
 GameObject::GameObject()
 {
@@ -35,41 +34,10 @@ bool GameObject::checkColision(GameObject* object)
 
 void GameObject::update(float dt)
 {
-    std::cout<<"Update GO1\n";
     physics->update(dt);
-    std::cout<<"Update GO2\n";
 
     Render::getInstance()->drawAnimation(animation, 
                                             Rvect(physics->getPosition().x, physics->getPosition().y),
                                             physics->getOrient());  
-    std::cout<<"Update GO3\n";
 
 }
-
-
-
-
-
-
-/*
-
-OBSOLETO
-
-*/
-
-/*
-sf::FloatRect GameObject::getBounds()
-{
-    return colisionBox.getGlobalBounds();
-}
-
-sf::Vector2f GameObject::getPosition()
-{
-    return colisionBox.getPosition();
-}
-
-void GameObject::draw(sf::RenderWindow& window) 
-{
-    window.draw(sprite);
-}
-*/

@@ -37,17 +37,17 @@ void Player::move()
 {
     float vx = 0.f;
     float vy = 0.f;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        vy = -3.f;        
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        vy = -200.f;        
     
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        vy = 3.f;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        vy = 200.f;
     
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        vx = -3.f;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        vx = 200.f;
    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        vx = 3.f;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        vx = -200.f;
     
     physics->setVelocity(Pvect(vx, vy));
 
@@ -87,14 +87,10 @@ void Player::move()
 //Override del metodo de colisiones
 void Player::update(float dt)
 {
-    std::cout<<"1\n";
-    Ship::update(dt);
-    std::cout<<"2\n";
     move();
-    std::cout<<"3\n";
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
         shoot();
-
-    std::cout<<"4\n";
     
-}
+    Ship::update(dt);
+
+}    
