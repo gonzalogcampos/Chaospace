@@ -18,9 +18,9 @@
 
 ### COMPILAR Y EJECUTAR DESDE VS Code
 
-    Hay una serie de tareas (Ctr + Shift + B) preparadas para COMPILAR, EJECUTAR, CMake...
+Hay una serie de tareas (Ctr + Shift + B) preparadas para COMPILAR, EJECUTAR, CMake...
 
 ### EJECUTAR DESDE CONSOLA
 
-    El ejecutable se encuentra en la caperta bin
-    La ejecucion por consola tiene que hacerse desde la caperta Chaosace para que los recursos se usen correctamente (./bin/Chaosace)
+El ejecutable se encuentra en la caperta bin
+La ejecucion por consola tiene que hacerse desde la caperta Chaosace para que los recursos se usen correctamente (./bin/Chaosace)
