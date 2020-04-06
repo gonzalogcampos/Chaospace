@@ -56,6 +56,7 @@
 
 
     void Npc::Update(){
+
         contador++;
         Render::getInstance()->drawSprite(nave);
         switch (tipo)
@@ -63,6 +64,12 @@
         case 1:
             Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             X=X-0.1;
+            if(Y<YPlayer){
+                Y=Y+0.05;
+            }
+            if(Y>YPlayer){
+                 Y=Y-0.05;
+            }
             break;
         case 2:
             Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);        
