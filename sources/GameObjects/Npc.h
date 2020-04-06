@@ -16,7 +16,7 @@ class Npc : public Ship {
     public: 
     Npc(); //Cosntructor por defecto de la clase Player.
     
-    Npc( int IA, int posX, int posY); //Metodo constructor de la clase Player. Es necesario pasarle una Textura.
+    Npc( int IA, float posX, float posY); //Metodo constructor de la clase Player. Es necesario pasarle una Textura.
 
     ~Npc(); //Metodo destructor de la clase Player.
 
@@ -30,5 +30,5 @@ class Npc : public Ship {
     void enemigo6();
 
 
-    void Update(float dt);
+    void update(float dt);
 };
