@@ -11,9 +11,15 @@ class Map
     private:
         //std::vector<Ship*> ships;
         Player* player;
-        Npc* npc;
+        std::vector<Npc*> npcs;
         Map(){}
         float mapPosition;
+
+
+
+        int level = 0;
+        float enemiesPerSecond = .1f;
+        float incEnemiesPerSecond = .1f;
     public:
 
         static Map* getInstance()
@@ -22,6 +28,9 @@ class Map
             return &onlyInstance;
         }
         bool update(float dt);
+
+        void updateObjects(float dt);
+        void updateColisions();
 
         void clear();
 
@@ -43,5 +52,7 @@ class Map
         float getPlayerX();
 
         float getPlayerY();
+
+        void tryCreate(float dt);
 
 };

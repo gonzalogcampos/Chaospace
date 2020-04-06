@@ -1,8 +1,8 @@
-#include "MenuState.h"
-#include "Game.h"
-#include "Menu.h"
-#include "Render.h"
-#include "MainMenu.h"
+#include <MenuState.h>
+#include <Game.h>
+#include <Menu.h>
+#include <Render.h>
+#include <MainMenu.h>
 
 void MenuState::initState(){
     

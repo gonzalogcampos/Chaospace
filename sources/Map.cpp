@@ -1,16 +1,18 @@
 #include "Map.h"
 #include "Player.h"
-#include <iostream>
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
+#include <cstdlib>
+
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
-    player->update (dt);
-    npc->update(dt);
+    tryCreate(dt);
+    updateObjects(dt);
+    updateColisions();
 }
 
 /*
@@ -35,7 +37,8 @@ Devuelve una nave creada
 */
 Npc* Map::createNpc()
 {
-
+    Npc* npc = new Npc(4, 1200.f, 400.f);
+    npcs.push_back(npc);
 }
 
 /* 
@@ -53,8 +56,8 @@ Carga un nivel
 void Map::loadLevel()
 {
     mapPosition = 0.f;
+    level++;
     player = createPlayer(100.f, 360.f);
-    npc = new Npc(4, 600.f, 360.f);
 }
 
 /*
@@ -90,4 +93,42 @@ float Map::getPlayerX(){
 
 float Map::getPlayerY(){
     return player->getPhysics()->getPosition().y;
+}
+
+void Map::tryCreate(float dt)
+{
+   float tryPerSecond = 1 / dt;
+   
+   float prob = (enemiesPerSecond + level*incEnemiesPerSecond);
+   int r = rand() % (int)tryPerSecond;
+   if(r<prob)
+   {
+       createNpc();
+   }
+}
+
+void Map::updateObjects(float dt)
+{
+    player->update (dt);
+
+    for(size_t i = 0; i<npcs.size(); i++)
+        npcs.at(i)->update(dt);
+}
+
+void Map::updateColisions()
+{
+    size_t s = player->getBullets()->size();
+    for(size_t i = 0; i<s; i++)
+    {
+        Physics* p = player->getBullets()->at(i)->getPhysics();
+        for(auto it = npcs.begin(); it<npcs.end(); it++)
+        {
+            if(p->colides((*it)->getPhysics()))
+            {
+                delete *it;
+                npcs.erase(it);
+                it--;
+            }
+        }
+    }
 }
