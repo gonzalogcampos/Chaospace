@@ -1,14 +1,14 @@
 #pragma once
 #include "Menu.h"
 
-class MainMenu : public Menu
+class FinalMenu : public Menu
 {
     public:
-        MainMenu() : Menu()
+        FinalMenu() : Menu()
         {
             //Buttons
-            Button* button = new Button(1, (char*)"resources/MenuElements/PLAY2.png", 
-                                                (char*)"resources/MenuElements/PLAY1.png", 540, 300);
+            Button* button = new Button(1, (char*)"resources/MenuElements/MAINMENU2.png", 
+                                                (char*)"resources/MenuElements/MAINMENU1.png", 540, 300);
             buttons.push_back(button);            
             button = new Button(2, (char*)"resources/MenuElements/EXIT2.png",
                                                 (char*)"resources/MenuElements/EXIT1.png", 540, 420);
@@ -20,5 +20,5 @@ class MainMenu : public Menu
 
         }
 
-        ~MainMenu(){}
+        ~FinalMenu(){}
 };

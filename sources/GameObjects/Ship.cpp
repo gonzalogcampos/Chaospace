@@ -1,6 +1,7 @@
 #include <Ship.h>
 #include <Bullet.h>
 #include <Physics.h>
+#include <iostream>
 
 Ship::Ship(){ //Constructor por defecto de la clase Ship.
     wpn = 1;
@@ -33,9 +34,15 @@ void Ship::hpUp()
 }
 
  //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
-void Ship::hpDown()
+bool Ship::hpDown()
 {
     hp--;
+
+    if(hp<=0)
+        return true;
+    
+
+    return false;
 }
 
  //Metodo utilizado para recuperar informacion de que arma tiene la nave en el momento.

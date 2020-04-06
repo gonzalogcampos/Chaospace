@@ -1,30 +1,29 @@
-#include <MenuState.h>
-#include <Game.h>
-#include <Menu.h>
-#include <Render.h>
-#include <MainMenu.h>
+#include "FinalState.h"
+#include "Game.h"
+#include "Menu.h"
+#include "Render.h"
+#include "FinalMenu.h"
 
-void MenuState::initState(){
+void FinalState::initState(){
     
-    type = State::MENUINICIAL;
+    type = State::MENUFINAL;
 
-     menu = new MainMenu();
+    menu = new FinalMenu();
 
 
 } 
 
 
-void MenuState::update(float dt){
-
+void FinalState::update(float dt){
 
     menu->update(dt);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
         switch (menu->click()){
             case 1: 
-                /*PLAY*/
+                /*MENU INICIAL*/
                 delete menu; 
-                Game::getInstance()->setState(State::stateType::PLAY);
+                Game::getInstance()->setState(State::stateType::MENUINICIAL);
                 break;
 
             case 2: 
@@ -36,11 +35,6 @@ void MenuState::update(float dt){
             default: break;
         }
 
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-    {
-        Render::getInstance()->close();
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
@@ -55,4 +49,4 @@ void MenuState::update(float dt){
     
 }
 
-void MenuState::clear(){}
+void FinalState::clear(){}

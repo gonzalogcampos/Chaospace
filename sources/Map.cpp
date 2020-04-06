@@ -1,23 +1,43 @@
+<<<<<<< HEAD
 #include "Map.h"
 #include "Player.h"
 #include "tinyxml2.h"
 #include "Render.h"
 #include <iostream>
+=======
+#include <Map.h>
+#include <Player.h>
+>>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
 #include <cstdlib>
+#include <Game.h>
+#include <iostream>
+
 
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
+<<<<<<< HEAD
     draw();
     tryCreate(dt);
     updateObjects(dt);
     updateColisions();
     
+=======
+    if(player==nullptr)
+    {
+        //Hemos muerto
+        return false;
+    }
+    tryCreate(dt);
+    updateObjects(dt);
+    updateColisions();
+    return true;
+>>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 }
 
 /*
@@ -25,7 +45,19 @@ Borra toda la informacion del mapa
 */
 void Map::clear()
 { 
- 
+    for(auto it = npcs.begin(); it<npcs.end(); it++)
+    {
+        delete *it;
+    }
+    npcs.clear();
+
+    if(player)
+    {
+        delete player;
+        player = nullptr;
+    }
+    level = -1;
+    mapPosition = 0.f;
 }
  
 /*
@@ -34,16 +66,19 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
+<<<<<<< HEAD
     loadMapInfo("mapa1"); 
 
+=======
+>>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 }
 
 /*
 Devuelve una nave creada
 */
 Npc* Map::createNpc()
-{
-    Npc* npc = new Npc(4, 1200.f, 400.f);
+{   int tipo = rand() % 7;
+    Npc* npc = new Npc(tipo+1, 1200.f, 400.f);
     npcs.push_back(npc);
 }
 
@@ -186,6 +221,30 @@ void Map::updateColisions()
             player->getBullets()->erase(it);
             it--;
             colision = false;
+        }
+    }
+
+
+    for(auto it = npcs.begin(); it<npcs.end(); it++)
+    {
+        bool colision = false;
+        for(auto jt = (*it)->getBullets()->begin(); jt<(*it)->getBullets()->end() && !colision; jt++)
+        {
+            if(player->getPhysics()->colides((*jt)->getPhysics()))
+            {
+                colision = true;
+                delete *jt;
+                (*it)->getBullets()->erase(jt);
+                jt--;
+
+                if(player->hpDown())
+                {
+                    delete player;
+                    player = nullptr;
+
+                    return;
+                }
+            }
         }
     }
 }

@@ -10,14 +10,14 @@ void Menu::down(){
 
     at = 0.f;
 
-    buttons[focus]->unfocus();
+    buttons.at(focus)->unfocus();
     if(focus >= buttons.size() - 1){
         focus = 0;
     }else{
         focus++;
     }
 
-    buttons[focus]->focus();
+    buttons.at(focus)->focus();
 };
 
 void Menu::up()
@@ -25,7 +25,7 @@ void Menu::up()
     if(at<0.2){return;}
 
     at = 0.f;
-    buttons[focus]->unfocus();
+    buttons.at(focus)->unfocus();
     
     if(focus <= 0){
         focus = buttons.size()-1;
@@ -34,14 +34,14 @@ void Menu::up()
         
         focus--;
     }
-    buttons[focus]->focus();
+    buttons.at(focus)->focus();
 }
 
 
 int Menu::click()
 {
     if(!buttons.empty() && focus>=0 && focus<buttons.size()){
-        return buttons[focus]->getID();
+        return buttons.at(focus)->getID();
     }
 
     return -1;
@@ -62,7 +62,7 @@ void Menu::update(float dt)
     at+=dt;
 
     for(size_t i=0; i<buttons.size(); i++){
-        buttons[i]->update();
+        buttons.at(i)->update();
     }
 }
 
