@@ -94,6 +94,8 @@ class Render
 
         float getGlobalScale();
 
+        Rvect getCursorPosition();
+
         //Textures function
 
         bool loadTexture(std::string texture);

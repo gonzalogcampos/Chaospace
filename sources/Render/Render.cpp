@@ -95,6 +95,11 @@ float Render::getGlobalScale()
     return globalScale;
 }
 
+Rvect Render::getCursorPosition()
+{
+   sf::Vector2i pos = sf::Mouse::getPosition(*window); 	
+   return Rvect(pos.x, pos.y);
+}
 /*
 Carga la textura en la memoria, devuelve true si existe y false si no existe.
 Si la textura ya estaba cargada no la actualiza

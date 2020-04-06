@@ -1,6 +1,6 @@
 #include <Player.h>
 #include <Physics.h>
-
+#include <Render.h>
 //Constructor por defecto de la clase Player.
 Player::Player()
 {
@@ -45,7 +45,38 @@ void Player::move()
         vx = 3.f;
     
     physics->setVelocity(Pvect(vx, vy));
-    
+
+    float dx = Render::getInstance()->getCursorPosition().x - physics->getPosition().x;
+    float dy = Render::getInstance()->getCursorPosition().y - physics->getPosition().y;
+
+    float theta;
+    if(dx == 0.f && dy == 0.f)
+    {
+        theta = 0.f;
+    }else if(dx == 0.f)
+    {
+        if(dy < 0)
+        {
+            theta = 270.f;
+        }else
+        {
+            theta = 90.f;
+        }
+    }else if(dy == 0.f)
+    {
+        if(dx < 0)
+        {
+            theta = 180.f;
+        }else
+        {
+            theta = 0.f;
+        }
+    }else
+    {
+        float toDegrees = 180/3.1415926;
+        theta = atan(dy/dx)*toDegrees;
+    }
+    physics->setOrient(theta);
 }
 
 //Override del metodo de colisiones
