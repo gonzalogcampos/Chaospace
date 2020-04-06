@@ -5,7 +5,7 @@ class MainMenu : public Menu
 {
     public:
         MainMenu() : Menu()
-        {
+        {   
             //Buttons
             Button* button = new Button(1, (char*)"resources/MenuElements/PLAY2.png", 
                                                 (char*)"resources/MenuElements/PLAY1.png", 540, 300);
