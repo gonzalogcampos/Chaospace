@@ -2,7 +2,6 @@
 #include <vector>
 #include <GameObject.h>
 
-
 class Bullet;
 
 class Ship: public GameObject{

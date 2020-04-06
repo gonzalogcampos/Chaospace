@@ -2,7 +2,6 @@
 #include <Render.h>
 #include <Map.h>
 #include "Game.h"
-#include <iostream>
 
 void PlayState::initState()
 {

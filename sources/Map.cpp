@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 #include "Map.h"
 #include "Player.h"
 #include "tinyxml2.h"
 #include "Render.h"
 #include <iostream>
-=======
 #include <Map.h>
 #include <Player.h>
->>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
@@ -21,23 +18,17 @@ Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
-<<<<<<< HEAD
-    draw();
-    tryCreate(dt);
-    updateObjects(dt);
-    updateColisions();
     
-=======
     if(player==nullptr)
     {
         //Hemos muerto
         return false;
     }
+    draw();
     tryCreate(dt);
     updateObjects(dt);
     updateColisions();
     return true;
->>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 }
 
 /*
@@ -66,11 +57,8 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
-<<<<<<< HEAD
     loadMapInfo("mapa1"); 
 
-=======
->>>>>>> cc7ea00b6cbb0da1a497504d34af88863227f27f
 }
 
 /*
@@ -122,7 +110,6 @@ void Map::loadMapInfo(std::string rutaMapa)
     */
 
     document.LoadFile(rutaMapa.c_str());
-    std::cout << "carga el mapa correctamente" << std::endl;
     //xmlMap = document.FirstChildElement("map");
     fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
     // fondo = Render::getInstance()->createAnimation(1.f);
