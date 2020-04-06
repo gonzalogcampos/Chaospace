@@ -55,8 +55,8 @@
     void Npc::enemigo6(){}
 
 
-    void Npc::Update(){
-
+    void Npc::Update(float dt){
+        Ship::update(dt);
         contador++;
         Render::getInstance()->drawSprite(nave);
         switch (tipo)
@@ -85,9 +85,7 @@
             Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             X=X-0.1;
             if(contador==20){
-                sf::Vector2f pos_bala = sf::Vector2f(X-20,Y-4);
-                Bullet * nueva = new Bullet(pos_bala);
-                Bullets.push_back(nueva);
+               Ship::shoot();
               }
             break;
         case 5:
@@ -95,9 +93,7 @@
             X=X-0.1;
             Y=Y+0.02;
             if(contador==20){
-                sf::Vector2f pos_bala = sf::Vector2f(X-20,Y-4);
-                Bullet * nueva = new Bullet(pos_bala);
-                Bullets.push_back(nueva);
+                Ship::shoot();
               }
             break;
          case 6:
@@ -105,9 +101,7 @@
             X=X-0.1;
             Y=Y-0.02;
              if(contador==20){
-                sf::Vector2f pos_bala = sf::Vector2f(X-20,Y-4);
-                Bullet * nueva = new Bullet(pos_bala);
-                Bullets.push_back(nueva);
+                Ship::shoot();
               }
             break;
         
@@ -117,6 +111,7 @@
         if(X<-20){
             delete this;
         }
+        /*
         for(unsigned i = 0; i < Bullets.size(); i++) {
         // borrar las balas al salir del mapa
         if(Bullets.at(i)->getPositionBala().x > 800 || Bullets.at(i)->getPositionBala().x < 0 ) {
@@ -133,5 +128,5 @@
             // LLamar al update de la bala
             Bullets.at(i)->update();
         }
-    }
+    }*/
     }

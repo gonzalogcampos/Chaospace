@@ -30,5 +30,5 @@ class Npc : public Ship {
     void enemigo6();
 
 
-    void Update();
+    void Update(float dt);
 };
