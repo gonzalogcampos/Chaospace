@@ -21,7 +21,9 @@ bool Map::update(float dt)
         return false;
     }
     draw();
-    tryCreate(dt);
+    tryCreate(
+        
+    );
     updateObjects(dt);
     updateColisions();
     return true;
@@ -60,9 +62,9 @@ void Map::init()
 /*
 Devuelve una nave creada
 */
-Npc* Map::createNpc()
+void Map::createNpc()
 {   int tipo = rand() % 7;
-    Npc* npc = new Npc(tipo+1, 1200.f, 400.f);
+    Npc* npc = new Npc(tipo+1, 1200.f, rand()%400);
     npcs.push_back(npc);
 }
 
@@ -93,8 +95,8 @@ void Map::loadMapInfo(std::string rutaMapa)
 {
     
     tinyxml2::XMLDocument document;
-    tinyxml2::XMLElement* xmlMap;
-    tinyxml2::XMLElement* imageLayer;
+    //tinyxml2::XMLElement* xmlMap;
+    //tinyxml2::XMLElement* imageLayer;
     
     /*
     char* url;
@@ -147,11 +149,12 @@ float Map::getMapIncPosition()
     return mapIncPosition;
 }
         
-float Map::moveMap(float dx)
+void Map::moveMap(float dx)
 {
     mapPosition += dx;
     mapIncPosition = dx;
 }
+
 float Map::getPlayerX(){
     
     return player->getPhysics()->getPosition().x;
@@ -162,7 +165,7 @@ float Map::getPlayerY(){
     return player->getPhysics()->getPosition().y;
 }
 
-void Map::tryCreate(float dt)
+void Map::tryCreate()
 {
    
    float prob = (enemiesPerSecond + level*incEnemiesPerSecond);
@@ -183,7 +186,6 @@ void Map::updateObjects(float dt)
 
 void Map::updateColisions()
 {
-    size_t s = player->getBullets()->size();
     for(auto it = player->getBullets()->begin(); it<player->getBullets()->end(); it++)
     {
         Physics* p = (*it)->getPhysics();

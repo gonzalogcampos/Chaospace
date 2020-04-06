@@ -40,7 +40,7 @@ void Menu::up()
 
 int Menu::click()
 {
-    if(!buttons.empty() && focus>=0 && focus<buttons.size()){
+    if(!buttons.empty() && focus<buttons.size()){
         return buttons.at(focus)->getID();
     }
 
@@ -70,7 +70,10 @@ void Menu::update(float dt)
     }
 }
 
-void Menu::setBackground(char* b){}
+void Menu::setBackground(char* b)
+{
+    
+}
 
 Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)
 {
