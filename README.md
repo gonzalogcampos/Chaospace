@@ -1,18 +1,18 @@
 # Chaosace
-## CONTROLES DEL JUEGO:
+## CONTROLES DEL JUEGO
 
 ### MENÚ DE INICIO
 
-    * Botón de "Enter" para seleccionar una de las dos opciones.
-    * Flechas para elegir cualquiera de las opciones.
+ * Botón de "Enter" para seleccionar una de las dos opciones.
+ * Flechas para elegir cualquiera de las opciones.
 
 ### JUEGO
-    * Se utilizan las teclas WASD o las flechas para el movimiento del player.
-    * Se utiliza el mousepara disparar (tecla izquierda) y para encarar el player de cara a los objetivos.
+ * Se utilizan las teclas WASD o las flechas para el movimiento del player.
+ * Se utiliza el mousepara disparar (tecla izquierda) y para encarar el player de cara a los objetivos.
 
 ### MENÚ FINAL
-    * Botón "Space" para seleccionar una de las dos opciones. 
-    * Flechas para elegir cualquiera de las dos opciones.
+ * Botón "Space" para seleccionar una de las dos opciones. 
+ * Flechas para elegir cualquiera de las dos opciones.
 
 ## COMPILAR
 
