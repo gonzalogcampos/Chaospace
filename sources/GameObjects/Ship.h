@@ -24,7 +24,7 @@ class Ship: public GameObject{
 
         void hpUp(); //Metodo auxiliar utilizado para subir en 1 el valor de la vida de la nave.
 
-        void hpDown(); //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
+        bool hpDown(); //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
 
         int getWpn(); //Metodo utilizado para recuperar informacion de que arma tiene la nave en el momento.
 

@@ -1,7 +1,7 @@
 #include "PlayState.h"
 #include <Render.h>
 #include <Map.h>
-
+#include <Game.h>
 void PlayState::initState()
 {
     type = State::PLAY;                       
@@ -18,7 +18,12 @@ void PlayState::initState()
 
 void PlayState::update(float dt)
 {
-    Map::getInstance()->update(dt);
+    if(!Map::getInstance()->update(dt))
+    {
+        Map::getInstance()->clear();
+        loaded = false;
+        Game::getInstance()->setState(State::MENUINICIAL);
+    }
 }
 
 
