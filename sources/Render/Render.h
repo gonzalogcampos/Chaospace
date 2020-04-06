@@ -85,6 +85,10 @@ class Render
 
         bool isWindowOpen();
 
+        float getWindowWidth();
+
+        float getWindowHeight();
+
         void preLoop(float dt);
 
         void postLoop();
