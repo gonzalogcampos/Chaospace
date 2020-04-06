@@ -3,7 +3,7 @@
 #include <iostream>
 #include <Ship.h>
 #include <Npc.h>
-
+#include <Physics.h>
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
@@ -27,7 +27,7 @@ Inicia el mapa
 void Map::init()
 {
     player = createPlayer(100.f, 360.f);
-    npc = new Npc(4, 600.f, 360.f);
+    npc = new Npc(1, 900.f, 360.f);
 
 }
 
@@ -71,4 +71,14 @@ Dibujado del mapa
 void Map::draw()
 {
 
+}
+
+float Map::getPlayerX(){
+    
+    return player->getPhysics()->getPosition().x;
+
+}
+
+float Map::getPlayerY(){
+    return player->getPhysics()->getPosition().y;
 }

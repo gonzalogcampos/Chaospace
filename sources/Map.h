@@ -37,4 +37,8 @@ class Map
 
         void draw();
 
+        float getPlayerX();
+
+        float getPlayerY();
+
 };
