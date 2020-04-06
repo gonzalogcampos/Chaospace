@@ -224,7 +224,7 @@ void Physics::update(float dt)
        setPolarVelocity(maxVelocity, getPolarVelocity().y);
     }
 
-    position.x += velocity.x*dt - Map::getInstance()->getMapPosition();
+    position.x += velocity.x*dt - Map::getInstance()->getMapIncPosition();
     position.y += velocity.y*dt;
 }
 

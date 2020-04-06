@@ -99,9 +99,9 @@ void Player::update(float dt)
 
     if(physics->getPosition().x>400.f)
     { 
-        Map::getInstance()->setMapPosition(physics->getPosition().x - 400.f);
+        Map::getInstance()->moveMap(physics->getPosition().x - 400.f);
     }else{
-        Map::getInstance()->setMapPosition(0.f);
+        Map::getInstance()->moveMap(0.f);
     }
     
     if(physics->getPosition().x<0.f)
