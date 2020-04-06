@@ -10,6 +10,7 @@ Game update. Devuelve false si el jugador ha muerto.
 bool Map::update(float dt)
 {
     player->update (dt);
+    npc->update(dt);
 }
 
 /*
@@ -26,6 +27,7 @@ Inicia el mapa
 void Map::init()
 {
     player = createPlayer(100.f, 360.f);
+    npc = new Npc(4, 600.f, 360.f);
 
 }
 

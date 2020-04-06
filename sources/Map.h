@@ -12,7 +12,7 @@ class Map
     private:
         //std::vector<Ship*> ships;
         Player* player;
-        // Npc* npc;
+        Npc* npc;
         Map(){}
     public:
 
