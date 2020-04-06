@@ -26,19 +26,17 @@ Inicia el mapa
 */
 void Map::init()
 {
-    player = createPlayer(100.f, 360.f);
-    npc = new Npc(4, 600.f, 360.f);
+    loadLevel();
 
 }
 
 /*
 Devuelve una nave creada
 */
-Ship* Map::createShip()
+Npc* Map::createNpc()
 {
 
 }
-
 
 /* 
 Devuelve el player creado
@@ -54,7 +52,9 @@ Carga un nivel
 */
 void Map::loadLevel()
 {
-
+    mapPosition = 0.f;
+    player = createPlayer(100.f, 360.f);
+    npc = new Npc(4, 600.f, 360.f);
 }
 
 /*
@@ -71,4 +71,14 @@ Dibujado del mapa
 void Map::draw()
 {
 
+}
+
+float Map::getMapPosition()
+{
+    return mapPosition;
+}
+        
+float Map::setMapPosition(float dx)
+{
+    mapPosition = dx;
 }

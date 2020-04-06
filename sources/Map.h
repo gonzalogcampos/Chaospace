@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 
-
 class Player;
 class Ship;
 class GameObject;
@@ -14,6 +13,7 @@ class Map
         Player* player;
         Npc* npc;
         Map(){}
+        float mapPosition;
     public:
 
         static Map* getInstance()
@@ -27,7 +27,7 @@ class Map
 
         void init();
 
-        Ship* createShip();
+        Npc* createNpc();
 
         Player* createPlayer(float x, float y);
 
@@ -36,5 +36,9 @@ class Map
         void loadMapInfo();
 
         void draw();
+
+        float getMapPosition();
+        
+        float setMapPosition(float dx);
 
 };

@@ -1,7 +1,7 @@
 #include <Player.h>
 #include <Physics.h>
 #include <Render.h>
-#include <iostream>
+#include <Map.h>
 
 //Constructor por defecto de la clase Player.
 Player::Player(float x, float y)
@@ -90,6 +90,25 @@ void Player::move()
 void Player::update(float dt)
 {
     move();
+
+    if(physics->getPosition().x>400.f)
+    { 
+        Map::getInstance()->setMapPosition(physics->getPosition().x - 400.f);
+    }else{
+        Map::getInstance()->setMapPosition(0.f);
+    }
+    
+    if(physics->getPosition().x<0.f)
+        physics->setPosition(Pvect(0.f, physics->getPosition().y));
+
+    if(physics->getPosition().y<0.f)
+        physics->setPosition(Pvect(physics->getPosition().x, 0.f));
+    
+    if(physics->getPosition().y>720)
+        physics->setPosition(Pvect(physics->getPosition().x, 720.f));
+
+
+
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
         shoot();
     
