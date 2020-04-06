@@ -80,6 +80,8 @@ void Player::move()
     {
         float toDegrees = 180/3.1415926;
         theta = atan(dy/dx)*toDegrees;
+        if(dx<0)
+            theta+=180;
     }
     physics->setOrient(theta);
 }

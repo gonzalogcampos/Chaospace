@@ -18,8 +18,12 @@ std::vector<Bullet*>* Ship::getBullets()
 //Metodo que controla y permite el disparo efectuado por un Ship.
 void Ship::shoot()
 {
-    Bullet *n_bullet = new Bullet(physics->getPosition().x, physics->getPosition().y, 1000.f, physics->getOrient(), 1);
-    bullets.push_back(n_bullet);
+    if(st>cadencia)
+    {
+        st = 0.f;
+        Bullet *n_bullet = new Bullet(physics->getPosition().x, physics->getPosition().y, 1000.f, physics->getOrient(), 1);
+        bullets.push_back(n_bullet);
+    }
 } 
 
 //Metodo auxiliar utilizado para subir en 1 el valor de la vida de la nave.
@@ -66,6 +70,7 @@ void Ship::update(float dt)
             bullets.at(i)->update(dt);
         }
     }
+    st += dt;
     GameObject::update(dt);
 
 }

@@ -11,6 +11,8 @@ class Ship: public GameObject{
         int wpn; //Variable que dependiendo del valor, indicara el tipo de disparo de la nave.
         std::vector<Bullet*> bullets; //Vector de punteros a las balas que contendra el Player o un enemigo.
         bool alive;
+        float cadencia =1.f;
+        float st = 0.f;
 
     public:
         Ship(); //Constructor por defecto de la clase Ship.
