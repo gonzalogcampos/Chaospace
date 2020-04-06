@@ -2,6 +2,7 @@
 #include "Npc.h"
 #include <Render.h>
 #include <Physics.h>
+#include <Map.h>
 #include <iostream>
 
  
@@ -76,11 +77,11 @@
         case 1:
             Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             vx = -200.f;
-            if(Y<YPlayer){
+            if(Y<Map::getInstance()->getPlayerY()){
                              vy = +100.f;
 
             }
-            if(Y>YPlayer){
+            if(Y>Map::getInstance()->getPlayerY()){
                               vy = -100.f;
 
             }
@@ -104,6 +105,14 @@
             /*Render::getInstance()->drawSprite(nave, Rvect(X,Y), 0.f, 0.f, true);
             X=X-0.1;*/
             vx = -200.f;
+            if(Y<Map::getInstance()->getPlayerY()){
+                             vy = +100.f;
+
+            }
+            if(Y>Map::getInstance()->getPlayerY()){
+                              vy = -100.f;
+
+            }
             //std::cout<<"Entro2"<<std::endl;
             if(contador==20){
              //std::cout<<"Entro"<<std::endl;

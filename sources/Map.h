@@ -40,5 +40,8 @@ class Map
         float getMapPosition();
         
         float setMapPosition(float dx);
+        float getPlayerX();
+
+        float getPlayerY();
 
 };

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <Ship.h>
 #include <Npc.h>
-
+#include <Physics.h>
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
@@ -81,4 +81,13 @@ float Map::getMapPosition()
 float Map::setMapPosition(float dx)
 {
     mapPosition = dx;
+}
+float Map::getPlayerX(){
+    
+    return player->getPhysics()->getPosition().x;
+
+}
+
+float Map::getPlayerY(){
+    return player->getPhysics()->getPosition().y;
 }
