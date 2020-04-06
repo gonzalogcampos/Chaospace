@@ -39,7 +39,7 @@ class Map
 
         void init();
 
-        Npc* createNpc();
+        void createNpc();
 
         Player* createPlayer(float x, float y);
 
@@ -51,11 +51,12 @@ class Map
 
         float getMapIncPosition();
         
-        float moveMap(float dx);
+        void moveMap(float dx);
+
         float getPlayerX();
 
         float getPlayerY();
 
-        void tryCreate(float dt);
+        void tryCreate();
 
 };
