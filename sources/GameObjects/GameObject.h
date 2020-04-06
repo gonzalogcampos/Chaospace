@@ -17,6 +17,6 @@ class GameObject{
         
 
     protected:
-        Physics* physics;
+        Physics* physics; 
         unsigned int animation;
 };

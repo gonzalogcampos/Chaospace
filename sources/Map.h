@@ -4,15 +4,23 @@
 
 class Player;
 class Ship;
+class GameObject;
+class Npc;
 
 class Map
 {
     private:
-        std::vector<Ship*> ships;
+        //std::vector<Ship*> ships;
         Player* player;
+        // Npc* npc;
+        Map(){}
     public:
 
-
+        static Map* getInstance()
+        {
+            static Map onlyInstance;
+            return &onlyInstance;
+        }
         bool update(float dt);
 
         void clear();

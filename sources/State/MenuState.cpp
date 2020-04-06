@@ -8,11 +8,11 @@ void MenuState::initState(){
 } 
 
 
-void MenuState::update(float dt){
-
+void MenuState::update(float dt)
+{
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
-        Game::getInstance()->setState(State::stateType::TEST);
+        Game::getInstance()->setState(State::stateType::PLAY);
     }
     
 }

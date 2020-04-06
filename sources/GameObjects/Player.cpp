@@ -1,6 +1,8 @@
 #include <Player.h>
 #include <Physics.h>
 #include <Render.h>
+#include <iostream>
+
 //Constructor por defecto de la clase Player.
 Player::Player(float x, float y)
 {
@@ -85,10 +87,14 @@ void Player::move()
 //Override del metodo de colisiones
 void Player::update(float dt)
 {
+    std::cout<<"1\n";
     Ship::update(dt);
-
+    std::cout<<"2\n";
     move();
-
+    std::cout<<"3\n";
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
         shoot();
+
+    std::cout<<"4\n";
+    
 }

@@ -1,10 +1,12 @@
 #pragma once
 #include "State.h"
 
+class Map;
 class PlayState : public State 
 {
     private:
         bool loaded; 
+        Map* map;
         PlayState(){}         
     public:
 

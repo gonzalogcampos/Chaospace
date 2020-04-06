@@ -1,11 +1,12 @@
 #pragma once
 #include "State.h"
 
+class Physics;
 class TestState : public State 
 {
     private:
         TestState(){}
-        unsigned int sprite1, sprite2, sprite3; 
+        Physics* p;
         float rot = 0;      
     public:
 

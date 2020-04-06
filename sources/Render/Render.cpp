@@ -48,6 +48,7 @@ void Render::preLoop(float dt)
 {
         // Process events
         sf::Event event;
+        this->dt = dt;
         while (window->pollEvent(event))
         {
             // Close window: exit

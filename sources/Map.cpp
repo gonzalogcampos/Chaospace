@@ -1,28 +1,32 @@
 #include "Map.h"
 #include "Player.h"
+#include <iostream>
+#include <Ship.h>
+#include <Npc.h>
 
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
-    player->update(dt);
+    player->update (dt);
 }
 
 /*
 Borra toda la informacion del mapa
 */
 void Map::clear()
-{
-
+{ 
+ 
 }
-
+ 
 /*
 Inicia el mapa
 */
 void Map::init()
 {
     player = createPlayer(10.f, 10.f);
+
 }
 
 /*
@@ -34,14 +38,14 @@ Ship* Map::createShip()
 }
 
 
-/*
+/* 
 Devuelve el player creado
 */
 Player* Map::createPlayer(float x, float y)
 {
-    player = new Player(x, y);
+    return new Player(x, y);
 }
-
+ 
 
 /*
 Carga un nivel
