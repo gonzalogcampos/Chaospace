@@ -1,8 +1,7 @@
 #pragma once
 #include "Ship.h"
+#include "Player.h"
 #include "Bullet.h"
-
-
 
 using namespace std;
 
@@ -10,7 +9,7 @@ class Npc : public Ship {
     private:
    
     int tipo;
-    int X,Y;
+    int X,Y,XPlayer, YPlayer;
     int contador=0;
     unsigned int nave;
     std::vector<Bullet*> Bullets;
