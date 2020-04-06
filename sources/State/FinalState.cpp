@@ -18,7 +18,7 @@ void FinalState::update(float dt){
 
     menu->update(dt);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
         switch (menu->click()){
             case 1: 
                 /*MENU INICIAL*/
