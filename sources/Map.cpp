@@ -7,7 +7,11 @@
 #include <Physics.h>
 #include <cstdlib>
 #include <Game.h>
+#include <Externs.h>
 
+
+float _Player_InitX = 100.f;
+float _Player_InitY = 360.f;
 
 /*
 Game update. Devuelve false si el jugador ha muerto.
@@ -85,7 +89,7 @@ void Map::loadLevel()
 {
     mapPosition = 0.f;
     level++;
-    player = createPlayer(100.f, 360.f);
+    player = createPlayer(_Player_InitX, _Player_InitY);
 }
 
 /*

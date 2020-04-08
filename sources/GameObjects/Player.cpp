@@ -3,15 +3,26 @@
 #include <Render.h>
 #include <Map.h>
 
+float _Player_vx = 200.f;
+float _Player_vy = 400.f;
+float _Player_Acel = 20.f;
+float _Player_Dcel = 20.f;
+float _Player_VToStop = 5.f;
+float _Player_MAXRight = 200.f;
+float _Player_VToCenter = .01f;
+float _Player_BBX = 123.f;
+float _Player_BBY = 115.f;
+float _Player_InitHP = 10.f;
+
 
 //Constructor por defecto de la clase Player.
 Player::Player(float x, float y)
 {
     wpn = 1;
-    hp = 3;
+    hp = _Player_InitHP;
     powerUp = 0;
     physics->setPosition(Pvect(x, y));
-    physics->setRectangleBB(Pvect(123.f,115.f));
+    physics->setRectangleBB(Pvect(_Player_BBX, _Player_BBY));
 
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
@@ -38,22 +49,75 @@ void Player::setPUp(int i)
 
 void Player::move()
 {
-    float vx = 0.f;
-    float vy = 0.f;
+    float ax = 0.f;
+    float ay = 0.f;
+    float vx = physics->getVelocity().x;
+    float vy = physics->getVelocity().y;
+
+    /*
+    PROTOCOLO DE ACELERACION
+    */
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        vy = -400.f;        
+        ay -=  _Player_Acel;        
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        vy = 400.f;
+        ay += _Player_Acel;
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        vx = 200.f;
+        ax += _Player_Acel;
    
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        vx = -200.f;
+        ax -= _Player_Acel;
+
+
+
+    /*
+    PROTOCOLO DE DECELERACION
+    */
+    if(ax == 0.f)
+    {
+        if(vx<_Player_VToStop)
+            ax = _Player_Dcel;
+        else if(vx>_Player_VToStop)
+            ax = -_Player_Dcel;
+        else
+            vx = 0.f;
+    }
+    if(ay == 0.f)
+    {
+        if(vy<_Player_VToStop)
+            ay = _Player_Dcel;
+        else if(vy>_Player_VToStop)
+            ay = -_Player_Dcel;
+        else
+            vy = 0.f;
+    }
+
+    /*
+    CALCULO DE LA VELOCIDAD
+    */
+    vx += ax;
+    vy += ay;
+    if(vx<(-_Player_vx))
+        vx = -_Player_vx;
+    else if(vx>_Player_vx)
+        vx = _Player_vx;
     
+    if(vy<(-_Player_vy))
+        vy = -_Player_vy;
+    else if(vy>_Player_vy)
+        vy = _Player_vy;
+
+
+    /*
+    SET DE LA VELOCIDAD
+    */
     physics->setVelocity(Pvect(vx, vy));
 
+
+    /*
+    CALCULO DE LA ORIENTACION
+    */
     float dx = Render::getInstance()->getCursorPosition().x - physics->getPosition().x;
     float dy = Render::getInstance()->getCursorPosition().y - physics->getPosition().y;
 
@@ -97,9 +161,9 @@ void Player::update(float dt)
 {
     move();
 
-    if(physics->getPosition().x>400.f)
+    if(physics->getPosition().x>_Player_MAXRight)
     { 
-        Map::getInstance()->moveMap(physics->getPosition().x - 400.f);
+        Map::getInstance()->moveMap((physics->getPosition().x - _Player_MAXRight ) *_Player_VToCenter);
     }else{
         Map::getInstance()->moveMap(0.f);
     }
