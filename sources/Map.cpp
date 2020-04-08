@@ -1,35 +1,47 @@
+//Main header
 #include <Map.h>
-#include "tinyxml2.h"
-#include "Render.h"
+
+//Headers
+#include <Render.h>
 #include <Player.h>
 #include <Ship.h>
 #include <Npc.h>
 #include <Physics.h>
-#include <cstdlib>
 #include <Game.h>
-#include <Externs.h>
+#include <Bullet.h>
+
+//External headers
+#include <tinyxml2.h>
+#include <cstdlib>
+
+
+/*=================================================*/
+/*==================   Values   ===================*/
+/*=================================================*/
 
 
 float _Player_InitX = 100.f;
 float _Player_InitY = 360.f;
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 /*
 Game update. Devuelve false si el jugador ha muerto.
 */
 bool Map::update(float dt)
 {
-    
     if(player==nullptr)
-    {
-        //Hemos muerto
         return false;
-    }
+    
     draw();
-    tryCreate(
-        
-    );
+    tryCreate();
     updateObjects(dt);
     updateColisions();
+
     return true;
 }
 
@@ -184,8 +196,17 @@ void Map::updateObjects(float dt)
 {
     player->update (dt);
 
-    for(size_t i = 0; i<npcs.size(); i++)
-        npcs.at(i)->update(dt);
+    for(auto it = npcs.begin(); it<npcs.end(); it++)
+    {   
+        if((*it)->getPhysics()->getPosition().x<200.f)
+        {
+            delete *it;
+            npcs.erase(it);
+            it--;
+        }else{
+            (*it)->update(dt);
+        }
+    }
 }
 
 void Map::updateColisions()

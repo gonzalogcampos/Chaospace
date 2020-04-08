@@ -1,7 +1,11 @@
 #pragma once
-#include "State.h"
 
+//Headers
+#include <State.h>
+
+//Forward declarations
 class Menu;
+
 class MenuState : public State 
 {
     private: 

@@ -1,7 +1,16 @@
-#include "PlayState.h"
+//Main header
+#include <PlayState.h>
+
+//Headers
 #include <Render.h>
 #include <Map.h>
-#include "Game.h"
+#include <Game.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 void PlayState::initState()
 {

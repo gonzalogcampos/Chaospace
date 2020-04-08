@@ -1,9 +1,10 @@
 #pragma once
-#include "Ship.h"
-#include "Player.h"
-#include "Bullet.h"
 
-using namespace std;
+//Header
+#include <Ship.h>
+
+//Forward declarations
+class Bullet;
 
 class Npc : public Ship {
     private:

@@ -1,6 +1,17 @@
+//Main header
 #include <Physics.h>
-#include <cmath>
+
+//Headers
 #include <Map.h>
+
+//External headers
+#include <cmath>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 /*
 Constructor por defecto.

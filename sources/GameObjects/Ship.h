@@ -1,16 +1,22 @@
 #pragma once
-#include <vector>
+
+//Header
 #include <GameObject.h>
 
+//External headers
+#include <vector>
+
+//Forward declarations
 class Bullet;
+
 
 class Ship: public GameObject{
     protected:
         int hp; //Variable responsable del control de la vida tanto del Player como de los Enemigos.
         int wpn; //Variable que dependiendo del valor, indicara el tipo de disparo de la nave.
         std::vector<Bullet*> bullets; //Vector de punteros a las balas que contendra el Player o un enemigo.
-        bool alive;
         float cadencia =1.f;
+        float shootVel = 1000.f;
         float st = 0.f;
 
     public:

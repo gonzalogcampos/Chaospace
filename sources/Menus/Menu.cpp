@@ -1,12 +1,28 @@
-#include "Menu.h"
-#include "Render.h"
+//Main header
+#include <Menu.h>
+
+//Headers
+#include <Render.h>
+
+
+/*=================================================*/
+/*==================   Values   ===================*/
+/*=================================================*/
+
 
 float HEIGHT_MODEL_SCALE = 1.f;
 float WIDTH_MODEL_SCALE = 1.f;
 
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
+
 void Menu::down(){
     
-    if(at<0.2){return;}
+    if(at<0.2)
+        return;
 
     at = 0.f;
 
@@ -22,27 +38,28 @@ void Menu::down(){
 
 void Menu::up()
 {   
-    if(at<0.2){return;}
+    if(at<0.2)
+        return;
 
     at = 0.f;
     buttons.at(focus)->unfocus();
     
-    if(focus <= 0){
+    if(focus <= 0)
+    {
         focus = buttons.size()-1;
-
     }else{
         
         focus--;
     }
+
     buttons.at(focus)->focus();
 }
 
 
 int Menu::click()
 {
-    if(!buttons.empty() && focus<buttons.size()){
+    if(!buttons.empty() && focus<buttons.size())
         return buttons.at(focus)->getID();
-    }
 
     return -1;
 }
@@ -54,7 +71,7 @@ void Menu::clear()
     
     buttons.clear();
 
-    Render::getInstance() -> deleteSprite(titulo);
+    Render::getInstance()->deleteSprite(titulo);
     
 }
 
@@ -62,12 +79,12 @@ void Menu::update(float dt)
 {
     //Time
     at+=dt;
-
     
     Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
-    for(size_t i=0; i<buttons.size(); i++){
+
+    for(size_t i=0; i<buttons.size(); i++)
         buttons.at(i)->update();
-    }
+    
 }
 
 void Menu::setBackground(char* b)
@@ -90,14 +107,11 @@ Button::~Button()
 {
     Render::getInstance()->deleteSprite(spritenormal);
     Render::getInstance()->deleteSprite(spritefocus);
-
 }
 
 void Button::focus()
 {
-
-sprite = spritefocus;
-
+    sprite = spritefocus;
 }
 
 void Button::unfocus()
@@ -116,5 +130,4 @@ void Button::setPosition(float x, float y)
 void Button::update()
 {
     Render::getInstance() -> drawSprite(sprite, Rvect(x, y));
-
 }

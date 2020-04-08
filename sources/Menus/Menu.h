@@ -1,7 +1,7 @@
 #pragma once
+
+//External headers
 #include <vector>
-
-
 
 class Button
 {
@@ -13,6 +13,7 @@ class Button
         int id;
 
     public:
+
         Button(int id, char* pathnormal, char* pathfocus, float x, float y);
         ~Button();
       

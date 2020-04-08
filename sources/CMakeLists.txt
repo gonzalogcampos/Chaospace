@@ -33,7 +33,9 @@ target_sources(modulos PRIVATE
 
     "${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Map.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2.cpp"
+
+
+    "${CMAKE_CURRENT_SOURCE_DIR}/TinyXML/tinyxml2.cpp"
 )
 
 #Y donde se encuentran los .h
@@ -44,6 +46,7 @@ target_include_directories(modulos PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/State"
     "${CMAKE_CURRENT_SOURCE_DIR}/Render"
     "${CMAKE_CURRENT_SOURCE_DIR}/Menus"
+    "${CMAKE_CURRENT_SOURCE_DIR}/TinyXML"
     "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 

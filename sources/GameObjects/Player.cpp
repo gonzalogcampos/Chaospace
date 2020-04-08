@@ -1,7 +1,16 @@
+//Main header
 #include <Player.h>
+
+//Headers
 #include <Physics.h>
 #include <Render.h>
 #include <Map.h>
+
+
+/*=================================================*/
+/*==================   Values   ===================*/
+/*=================================================*/
+
 
 float _Player_vx = 200.f;
 float _Player_vy = 400.f;
@@ -13,6 +22,11 @@ float _Player_VToCenter = .01f;
 float _Player_BBX = 123.f;
 float _Player_BBY = 115.f;
 float _Player_InitHP = 10.f;
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
 
 
 //Constructor por defecto de la clase Player.

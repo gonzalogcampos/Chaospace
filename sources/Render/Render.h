@@ -1,9 +1,11 @@
 #pragma once
+
+//External headers
 #include <string>
 #include <map>
 #include <vector>
 
-//Cabecera de SFML
+//Header SFML
 #include <SFML/Graphics.hpp>
 
 
@@ -65,7 +67,7 @@ class Render
         Rint spritesCont = 1;
         Rint animationsCont = 1;
 
-        float globalScale;
+        Rvect globalScale = Rvect(1.f, 1.f);
         float dt = 0.f;
 
     public:
@@ -95,9 +97,9 @@ class Render
 
         void clearMemory();
 
-        void setGlobalScale(float scale);
+        void setGlobalScale(Rvect scale);
 
-        float getGlobalScale();
+        Rvect getGlobalScale();
 
         Rvect getCursorPosition();
 

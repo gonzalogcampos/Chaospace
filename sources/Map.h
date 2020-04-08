@@ -1,11 +1,15 @@
 #pragma once
+
+//External headers
 #include <vector>
 #include <string>
 
+//Forward declarations
 class Player;
 class Ship;
 class GameObject;
 class Npc;
+
 
 class Map
 {

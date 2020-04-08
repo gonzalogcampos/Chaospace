@@ -1,12 +1,22 @@
-#include <stdlib.h>
-#include <stdio.h>
+//Main header
 #include <Game.h>
+
+//Headers
 #include <PlayState.h>
 #include <FinalState.h>
 #include <MenuState.h>
 #include <TestState.h>
 #include <Render.h>
 #include <Clock.h>
+
+//External headers
+#include <stdlib.h>
+#include <stdio.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
 
 
 void Game::run()

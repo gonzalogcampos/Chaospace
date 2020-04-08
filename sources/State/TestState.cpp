@@ -1,21 +1,23 @@
-#include "TestState.h"
-#include <Render.h>
-#include <Physics.h>
+//Main header
+#include <TestState.h>
 
- void TestState::initState()
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
+
+void TestState::initState()
 {
     type = State::TEST;
-    p = new Physics();
 } 
 
 
 void TestState::update(float dt)
 {
-    p->update(dt);
 }
 
 
 void TestState::clear()
 {
-    delete p;
 }

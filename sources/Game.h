@@ -1,7 +1,11 @@
 #pragma once
+
+//Headers
 #include <State.h>
 
+//Forward declarations
 class Clock;
+
 class Game
 {
     private:

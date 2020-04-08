@@ -1,7 +1,14 @@
-
+//Main header
 #include <GameObject.h>
+
+//Headers
 #include <Physics.h>
 #include <Render.h>
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 GameObject::GameObject()
 {

@@ -9,7 +9,8 @@ public:
         PLAY,
         TEST,
         MENUINICIAL,
-        MENUFINAL
+        MENUFINAL,
+        MENUPAUSE
     };
 
     virtual ~State() {};

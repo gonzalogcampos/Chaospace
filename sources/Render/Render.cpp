@@ -1,4 +1,19 @@
+//Main header
 #include <Render.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
+const int WINDOW_H = 720;
+const int WINDOW_W = 1080;
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 /*
 Destructor que llama a  la  funcion close de Render.
@@ -18,7 +33,7 @@ void Render::init()
 
     spritesCont = 1;
 
-    globalScale = 1;
+    globalScale = Rvect(1.f, 1.f);
 }
 
 /*
@@ -41,8 +56,8 @@ bool Render::isWindowOpen()
 /*
 Devuelve la altura de la ventana.
 */
-float Render::getWindowWidth(){
-    
+float Render::getWindowWidth()
+{    
     return window->getSize().x;
 }
 
@@ -68,6 +83,15 @@ void Render::preLoop(float dt)
             // Close window: exit
             if (event.type == sf::Event::Closed)
                 window->close();
+            //else if(event.type == sf::Event::Resized)
+            //{
+            //    // update the view to the new size of the window
+            //    globalScale.x = event.size.width / WINDOW_W;
+            //    globalScale.y = event.size.height / WINDOW_H;
+            //
+            //    //sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+            //    //window->setView(sf::View(visibleArea));
+            //}
         }
         // Clear screen
         window->clear();
@@ -97,7 +121,7 @@ void Render::clearMemory()
 /*
 Aplica la escala global a todos los sprites.
 */
-void Render::setGlobalScale(float scale)
+void Render::setGlobalScale(Rvect scale)
 {
     globalScale = scale;
 }
@@ -105,7 +129,7 @@ void Render::setGlobalScale(float scale)
 /*
 Devuelve la escala global que se aplica a todos los sprites.
 */
-float Render::getGlobalScale()
+Rvect Render::getGlobalScale()
 {
     return globalScale;
 }
@@ -240,7 +264,7 @@ bool Render::drawSprite(Rint sprite)
     if(sprites.find(sprite)!=sprites.end())
     {
         sprites.find(sprite)->second->setScale(sf::Vector2f(1, 1));
-        sprites.find(sprite)->second->scale(sf::Vector2f(globalScale, globalScale));
+        sprites.find(sprite)->second->scale(sf::Vector2f(globalScale.x, globalScale.y));
         window->draw(*sprites.find(sprite)->second);
         
         r=true;
@@ -271,9 +295,9 @@ bool Render::drawSprite(Rint sprite, Rvect position, float rotation, float scale
     }
     
     s->setScale(sf::Vector2f(scale, scale));
-    s->scale(sf::Vector2f(globalScale, globalScale));
+    s->scale(sf::Vector2f(globalScale.x, globalScale.y));
     s->setRotation(rotation);
-    s->setPosition(sf::Vector2f(position.x, position.y)); 
+    s->setPosition(sf::Vector2f(position.x*globalScale.x, position.y*globalScale.y)); 
 
     window->draw(*s);
 

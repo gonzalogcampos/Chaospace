@@ -1,13 +1,13 @@
 #pragma once
-#include "State.h"
 
-class Physics;
+//Headers
+#include <State.h>
+
+
 class TestState : public State 
 {
     private:
         TestState(){}
-        Physics* p;
-        float rot = 0;      
     public:
 
          static TestState* getInstance(){

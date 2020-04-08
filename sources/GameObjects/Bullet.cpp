@@ -1,6 +1,15 @@
+//Main header
 #include <Bullet.h>
+
+//Headers
 #include <Physics.h>
 #include <Render.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 Bullet::Bullet(float x, float y, float v, float dir, int type)
 {   

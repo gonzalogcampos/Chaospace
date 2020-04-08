@@ -1,16 +1,23 @@
+//Main header
 #include <MenuState.h>
+
+//Headers
 #include <Game.h>
 #include <Menu.h>
 #include <Render.h>
 #include <MainMenu.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
 
 void MenuState::initState(){
     
     type = State::MENUINICIAL;
 
      menu = new MainMenu();
-
-
 } 
 
 

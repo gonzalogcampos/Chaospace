@@ -1,15 +1,24 @@
-#include "FinalState.h"
-#include "Game.h"
-#include "Menu.h"
-#include "Render.h"
-#include "FinalMenu.h"
+//Main header
+#include <FinalState.h>
 
-void FinalState::initState(){
+//Headers
+#include <Game.h>
+#include <Menu.h>
+#include <Render.h>
+#include <FinalMenu.h>
+
+
+/*=================================================*/
+/*==================   Metodos   ==================*/
+/*=================================================*/
+
+
+void FinalState::initState()
+{
     
     type = State::MENUFINAL;
 
     menu = new FinalMenu();
-
 
 } 
 
@@ -38,15 +47,16 @@ void FinalState::update(float dt){
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
         menu->down();   
-    }
+    
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    {
         menu->up();   
-    }
+    
     
 }
 
-void FinalState::clear(){}
+void FinalState::clear()
+{
+
+}
