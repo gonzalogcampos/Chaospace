@@ -5,8 +5,8 @@
 
 float _Player_vx = 200.f;
 float _Player_vy = 400.f;
-float _Player_Acel = 20.f;
-float _Player_Dcel = 20.f;
+float _Player_Acel = 30.f;
+float _Player_Dcel = 30.f;
 float _Player_VToStop = 5.f;
 float _Player_MAXRight = 200.f;
 float _Player_VToCenter = .01f;
