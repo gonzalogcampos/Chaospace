@@ -145,6 +145,9 @@ Si la textura ya estaba cargada no la actualiza
 */
 bool Render::loadTexture(std::string texture)
 {
+    if(textures.find(texture)!=textures.end())
+        return true;
+        
     sf:: Texture*  tex= new sf::Texture();
     if(!tex->loadFromFile(texture))
         return false;
