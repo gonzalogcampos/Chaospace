@@ -123,6 +123,12 @@ void Map::createBoss()
     
 }
 
+void Map::createBullet(float x, float y, float vel, float orient, int type, bool fromPlayer)
+{
+    Bullet *n_bullet = new Bullet(x, y, vel, orient, type, fromPlayer);
+    bullets.push_back(n_bullet);
+}
+
 /* 
 Devuelve el player creado
 */
@@ -241,68 +247,78 @@ void Map::updateObjects(float dt)
             (*it)->update(dt);
         }
     }
+
+    for(unsigned i = 0; i < bullets.size(); i++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if(bullets.at(i)->getPhysics()->getPosition().x > 2000 || bullets.at(i)->getPhysics()->getPosition().x < -100 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
+            //En caso de cumplirse la condicion, borramos dicha bala.
+            delete bullets.at(i);
+            bullets.erase(bullets.begin()+i);
+            i--;
+        } else if(bullets.at(i)->getPhysics()->getPosition().y > 800 || bullets.at(i)->getPhysics()->getPosition().y < -100 ) { //Aqui controlamos que se salgan de la pantalla verticalmente.
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete bullets.at(i);
+            bullets.erase(bullets.begin()+i);
+            i--;
+        } else {
+            //Llamar al update de la bala
+            bullets.at(i)->update(dt);
+        }
+    }
 }
 
 void Map::updateColisions()
 {
-    for(auto it = player->getBullets()->begin(); it<player->getBullets()->end(); it++)
+
+    for(auto it = bullets.begin(); it<bullets.end(); it++)
     {
-        Physics* p = (*it)->getPhysics();
         bool colision = false;
-
-        /*
-        if(boss && p->colides(boss->getPhysics()));
+        if( (*it)->isFromPlayer() )
         {
-            if(boss->hit())
-            {
-                delete boss;
-                boss = nullptr;
-                score += bossScore * (1 + (level*incScore));
-            } 
-            colision = true;
-        }
-        */
+            Physics* p = (*it)->getPhysics();
 
-        for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
-        {
-            if(p->colides((*jt)->getPhysics()))
+            /*
+            if(boss && p->colides(boss->getPhysics()));
             {
-                delete *jt;
-                npcs.erase(jt);
+                if(boss->hit())
+                {
+                    delete boss;
+                    boss = nullptr;
+                    score += bossScore * (1 + (level*incScore));
+                } 
                 colision = true;
-                score += enemyScore * (1 + (level*incScore));
             }
-        }
-        if(colision)
-        {
-            delete *it;
-            player->getBullets()->erase(it);
-            it--;
-            colision = false;
-        }
-    }
+            */
 
-    //De momento no compruebo la colision con las balas del boss porque al final estaran todas juntas
-    for(auto it = npcs.begin(); it<npcs.end(); it++)
-    {
-        bool colision = false;
-        for(auto jt = (*it)->getBullets()->begin(); jt<(*it)->getBullets()->end() && !colision; jt++)
-        {
-            if(player->getPhysics()->colides((*jt)->getPhysics()))
+            for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
+            {
+                if(p->colides((*jt)->getPhysics()))
+                {
+                    delete *jt;
+                    npcs.erase(jt);
+                    score += enemyScore * (1 + (level*incScore));
+                    colision = true;
+                }
+            }
+
+        }else{
+            if(player && player->getPhysics()->colides((*it)->getPhysics()))
             {
                 colision = true;
-                delete *jt;
-                (*it)->getBullets()->erase(jt);
-                jt--;
-
                 if(player->hpDown())
                 {
                     delete player;
                     player = nullptr;
-
-                    return;
                 }
             }
+            
+        }
+
+        if(colision)
+        {
+            delete *it;
+            bullets.erase(it);
+            it--;
         }
     }
 }

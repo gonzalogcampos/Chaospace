@@ -8,6 +8,7 @@
 class Player;
 class Ship;
 class GameObject;
+class Bullet;
 class Npc;
 
 
@@ -18,8 +19,10 @@ class Map
         Player* player;
         
         void* boss;
-        
+
         std::vector<Npc*> npcs;
+        std::vector<Bullet*> bullets;
+
         Map(){}
         float mapPosition;
         float mapIncPosition;
@@ -48,6 +51,8 @@ class Map
         void createNpc();
 
         void createBoss();
+
+        void createBullet(float x, float y, float vel, float orient, int type, bool fromPlayer);
         
         Player* createPlayer(float x, float y);
 

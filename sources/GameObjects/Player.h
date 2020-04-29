@@ -16,6 +16,8 @@ class Player : public Ship {
 
         void move(); //Sobrecarga del metodo de movimiento la clase padre.
 
+        void shoot();
+
         int getPUp(); //Metodo para recuperar el powerUp pasivo actual del Player.
 
         void setPUp(int i); //Metodo para cambiar el powerUp pasivo actual del Player.

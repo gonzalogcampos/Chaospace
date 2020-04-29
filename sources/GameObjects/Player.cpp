@@ -199,3 +199,13 @@ void Player::update(float dt)
     Ship::update(dt);
 
 }    
+ 
+
+void Player::shoot()
+{
+    if(st>cadencia)
+    {
+        st = 0.f;
+        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), 1, true);
+    }
+}
