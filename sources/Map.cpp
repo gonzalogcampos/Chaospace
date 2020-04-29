@@ -28,10 +28,15 @@ const float _Player_InitY = 285.f;
 const float baseDistance = 1000.f;
 const float incDisctance = 200.f;
 
-const float bossMaxDist = 5.f;
+const float bossMaxDist = 50.f;
 
 const float baseEnemy = 50.f;
 const float incEnemy = 10.f;
+
+const unsigned int enemyScore = 100;
+const unsigned int bossScore = 1000;
+const float incScore = .2;
+
 
 
 /*=================================================*/
@@ -58,9 +63,16 @@ bool Map::update(float dt)
         Game::getInstance()->setState(State::NEXTLEVEL);
         return false;
     }
+    else if(mapPosition> mapPosition>baseDistance+(level * incDisctance) - bossMaxDist && !boss)
+    {
+        createBoss();
+    }
 
     draw();
-    tryCreate();
+
+    if(!boss)
+        tryCreate();
+
     updateObjects(dt);
     updateColisions();
 
@@ -104,6 +116,11 @@ void Map::createNpc()
 {   int tipo = rand() % 7;
     Npc* npc = new Npc(tipo+1, 1200.f, rand()%570);
     npcs.push_back(npc);
+}
+
+void Map::createBoss()
+{
+    
 }
 
 /* 
@@ -178,8 +195,11 @@ float Map::getMapIncPosition()
         
 void Map::moveMap(float dx)
 {
-    mapPosition += dx;
-    mapIncPosition = dx;
+    if(!boss)
+    {
+        mapPosition += dx;
+        mapIncPosition = dx;
+    }
 }
 
 float Map::getPlayerX(){
@@ -207,6 +227,9 @@ void Map::updateObjects(float dt)
 {
     player->update (dt);
 
+    //if(boss)boss->update(dt);
+
+    //Borrado de npc fuera del mapa
     for(auto it = npcs.begin(); it<npcs.end(); it++)
     {   
         if((*it)->getPhysics()->getPosition().x<200.f)
@@ -226,6 +249,20 @@ void Map::updateColisions()
     {
         Physics* p = (*it)->getPhysics();
         bool colision = false;
+
+        /*
+        if(boss && p->colides(boss->getPhysics()));
+        {
+            if(boss->hit())
+            {
+                delete boss;
+                boss = nullptr;
+                score += bossScore * (1 + (level*incScore));
+            } 
+            colision = true;
+        }
+        */
+
         for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
         {
             if(p->colides((*jt)->getPhysics()))
@@ -233,6 +270,7 @@ void Map::updateColisions()
                 delete *jt;
                 npcs.erase(jt);
                 colision = true;
+                score += enemyScore * (1 + (level*incScore));
             }
         }
         if(colision)
@@ -244,7 +282,7 @@ void Map::updateColisions()
         }
     }
 
-
+    //De momento no compruebo la colision con las balas del boss porque al final estaran todas juntas
     for(auto it = npcs.begin(); it<npcs.end(); it++)
     {
         bool colision = false;
@@ -278,6 +316,8 @@ void Map::loadLevel()
     clear();
     mapPosition = 0.f;
     level++;
+    if(level == 0)
+        score = 0;
     player = createPlayer(_Player_InitX, _Player_InitY);
 
 }

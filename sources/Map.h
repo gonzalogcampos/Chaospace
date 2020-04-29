@@ -16,10 +16,14 @@ class Map
     private:
         //std::vector<Ship*> ships;
         Player* player;
+        
+        void* boss;
+        
         std::vector<Npc*> npcs;
         Map(){}
         float mapPosition;
         float mapIncPosition;
+        unsigned int score = 0;
 
         int level = -1;
         unsigned int fondo;
@@ -43,6 +47,8 @@ class Map
 
         void createNpc();
 
+        void createBoss();
+        
         Player* createPlayer(float x, float y);
 
         void loadLevel();
