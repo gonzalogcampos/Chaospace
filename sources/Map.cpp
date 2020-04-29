@@ -90,12 +90,24 @@ void Map::clear()
     }
     npcs.clear();
 
+    for(auto it = bullets.begin(); it<bullets.end(); it++)
+    {
+        delete *it;
+    }
+    bullets.clear();
+
     if(player)
     {
         delete player;
         player = nullptr;
     }
-    level = -1;
+
+    if(boss)
+    {
+        delete boss;
+        boss = nullptr;
+    }
+
     mapPosition = 0.f;
 }
  
@@ -106,7 +118,6 @@ void Map::init()
 {
     loadLevel();
     loadMapInfo("mapa1"); 
-
 }
 
 /*
@@ -334,6 +345,6 @@ void Map::loadLevel()
     level++;
     if(level == 0)
         score = 0;
+    
     player = createPlayer(_Player_InitX, _Player_InitY);
-
 }
