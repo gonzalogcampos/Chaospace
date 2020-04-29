@@ -416,6 +416,11 @@ void Render::shake()
 }
 
 
+void Render::drawText(sf::Text text)
+{
+    window->draw(text);
+}
+
 
 
 

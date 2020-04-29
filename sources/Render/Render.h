@@ -143,5 +143,8 @@ class Render
 
         bool drawAnimation(Rint animation, Rvect position, float rotation = 0.f, float scale = 1.f, bool centered = true);
 
+        //EXTRA 
+        void drawText(sf::Text text);
+
 
 };
