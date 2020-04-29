@@ -67,6 +67,8 @@ class Render
         Rint spritesCont = 1;
         Rint animationsCont = 1;
 
+        float shakeTime = 0.f;
+
         Rvect globalScale = Rvect(1.f, 1.f);
         float dt = 0.f;
 
@@ -102,6 +104,8 @@ class Render
         Rvect getGlobalScale();
 
         Rvect getCursorPosition();
+
+        void shake();
 
         //Textures function
 

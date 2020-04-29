@@ -78,6 +78,7 @@ void Render::preLoop(float dt)
         // Process events
         sf::Event event;
         this->dt = dt;
+        shakeTime -= dt;
         while (window->pollEvent(event))
         {
             // Close window: exit
@@ -300,7 +301,13 @@ bool Render::drawSprite(Rint sprite, Rvect position, float rotation, float scale
     s->setScale(sf::Vector2f(scale, scale));
     s->scale(sf::Vector2f(globalScale.x, globalScale.y));
     s->setRotation(rotation);
-    s->setPosition(sf::Vector2f(position.x*globalScale.x, position.y*globalScale.y)); 
+
+    float sh = 0.f;
+
+    if(shakeTime>0.f)
+        sh = 4*sin(shakeTime * 80);
+
+    s->setPosition(sf::Vector2f(position.x*globalScale.x + sh, position.y*globalScale.y + sh)); 
 
     window->draw(*s);
 
@@ -399,6 +406,11 @@ bool Render::drawAnimation(Rint animation, Rvect position, float rotation, float
 }
 
 
+void Render::shake()
+{
+
+    shakeTime = .2f;
+}
 
 
 

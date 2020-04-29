@@ -316,6 +316,7 @@ void Map::updateColisions()
             if(player && player->getPhysics()->colides((*it)->getPhysics()))
             {
                 colision = true;
+                Render::getInstance()->shake();
                 if(player->hpDown())
                 {
                     delete player;
