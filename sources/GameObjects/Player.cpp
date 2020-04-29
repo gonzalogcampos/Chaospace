@@ -21,7 +21,7 @@ float _Player_MAXRight = 200.f;
 float _Player_VToCenter = .01f;
 float _Player_BBX = 123.f;
 float _Player_BBY = 115.f;
-float _Player_InitHP = 10.f;
+float _Player_InitHP = 100.f;
 
 
 /*=================================================*/
@@ -37,6 +37,8 @@ Player::Player(float x, float y)
     powerUp = 0;
     physics->setPosition(Pvect(x, y));
     physics->setRectangleBB(Pvect(_Player_BBX, _Player_BBY));
+
+    bulletType = 2;
 
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
@@ -58,6 +60,13 @@ int Player::getPUp()
 void Player::setPUp(int i)
 { 
         powerUp = i;
+}
+
+void Player::hpUp(int hp)
+{
+    this->hp += hp;
+    if(this->hp >_Player_InitHP)
+        this->hp = _Player_InitHP;
 }
 
 
@@ -206,6 +215,6 @@ void Player::shoot()
     if(st>cadencia)
     {
         st = 0.f;
-        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), 1, true);
+        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), bulletType, true);
     }
 }

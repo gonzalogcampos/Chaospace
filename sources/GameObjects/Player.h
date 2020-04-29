@@ -21,6 +21,8 @@ class Player : public Ship {
         int getPUp(); //Metodo para recuperar el powerUp pasivo actual del Player.
 
         void setPUp(int i); //Metodo para cambiar el powerUp pasivo actual del Player.
+
+        void hpUp(int hp);
         
         void update(float dt);
 };

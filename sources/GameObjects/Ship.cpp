@@ -16,6 +16,7 @@
 Ship::Ship()
 { 
     wpn = 1;
+    hp = 1;
 }
 
  //Metodo destructor de un Ship.
@@ -24,10 +25,6 @@ Ship::~Ship()
 
 }
 
-std::vector<Bullet*>* Ship::getBullets()
-{
-    return &bullets;
-}
 
 //Metodo que controla y permite el disparo efectuado por un Ship.
 void Ship::shoot()
@@ -35,22 +32,22 @@ void Ship::shoot()
     if(st>cadencia)
     {
         st = 0.f;
-        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), 1, false);
+        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), bulletType, false);
     }
 } 
 
 //Metodo auxiliar utilizado para subir en 1 el valor de la vida de la nave.
-void Ship::hpUp()
+void Ship::hpUp(int hp)
 {
-    hp++;
+    this->hp += hp;
 }
 
  //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
-bool Ship::hpDown()
+bool Ship::hpDown(int hp)
 {
-    hp--;
+    this->hp -= hp;
 
-    if(hp<=0)
+    if(this->hp<=0)
         return true;
     
 
@@ -74,4 +71,19 @@ void Ship::update(float dt)
 {
     st += dt;
     GameObject::update(dt);
+}
+
+void Ship::setBulletType(int t)
+{
+    bulletType = t;
+}
+
+int Ship::getBulletType()
+{
+    return bulletType;
+}
+
+void Ship::setCadencia(float c)
+{
+    cadencia = c;
 }

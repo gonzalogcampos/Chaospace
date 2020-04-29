@@ -19,7 +19,7 @@
 /*=================================================*/
 
 
-//Cosntructor por defecto de la clase Player.
+//Cosntructor por defecto de la clase NPC.
 Npc::Npc() 
 {
 
@@ -31,35 +31,43 @@ Npc::Npc(int IA, float posX, float posY){
     {
     case 1:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=10;
         break;
     case 2:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=10;
         break;
     case 3:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=10;
         break;
     case 4:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=10;
         break;
     case 5:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=5;
         break;
     case 6:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=5;
         break;
         case 7:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;        
         cadencia=5;
         break;
     
     default:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        hp = 1;
         cadencia=10;
         break;
     }
@@ -83,7 +91,11 @@ Npc::Npc(int IA, float posX, float posY){
 
 
 Npc::~Npc(){
-
+    float r = random()%100;
+    if(r<10)
+    {
+        Map::getInstance()->createLife(physics->getPosition().x, physics->getPosition().y);
+    }
 } //Metodo destructor de la clase NPC.
 
 void Npc::IA(int tipo){

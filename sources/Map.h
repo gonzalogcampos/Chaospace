@@ -10,7 +10,7 @@ class Ship;
 class GameObject;
 class Bullet;
 class Npc;
-
+class PowerUp;
 
 class Map
 {
@@ -22,6 +22,7 @@ class Map
 
         std::vector<Npc*> npcs;
         std::vector<Bullet*> bullets;
+        std::vector<PowerUp*> powerUps;
 
         Map(){}
         float mapPosition;
@@ -55,6 +56,8 @@ class Map
         void createBullet(float x, float y, float vel, float orient, int type, bool fromPlayer);
         
         Player* createPlayer(float x, float y);
+
+        void createLife(float x, float y);
 
         void loadLevel();
 

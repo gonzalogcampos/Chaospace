@@ -9,6 +9,7 @@
 #include <Physics.h>
 #include <Game.h>
 #include <Bullet.h>
+#include <PowerUp.h>
 
 //External headers
 #include <tinyxml2.h>
@@ -95,6 +96,12 @@ void Map::clear()
         delete *it;
     }
     bullets.clear();
+        
+    for(auto it = powerUps.begin(); it<powerUps.end(); it++)
+    {
+        delete *it;
+    }
+    powerUps.clear();
 
     if(player)
     {
@@ -147,6 +154,12 @@ Player* Map::createPlayer(float x, float y)
 {
     Player* p = new Player(x, y);
     return p;
+}
+
+void Map::createLife(float x, float y)
+{
+    PowerUp* p = new PowerUp(LIFE, x, y);
+    powerUps.push_back(p);
 }
 
 /*
@@ -246,41 +259,80 @@ void Map::updateObjects(float dt)
 
     //if(boss)boss->update(dt);
 
-    //Borrado de npc fuera del mapa
-    for(auto it = npcs.begin(); it<npcs.end(); it++)
-    {   
-        if((*it)->getPhysics()->getPosition().x<200.f)
-        {
-            delete *it;
-            npcs.erase(it);
+
+    //Borrado de balas fuera del mapa y update
+    for(auto it = bullets.begin(); it < bullets.end(); it++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
+            || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100 ) {
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete (*it);
+            bullets.erase(it);
             it--;
-        }else{
+        } else {
+            //Llamar al update de la bala
             (*it)->update(dt);
         }
     }
 
-    for(unsigned i = 0; i < bullets.size(); i++) {
+    //Borrado de powerups fuera del mapa y update
+    for(auto it = powerUps.begin(); it < powerUps.end(); it++) {
         //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
-        if(bullets.at(i)->getPhysics()->getPosition().x > 2000 || bullets.at(i)->getPhysics()->getPosition().x < -100 ) { //Aqui controlamos que salgan de la pantalla horizontalmente.
-            //En caso de cumplirse la condicion, borramos dicha bala.
-            delete bullets.at(i);
-            bullets.erase(bullets.begin()+i);
-            i--;
-        } else if(bullets.at(i)->getPhysics()->getPosition().y > 800 || bullets.at(i)->getPhysics()->getPosition().y < -100 ) { //Aqui controlamos que se salgan de la pantalla verticalmente.
+        if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
+            || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100 ) {
             //Cumplida la condicion, procedemos a borrar la bala.
-            delete bullets.at(i);
-            bullets.erase(bullets.begin()+i);
-            i--;
+            delete (*it);
+            powerUps.erase(it);
+            it--;
         } else {
             //Llamar al update de la bala
-            bullets.at(i)->update(dt);
+            (*it)->update(dt);
         }
     }
+
+    //Borrado de npcs fuera del mapa y update
+    for(auto it = npcs.begin(); it < npcs.end(); it++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
+            || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100 ) {
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete (*it);
+            npcs.erase(it);
+            it--;
+        } else {
+            //Llamar al update de la bala
+            (*it)->update(dt);
+        }
+    }
+
 }
 
 void Map::updateColisions()
 {
-
+    ///Colision de power ups
+    for(auto it = powerUps.begin(); it<powerUps.end(); it++)
+    {
+        if((*it)->getPhysics()->colides(player->getPhysics()))
+        {
+            switch ((*it)->getType())
+            {
+            case LIFE:
+                player->hpUp(10);
+                break;
+            case WEAPON1:
+                /* code */
+                break;
+            
+            default:
+                break;
+            }
+            delete (*it);
+            powerUps.erase(it);
+            it--;
+        }
+    }
+    
+    //Colision de balas
     for(auto it = bullets.begin(); it<bullets.end(); it++)
     {
         bool colision = false;
@@ -291,7 +343,7 @@ void Map::updateColisions()
             /*
             if(boss && p->colides(boss->getPhysics()));
             {
-                if(boss->hit())
+                if(boss->hpDown((*it)->getForce()))
                 {
                     delete boss;
                     boss = nullptr;
@@ -305,10 +357,13 @@ void Map::updateColisions()
             {
                 if(p->colides((*jt)->getPhysics()))
                 {
-                    delete *jt;
-                    npcs.erase(jt);
-                    score += enemyScore * (1 + (level*incScore));
                     colision = true;
+                    if((*jt)->hpDown((*it)->getForce()))
+                    {
+                        delete *jt;
+                        npcs.erase(jt);
+                        score += enemyScore * (1 + (level*incScore));
+                    }
                 }
             }
 
@@ -317,7 +372,7 @@ void Map::updateColisions()
             {
                 colision = true;
                 Render::getInstance()->shake();
-                if(player->hpDown())
+                if(player->hpDown((*it)->getForce()))
                 {
                     delete player;
                     player = nullptr;
