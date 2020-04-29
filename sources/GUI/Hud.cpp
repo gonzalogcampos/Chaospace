@@ -1,8 +1,7 @@
-using namespace std;
-#include <iostream>
+
 #include <string>
 #include "Hud.h"
-
+#include <Render.h>
 
 Hud::Hud(){
     fuente = new sf::Font();
@@ -40,7 +39,7 @@ Hud::~Hud(){}
 void Hud::setPuntuacion(int sumar){
 
     puntuacion = puntuacion+sumar;
-    string puntuacion_text = to_string(puntuacion); 
+    std::string puntuacion_text = std::to_string(puntuacion); 
     texto_puntuacion->setString(puntuacion_text);
 }
 
@@ -51,7 +50,7 @@ void Hud::setLevel(){
 }
 
 void Hud::setTextoEnemigos(int enemigos_restantes){
-    texto_enemigos->setString("x  " + to_string(enemigos_restantes));
+    texto_enemigos->setString("x  " + std::to_string(enemigos_restantes));
 }
 
 

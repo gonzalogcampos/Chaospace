@@ -1,7 +1,13 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
-
+namespace sf
+{
+class Font;
+class Text;
+class Texture;
+class Sprite;
+}
 
 class Hud{
     private:
