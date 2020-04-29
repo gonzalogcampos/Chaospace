@@ -14,7 +14,7 @@
 //External headers
 #include <tinyxml2.h>
 #include <cstdlib>
-
+#include <iostream>
 
 /*=================================================*/
 /*==================   Values   ===================*/
@@ -26,8 +26,8 @@ const float _Player_InitY = 285.f;
 
 //Level Values
 
-const float baseDistance = 1000.f;
-const float incDisctance = 200.f;
+const float baseDistance = 10000.f;
+const float incDisctance = 100.f;
 
 const float bossMaxDist = 50.f;
 
@@ -185,7 +185,7 @@ void Map::loadMapInfo(std::string rutaMapa)
     //xmlMap = document.FirstChildElement("map");
     fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
     // fondo = Render::getInstance()->createAnimation(1.f);
-    // paredes = Render::getInstance()->createSprite("/resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
+    paredes = Render::getInstance()->createSprite("resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
     /*
     imageLayer = xmlMap->FirstChildElement("imagelayer");
     while(imageLayer) {
@@ -208,14 +208,21 @@ void Map::loadMapInfo(std::string rutaMapa)
    
 
 }
-
 /*
 Dibujado del mapa
 */  
 void Map::draw()
 {
-    Render::getInstance()->drawSprite(fondo, Rvect(-mapPosition*0.1, 0), 0.f, 1.f, false);
-    //Render::getInstance()->drawSprite(paredes, Rvect(0, 0), 0.f, 1.f, false);
+    float v1 = .1;
+    float v2 = .9;
+
+    Render::getInstance()->drawSprite(fondo, Rvect(-mapPosition*v1, 0), 0.f, 1.f, false);
+
+    int n = v2*mapPosition/1080;
+    float xpos = (1080 * n) - mapPosition*.9;
+
+    Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
+    Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
 }
 
 float Map::getMapIncPosition()

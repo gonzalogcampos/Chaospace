@@ -83,7 +83,7 @@ class Render
 
         //System functions
 
-        void init();
+        void init(Rvect size, std::string title);
 
         void close();
 
