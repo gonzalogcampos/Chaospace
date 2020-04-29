@@ -1,6 +1,9 @@
 //Main header
 #include <Render.h>
 
+//External headers
+#include <math.h>
+
 
 /*=================================================*/
 /*==================   Metodos   ==================*/
