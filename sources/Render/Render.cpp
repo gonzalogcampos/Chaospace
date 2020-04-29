@@ -408,14 +408,19 @@ bool Render::drawAnimation(Rint animation, Rvect position, float rotation, float
     return r;
 }
 
-
+/*
+It shakes all the window for .2f seconds 
+*/
 void Render::shake()
 {
 
     shakeTime = .2f;
 }
 
-
+/*
+Text is NOT supported on this facade, so if you want to write some text, you will hay to handle it!
+This function is for draw your text.
+*/
 void Render::drawText(sf::Text text)
 {
     window->draw(text);
