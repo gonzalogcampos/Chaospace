@@ -21,9 +21,7 @@ class Map
         float mapPosition;
         float mapIncPosition;
 
-        int level = 0;
-        float enemiesPerSecond = 50.f;
-        float incEnemiesPerSecond = 10.f;
+        int level = -1;
         unsigned int fondo;
         unsigned int paredes;
     public:

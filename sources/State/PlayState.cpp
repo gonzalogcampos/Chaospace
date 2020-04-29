@@ -35,9 +35,7 @@ void PlayState::update(float dt)
 
     if(!Map::getInstance()->update(dt))
     {
-        Map::getInstance()->clear();
         loaded = false;
-        Game::getInstance()->setState(State::MENUFINAL);
     }
 }
 

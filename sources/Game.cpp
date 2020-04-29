@@ -6,6 +6,7 @@
 #include <FinalState.h>
 #include <MenuState.h>
 #include <TestState.h>
+#include <NextLevelState.h>
 #include <Render.h>
 #include <Clock.h>
 
@@ -57,21 +58,9 @@ void Game::setState(State::stateType type)
         case State::stateType::MENUFINAL:
             state = FinalState::getInstance();
             break;
+        case State::stateType::NEXTLEVEL:
+            state = NextLevelState::getInstance();
+            break;
     }
     state->initState();
-
-    switch (this->state->type)
-        {
-        case State::stateType::TEST:
-            break;
-        case State::stateType::PLAY:
-            break;
-        case State::stateType::MENUINICIAL:
-            break;
-        case State::stateType::MENUFINAL:
-            break;
-        
-        default:
-            break;
-        }
 }

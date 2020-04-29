@@ -26,6 +26,7 @@ target_sources(modulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/State/TestState.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/State/MenuState.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/State/FinalState.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/State/NextLevelState.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/Menus/Menu.cpp"
 

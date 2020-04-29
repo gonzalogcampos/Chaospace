@@ -10,7 +10,8 @@ public:
         TEST,
         MENUINICIAL,
         MENUFINAL,
-        MENUPAUSE
+        MENUPAUSE,
+        NEXTLEVEL,
     };
 
     virtual ~State() {};

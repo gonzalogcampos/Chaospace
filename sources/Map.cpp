@@ -20,8 +20,18 @@
 /*=================================================*/
 
 
-float _Player_InitX = 100.f;
-float _Player_InitY = 360.f;
+const float _Player_InitX = 100.f;
+const float _Player_InitY = 360.f;
+
+//Level Values
+
+const float baseDistance = 1000.f;
+const float incDisctance = 200.f;
+
+const float bossMaxDist = 5.f;
+
+const float baseEnemy = 50.f;
+const float incEnemy = 10.f;
 
 
 /*=================================================*/
@@ -35,8 +45,20 @@ Game update. Devuelve false si el jugador ha muerto.
 bool Map::update(float dt)
 {
     if(player==nullptr)
+    {
+        clear();
+        level = -1;
+        Game::getInstance()->setState(State::MENUFINAL);
         return false;
+    }
     
+    if(mapPosition>baseDistance + (level * incDisctance))
+    {
+        clear();
+        Game::getInstance()->setState(State::NEXTLEVEL);
+        return false;
+    }
+
     draw();
     tryCreate();
     updateObjects(dt);
@@ -91,17 +113,6 @@ Player* Map::createPlayer(float x, float y)
 {
     Player* p = new Player(x, y);
     return p;
-}
- 
-
-/*
-Carga un nivel
-*/
-void Map::loadLevel()
-{
-    mapPosition = 0.f;
-    level++;
-    player = createPlayer(_Player_InitX, _Player_InitY);
 }
 
 /*
@@ -184,7 +195,7 @@ float Map::getPlayerY(){
 void Map::tryCreate()
 {
    
-   float prob = (enemiesPerSecond + level*incEnemiesPerSecond);
+   float prob = (baseEnemy + level*incEnemy);
    int r = rand()%10000;
    if(r<prob)
    {
@@ -256,4 +267,17 @@ void Map::updateColisions()
             }
         }
     }
+}
+
+
+/*
+Carga un nivel
+*/
+void Map::loadLevel()
+{
+    clear();
+    mapPosition = 0.f;
+    level++;
+    player = createPlayer(_Player_InitX, _Player_InitY);
+
 }
