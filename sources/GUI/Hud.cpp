@@ -1,7 +1,7 @@
-
 #include <string>
 #include "Hud.h"
 #include <Render.h>
+
 
 Hud::Hud(){
     fuente = new sf::Font();
@@ -13,25 +13,23 @@ Hud::Hud(){
     texto_puntuacion->setString("0");
     texto_puntuacion->setPosition((float)30, (float)15);
 
-    vida_1->setPosition(30.f, 80);
-    vida_2->setPosition(60.f, 80);
-
-    vida_1->setScale(1.5,1.5);
-    vida_2->setScale(1.5,1.5);
-
     texto_niveles = new sf::Text();
     texto_niveles->setFont(*fuente);
     texto_niveles->setString("Level 1");
     texto_niveles->setPosition((float)568, (float)15);
 
-    huevo = new sf::Sprite(*textura_vidas, sf::IntRect(0, 72, 24, 24));
-    huevo->setPosition(575, 80);
-    huevo->setScale(1.5,1.5);
-
     texto_enemigos = new sf::Text();
     texto_enemigos->setFont(*fuente);
     texto_enemigos->setString("x");
     texto_enemigos->setPosition((float)625, (float)80);
+
+    rectangulo_relleno = new sf::RectangleShape(sf::Vector2f(100,64));
+    rectangulo_relleno->setPosition((float)40, (float)40);
+    rectangulo_relleno->setFillColor(sf::Color::Black);
+
+    rectangulo_vida = new sf::RectangleShape(sf::Vector2f(100,64));
+    rectangulo_vida->setPosition((float)40, (float)40);
+    rectangulo_vida->setFillColor(sf::Color::Green);
 }
 
 Hud::~Hud(){}
@@ -41,21 +39,42 @@ void Hud::setPuntuacion(int sumar){
     puntuacion = puntuacion+sumar;
     std::string puntuacion_text = std::to_string(puntuacion); 
     texto_puntuacion->setString(puntuacion_text);
+    Render::getInstance()->drawText(*texto_puntuacion);
+    
 }
 
-void Hud::setSpriteVidas(int i){}
+void Hud::setLife(int i){
 
-void Hud::setLevel(){
-    texto_niveles->setString("Level 2");
+    rectangulo_vida->setSize(sf::Vector2f((float)i,64));
+
+    if(i>=70){
+        rectangulo_vida->setFillColor(sf::Color::Green);
+    }else if(i<70 && i>=30){
+        rectangulo_vida->setFillColor(sf::Color::Yellow);
+    }else if(i>0 && i<30){
+        rectangulo_vida->setFillColor(sf::Color::Red);
+    }
+
+    Render::getInstance()->drawRectangle(*rectangulo_vida);
 }
 
-void Hud::setTextoEnemigos(int enemigos_restantes){
-    texto_enemigos->setString("x  " + std::to_string(enemigos_restantes));
+void Hud::setLevel(int level){
+    texto_niveles->setString("Level " + std::to_string(level));
+    Render::getInstance()->drawText(*texto_niveles);
+}
+
+void Hud::setTextNPCs(int npcs_vivos){
+    texto_enemigos->setString("x  " + std::to_string(npcs_vivos));
+    Render::getInstance()->drawText(*texto_enemigos);
 }
 
 
-void Hud::update(float elapsedTime){
+void Hud::update(int puntuacion, int level, int npc_vivos, int porcentaje_vida){
 
+    setLevel(level);
+    setPuntuacion(puntuacion);
+    setTextNPCs(npc_vivos);
+    setLife(porcentaje_vida);
 }
 
 

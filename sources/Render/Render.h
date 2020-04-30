@@ -145,6 +145,7 @@ class Render
 
         //EXTRA 
         void drawText(sf::Text text);
+        void drawRectangle(sf::RectangleShape rectangle);
 
 
 };

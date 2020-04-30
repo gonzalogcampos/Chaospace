@@ -1,5 +1,5 @@
 #pragma once
-//#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 namespace sf
 {
@@ -15,11 +15,9 @@ class Hud{
         sf::Text *texto_puntuacion;
         sf::Text *texto_enemigos;
         sf::Text *texto_niveles;
-        sf::Texture *textura_vidas;
-        sf::Sprite *vida_1;
-        sf::Sprite *vida_2;
-        sf::Sprite *huevo;
-
+        sf::RectangleShape *rectangulo_relleno;
+        sf::RectangleShape *rectangulo_vida;
+       
         int puntuacion=0;
         
 
@@ -28,10 +26,10 @@ class Hud{
         virtual ~Hud();
 
         void setPuntuacion(int sumar);
-        void setSpriteVidas(int i);
-        void setLevel();
-        void setTextoEnemigos(int enemigos_restantes);
+        void setLife(int i);
+        void setLevel(int level);
+        void setTextNPCs(int npcs_vivos);
 
 
-        void update(float elapsedTime); 
+        void update(int puntuacion, int level, int npc_vivos, int porcentaje_vida); 
 };
