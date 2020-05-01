@@ -12,6 +12,7 @@ class Bullet;
 class Npc;
 class PowerUp;
 class Hud;
+class Asteroid;
 
 class Map
 {
@@ -25,6 +26,7 @@ class Map
         std::vector<Npc*> npcs;
         std::vector<Bullet*> bullets;
         std::vector<PowerUp*> powerUps;
+        std::vector<Asteroid*> asteroids;
 
         Map();
         float mapPosition;
@@ -54,6 +56,8 @@ class Map
         void init();
 
         void createNpc();
+
+        void createAsteroid();
 
         void createBoss();
 

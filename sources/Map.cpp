@@ -9,6 +9,7 @@
 #include <Physics.h>
 #include <Game.h>
 #include <Bullet.h>
+#include <Asteroid.h>
 #include <PowerUp.h>
 #include <Hud.h>
 
@@ -33,7 +34,10 @@ const float incDisctance = 100.f;
 const float bossMaxDist = 50.f;
 
 const float baseEnemy = 50.f;
+const float baseAsteroid = 50.f;
+
 const float incEnemy = 10.f;
+const float incAsteroid = 0.f;
 
 const unsigned int enemyScore = 100;
 const unsigned int bossScore = 1000;
@@ -145,7 +149,7 @@ void Map::init()
 }
 
 /*
-Devuelve una nave creada
+Crea una nave
 */
 void Map::createNpc()
 {   
@@ -154,11 +158,26 @@ void Map::createNpc()
     npcs.push_back(npc);
 }
 
+/*
+Crea un asteroide
+*/
+void Map::createAsteroid()
+{
+    Asteroid* ast = new Asteroid(1200.f, rand()%720);
+    asteroids.push_back(ast);
+}
+
+/*
+Crea un jefe
+*/
 void Map::createBoss()
 {
     
 }
 
+/*
+Crea una bala
+*/
 void Map::createBullet(float x, float y, float orient, int type, bool fromPlayer)
 {
     Bullet *n_bullet = new Bullet(x, y, orient, type, fromPlayer);
@@ -218,6 +237,7 @@ void Map::loadMapInfo(int lvl)
     }  
 
 }
+
 /*
 Dibujado del mapa
 */  
@@ -269,12 +289,18 @@ float Map::getPlayerY(){
 
 void Map::tryCreate()
 {
-   
    float prob = (baseEnemy + level*incEnemy);
    int r = rand()%10000;
    if(r<prob)
    {
        createNpc();
+   }
+
+   prob = (baseAsteroid + level*incAsteroid);
+   r = rand()%10000;
+   if(r<prob)
+   {
+       createAsteroid();
    }
 }
 

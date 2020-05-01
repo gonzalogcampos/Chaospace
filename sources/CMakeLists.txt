@@ -14,6 +14,7 @@ target_sources(modulos PRIVATE
 
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Bullet.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/GameObject.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Asteroid.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Npc.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/PowerUp.cpp"

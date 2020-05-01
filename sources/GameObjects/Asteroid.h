@@ -4,7 +4,7 @@
 
 class Asteroid : public GameObject {
     public:
-        Asteroid();
+        Asteroid(float X, float Y);
         virtual ~Asteroid();
         void update(float dt);
 

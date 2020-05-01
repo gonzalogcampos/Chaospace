@@ -6,7 +6,7 @@
 #include <Physics.h>
 
 
-Asteroid::Asteroid()
+Asteroid::Asteroid(float X, float Y)
 {
     int tipo = rand() % 2 + 1;
     animation = Render::getInstance()->createAnimation(1.f);
@@ -146,6 +146,13 @@ Asteroid::Asteroid()
     }
     
     Render::getInstance()->addFrameToAnimation(animation, sprite);
+    physics->setPosition(Pvect(X, Y));
+
+}
+
+Asteroid::~Asteroid()
+{
+    
 }
 
 void Asteroid::update(float dt)
