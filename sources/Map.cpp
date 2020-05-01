@@ -23,7 +23,7 @@
 
 
 const float _Player_InitX = 100.f;
-const float _Player_InitY = 285.f;
+const float _Player_InitY = 360.f;
 
 //Level Values
 
@@ -87,7 +87,11 @@ bool Map::update(float dt)
     updateObjects(dt);
     updateColisions();
 
-    hud->update(score, level+1, npcs.size(), player->getHp(),mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
+    float hp = 0.f;
+    if(player)
+        hp = player->getHp();
+
+    hud->update(score, level+1, npcs.size(), hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
 
     return true;
 }
@@ -144,8 +148,9 @@ void Map::init()
 Devuelve una nave creada
 */
 void Map::createNpc()
-{   int tipo = rand() % 7;
-    Npc* npc = new Npc(tipo+1, 1200.f, rand()%570);
+{   
+    int tipo = rand() % 7;
+    Npc* npc = new Npc(tipo+1, 1200.f, rand()%720);
     npcs.push_back(npc);
 }
 
