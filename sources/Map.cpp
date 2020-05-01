@@ -95,7 +95,7 @@ bool Map::update(float dt)
     if(player)
         hp = player->getHp();
 
-    hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
+    hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt, 1);
 
     return true;
 }
