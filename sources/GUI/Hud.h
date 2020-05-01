@@ -13,6 +13,7 @@ class Hud{
         sf::Text *texto_puntuacion;
         sf::Text *texto_enemigos;
         sf::Text *texto_niveles;
+        sf::Text *texto_fps;
         sf::RectangleShape *rectangulo_relleno;
         sf::RectangleShape *rectangulo_vida;
        

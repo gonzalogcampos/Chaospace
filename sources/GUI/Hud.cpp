@@ -23,6 +23,11 @@ Hud::Hud(){
     texto_enemigos->setString("x");
     texto_enemigos->setPosition((float)625, (float)80);
 
+    texto_fps = new sf::Text();
+    texto_fps->setFont(*fuente);
+    texto_fps->setString("FPS");
+    texto_fps->setPosition((float)800, (float)80);
+
     rectangulo_relleno = new sf::RectangleShape(sf::Vector2f(100,64));
     rectangulo_relleno->setPosition((float)40, (float)40);
     rectangulo_relleno->setFillColor(sf::Color::Black);
@@ -77,6 +82,8 @@ void Hud::update(int puntuacion, int level, int npc_vivos, int porcentaje_vida, 
     setPuntuacion(puntuacion);
     setTextNPCs(npc_vivos);
     setLife(porcentaje_vida);
+    texto_fps->setString("FPS: " + std::to_string((int)fps));
+
 }
 
 void Hud::draw()
@@ -85,6 +92,7 @@ void Hud::draw()
     Render::getInstance()->drawRectangle(*rectangulo_vida);
     Render::getInstance()->drawText(*texto_niveles);
     Render::getInstance()->drawText(*texto_enemigos);
+    Render::getInstance()->drawText(*texto_fps);
 }
 
   
