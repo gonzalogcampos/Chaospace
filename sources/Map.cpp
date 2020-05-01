@@ -196,9 +196,8 @@ void Map::loadMapInfo(int lvl)
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
-
+    
     document.LoadFile(rutaMapa.c_str());
-
 
     xmlMap = document.FirstChildElement("map");
 
@@ -220,7 +219,6 @@ void Map::loadMapInfo(int lvl)
         }
 
         imageLayer = imageLayer->NextSiblingElement("imagelayer");
-
     }  
 
 }
