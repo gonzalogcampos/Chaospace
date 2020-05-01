@@ -64,6 +64,7 @@ bool Map::update(float dt)
     {
         clear();
         level = -1;
+        kills = 0;
         Game::getInstance()->setState(State::MENUFINAL);
         return false;
     }
@@ -91,7 +92,7 @@ bool Map::update(float dt)
     if(player)
         hp = player->getHp();
 
-    hud->update(score, level+1, npcs.size(), hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
+    hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
 
     return true;
 }
@@ -409,6 +410,7 @@ void Map::updateColisions()
                         delete *jt;
                         npcs.erase(jt);
                         score += enemyScore * (1 + (level*incScore));
+                        kills++;
                     }
                 }
             }
