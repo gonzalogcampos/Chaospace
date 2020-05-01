@@ -87,7 +87,11 @@ bool Map::update(float dt)
     updateObjects(dt);
     updateColisions();
 
-    hud->update(score, level+1, npcs.size(), player->getHp(),mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
+    float hp = 0.f;
+    if(player)
+        player->getHp();
+
+    hud->update(score, level+1, npcs.size(), hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
 
     return true;
 }
