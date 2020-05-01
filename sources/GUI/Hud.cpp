@@ -50,7 +50,17 @@ Hud::Hud(){
 
 }
 
-Hud::~Hud(){}
+Hud::~Hud(){
+    delete fuente;
+    delete fuente2;
+    delete texto_distance;
+    delete texto_enemigos;
+    delete texto_niveles;
+    delete texto_fps;
+    delete texto_puntuacion;
+    delete rectangulo_relleno;
+    delete rectangulo_vida;
+}
 
 void Hud::setPuntuacion(int sumar)
 {
