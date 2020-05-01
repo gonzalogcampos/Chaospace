@@ -12,11 +12,8 @@ class Bullet;
 class Npc;
 class PowerUp;
 class Hud;
-<<<<<<< HEAD
 class Asteroid;
-=======
 class EmptyAnimation;
->>>>>>> 64ff5bb98d995919cc26c5e5f4ad5c21c08f9361
 
 class Map
 {
