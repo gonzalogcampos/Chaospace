@@ -10,7 +10,7 @@ Hud::Hud(){
     fuente2 = new sf::Font();
     fuente2->loadFromFile("resources/Long_Shot.ttf");
 
-    sprite = Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Animacion explosion/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
+    sprite_explosion = Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Animacion explosion/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
     
     texto_puntuacion = new sf::Text();
     texto_puntuacion->setFont(*fuente);
@@ -34,6 +34,12 @@ Hud::Hud(){
     texto_fps->setPosition((float)995, (float)130);
     texto_fps->setCharacterSize(17);
 
+    texto_distance = new sf::Text();
+    texto_distance->setFont(*fuente2);
+    texto_distance->setString("0/0 km");
+    texto_distance->setPosition((float)940, (float)75);
+    texto_distance->setCharacterSize(25);
+
     rectangulo_relleno = new sf::RectangleShape(sf::Vector2f(202,12));
     rectangulo_relleno->setPosition((float)30, (float)20);
     rectangulo_relleno->setFillColor(sf::Color::White);
@@ -42,11 +48,9 @@ Hud::Hud(){
     rectangulo_vida->setPosition((float)31, (float)21);
     rectangulo_vida->setFillColor(sf::Color::Green);
 
-    texto_distance = new sf::Text();
-    texto_distance->setFont(*fuente2);
-    texto_distance->setString("0/0 km");
-    texto_distance->setPosition((float)940, (float)75);
-    texto_distance->setCharacterSize(25);
+    rectangulo_objetos = new sf::RectangleShape(sf::Vector2f(85,85));
+    rectangulo_objetos->setPosition((float)31, (float)620);
+    rectangulo_objetos->setFillColor(sf::Color::Black);
 
 }
 
@@ -60,6 +64,7 @@ Hud::~Hud(){
     delete texto_puntuacion;
     delete rectangulo_relleno;
     delete rectangulo_vida;
+    delete rectangulo_objetos;
 }
 
 void Hud::setPuntuacion(int sumar)
@@ -103,6 +108,21 @@ void Hud::setTextDistance(int done, int to_do){
     texto_distance->setString(puntuacion_text);
 }
 
+void Hud::setObjeto(int object){
+
+    switch (object)
+    {
+    case 1:
+        sprite_objeto = Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Animacion explosion/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
+    break;
+    
+    default:
+        break;
+    }
+
+}
+
+
 void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps, int object)
 {
 
@@ -112,6 +132,7 @@ void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, floa
     setLife(porcentaje_vida);
     texto_fps->setString("FPS: " + std::to_string((int)fps));
     setTextDistance(distance, levelDistance);
+    setObjeto(object);
 
 }
 
@@ -120,11 +141,13 @@ void Hud::draw()
     Render::getInstance()->drawText(*texto_puntuacion);
     Render::getInstance()->drawRectangle(*rectangulo_relleno);
     Render::getInstance()->drawRectangle(*rectangulo_vida);
+    Render::getInstance()->drawRectangle(*rectangulo_objetos);
+    Render::getInstance()->drawSprite(sprite_objeto, Rvect(42,632), 0.f, 0.5, false);
     Render::getInstance()->drawText(*texto_niveles);
     Render::getInstance()->drawText(*texto_enemigos);
     Render::getInstance()->drawText(*texto_fps);
     Render::getInstance()->drawText(*texto_distance);
-    Render::getInstance()->drawSprite(sprite, Rvect(911,11), 0.f, 0.37, false);
+    Render::getInstance()->drawSprite(sprite_explosion, Rvect(911,11), 0.f, 0.37, false);
 }
 
   
