@@ -61,7 +61,7 @@ class Map
 
         void loadLevel();
 
-        void loadMapInfo(std::string mapaRuta);
+        void loadMapInfo(int lvl);
 
         void draw();
 

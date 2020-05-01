@@ -124,7 +124,7 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
-    loadMapInfo("mapa1"); 
+    loadMapInfo(1); 
 }
 
 /*
@@ -165,27 +165,45 @@ void Map::createLife(float x, float y)
 /*
 Carga toda la información del mapa
 */
-void Map::loadMapInfo(std::string rutaMapa)
+void Map::loadMapInfo(int lvl)
 {
+    // fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
+    // paredes = Render::getInstance()->createSprite("resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
     
     tinyxml2::XMLDocument document;
-    //tinyxml2::XMLElement* xmlMap;
-    //tinyxml2::XMLElement* imageLayer;
-    
-    /*
-    char* url;
-    strcpy(url,"./resources/maps/");
-    strcat(url, map);
-    string ruta(url);
-    ruta += "/";
-    strcat(url,"/mapa.tmx");
-    */
-
+    tinyxml2::XMLElement* xmlMap;
+    tinyxml2::XMLElement* imageLayer;
+    std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
+    std::cout << rutaMapa << std::endl;
     document.LoadFile(rutaMapa.c_str());
-    //xmlMap = document.FirstChildElement("map");
-    fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
-    // fondo = Render::getInstance()->createAnimation(1.f);
-    paredes = Render::getInstance()->createSprite("resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
+
+
+    xmlMap = document.FirstChildElement("map");
+
+    imageLayer = xmlMap->FirstChildElement("imagelayer");
+
+    while(imageLayer)
+    {
+        if(((std::string)imageLayer->Attribute("name")).compare("fondo") == 0) 
+        {
+            // fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
+            std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
+            std::cout << ruta << std::endl;
+            fondo = Render::getInstance()->createSprite(ruta);
+        }
+        else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
+        {
+            std::string ruta = "resources/maps/mapa" + std::to_string(lvl) + "/" + imageLayer->FirstChildElement("image")->Attribute("source");
+            std::cout << ruta << std::endl;
+            paredes = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
+            
+        }
+
+        imageLayer = imageLayer->NextSiblingElement("imagelayer");
+
+    }
+
+
     /*
     imageLayer = xmlMap->FirstChildElement("imagelayer");
     while(imageLayer) {
