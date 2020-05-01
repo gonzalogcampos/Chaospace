@@ -82,6 +82,11 @@ bool Ship::hpDown(int hp)
     return false;
 }
 
+int Ship::getHp()
+{
+    return hp;
+}
+
 void Ship::update(float dt)
 {
     st += dt;

@@ -24,6 +24,8 @@ class Ship: public GameObject{
 
         bool hpDown(int hp); //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
 
+        int getHp();
+
         void setCadencia(float c);
 
         void update(float dt);

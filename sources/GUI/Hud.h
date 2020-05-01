@@ -31,5 +31,6 @@ class Hud{
         void setTextNPCs(int npcs_vivos);
 
 
-        void update(int puntuacion, int level, int npc_vivos, int porcentaje_vida); 
+        void update(int puntuacion, int level, int npc_vivos, int porcentaje_vida, float distance, float levelDistance, float fps); 
+        void draw();
 };

@@ -11,11 +11,13 @@ class GameObject;
 class Bullet;
 class Npc;
 class PowerUp;
+class Hud;
 
 class Map
 {
     private:
-        //std::vector<Ship*> ships;
+        Hud* hud;
+
         Player* player;
         
         void* boss;
@@ -24,7 +26,7 @@ class Map
         std::vector<Bullet*> bullets;
         std::vector<PowerUp*> powerUps;
 
-        Map(){}
+        Map();
         float mapPosition;
         float mapIncPosition;
         unsigned int score = 0;
@@ -34,6 +36,8 @@ class Map
         unsigned int paredes;
     public:
 
+        ~Map();
+        
         static Map* getInstance()
         {
             static Map onlyInstance;

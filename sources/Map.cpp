@@ -10,6 +10,7 @@
 #include <Game.h>
 #include <Bullet.h>
 #include <PowerUp.h>
+#include <Hud.h>
 
 //External headers
 #include <tinyxml2.h>
@@ -44,6 +45,15 @@ const float incScore = .2;
 /*==================   Metodos   ==================*/
 /*=================================================*/
 
+Map::Map()
+{
+    hud = new Hud();
+}
+
+Map::~Map()
+{
+    delete hud;
+}
 
 /*
 Game update. Devuelve false si el jugador ha muerto.
@@ -76,6 +86,8 @@ bool Map::update(float dt)
 
     updateObjects(dt);
     updateColisions();
+
+    hud->update(score, level+1, npcs.size(), player->getHp(),mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
 
     return true;
 }
@@ -224,6 +236,8 @@ void Map::draw()
     Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
 
     drawObjects();
+
+    hud->draw();
 }
 
 float Map::getMapIncPosition()
