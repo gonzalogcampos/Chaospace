@@ -32,13 +32,12 @@ float _Player_InitHP = 100.f;
 //Constructor por defecto de la clase Player.
 Player::Player(float x, float y)
 {
-    wpn = 1;
     hp = _Player_InitHP;
     powerUp = 0;
     physics->setPosition(Pvect(x, y));
     physics->setRectangleBB(Pvect(_Player_BBX, _Player_BBY));
 
-    bulletType = 2;
+    weaponType = 6;
 
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
@@ -202,7 +201,7 @@ void Player::update(float dt)
 
 
 
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) //AUN TENGO QUE CAMBIAR LO DE SPR_PERSONAJE1
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
         shoot();
     
     Ship::update(dt);
@@ -210,11 +209,7 @@ void Player::update(float dt)
 }    
  
 
-void Player::shoot()
+void Player::shoot(bool p)
 {
-    if(st>cadencia)
-    {
-        st = 0.f;
-        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), bulletType, true);
-    }
+    Ship::shoot(p);
 }

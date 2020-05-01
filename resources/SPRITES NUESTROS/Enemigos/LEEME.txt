@@ -1,0 +1,1 @@
+He pensado que los colores de los enemigos pueden dictaminar la fase o nivel en el que nos encontramos, asi que pueden ir apareciendo los 5 tipos de enemigos en cada fase variando el color y finalizan cuando encontramos al boss y pasamos de nivel.

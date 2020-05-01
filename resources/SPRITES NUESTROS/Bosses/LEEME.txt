@@ -1,0 +1,1 @@
+Al igual que los enemigos, he puesto 4 bosses para cada nivel, cada uno con sus color correspondiente el cual aparecerá al final de cada nivel. He escogido sprites progresivos, es decir, a nivel visual el boss parece más poderoso. 

@@ -5,7 +5,7 @@
 #include <Bullet.h>
 #include <Physics.h>
 #include <Map.h>
-
+#include <weapons.h>
 
 /*=================================================*/
 /*==================   Metodos   ==================*/
@@ -15,8 +15,8 @@
 //Constructor por defecto de la clase Ship.
 Ship::Ship()
 { 
-    wpn = 1;
     hp = 1;
+    weaponType = 1;
 }
 
  //Metodo destructor de un Ship.
@@ -27,12 +27,40 @@ Ship::~Ship()
 
 
 //Metodo que controla y permite el disparo efectuado por un Ship.
-void Ship::shoot()
+void Ship::shoot(bool p)
 {
+    float cadencia = 1.f;
+    switch (weaponType)
+    {
+    case 1:
+        cadencia = w1_Cadencia;
+        break;
+    case 2:
+        cadencia = w2_Cadencia;
+        break;    
+    case 3:
+        cadencia = w3_Cadencia;
+        break;    
+    case 4:
+        cadencia = w4_Cadencia;
+        break;    
+    case 5:
+        cadencia = w5_Cadencia;
+        break;
+    case 6:
+        cadencia = w6_Cadencia;
+        break;    
+    case 7:
+        cadencia = w7_Cadencia;
+        break;
+    default:
+        cadencia = 1.f;
+        break;
+    }
     if(st>cadencia)
     {
         st = 0.f;
-        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, shootVel, physics->getOrient(), bulletType, false);
+        Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, physics->getOrient(), weaponType, p);
     }
 } 
 
@@ -54,36 +82,18 @@ bool Ship::hpDown(int hp)
     return false;
 }
 
-//Metodo utilizado para recuperar informacion de que arma tiene la nave en el momento.
-int Ship::getWpn()
-{
-    return wpn;
-}
-
-//Metodo para cambiar el tipo de arma que lleva una nave.
-void Ship::setWpn(int i)
-{
-    wpn = i;
-}
-
-
 void Ship::update(float dt)
 {
     st += dt;
     GameObject::update(dt);
 }
 
-void Ship::setBulletType(int t)
+void Ship::setWeaponType(int t)
 {
-    bulletType = t;
+    weaponType = t;
 }
 
-int Ship::getBulletType()
+int Ship::getWeaponType()
 {
-    return bulletType;
-}
-
-void Ship::setCadencia(float c)
-{
-    cadencia = c;
+    return weaponType;
 }

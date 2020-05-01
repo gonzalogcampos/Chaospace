@@ -5,6 +5,7 @@
 
 //Forward declarations
 class Map;
+class Hud;
 
 
 class PlayState : public State 

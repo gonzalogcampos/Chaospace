@@ -141,9 +141,9 @@ void Map::createBoss()
     
 }
 
-void Map::createBullet(float x, float y, float vel, float orient, int type, bool fromPlayer)
+void Map::createBullet(float x, float y, float orient, int type, bool fromPlayer)
 {
-    Bullet *n_bullet = new Bullet(x, y, vel, orient, type, fromPlayer);
+    Bullet *n_bullet = new Bullet(x, y, orient, type, fromPlayer);
     bullets.push_back(n_bullet);
 }
 

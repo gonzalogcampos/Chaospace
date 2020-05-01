@@ -53,7 +53,7 @@ class Map
 
         void createBoss();
 
-        void createBullet(float x, float y, float vel, float orient, int type, bool fromPlayer);
+        void createBullet(float x, float y, float orient, int type, bool fromPlayer);
         
         Player* createPlayer(float x, float y);
 

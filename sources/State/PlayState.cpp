@@ -5,6 +5,7 @@
 #include <Render.h>
 #include <Map.h>
 #include <Game.h>
+#include <Hud.h>
 
 
 /*=================================================*/

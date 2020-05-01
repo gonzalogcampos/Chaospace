@@ -426,6 +426,12 @@ void Render::drawText(sf::Text text)
     window->draw(text);
 }
 
+void Render::drawRectangle(sf::RectangleShape rectangle)
+{
+    window->draw(rectangle);
+}
+
+
 
 
 
