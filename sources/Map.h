@@ -12,6 +12,7 @@ class Bullet;
 class Npc;
 class PowerUp;
 class Hud;
+class EmptyAnimation;
 
 class Map
 {
@@ -25,6 +26,7 @@ class Map
         std::vector<Npc*> npcs;
         std::vector<Bullet*> bullets;
         std::vector<PowerUp*> powerUps;
+        std::vector<EmptyAnimation*> animations;
 
         Map();
         float mapPosition;
@@ -60,6 +62,8 @@ class Map
         void createBoss();
 
         void createBullet(float x, float y, float orient, int type, bool fromPlayer);
+
+        void createAnimation(float x, float y, float orient, int type);
         
         Player* createPlayer(float x, float y);
 
