@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 
 
 const float w1_Cadencia = 1.f;

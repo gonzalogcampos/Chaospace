@@ -32,43 +32,51 @@ Npc::Npc(int IA, float posX, float posY){
     case 1:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=10;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     case 2:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=10;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     case 3:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=10;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     case 4:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=10;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     case 5:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=5;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     case 6:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=5;
+        cadencia = 1;
+        setWeaponType(1);
         break;
         case 7:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
-        hp = 1;        
-        cadencia=5;
+        hp = 1;   
+        cadencia = 1;
+        setWeaponType(1);
         break;
     
     default:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia=10;
+        cadencia = 1;
+        setWeaponType(1);
         break;
     }
     
@@ -79,12 +87,10 @@ Npc::Npc(int IA, float posX, float posY){
     
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
+
     physics->setPosition(Pvect(X, Y));
     physics->setOrient(180.f);
-
     physics->setRectangleBB(Pvect(123.f,115.f));
-
-
 }
 
 
@@ -98,7 +104,8 @@ Npc::~Npc(){
     }
 } //Metodo destructor de la clase NPC.
 
-void Npc::IA(int tipo){
+void Npc::IA(int tipo)
+{
 
 }
 

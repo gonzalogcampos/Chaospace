@@ -22,11 +22,9 @@ class Ship: public GameObject{
 
         void hpUp(int hp); //Metodo auxiliar utilizado para subir en 1 el valor de la vida de la nave.
 
-        bool hpDown(int hp); //Metodo auxiliar empleado para bajar en 1 el valor de la vida de la nave.
+        bool hpDown(int hp); //Metodo auxiliar empleado para baar en 1 el valor de la vida de la nave.
 
         int getHp();
-
-        void setCadencia(float c);
 
         void update(float dt);
 
@@ -40,6 +38,7 @@ class Ship: public GameObject{
         int hp; //Variable responsable del control de la vida tanto del Player como de los Enemigos.
         float st = 0.f;
         int weaponType = 0;
+        float cadencia;
         float shootAnimTime = 0.f;
         unsigned int shootAnim;
 };

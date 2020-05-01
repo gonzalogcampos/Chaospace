@@ -42,6 +42,7 @@ class Animation
     Animation(Rint fps);
     ~Animation();
     void addFrame(Rint frame);
+    void clear();
     void draw(float dt);
     void draw(float dt, Rvect position, float rotation = 0.f, float scale = 0.f, bool centered = true);
 };
@@ -107,6 +108,8 @@ class Render
 
         void shake();
 
+        Rvect polarToCartesian(float r, float a);
+
         //Textures function
 
         bool loadTexture(std::string texture);
@@ -138,6 +141,8 @@ class Render
         Animation* getAnimation(Rint animation);
 
         bool deleteAnimation(Rint animation);
+
+        bool clearAnimation(Rint animation);
 
         bool drawAnimation(Rint animation);
 

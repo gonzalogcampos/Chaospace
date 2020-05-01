@@ -37,7 +37,7 @@ Player::Player(float x, float y)
     physics->setPosition(Pvect(x, y));
     physics->setRectangleBB(Pvect(_Player_BBX, _Player_BBY));
 
-    weaponType = 6;
+    setWeaponType(6);
 
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));

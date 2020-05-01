@@ -377,6 +377,23 @@ bool Render::deleteAnimation(Rint animation)
 }
 
 /*
+Busca la animacion y borra todos sus sprites.
+*/
+bool Render::clearAnimation(Rint animation)
+{
+    bool r = false;
+    if(animations.find(animation)!=animations.end())
+    {
+        animations.find(animation)->second->clear();
+        r = true;
+    }
+
+    return r;
+}
+
+
+
+/*
 Si encuentra la animacion, dibuja el fotograma correspondiente sin aplicarle ninguna transfomrmacion y devuelve true.
 En caso de no encontrar la animacion devuelve false.
 */
@@ -415,6 +432,19 @@ void Render::shake()
 {
 
     shakeTime = .2f;
+}
+
+
+/*
+Devuelve las coordenadas polares pasadas por parametro en coordenadas cartesiaanas
+*/
+Rvect Render::polarToCartesian(float r, float a)
+{
+    float toRadians = 3.1415926/180;
+    float x = r*cos(a*toRadians);
+    float y = r*sin(a*toRadians);
+
+    return Rvect(x, y);
 }
 
 /*
@@ -474,6 +504,17 @@ void Animation::addFrame(Rint frame)
 {
     sprites.push_back(frame);
     frames++;
+}
+
+/*
+Borra todos los frames de la animacion
+*/
+void Animation::clear()
+{
+    for(std::size_t i = 0; i< sprites.size(); i++)
+            Render::getInstance()->deleteSprite(sprites.at(i));
+
+    sprites.clear();
 }
 
 /*
