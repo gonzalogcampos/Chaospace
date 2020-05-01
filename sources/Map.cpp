@@ -10,6 +10,7 @@
 #include <Game.h>
 #include <Bullet.h>
 #include <PowerUp.h>
+#include <EmptyAnimation.h>
 #include <Hud.h>
 
 //External headers
@@ -168,6 +169,14 @@ void Map::createBullet(float x, float y, float orient, int type, bool fromPlayer
     bullets.push_back(n_bullet);
 }
 
+
+void Map::createAnimation(float x, float y, float orient, int type)
+{
+    EmptyAnimation* anim = new EmptyAnimation(x, y, orient, (EmptyAnimation::Type)type);
+    animations.push_back(anim);
+}
+
+
 /* 
 Devuelve el player creado
 */
@@ -287,7 +296,7 @@ void Map::updateObjects(float dt)
     player->update (dt);
 
     //if(boss)boss->update(dt);
-
+    std::cout<<animations.size()<<"\n";
     //Borrado de balas fuera del mapa y update
     for(auto it = bullets.begin(); it < bullets.end(); it++) {
         //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
@@ -332,6 +341,22 @@ void Map::updateObjects(float dt)
             (*it)->update(dt);
         }
     }
+    
+    //Borrado de animations fuera del mapa y update
+    for(auto it = animations.begin(); it < animations.end(); it++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
+            || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100 
+            || (*it)->getKill()) {
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete (*it);
+            animations.erase(it);
+            it--;
+        } else {
+            //Llamar al update de la bala
+            (*it)->update(dt);
+        }
+    }
 }
 
 void Map::drawObjects()
@@ -353,6 +378,10 @@ void Map::drawObjects()
     //Dibujado de npcs
     for(auto it = npcs.begin(); it < npcs.end(); it++)
                 (*it)->draw();
+    
+    //Dibujado de animaciones
+    for(auto it = animations.begin(); it < animations.end(); it++)
+        (*it)->draw();
 }
 
 void Map::updateColisions()
@@ -408,6 +437,7 @@ void Map::updateColisions()
                     colision = true;
                     if((*jt)->hpDown((*it)->getForce()))
                     {
+                        createAnimation((*jt)->getPhysics()->getPosition().x, (*jt)->getPhysics()->getPosition().y, 0.f, EmptyAnimation::EXPLOSION);
                         delete *jt;
                         npcs.erase(jt);
                         score += enemyScore * (1 + (level*incScore));
