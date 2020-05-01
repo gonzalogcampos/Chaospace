@@ -62,6 +62,11 @@ int Ship::getHp()
     return hp;
 }
 
+void Ship::setHp(int hp)
+{
+    this->hp = hp;
+}
+
 void Ship::update(float dt)
 {
     st += dt;

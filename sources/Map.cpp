@@ -65,12 +65,14 @@ bool Map::update(float dt)
         clear();
         level = -1;
         kills = 0;
+        playerHp = 100;
         Game::getInstance()->setState(State::MENUFINAL);
         return false;
     }
     
     if(mapPosition>baseDistance + (level * incDisctance))
     {
+        playerHp = player->getHp();
         clear();
         Game::getInstance()->setState(State::NEXTLEVEL);
         return false;
@@ -172,6 +174,7 @@ Devuelve el player creado
 Player* Map::createPlayer(float x, float y)
 {
     Player* p = new Player(x, y);
+    p->setHp(playerHp);
     return p;
 }
 

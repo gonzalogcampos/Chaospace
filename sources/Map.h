@@ -31,6 +31,7 @@ class Map
         float mapIncPosition;
         unsigned int score = 0;
         unsigned int kills = 0;
+        int playerHp = 100;
 
         int level = -1;
         unsigned int fondo;
