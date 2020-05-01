@@ -209,8 +209,8 @@ void Map::loadMapInfo(int lvl)
         }
         else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
         {
-            std::string ruta = "resources/maps/mapa" + std::to_string(lvl) + "/" + imageLayer->FirstChildElement("image")->Attribute("source");
-            paredes = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
+            //std::string ruta = "resources/maps/mapa" + std::to_string(lvl) + "/" + imageLayer->FirstChildElement("image")->Attribute("source");
+            //paredes = Render::getInstance()->createSprite(ruta);
             
         }
 
@@ -226,17 +226,17 @@ void Map::draw()
     float v1 = .1;
     float v2 = .9;
 
-    int n = v1*mapPosition/1080;
+    int n = v1*mapPosition/2160;
     float xpos = (1080 * n) - mapPosition*v1;
 
     Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
-    Render::getInstance()->drawSprite(fondo, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
+    Render::getInstance()->drawSprite(fondo, Rvect(xpos + 2160, 0), 0.f, 1.f, false);
 
-    n = v2*mapPosition/1080;
-    xpos = (1080 * n) - mapPosition*v2;
+    n = v2*mapPosition/2160;
+    xpos = (2160 * n) - mapPosition*v2;
 
     Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
-    Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
+    Render::getInstance()->drawSprite(paredes, Rvect(xpos + 2160, 0), 0.f, 1.f, false);
 
     drawObjects();
 
