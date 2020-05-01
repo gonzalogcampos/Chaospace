@@ -23,7 +23,7 @@
 
 
 const float _Player_InitX = 100.f;
-const float _Player_InitY = 285.f;
+const float _Player_InitY = 360.f;
 
 //Level Values
 
@@ -144,8 +144,9 @@ void Map::init()
 Devuelve una nave creada
 */
 void Map::createNpc()
-{   int tipo = rand() % 7;
-    Npc* npc = new Npc(tipo+1, 1200.f, rand()%570);
+{   
+    int tipo = rand() % 7;
+    Npc* npc = new Npc(tipo+1, 1200.f, rand()%720);
     npcs.push_back(npc);
 }
 

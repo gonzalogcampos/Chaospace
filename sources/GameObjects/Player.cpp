@@ -196,8 +196,8 @@ void Player::update(float dt)
     if(physics->getPosition().y<0.f)
         physics->setPosition(Pvect(physics->getPosition().x, 0.f));
     
-    if(physics->getPosition().y>570)
-        physics->setPosition(Pvect(physics->getPosition().x, 570.f));
+    if(physics->getPosition().y>720.f)
+        physics->setPosition(Pvect(physics->getPosition().x, 720.f));
 
 
 
