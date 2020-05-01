@@ -211,14 +211,14 @@ void Map::draw()
     float v1 = .1;
     float v2 = .9;
 
-    int n = v2*mapPosition/1080;
-    float xpos = (1080 * n) - mapPosition*.9;
+    int n = v1*mapPosition/1080;
+    float xpos = (1080 * n) - mapPosition*v1;
 
     Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
     Render::getInstance()->drawSprite(fondo, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
 
     n = v2*mapPosition/1080;
-    xpos = (1080 * n) - mapPosition*.9;
+    xpos = (1080 * n) - mapPosition*v2;
 
     Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
     Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
