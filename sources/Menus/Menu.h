@@ -24,6 +24,7 @@ class Button
         void unfocus();
         void setPosition(float x, float y);
         void update();
+        void draw();
 
 
 };
@@ -45,6 +46,7 @@ class Menu
         void up();
         void setBackground(char* b);
         void update(float dt);
+        void draw();
 
         int click();
 };

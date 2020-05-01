@@ -31,9 +31,13 @@ class Ship: public GameObject{
         void setWeaponType(int t);
 
         int getWeaponType();
-            
+        
+        void draw();
+        
     protected:
         int hp; //Variable responsable del control de la vida tanto del Player como de los Enemigos.
         float st = 0.f;
         int weaponType = 0;
+        float shootAnimTime = 0.f;
+        unsigned int shootAnim;
 };

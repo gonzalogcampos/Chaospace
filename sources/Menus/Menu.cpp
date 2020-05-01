@@ -80,11 +80,17 @@ void Menu::update(float dt)
     //Time
     at+=dt;
     
-    Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
-
     for(size_t i=0; i<buttons.size(); i++)
         buttons.at(i)->update();
     
+}
+
+void Menu::draw()
+{
+    Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
+    
+    for(size_t i=0; i<buttons.size(); i++)
+        buttons.at(i)->draw();
 }
 
 void Menu::setBackground(char* b)
@@ -128,6 +134,10 @@ void Button::setPosition(float x, float y)
 }
 
 void Button::update()
+{
+}
+
+void Button::draw()
 {
     Render::getInstance() -> drawSprite(sprite, Rvect(x, y));
 }

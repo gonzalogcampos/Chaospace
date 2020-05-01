@@ -43,9 +43,9 @@ bool GameObject::checkColision(GameObject* object)
 void GameObject::update(float dt)
 {
     physics->update(dt);
+}
 
-    Render::getInstance()->drawAnimation(animation, 
-                                            Rvect(physics->getPosition().x, physics->getPosition().y),
-                                            physics->getOrient());  
-
+void GameObject::draw()
+{
+    Render::getInstance()->drawAnimation(animation, Rvect(physics->getPosition().x, physics->getPosition().y),physics->getOrient());  
 }

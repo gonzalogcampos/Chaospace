@@ -56,6 +56,11 @@ void FinalState::update(float dt){
     
 }
 
+void FinalState::draw()
+{
+    menu->draw();
+}
+
 void FinalState::clear()
 {
 

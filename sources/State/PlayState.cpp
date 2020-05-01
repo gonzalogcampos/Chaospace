@@ -40,6 +40,10 @@ void PlayState::update(float dt)
     }
 }
 
+void PlayState::draw()
+{
+    Map::getInstance()->draw();
+}
 
 void PlayState::clear()
 {

@@ -97,3 +97,9 @@ int Ship::getWeaponType()
 {
     return weaponType;
 }
+
+void Ship::draw()
+{
+
+    GameObject::draw();
+}

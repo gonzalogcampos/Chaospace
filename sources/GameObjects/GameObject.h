@@ -15,7 +15,8 @@ class GameObject{
 
         void setAnimation(unsigned int animation);
         bool checkColision(GameObject* object);
-        void update(float dt);       
+        void update(float dt);
+        void draw();    
         
 
     protected:

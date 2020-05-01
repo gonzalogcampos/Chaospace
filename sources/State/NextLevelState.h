@@ -18,4 +18,6 @@ class NextLevelState : public State
         virtual void initState();
         virtual void update(float dt);
         virtual void clear();
+        virtual void draw();
+
 };

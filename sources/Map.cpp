@@ -69,7 +69,7 @@ bool Map::update(float dt)
         createBoss();
     }
 
-    draw();
+    //draw();
 
     if(!boss)
         tryCreate();
@@ -222,6 +222,8 @@ void Map::draw()
 
     Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
     Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
+
+    drawObjects();
 }
 
 float Map::getMapIncPosition()
@@ -309,7 +311,27 @@ void Map::updateObjects(float dt)
             (*it)->update(dt);
         }
     }
+}
 
+void Map::drawObjects()
+{
+    //Dibujado player
+    if(player)player->draw();
+
+    //Dibujado del boss
+    //if(boss)boss->draw();
+
+    //Dibujado Balas
+    for(auto it = bullets.begin(); it < bullets.end(); it++)
+            (*it)->draw();
+
+    //Dibujado powerUps
+    for(auto it = powerUps.begin(); it < powerUps.end(); it++)
+            (*it)->draw();
+        
+    //Dibujado de npcs
+    for(auto it = npcs.begin(); it < npcs.end(); it++)
+                (*it)->draw();
 }
 
 void Map::updateColisions()

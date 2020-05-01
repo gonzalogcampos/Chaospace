@@ -24,12 +24,13 @@ void Game::run()
 {
     while(Render::getInstance()->isWindowOpen())
     {
+        Render::getInstance()->preLoop(clock->getInterpolatedTime());
         if(clock->canContinue())
         {
-        Render::getInstance()->preLoop(clock->getElapsedTime());
-        state->update(clock->getElapsedTime());
-        Render::getInstance()->postLoop();
+            state->update(clock->getElapsedTime());
         }
+        state->draw();
+        Render::getInstance()->postLoop();
     }
 }
 

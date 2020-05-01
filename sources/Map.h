@@ -65,6 +65,8 @@ class Map
 
         void draw();
 
+        void drawObjects();
+
         float getMapIncPosition();
         
         void moveMap(float dx);

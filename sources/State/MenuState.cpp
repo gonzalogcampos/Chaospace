@@ -62,4 +62,13 @@ void MenuState::update(float dt){
     
 }
 
-void MenuState::clear(){}
+
+void MenuState::draw()
+{
+    menu->draw();
+}
+
+void MenuState::clear()
+{
+
+}

@@ -17,6 +17,10 @@ void TestState::update(float dt)
 {
 }
 
+void TestState::draw()
+{
+    
+}
 
 void TestState::clear()
 {

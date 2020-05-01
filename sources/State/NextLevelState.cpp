@@ -27,6 +27,11 @@ void NextLevelState::update(float dt)
 
 }
 
+void NextLevelState::draw()
+{
+    
+}
+
 void NextLevelState::clear()
 {
 
