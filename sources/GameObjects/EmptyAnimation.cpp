@@ -1,6 +1,7 @@
 #include <EmptyAnimation.h>
 #include <Render.h>
 #include <Physics.h>
+#include <iostream>
 
 EmptyAnimation::EmptyAnimation(float x, float y, float orient, Type type)
 {

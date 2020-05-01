@@ -383,6 +383,21 @@ void Map::updateObjects(float dt)
             (*it)->update(dt);
         }
     }
+
+    //Borrado de animations fuera del mapa y update
+    for(auto it = asteroids.begin(); it < asteroids.end(); it++) {
+        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
+            || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100) {
+            //Cumplida la condicion, procedemos a borrar la bala.
+            delete (*it);
+            asteroids.erase(it);
+            it--;
+        } else {
+            //Llamar al update de la bala
+            (*it)->update(dt);
+        }
+    }
 }
 
 void Map::drawObjects()
@@ -407,6 +422,10 @@ void Map::drawObjects()
     
     //Dibujado de animaciones
     for(auto it = animations.begin(); it < animations.end(); it++)
+        (*it)->draw();
+    
+        //Dibujado de animaciones
+    for(auto it = asteroids.begin(); it < asteroids.end(); it++)
         (*it)->draw();
 }
 

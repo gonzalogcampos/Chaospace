@@ -45,9 +45,6 @@ Asteroid::Asteroid(float X, float Y)
             sprite = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 388, 23, 26));
             velRot = 2.5f;
             break;
-
-
-
         case 6:
             // Segunda columna primer sprite
             sprite = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(112, 0, 128, 98));
@@ -112,9 +109,6 @@ Asteroid::Asteroid(float X, float Y)
             velRot = 2.5f;
             sprite = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 388, 23, 26));
             break;
-
-
-
         case 6:
             // Segunda columna primer sprite
             sprite = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(112, 0, 128, 98));
@@ -158,8 +152,14 @@ Asteroid::~Asteroid()
 void Asteroid::update(float dt)
 {
     physics->setOrient(physics->getOrient()+dt*velRot);
+    GameObject::update(dt);
 }
 
+
+void Asteroid::draw()
+{
+    GameObject::draw();
+}
 
 // En update object de mapa tengo que comprobar colisión con el jugador
 // En update colisions tengo que comprobar que colisionan con el meteorito
