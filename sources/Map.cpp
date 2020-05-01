@@ -85,6 +85,8 @@ Borra toda la informacion del mapa
 */
 void Map::clear()
 { 
+    Render::getInstance()->deleteSprite(fondo);
+    Render::getInstance()->deleteSprite(paredes);
     for(auto it = npcs.begin(); it<npcs.end(); it++)
     {
         delete *it;
@@ -124,7 +126,6 @@ Inicia el mapa
 void Map::init()
 {
     loadLevel();
-    loadMapInfo(1); 
 }
 
 /*
@@ -174,7 +175,7 @@ void Map::loadMapInfo(int lvl)
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
-    std::cout << rutaMapa << std::endl;
+
     document.LoadFile(rutaMapa.c_str());
 
 
@@ -188,42 +189,18 @@ void Map::loadMapInfo(int lvl)
         {
             // fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
             std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
-            std::cout << ruta << std::endl;
             fondo = Render::getInstance()->createSprite(ruta);
         }
         else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
         {
             std::string ruta = "resources/maps/mapa" + std::to_string(lvl) + "/" + imageLayer->FirstChildElement("image")->Attribute("source");
-            std::cout << ruta << std::endl;
             paredes = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
             
         }
 
         imageLayer = imageLayer->NextSiblingElement("imagelayer");
 
-    }
-
-
-    /*
-    imageLayer = xmlMap->FirstChildElement("imagelayer");
-    while(imageLayer) {
-        if(((std::string)imageLayer->Attribute("name")).compare("fondo") == 0) 
-        {
-            ruta = ruta + (string)imageLayer->FirstChildElement("image")->Attribute("source");
-            fondo = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
-
-        } 
-        else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
-        {
-            ruta = ruta + (string)imageLayer->FirstChildElement("image")->Attribute("source");
-            paredes = Render::getInstance()->createSprite(ruta, Rrect(0, 0, 1080, 720));
-
-        }
-
-        imageLayer = imageLayer->NextSiblingElement("imagelayer");
-    }
-    */
-   
+    }  
 
 }
 /*
@@ -234,10 +211,14 @@ void Map::draw()
     float v1 = .1;
     float v2 = .9;
 
-    Render::getInstance()->drawSprite(fondo, Rvect(-mapPosition*v1, 0), 0.f, 1.f, false);
-
     int n = v2*mapPosition/1080;
     float xpos = (1080 * n) - mapPosition*.9;
+
+    Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
+    Render::getInstance()->drawSprite(fondo, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
+
+    n = v2*mapPosition/1080;
+    xpos = (1080 * n) - mapPosition*.9;
 
     Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
     Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
@@ -283,7 +264,6 @@ void Map::updateObjects(float dt)
     player->update (dt);
 
     //if(boss)boss->update(dt);
-
 
     //Borrado de balas fuera del mapa y update
     for(auto it = bullets.begin(); it < bullets.end(); it++) {
@@ -422,6 +402,7 @@ Carga un nivel
 void Map::loadLevel()
 {
     clear();
+    loadMapInfo(1); 
     mapPosition = 0.f;
     level++;
     if(level == 0)
