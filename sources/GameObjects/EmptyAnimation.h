@@ -13,5 +13,6 @@ class EmptyAnimation : public GameObject
         EmptyAnimation(float x, float y, float orient, Type type);
         ~EmptyAnimation();
         void update(float dt);
+        void draw();
         bool getKill();
 };

@@ -18,7 +18,7 @@ Ship::Ship()
 { 
     hp = 1;
     weaponType = 1;
-    shootAnim = Render::getInstance()->createAnimation(3);
+    shootAnim = Render::getInstance()->createAnimation(120);
 }
 
  //Metodo destructor de un Ship.
@@ -109,14 +109,6 @@ void Ship::setWeaponType(int t)
         break;
     }
 
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 0*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 0*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 0*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 1*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 1*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 2*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 2*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 2*50, 50, 50))); 
    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 3*50, 50, 50)));
    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 3*50, 50, 50)));
    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 4*50, 50, 50)));

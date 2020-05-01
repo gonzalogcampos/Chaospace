@@ -296,7 +296,7 @@ void Map::updateObjects(float dt)
     player->update (dt);
 
     //if(boss)boss->update(dt);
-    std::cout<<animations.size()<<"\n";
+
     //Borrado de balas fuera del mapa y update
     for(auto it = bullets.begin(); it < bullets.end(); it++) {
         //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.

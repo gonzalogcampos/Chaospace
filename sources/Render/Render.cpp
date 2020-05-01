@@ -542,7 +542,7 @@ void Animation::draw(float dt, Rvect position, float rotation, float scale, bool
 {
     this->dt += dt;
     float et = 1.f/fps;
-    if(this->dt<et)
+    if(this->dt>et)
     {
         this->dt = 0.f;
         drawing++;
