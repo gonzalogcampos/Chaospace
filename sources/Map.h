@@ -12,7 +12,11 @@ class Bullet;
 class Npc;
 class PowerUp;
 class Hud;
+<<<<<<< HEAD
 class Asteroid;
+=======
+class EmptyAnimation;
+>>>>>>> 64ff5bb98d995919cc26c5e5f4ad5c21c08f9361
 
 class Map
 {
@@ -27,11 +31,14 @@ class Map
         std::vector<Bullet*> bullets;
         std::vector<PowerUp*> powerUps;
         std::vector<Asteroid*> asteroids;
+        std::vector<EmptyAnimation*> animations;
 
         Map();
         float mapPosition;
         float mapIncPosition;
         unsigned int score = 0;
+        unsigned int kills = 0;
+        int playerHp = 100;
 
         int level = -1;
         unsigned int fondo;
@@ -62,6 +69,8 @@ class Map
         void createBoss();
 
         void createBullet(float x, float y, float orient, int type, bool fromPlayer);
+
+        void createAnimation(float x, float y, float orient, int type);
         
         Player* createPlayer(float x, float y);
 

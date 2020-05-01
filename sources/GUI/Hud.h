@@ -10,12 +10,17 @@ class RectangleShape;
 class Hud{
     private:
         sf::Font *fuente;
+        sf::Font *fuente2;
         sf::Text *texto_puntuacion;
         sf::Text *texto_enemigos;
         sf::Text *texto_niveles;
         sf::Text *texto_fps;
+        sf::Text *texto_distance;
+        sf::RectangleShape *rectangulo_objetos;
         sf::RectangleShape *rectangulo_relleno;
         sf::RectangleShape *rectangulo_vida;
+        unsigned int sprite_explosion;
+        unsigned int sprite_objeto;
        
         int puntuacion=0;
         
@@ -27,9 +32,11 @@ class Hud{
         void setPuntuacion(int sumar);
         void setLife(int i);
         void setLevel(int level);
-        void setTextNPCs(int npcs_vivos);
+        void setTextNPCs(int kills);
+        void setTextDistance(int done, int to_do);
+        void setObjeto(int object);
 
 
-        void update(int puntuacion, int level, int npc_vivos, int porcentaje_vida, float distance, float levelDistance, float fps); 
+        void update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps, int object); 
         void draw();
 };

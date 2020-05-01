@@ -26,6 +26,8 @@ class Ship: public GameObject{
 
         int getHp();
 
+        void setHp(int hp);
+
         void update(float dt);
 
         void setWeaponType(int t);

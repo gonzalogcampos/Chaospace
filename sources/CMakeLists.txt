@@ -19,6 +19,7 @@ target_sources(modulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Player.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/PowerUp.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Ship.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/EmptyAnimation.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/GUI/Hud.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GUI/Interface.cpp"
