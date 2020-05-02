@@ -5,7 +5,7 @@
 #include <Render.h>
 #include <Physics.h>
 #include <Map.h>
-#include <iostream>
+
 
 
 /*=================================================*/
@@ -313,7 +313,7 @@ void Npc::update(float dt){
     }
     //Ataque3
     if(ataqueboss==3){
-        std::cout<<"Ataque3"<<std::endl;
+       
         movboss++;
         if(physics->getPosition().x>=300){
             vx=-300.f;
@@ -334,7 +334,7 @@ void Npc::update(float dt){
     }
     //Ataque4
     if(ataqueboss==4){
-    std::cout<<"Ataque4"<<std::endl;
+    
         movboss++;
         if(physics->getPosition().x<=700){
             vx=300.f;
