@@ -5,6 +5,7 @@
 #include <Render.h>
 #include <Physics.h>
 #include <Map.h>
+#include <iostream>
 
 
 /*=================================================*/
@@ -32,51 +33,48 @@ Npc::Npc(int IA, float posX, float posY){
     case 1:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=10;
         break;
     case 2:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=10;
         break;
     case 3:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=10;
         break;
     case 4:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=10;
         break;
     case 5:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=5;
         break;
     case 6:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=5;
         break;
         case 7:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
-        hp = 1;   
-        cadencia = 1;
-        setWeaponType(1);
+        hp = 1;        
+        cadencia=5;
         break;
-    
+    case 8:
+    //boss
+        hp=100;
+        cadencia=10;
+       
+        break;
     default:
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
-        cadencia = 1;
-        setWeaponType(1);
+        cadencia=10;
         break;
     }
     
@@ -84,13 +82,24 @@ Npc::Npc(int IA, float posX, float posY){
     
     X=posX;
     Y=posY;
-    
+    if(tipo<8){
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
-
     physics->setPosition(Pvect(X, Y));
     physics->setOrient(180.f);
+
     physics->setRectangleBB(Pvect(123.f,115.f));
+    }
+    else{
+         animation = Render::getInstance()->createAnimation(15);
+    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+    //Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
+    physics->setPosition(Pvect(X, Y));
+    physics->setOrient(180.f);
+
+    physics->setRectangleBB(Pvect(220.f,220.f));
+    }
+
 }
 
 
@@ -104,8 +113,7 @@ Npc::~Npc(){
     }
 } //Metodo destructor de la clase NPC.
 
-void Npc::IA(int tipo)
-{
+void Npc::IA(int tipo){
 
 }
 
@@ -118,6 +126,7 @@ void Npc::enemigo6(){}
 
 
 void Npc::update(float dt){
+    
     float vx = 0.f;
     float vy = 0.f;
     contador++;
@@ -240,7 +249,109 @@ void Npc::update(float dt){
         }     
 
         break;
+    case 8: //IA Del boss
+    if(physics->getPosition().x<100){
+        vx=1000.f;
+    }
+    if(physics->getPosition().x>900){
+        vx=-100.f;
+    }
+    if(physics->getPosition().x>=100 && physics->getPosition().x<=900){
+    vx=20.f;
+    }
+    //Ataque1
+    if(ataqueboss==1){
+        movboss++;
 
+           // std::cout<<movboss<<std::endl;
+            //for(int i=0;i<30;i++){
+            if(movboss<30)
+            vy = -300.f;
+            if(movboss==5 || movboss== 15 || movboss ==25){
+                Ship::shoot();
+            }
+            //}
+             //for(int i=0;i<30;i++){
+            if(movboss<60 && movboss>=30)
+            vy = +300.f;
+            if(movboss==35 || movboss== 45 || movboss ==55){
+                Ship::shoot();
+            }
+            if(movboss>=60){
+            movboss=0;
+             ataqueboss = rand() % 4 + 1; 
+            }
+            //}
+            contador=0;
+           
+        
+    }
+    //Ataque2
+    if(ataqueboss==2){
+     movboss++;
+
+            
+            //for(int i=0;i<30;i++){
+            if(movboss<30)
+            vy = +300.f;
+            if(movboss==5 || movboss== 15 || movboss ==25){
+                Ship::shoot();
+            }
+            //}
+             //for(int i=0;i<30;i++){
+            if(movboss<60 && movboss>=30)
+            vy = -300.f;
+            if(movboss==35 || movboss== 45 || movboss ==55){
+                Ship::shoot();
+            }
+            if(movboss>=60){
+            movboss=0;
+             ataqueboss = rand() % 4 + 1; 
+            }
+            //}
+            contador=0;
+    }
+    //Ataque3
+    if(ataqueboss==3){
+        std::cout<<"Ataque3"<<std::endl;
+        movboss++;
+        if(physics->getPosition().x>=300){
+            vx=-300.f;
+            if(movboss%2==0)
+            Ship::shoot();
+            if(movboss>30){
+            movboss=0;
+            ataqueboss = rand() % 4 + 1; 
+            }
+
+        }
+        if(movboss>30){
+            movboss=0;
+            ataqueboss = rand() % 4 + 1; 
+            }
+        
+        
+    }
+    //Ataque4
+    if(ataqueboss==4){
+    std::cout<<"Ataque4"<<std::endl;
+        movboss++;
+        if(physics->getPosition().x<=700){
+            vx=300.f;
+            if(movboss%2==0)
+            Ship::shoot();
+            if(movboss>30){
+            movboss=0;
+            ataqueboss = rand() % 4 + 1; 
+            }
+
+        }
+        if(movboss>30){
+            movboss=0;
+            ataqueboss = rand() % 4 + 1; 
+            }
+    }
+    break;
     default:
         break;
     }

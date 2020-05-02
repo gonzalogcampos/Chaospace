@@ -8,7 +8,8 @@ class Bullet;
 
 class Npc : public Ship {
     private:
-   
+    int ataqueboss=1;
+    int movboss=0;
     int tipo, cadencia;
     int X,Y,XPlayer, YPlayer;
     int contador=0;
