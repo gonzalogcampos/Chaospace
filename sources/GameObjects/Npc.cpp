@@ -31,47 +31,56 @@ Npc::Npc(int IA, float posX, float posY){
     switch (tipo)
     {
     case 1:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=10;
         break;
     case 2:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=10;
         break;
     case 3:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=10;
         break;
     case 4:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=10;
         break;
     case 5:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=5;
         break;
     case 6:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=5;
         break;
-        case 7:
+    case 7:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;        
         cadencia=5;
         break;
     case 8:
     //boss
+        setWeaponType(1);
         hp=100;
         cadencia=10;
        
         break;
     default:
+        setWeaponType(1);
         //nave=Render::getInstance()->createSprite("resources/naveE.png");
         hp = 1;
         cadencia=10;
