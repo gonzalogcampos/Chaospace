@@ -29,7 +29,7 @@ const float _Player_InitY = 360.f;
 
 //Level Values
 
-const float baseDistance = 10000.f;
+const float baseDistance = 200.f;
 const float incDisctance = 100.f;
 
 const float bossMaxDist = 50.f;
@@ -75,19 +75,10 @@ bool Map::update(float dt)
         return false;
     }
     
-    if(mapPosition>baseDistance + (level * incDisctance))
-    {
-        playerHp = player->getHp();
-        clear();
-        Game::getInstance()->setState(State::NEXTLEVEL);
-        return false;
-    }
-    else if(mapPosition> mapPosition>baseDistance+(level * incDisctance) - bossMaxDist && !boss)
+    if(mapPosition>baseDistance+(level * incDisctance) && !boss)
     {
         createBoss();
     }
-
-    //draw();
 
     if(!boss)
         tryCreate();
@@ -176,7 +167,7 @@ Crea un jefe
 */
 void Map::createBoss()
 {
-    
+    boss = new Npc(8, 1200.f, 720/2);
 }
 
 /*
@@ -216,10 +207,7 @@ void Map::createLife(float x, float y)
 Carga toda la información del mapa
 */
 void Map::loadMapInfo(int lvl)
-{
-    // fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
-    // paredes = Render::getInstance()->createSprite("resources/maps/mapa1/seccion1.png", Rrect(0, 0, 1080, 720));
-    
+{   
     tinyxml2::XMLDocument document;
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
@@ -321,7 +309,7 @@ void Map::updateObjects(float dt)
 {
     player->update (dt);
 
-    //if(boss)boss->update(dt);
+    if(boss)boss->update(dt);
 
     //Borrado de balas fuera del mapa y update
     for(auto it = bullets.begin(); it < bullets.end(); it++) {
@@ -406,7 +394,7 @@ void Map::drawObjects()
     if(player)player->draw();
 
     //Dibujado del boss
-    //if(boss)boss->draw();
+    if(boss)boss->draw();
 
     //Dibujado Balas
     for(auto it = bullets.begin(); it < bullets.end(); it++)
@@ -462,18 +450,24 @@ void Map::updateColisions()
         {
             Physics* p = (*it)->getPhysics();
 
-            /*
-            if(boss && p->colides(boss->getPhysics()));
+            
+            if(this->boss!=nullptr)
             {
-                if(boss->hpDown((*it)->getForce()))
+                if(p->colides(boss->getPhysics()));
                 {
-                    delete boss;
-                    boss = nullptr;
-                    score += bossScore * (1 + (level*incScore));
-                } 
-                colision = true;
+                    if(boss->hpDown((*it)->getForce()))
+                    {
+                        delete boss;
+                        boss = nullptr;
+                        score += bossScore * (1 + (level*incScore));
+                        playerHp = player->getHp();
+                        clear();
+                        Game::getInstance()->setState(State::NEXTLEVEL);
+                    } 
+                    colision = true;
+                }
             }
-            */
+            
 
             for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
             {

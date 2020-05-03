@@ -91,22 +91,23 @@ Npc::Npc(int IA, float posX, float posY){
     
     X=posX;
     Y=posY;
-    if(tipo<8){
-    animation = Render::getInstance()->createAnimation(15);
-    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
-    physics->setPosition(Pvect(X, Y));
-    physics->setOrient(180.f);
 
-    physics->setRectangleBB(Pvect(123.f,115.f));
+    if(tipo<8)
+    {
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
     }
-    else{
+    else
+    {
          animation = Render::getInstance()->createAnimation(15);
-    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
-    //Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
-    physics->setPosition(Pvect(X, Y));
-    physics->setOrient(180.f);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
 
-    physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(220.f,220.f));
     }
 
 }
@@ -253,114 +254,130 @@ void Npc::update(float dt){
         
         if(contador==cadencia)
         {
-            Ship::shoot();
+            //Ship::shoot();
             contador=0;
         }     
 
         break;
     case 8: //IA Del boss
-    if(physics->getPosition().x<100){
-        vx=1000.f;
-    }
-    if(physics->getPosition().x>900){
-        vx=-100.f;
-    }
-    if(physics->getPosition().x>=100 && physics->getPosition().x<=900){
-    vx=20.f;
-    }
-    //Ataque1
-    if(ataqueboss==1){
-        movboss++;
+        if(physics->getPosition().x<100)
+            vx=1000.f;
+        
+        if(physics->getPosition().x>900)
+            vx=-100.f;
+        
+        if(physics->getPosition().x>=100 && physics->getPosition().x<=900)
+            vx=20.f;
+        
+        //Ataque1
+        if(ataqueboss==1)
+        {
+            movboss++;
 
-           // std::cout<<movboss<<std::endl;
             //for(int i=0;i<30;i++){
             if(movboss<30)
             vy = -300.f;
-            if(movboss==5 || movboss== 15 || movboss ==25){
+
+            if(movboss==5 || movboss== 15 || movboss ==25)
                 Ship::shoot();
-            }
+        
             //}
-             //for(int i=0;i<30;i++){
+                //for(int i=0;i<30;i++){
             if(movboss<60 && movboss>=30)
             vy = +300.f;
-            if(movboss==35 || movboss== 45 || movboss ==55){
-                Ship::shoot();
-            }
-            if(movboss>=60){
-            movboss=0;
-             ataqueboss = rand() % 4 + 1; 
-            }
-            //}
-            contador=0;
-           
-        
-    }
-    //Ataque2
-    if(ataqueboss==2){
-     movboss++;
 
+            if(movboss==35 || movboss== 45 || movboss ==55)
+                Ship::shoot();
             
-            //for(int i=0;i<30;i++){
-            if(movboss<30)
-            vy = +300.f;
-            if(movboss==5 || movboss== 15 || movboss ==25){
-                Ship::shoot();
-            }
-            //}
-             //for(int i=0;i<30;i++){
-            if(movboss<60 && movboss>=30)
-            vy = -300.f;
-            if(movboss==35 || movboss== 45 || movboss ==55){
-                Ship::shoot();
-            }
-            if(movboss>=60){
-            movboss=0;
-             ataqueboss = rand() % 4 + 1; 
+            if(movboss>=60)
+            {
+                movboss=0;
+                ataqueboss = rand() % 4 + 1; 
             }
             //}
             contador=0;
-    }
-    //Ataque3
-    if(ataqueboss==3){
-       
-        movboss++;
-        if(physics->getPosition().x>=300){
-            vx=-300.f;
-            if(movboss%2==0)
-            Ship::shoot();
-            if(movboss>30){
-            movboss=0;
-            ataqueboss = rand() % 4 + 1; 
-            }
-
+            
+            
         }
-        if(movboss>30){
-            movboss=0;
-            ataqueboss = rand() % 4 + 1; 
-            }
-        
-        
-    }
-    //Ataque4
-    if(ataqueboss==4){
-    
-        movboss++;
-        if(physics->getPosition().x<=700){
-            vx=300.f;
-            if(movboss%2==0)
-            Ship::shoot();
-            if(movboss>30){
-            movboss=0;
-            ataqueboss = rand() % 4 + 1; 
-            }
 
-        }
-        if(movboss>30){
-            movboss=0;
-            ataqueboss = rand() % 4 + 1; 
+        //Ataque2
+        if(ataqueboss==2)
+        {
+            movboss++;
+            //for(int i=0;i<30;i++){
+            if(movboss<30)
+                vy = +300.f;
+
+            if(movboss==5 || movboss== 15 || movboss ==25)
+                Ship::shoot();
+            
+            //}
+                //for(int i=0;i<30;i++){
+            if(movboss<60 && movboss>=30)
+            vy = -300.f;
+
+            if(movboss==35 || movboss== 45 || movboss ==55)
+                Ship::shoot();
+
+            if(movboss>=60)
+            {
+                movboss=0;
+                ataqueboss = rand() % 4 + 1; 
             }
-    }
-    break;
+            //}
+            contador=0;                                 
+        }
+
+        //Ataque3
+        if(ataqueboss==3)
+        {   
+            movboss++;
+            if(physics->getPosition().x>=300)
+            {
+                vx=-300.f;
+                if(movboss%2==0)
+                    Ship::shoot();
+
+                if(movboss>30)
+                {
+                    movboss=0;
+                    ataqueboss = rand() % 4 + 1; 
+                }
+            }
+            if(movboss>30)
+            {
+                movboss=0;
+                ataqueboss = rand() % 4 + 1; 
+            }
+        }
+
+        //Ataque4
+        if(ataqueboss==4)
+        {
+            movboss++;
+            if(physics->getPosition().x<=700)
+            {
+                vx=300.f;
+
+                if(movboss%2==0)
+                    Ship::shoot();
+
+                if(movboss>30)
+                {
+                    movboss=0;
+                    ataqueboss = rand() % 4 + 1; 
+                }
+
+            }
+            if(movboss>30)
+            {
+                movboss=0;
+                ataqueboss = rand() % 4 + 1; 
+            }
+        }
+
+        break;
+        
     default:
         break;
     }

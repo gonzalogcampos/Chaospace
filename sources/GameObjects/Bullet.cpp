@@ -7,6 +7,7 @@
 
 #include <weapons.h>
 
+
 /*=================================================*/
 /*==================   Metodos   ==================*/
 /*=================================================*/
@@ -19,12 +20,11 @@ Bullet::Bullet(float x, float y, float dir, int type, bool fromPlayer)
     physics->setOrient(dir);
     animation = Render::getInstance()->createAnimation(4);
     this->fromPlayer = fromPlayer;
-
     switch (type)
     {
     case 1:
         force = w1_Fuerza;
-        physics->setPolarVelocity(dir, w7_Velocidad);
+        physics->setPolarVelocity(dir, w1_Velocidad);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/laser.png", Rrect(45, 8 + 26*0, 75, 26)));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/laser.png", Rrect(45, 8 + 26*1, 75, 26)));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/laser.png", Rrect(45, 8 + 26*2, 75, 26)));

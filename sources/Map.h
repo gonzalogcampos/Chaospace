@@ -22,7 +22,7 @@ class Map
 
         Player* player;
         
-        void* boss;
+        Npc* boss;
 
         std::vector<Npc*> npcs;
         std::vector<Bullet*> bullets;
