@@ -11,4 +11,6 @@ class Asteroid : public GameObject {
 
     private:
         float velRot;
+        float velocity;
+        int tam;
 };
