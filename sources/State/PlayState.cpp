@@ -16,14 +16,14 @@
 void PlayState::initState()
 {
     type = State::PLAY;                       
-    if(!loaded)
-    {
-        loaded = true;
+    //if(!loaded)
+    //{
+    //    loaded = true;
         Map::getInstance()->init();
-    }else
-    {
+    //}else
+    //{
 
-    }
+    //}
 } 
 
 
