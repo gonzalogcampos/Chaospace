@@ -120,6 +120,12 @@ void Map::clear()
     }
     powerUps.clear();
 
+    for(auto it = asteroids.begin(); it<asteroids.end(); it++)
+    {
+        delete *it;
+    }
+    asteroids.clear();
+
     if(player)
     {
         delete player;
@@ -466,6 +472,7 @@ void Map::updateColisions()
                         playerHp = player->getHp();
                         clear();
                         Game::getInstance()->setState(State::NEXTLEVEL);
+                        return;
                     } 
                     colision = true;
                 }

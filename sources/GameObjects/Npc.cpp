@@ -75,7 +75,7 @@ Npc::Npc(int IA, float posX, float posY){
     case 8:
     //boss
         setWeaponType(1);
-        hp=100;
+        hp=10;
         cadencia=10;
        
         break;
@@ -102,7 +102,7 @@ Npc::Npc(int IA, float posX, float posY){
     }
     else
     {
-         animation = Render::getInstance()->createAnimation(15);
+        animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
