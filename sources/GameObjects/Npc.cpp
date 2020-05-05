@@ -106,7 +106,6 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-
         physics->setRectangleBB(Pvect(220.f,220.f));
     }
 
@@ -254,7 +253,7 @@ void Npc::update(float dt){
         
         if(contador==cadencia)
         {
-            //Ship::shoot();
+            Ship::shoot();
             contador=0;
         }     
 

@@ -7,7 +7,7 @@
 
 #include <weapons.h>
 
-
+#include   <iostream>
 /*=================================================*/
 /*==================   Metodos   ==================*/
 /*=================================================*/
@@ -15,6 +15,7 @@
 
 Bullet::Bullet(float x, float y, float dir, int type, bool fromPlayer)
 {   
+    std::cout<<"Bullet consttuctor P: "<<x<<" "<<y<<"\n";
     physics->setPosition(Pvect(x, y));
     physics->setCircleBB(10.f);
     physics->setOrient(dir);
@@ -96,6 +97,8 @@ Bullet::Bullet(float x, float y, float dir, int type, bool fromPlayer)
 Bullet::~Bullet()
 {
     //Destructor
+    std::cout<<"Bullet destructor P: "<<physics->getPosition().x<<" "<<physics->getPosition().y<<"\n";
+
     Render::getInstance()->deleteAnimation(animation);
 }
 

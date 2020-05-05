@@ -77,7 +77,7 @@ bool Map::update(float dt)
     
     if(mapPosition>baseDistance+(level * incDisctance) && !boss)
     {
-        //createBoss();
+        createBoss();
     }
 
     if(!boss)
@@ -275,6 +275,9 @@ void Map::moveMap(float dx)
     {
         mapPosition += dx;
         mapIncPosition = dx;
+    }else
+    {
+        mapIncPosition = 0.f;
     }
 }
 
@@ -453,7 +456,7 @@ void Map::updateColisions()
             
             if(this->boss!=nullptr)
             {
-                if(p->colides(boss->getPhysics()));
+                if(p->colides(boss->getPhysics()))
                 {
                     if(boss->hpDown((*it)->getForce()))
                     {
