@@ -13,30 +13,6 @@ Asteroid::Asteroid(float X, float Y)
     int tipo = rand() % 2 + 1;
     animation = Render::getInstance()->createAnimation(1.f);
 
-    // cojo todos los sprites
-    // primero los marrones
-    sprites[0][0] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 0, 105, 89));
-    sprites[0][1] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 92, 99, 98));
-    sprites[0][2] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 186, 60, 64));
-    sprites[0][3] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 285, 40, 43));
-    sprites[0][4] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 388, 23, 26));
-    sprites[0][5] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(112, 0, 128, 98));
-    sprites[0][6] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(116, 98, 108, 97));
-    sprites[0][7] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(117, 195, 51, 43));
-    sprites[0][8] = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(114, 288, 41, 38));
-    sprites[0][9] =  Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(117, 387, 22, 25));
-    // ahora los grises
-    sprites[1][0] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 0, 105, 89));
-    sprites[1][1] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 92, 99, 98));
-    sprites[1][2] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 186, 60, 64));
-    sprites[1][3] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 285, 40, 43));
-    sprites[1][4] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 388, 23, 26));
-    sprites[1][5] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(112, 0, 128, 98));
-    sprites[1][6] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(116, 98, 108, 97));
-    sprites[1][7] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 195, 51, 43));
-    sprites[1][8] = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(114, 288, 41, 38));
-    sprites[1][9] =  Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 387, 22, 25));
-
     Rint spriteActual;
     
     if(tipo == 1)
@@ -48,79 +24,94 @@ Asteroid::Asteroid(float X, float Y)
         {
         case 1:
             // Primera columna primer sprite
-            spriteActual = sprites[0][0];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 0, 105, 89));
             velRot = 10.f;
             velocity = 10.f;
-            tam = 5;
+            type = 0;
+            size = 5;
             physics->setCircleBB(109.f);
             break;
         case 2:
             // Primera columna segundo sprite
-            spriteActual = sprites[0][1];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 92, 99, 98));
             velRot = 30.f;
             velocity = 30.f;
-            tam = 4;
+            type = 0;
+            size = 4;
             physics->setCircleBB(94.f);
             break;
         
         case 3:
             // Primera columna tercer sprite
-            spriteActual = sprites[0][2];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 186, 60, 64));
             velRot = 50.f;
             velocity = 50.f;
-            tam = 3;
+            type = 0;
+            size = 3;
             physics->setCircleBB(44.f);
             break;
         
         case 4:
             // Primera columna cuarto sprite
-            spriteActual = sprites[0][3];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 285, 40, 43));
             velRot = 100.f;
             velocity = 100.f;
-            tam = 2;
+            type = 0;
+            size = 2;
             physics->setCircleBB(27.f);
             break;
         case 5:
             // Primera columna quinto sprite
-            spriteActual = sprites[0][4];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 388, 23, 26));
             velRot = 150.f;
             velocity = 150.f;
-            tam = 1;
+            type = 0;
+            size = 1;
             physics->setNoBB();
             break;
         case 6:
             // Segunda columna primer sprite
-            spriteActual = sprites[0][5];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(112, 0, 128, 98));
             velRot = 10.f;
             velocity = 10.f;
+            type = 0;
+            size = 5;
             physics->setCircleBB(109.f);
             break;
         case 7:
             // Segunda columna segundo sprite
-            spriteActual = sprites[0][6];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(116, 98, 108, 97));
             velRot = 30.f;
             velocity = 30.f;
+            type = 0;
+            size = 4;
             physics->setCircleBB(94.f);
             break;
         case 8:
             // Segunda columna tercer sprite
-            spriteActual = sprites[0][7];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(117, 195, 51, 43));
             velRot = 50.f;
             velocity = 50.f;
+            type = 0;
+            size = 3;
             physics->setCircleBB(44.f);
             break;
         case 9:
             // Segunda columna cuarto sprite
-            spriteActual = sprites[0][8];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(114, 288, 41, 38));
             velRot = 100.f;
             velocity = 100.f;
+            type = 0;
+            size = 2;
             physics->setCircleBB(27.f);
             break;
         case 10:
             // Tercera columna quinto sprite
-            spriteActual = sprites[0][9];
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(117, 387, 22, 25));
             velRot = 150.f;
             velocity = 150.f;
+            type = 0;
+            size = 1;
             physics->setNoBB();
             break;
         default:
@@ -137,84 +128,94 @@ Asteroid::Asteroid(float X, float Y)
         {
         case 1:
             // Primera columna primer sprite
-            spriteActual = sprites[1][0];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 0, 105, 89));
             velRot = 10.f;
             velocity = 10.f;
             type = 1;
+            size = 5;
             physics->setCircleBB(109.f);
             break;
         case 2:
             // Primera columna segundo sprite
-            spriteActual = sprites[1][1];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 92, 99, 98));
             velRot = 30.f;
             velocity = 30.f;
             type = 1;
+            size = 4;
             physics->setCircleBB(94.f);
             break;
         
         case 3:
             // Primera columna tercer sprite
-            spriteActual = sprites[1][2];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 186, 60, 64));
             velRot = 50.f;
             velocity = 50.f;
             type = 1;
+            size = 3;
             physics->setCircleBB(44.f);
             break;
         
         case 4:
             // Primera columna cuarto sprite
-            spriteActual = sprites[1][3];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 285, 40, 43));
             velRot = 100.f;
             velocity = 100.f;
             type = 1;
+            size = 2;
             physics->setCircleBB(27.f);
             break;
         case 5:
             // Primera columna quinto sprite
-            spriteActual = sprites[1][4];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 388, 23, 26));
             velRot = 150.f;
             velocity = 150.f;
             type = 1;
+            size = 1;
             physics->setNoBB();
             break;
         case 6:
             // Segunda columna primer sprite
-            spriteActual = sprites[1][5];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(112, 0, 128, 98));
             velRot = 10.f;
             velocity = 10.f;
             type = 1;
+            size = 5;
             physics->setCircleBB(109.f);
             break;
         case 7:
             // Segunda columna segundo sprite
-            spriteActual = sprites[1][6];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(116, 98, 108, 97));
             velRot = 30.f;
             velocity = 30.f;
             type = 1;
+            size = 4;
             physics->setCircleBB(94.f);
             break;
         case 8:
             // Segunda columna tercer sprite
-            spriteActual = sprites[1][7];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 195, 51, 43));
             velRot = 50.f;
             velocity = 50.f;
             type = 1;
+            size = 3;
             physics->setCircleBB(44.f);
             break;
         case 9:
             // Segunda columna cuarto sprite
-            spriteActual = sprites[1][8];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(114, 288, 41, 38));
             velRot = 100.f;
             velocity = 100.f;
             type = 1;
+            size = 2;
             physics->setCircleBB(27.f);
             break;
         case 10:
             // Tercera columna quinto sprite
-            spriteActual = sprites[1][9];
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 387, 22, 25));
             velRot = 150.f;
             velocity = 150.f;
             type = 1;
+            size = 1;
             physics->setNoBB();
             break;
         default:
@@ -235,9 +236,46 @@ Constructor especial para pasarle un tipo y una posición.
 color: 0 -> marrón    1-> gris
 tam: 5 <= tam >= 1 (entre 1 y 5 incluidos)
 */
-Asteroid::Asteroid(int color, int tam, float X, float Y)
+Asteroid::Asteroid(int color, int tam, float X, float Y, float orientation)
 {
+    animation = Render::getInstance()->createAnimation(1.f);
+    Rint spriteActual;
+    
+    // Si el color es marrón
+    if(color == 0)
+    {
+        if(tam == 3)
+        {
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 186, 60, 64));
+            physics->setCircleBB(44.f);
+        }
+        else if(tam == 1)
+        {
+            spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(117, 387, 22, 25));
+            physics->setNoBB();
+        }
+    }
+    // si el color es gris
+    else if(color == 1)
+    {
+        if(tam == 3)
+        {
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 195, 51, 43));
+            physics->setCircleBB(44.f);
+        }
+        else if(tam == 1)
+        {
+            spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(0, 388, 23, 26));
+            physics->setNoBB();
+            
+        }
 
+    }
+
+    Render::getInstance()->addFrameToAnimation(animation, spriteActual);
+    float vel = rand()%100 + 50;
+    physics->setPosition(Pvect(X, Y));
+    physics->setPolarVelocity(orientation, vel);
 }
 
 Asteroid::~Asteroid()
@@ -245,9 +283,14 @@ Asteroid::~Asteroid()
     Render::getInstance()->deleteAnimation(animation);
 }
 
-int Asteroid::getTam()
+int Asteroid::getSize()
 {
-    return tam;
+    return size;
+}
+
+int Asteroid::getType()
+{
+    return type;
 }
 
 float Asteroid::getOrient()

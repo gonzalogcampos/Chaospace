@@ -32,7 +32,7 @@ const float _Player_InitY = 360.f;
 const float baseDistance = 200.f;
 const float incDisctance = 100.f;
 
-const float bossMaxDist = 50.f;
+const float bossMaxDist = 400.f;
 
 const float baseEnemy = 50.f;
 const float baseAsteroid = 50.f;
@@ -77,7 +77,7 @@ bool Map::update(float dt)
     
     if(mapPosition>baseDistance+(level * incDisctance) && !boss)
     {
-        createBoss();
+        // createBoss();
     }
 
     if(!boss)
@@ -503,7 +503,36 @@ void Map::updateColisions()
                 if(p->colides((*at)->getPhysics()))
                 {
                     colision = true;
-                    std::cout << "FUNCIONA" << std::endl;
+                    // create a smaller asteroid
+                    int tam = (*at)->getSize();
+
+                    if(tam > 3)
+                    {
+                        int type = (*at)->getType();
+                        Pvect pos = (*at)->getPhysics()->getPosition();
+                        float orient = p->getOrient() + (rand() % 21 + (-10));
+                        Asteroid* small = new Asteroid(type, 3, pos.x, pos.y, orient);
+                        orient = p->getOrient() + (rand() % 181 + (-90));
+                        Asteroid* small2 = new Asteroid(type, 3, pos.x, pos.y, orient);
+                        delete *at;
+                        asteroids.erase(at);
+                        asteroids.push_back(small);
+                        asteroids.push_back(small2);
+                    }
+                    else
+                    {
+                        int type = (*at)->getType();
+                        Pvect pos = (*at)->getPhysics()->getPosition();
+                        float orient = p->getOrient() + (rand() % 21 + (-10));
+                        Asteroid* small = new Asteroid(type, 1, pos.x, pos.y, orient);
+                        orient = p->getOrient() + (rand() % 181 + (-90));
+                        Asteroid* small2 = new Asteroid(type, 1, pos.x, pos.y, orient);
+                        delete *at;
+                        asteroids.erase(at);
+                        asteroids.push_back(small);
+                        asteroids.push_back(small2);
+                    }
+                    
                 }
             }
 
