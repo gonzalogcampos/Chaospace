@@ -293,9 +293,11 @@ int Asteroid::getType()
     return type;
 }
 
-float Asteroid::getOrient()
+void Asteroid::changeOrientation(float newOrient)
 {
-    return physics->getOrient();
+    float newVel = velocity - rand()%30;
+    physics->setPolarVelocity(newOrient, newVel);
+    hasColided = true;
 }
 
 void Asteroid::update(float dt)
@@ -304,6 +306,10 @@ void Asteroid::update(float dt)
     GameObject::update(dt);
 }
 
+bool Asteroid::getHasColided()
+{
+    return hasColided;    
+}
 
 void Asteroid::draw()
 {

@@ -9,13 +9,15 @@ class Asteroid : public GameObject {
         virtual ~Asteroid();
         void update(float dt);
         void draw();
-        float getOrient();
         int getSize();
         int getType();
+        void changeOrientation(float newOrient);
+        bool getHasColided();
 
     private:
         float velRot;
         float velocity;
         int size;
         int type;
+        bool hasColided = false;
 };
