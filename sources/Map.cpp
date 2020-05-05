@@ -32,7 +32,7 @@ const float _Player_InitY = 360.f;
 const float baseDistance = 200.f;
 const float incDisctance = 100.f;
 
-const float bossMaxDist = 50.f;
+const float bossMaxDist = 400.f;
 
 const float baseEnemy = 50.f;
 const float baseAsteroid = 50.f;
@@ -77,7 +77,7 @@ bool Map::update(float dt)
     
     if(mapPosition>baseDistance+(level * incDisctance) && !boss)
     {
-        createBoss();
+        // createBoss();
     }
 
     if(!boss)
@@ -381,17 +381,17 @@ void Map::updateObjects(float dt)
         }
     }
 
-    //Borrado de animations fuera del mapa y update
+    //Borrado de asteroides fuera del mapa y update
     for(auto it = asteroids.begin(); it < asteroids.end(); it++) {
-        //Con este bucle, controlaremos el borrar las balas cuando estas salgan del mapa.
+        //Con este bucle, controlaremos el borrar los asteroides cuando estos salgan del mapa.
         if((*it)->getPhysics()->getPosition().x > 2000 || (*it)->getPhysics()->getPosition().x < -100 
             || (*it)->getPhysics()->getPosition().y > 800 || (*it)->getPhysics()->getPosition().y < -100) {
-            //Cumplida la condicion, procedemos a borrar la bala.
+            //Cumplida la condicion, procedemos a borrar el asteroide.
             delete (*it);
             asteroids.erase(it);
             it--;
         } else {
-            //Llamar al update de la bala
+            //Llamar al update del asteroide
             (*it)->update(dt);
         }
     }
@@ -421,7 +421,7 @@ void Map::drawObjects()
     for(auto it = animations.begin(); it < animations.end(); it++)
         (*it)->draw();
     
-        //Dibujado de animaciones
+    //Dibujado de asteroides
     for(auto it = asteroids.begin(); it < asteroids.end(); it++)
         (*it)->draw();
 }
@@ -455,11 +455,13 @@ void Map::updateColisions()
     for(auto it = bullets.begin(); it<bullets.end(); it++)
     {
         bool colision = false;
-        if( (*it)->isFromPlayer() )
+
+        // Si la bala es del jugador
+        if( (*it)->isFromPlayer() ) 
         {
             Physics* p = (*it)->getPhysics();
 
-            
+            // comprobar si colisiona con el boss
             if(this->boss!=nullptr)
             {
                 if(p->colides(boss->getPhysics()))
@@ -478,7 +480,7 @@ void Map::updateColisions()
                 }
             }
             
-
+            // comprobar si colisiona con los npcs
             for(auto jt = npcs.begin(); jt<npcs.end() && !colision; jt++)
             {
                 if(p->colides((*jt)->getPhysics()))
@@ -495,6 +497,45 @@ void Map::updateColisions()
                 }
             }
 
+            // Comprobar si colisiona con los asteroides
+            for(auto at = asteroids.begin(); at<asteroids.end() && !colision; at++)
+            {
+                if(p->colides((*at)->getPhysics()))
+                {
+                    colision = true;
+                    // create a smaller asteroid
+                    int tam = (*at)->getSize();
+
+                    if(tam > 3)
+                    {
+                        int type = (*at)->getType();
+                        Pvect pos = (*at)->getPhysics()->getPosition();
+                        float orient = p->getOrient() + (rand() % 21 + (-10));
+                        Asteroid* small = new Asteroid(type, 3, pos.x, pos.y, orient);
+                        orient = p->getOrient() + (rand() % 181 + (-90));
+                        Asteroid* small2 = new Asteroid(type, 3, pos.x, pos.y, orient);
+                        delete *at;
+                        asteroids.erase(at);
+                        asteroids.push_back(small);
+                        asteroids.push_back(small2);
+                    }
+                    else
+                    {
+                        int type = (*at)->getType();
+                        Pvect pos = (*at)->getPhysics()->getPosition();
+                        float orient = p->getOrient() + (rand() % 21 + (-10));
+                        Asteroid* small = new Asteroid(type, 1, pos.x, pos.y, orient);
+                        orient = p->getOrient() + (rand() % 181 + (-90));
+                        Asteroid* small2 = new Asteroid(type, 1, pos.x, pos.y, orient);
+                        delete *at;
+                        asteroids.erase(at);
+                        asteroids.push_back(small);
+                        asteroids.push_back(small2);
+                    }
+                    
+                }
+            }
+
         }else{
             if(player && player->getPhysics()->colides((*it)->getPhysics()))
             {
@@ -508,7 +549,6 @@ void Map::updateColisions()
             }
             
         }
-
         if(colision)
         {
             delete *it;
@@ -516,6 +556,20 @@ void Map::updateColisions()
             it--;
         }
     }
+
+    /*
+    // Colisión de asteroides
+    for(auto it = asteroids.begin(); it<asteroids.end(); it++)
+    {
+        if((*it)->getPhysics()->colides(player->getPhysics()))
+        {
+            // SI COLISIONAN CON EL JUGADOR
+            delete (*it);
+            asteroids.erase(it);
+            it--;
+        }
+    }
+    */
 }
 
 
