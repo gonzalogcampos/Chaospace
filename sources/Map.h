@@ -40,6 +40,9 @@ class Map
         int level = -1;
         unsigned int fondo;
         unsigned int paredes;
+
+        int _score;
+        int _level;
     public:
 
         ~Map();
@@ -90,5 +93,9 @@ class Map
         float getPlayerY();
 
         void tryCreate();
+
+        int getScore();
+
+        int getLevel();
 
 };

@@ -68,6 +68,8 @@ bool Map::update(float dt)
     if(player==nullptr)
     {
         clear();
+        _score = score;
+        _level = level;
         level = -1;
         kills = 0;
         playerHp = 100;
@@ -472,6 +474,9 @@ void Map::updateColisions()
                         boss = nullptr;
                         score += bossScore * (1 + (level*incScore));
                         playerHp = player->getHp();
+
+                        _score = score;
+                        _level = level;
                         clear();
                         Game::getInstance()->setState(State::NEXTLEVEL);
                         return;
@@ -590,4 +595,14 @@ void Map::loadLevel()
         score = 0;
     
     player = createPlayer(_Player_InitX, _Player_InitY);
+}
+
+int Map::getScore()
+{
+    return _score;
+}
+
+int Map::getLevel()
+{
+    return _level;
 }
