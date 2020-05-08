@@ -36,6 +36,7 @@ class Menu
         std::size_t focus;
         float at;
         unsigned int titulo;
+        unsigned int background;
 
     public:
 

@@ -12,6 +12,7 @@ public:
         MENUFINAL,
         MENUPAUSE,
         NEXTLEVEL,
+        CONTROLES,
     };
 
     virtual ~State() {};

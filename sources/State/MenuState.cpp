@@ -39,6 +39,12 @@ void MenuState::update(float dt){
                 delete menu; 
                 Render::getInstance()->close();
                 break;
+
+            case 3: 
+                /*EXIT*/
+                delete menu; 
+                Game::getInstance()->setState(State::stateType::CONTROLES);
+                break;    
             
             default: break;
         }
@@ -50,14 +56,14 @@ void MenuState::update(float dt){
         Render::getInstance()->close();
     }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        menu->down();   
-    }
-    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
         menu->up();   
+    }
+    
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        menu->down();   
     }
     
 }
