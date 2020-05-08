@@ -11,8 +11,8 @@ class TransitionMenu : public Menu
         TransitionMenu() : Menu()
         {
             //Buttons
-            Button* button = new Button(1, (char*)"resources/MenuElements/START2.png", 
-                                                (char*)"resources/MenuElements/START1.png", 540, 540);
+            Button* button = new Button(1, (char*)"resources/MenuElements/NEXT_LEVEL2.png", 
+                                                (char*)"resources/MenuElements/NEXT_LEVEL1.png", 540, 540);
             buttons.push_back(button);            
             button = new Button(2, (char*)"resources/MenuElements/EXIT2.png",
                                                 (char*)"resources/MenuElements/EXIT1.png", 540, 660);
@@ -21,7 +21,7 @@ class TransitionMenu : public Menu
             buttons.at(focus)->focus();
         
             titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
-            background = Render::getInstance() -> createSprite("resources/MenuElements/BACKGROUND_menu.png");
+            background = Render::getInstance() -> createSprite("resources/MenuElements/BACKGROUND_menu2.png");
 
 
         }
