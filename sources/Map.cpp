@@ -563,18 +563,21 @@ void Map::updateColisions()
     }
 
     // Colisión de asteroides
-    for(auto it = asteroids.begin(); it<asteroids.end(); it++)
+    if(player)
     {
-        if((*it)->getPhysics()->colides(player->getPhysics()))
+        for(auto it = asteroids.begin(); it<asteroids.end(); it++)
         {
-            // SI COLISIONAN CON EL JUGADOR
-            
-            if(!(*it)->getHasColided())
+            if((*it)->getPhysics()->colides(player->getPhysics()))
             {
-                float orient = player->getPhysics()->getOrient() + (rand() % 21 + (-10));
-                (*it)->changeOrientation(orient);
-                player->hpDown(2);
-                Render::getInstance()->shake();
+                // SI COLISIONAN CON EL JUGADOR
+                
+                if(!(*it)->getHasColided())
+                {
+                    float orient = player->getPhysics()->getOrient() + (rand() % 21 + (-10));
+                    (*it)->changeOrientation(orient);
+                    player->hpDown(2);
+                    Render::getInstance()->shake();
+                }
             }
         }
     }
