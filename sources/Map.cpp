@@ -77,7 +77,7 @@ bool Map::update(float dt)
     
     if(mapPosition>baseDistance+(level * incDisctance) && !boss)
     {
-        // createBoss();
+        createBoss();
     }
 
     if(!boss)
