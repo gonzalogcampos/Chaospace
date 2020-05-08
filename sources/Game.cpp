@@ -7,6 +7,7 @@
 #include <MenuState.h>
 #include <TestState.h>
 #include <NextLevelState.h>
+#include <ControlState.h>
 #include <Render.h>
 #include <Clock.h>
 
@@ -61,6 +62,9 @@ void Game::setState(State::stateType type)
             break;
         case State::stateType::NEXTLEVEL:
             state = NextLevelState::getInstance();
+            break;
+        case State::stateType::CONTROLES:
+            state = ControlState::getInstance();
             break;
     }
     state->initState();

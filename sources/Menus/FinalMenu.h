@@ -20,6 +20,8 @@ class FinalMenu : public Menu
             buttons.at(focus)->focus();
         
             titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
+            background = Render::getInstance() -> createSprite("resources/MenuElements/BACKGROUND_menu.png");
+            
 
         }
 

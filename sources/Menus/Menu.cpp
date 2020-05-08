@@ -72,6 +72,7 @@ void Menu::clear()
     buttons.clear();
 
     Render::getInstance()->deleteSprite(titulo);
+    Render::getInstance()->deleteSprite(background);
     
 }
 
@@ -87,15 +88,16 @@ void Menu::update(float dt)
 
 void Menu::draw()
 {
+    Render::getInstance() -> drawSprite(background, Rvect(540.f,360.f));
     Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
-    
+
     for(size_t i=0; i<buttons.size(); i++)
         buttons.at(i)->draw();
 }
 
 void Menu::setBackground(char* b)
 {
-    
+
 }
 
 Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)

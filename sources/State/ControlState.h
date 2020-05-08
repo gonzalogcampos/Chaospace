@@ -6,15 +6,15 @@
 //Forward declarations
 class Menu;
 
-class NextLevelState : public State 
+class ControlState : public State 
 {
     private: 
-        Menu* menu; 
-        NextLevelState(){}         
+        Menu* menu;
+        ControlState(){}
     public:
 
-        static NextLevelState* getInstance(){
-            static NextLevelState only_instance;
+        static ControlState* getInstance(){
+            static ControlState only_instance;
             return &only_instance;
         }
         virtual void initState();

@@ -16,12 +16,18 @@ class MainMenu : public Menu
             buttons.push_back(button);            
 
             button = new Button(2, (char*)"resources/MenuElements/EXIT2.png",
-                                                (char*)"resources/MenuElements/EXIT1.png", 540, 420);
+                                                (char*)"resources/MenuElements/EXIT1.png", 540, 540);
             buttons.push_back(button);
             
             buttons.at(focus)->focus();
 
+            button = new Button(3, (char*)"resources/MenuElements/CONTROLS2.png",
+                                                (char*)"resources/MenuElements/CONTROLS1.png", 540, 420);
+            buttons.push_back(button);
+
             titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
+            background = Render::getInstance() -> createSprite("resources/MenuElements/BACKGROUND_menu.png");
+
         }
 
         ~MainMenu()
