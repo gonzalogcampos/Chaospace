@@ -37,6 +37,7 @@ class Animation
         float dt;
         Rint drawing;
         std::vector<Rint> sprites;
+        
 
     public:
     Animation(Rint fps);
@@ -72,6 +73,8 @@ class Render
 
         Rvect globalScale = Rvect(1.f, 1.f);
         float dt = 0.f;
+
+        bool enter_pressed=false;
 
     public:
         static Render* getInstance()
@@ -151,6 +154,8 @@ class Render
         //EXTRA 
         void drawText(sf::Text text);
         void drawRectangle(sf::RectangleShape rectangle);
+        bool isEnterPressed();
+        void setEnterPressed(bool press);
 
 
 };

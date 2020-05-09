@@ -11,6 +11,7 @@ class Button
         unsigned int spritenormal;
         unsigned int spritefocus;
         int id;
+        
 
     public:
 

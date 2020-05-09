@@ -26,23 +26,26 @@ void MenuState::update(float dt){
 
     menu->update(dt);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+    if(Render::getInstance()->isEnterPressed()==true){
         switch (menu->click()){
             case 1: 
                 /*PLAY*/
                 delete menu; 
+                Render::getInstance() -> setEnterPressed(false);
                 Game::getInstance()->setState(State::stateType::PLAY);
                 break;
 
             case 2: 
                 /*EXIT*/
                 delete menu; 
+                Render::getInstance() -> setEnterPressed(false);
                 Render::getInstance()->close();
                 break;
 
             case 3: 
                 /*EXIT*/
                 delete menu; 
+                Render::getInstance() -> setEnterPressed(false);
                 Game::getInstance()->setState(State::stateType::CONTROLES);
                 break;    
             

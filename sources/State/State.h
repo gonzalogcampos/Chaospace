@@ -13,6 +13,8 @@ public:
         MENUPAUSE,
         NEXTLEVEL,
         CONTROLES,
+        LOADING_CONTROLES,
+        LOADING_FINAL
     };
 
     virtual ~State() {};

@@ -27,17 +27,19 @@ void FinalState::update(float dt){
 
     menu->update(dt);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+    if(Render::getInstance()->isEnterPressed()==true){
         switch (menu->click()){
             case 1: 
                 /*MENU INICIAL*/
                 delete menu; 
+                Render::getInstance()->setEnterPressed(false);
                 Game::getInstance()->setState(State::stateType::MENUINICIAL);
                 break;
 
             case 2: 
                 /*EXIT*/
                 delete menu; 
+                Render::getInstance()->setEnterPressed(false);
                 Render::getInstance()->close();
                 break;
             

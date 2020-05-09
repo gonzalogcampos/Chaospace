@@ -85,8 +85,13 @@ void Render::preLoop(float dt)
         while (window->pollEvent(event))
         {
             // Close window: exit
-            if (event.type == sf::Event::Closed)
-                window->close();
+            if (event.type == sf::Event::Closed){window->close();}
+
+            if(event.type==sf::Event::KeyReleased){
+                if(event.key.code == sf::Keyboard::Return){
+                    enter_pressed=true;
+                }
+            }    
             //else if(event.type == sf::Event::Resized)
             //{
             //    // update the view to the new size of the window
@@ -99,6 +104,21 @@ void Render::preLoop(float dt)
         }
         // Clear screen
         window->clear();
+}
+
+/*
+Funcion que devuelve el valor de enter_pressed, para 
+saber si el Enter ha sido pulsado.
+*/
+bool Render::isEnterPressed(){
+    return enter_pressed;
+}
+
+/*
+Funcion que cambia el valor de la variable enter_pressed.
+*/
+void Render::setEnterPressed(bool press){
+    enter_pressed=press;
 }
 
 /*
