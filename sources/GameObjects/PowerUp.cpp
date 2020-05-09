@@ -18,8 +18,11 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/energy.png", Rrect(50*2, 0, 50, 50)));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/energy.png", Rrect(50*3, 0, 50, 50)));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/energy.png", Rrect(50*4, 0, 50, 50)));
-        
         break;
+    case VELDIS:
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed.png"));
+        break;
+    
     
     default:
         break;
