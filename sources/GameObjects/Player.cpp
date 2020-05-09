@@ -40,7 +40,7 @@ Player::Player(float x, float y)
     setWeaponType(6);
 
     animation = Render::getInstance()->createAnimation(15);
-    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
+    Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/player.png"));
 }
 
 //Metodo destructor de la clase Player.
