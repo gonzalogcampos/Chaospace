@@ -6,6 +6,13 @@
 //Forward declarations
 class Map;
 class Hud;
+class Render;
+
+namespace sf
+{
+class RectangleShape;
+class Color;
+}
 
 
 class PlayState : public State 
@@ -14,6 +21,7 @@ class PlayState : public State
         bool loaded; 
         Map* map;
         bool paused;
+        unsigned int sprite_pausa;
         PlayState(){}         
     public:
          static PlayState* getInstance(){

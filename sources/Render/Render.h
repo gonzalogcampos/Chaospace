@@ -75,6 +75,7 @@ class Render
         float dt = 0.f;
 
         bool enter_pressed=false;
+        bool escape_pressed=false;
 
     public:
         static Render* getInstance()
@@ -156,6 +157,8 @@ class Render
         void drawRectangle(sf::RectangleShape rectangle);
         bool isEnterPressed();
         void setEnterPressed(bool press);
+        bool isEscapePressed();
+        void setEscapePressed(bool press);
 
 
 };

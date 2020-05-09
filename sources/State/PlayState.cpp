@@ -19,6 +19,7 @@ void PlayState::initState()
     //if(!loaded)
     //{
     //    loaded = true;
+        sprite_pausa = Render::getInstance() -> createSprite("resources/MenuElements/MENU_PAUSA.png");
         Map::getInstance()->init();
     //}else
     //{
@@ -29,8 +30,9 @@ void PlayState::initState()
 
 void PlayState::update(float dt)
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if(Render::getInstance()->isEscapePressed())
     {
+        Render::getInstance()->setEscapePressed(false);
         paused = !paused;
     }
     if(!paused)
@@ -46,8 +48,8 @@ void PlayState::draw()
 {
     Map::getInstance()->draw();
     if(paused)
-    {
-        
+    {   
+        Render::getInstance()->drawSprite(sprite_pausa, Rvect(540.f, 360.f), 0.f, 1.f, true);
     }
 }
 

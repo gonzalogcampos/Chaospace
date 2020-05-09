@@ -91,6 +91,9 @@ void Render::preLoop(float dt)
                 if(event.key.code == sf::Keyboard::Return){
                     enter_pressed=true;
                 }
+                if(event.key.code == sf::Keyboard::Escape){
+                    escape_pressed=true;
+                }
             }    
             //else if(event.type == sf::Event::Resized)
             //{
@@ -120,6 +123,23 @@ Funcion que cambia el valor de la variable enter_pressed.
 void Render::setEnterPressed(bool press){
     enter_pressed=press;
 }
+
+/*
+Funcion que devuelve el valor de enter_pressed, para 
+saber si el Escape ha sido pulsado.
+*/
+bool Render::isEscapePressed(){
+    return escape_pressed;
+}
+
+/*
+Funcion que cambia el valor de la variable enter_pressed.
+*/
+void Render::setEscapePressed(bool press){
+    escape_pressed=press;
+}
+
+
 
 /*
 Funcion que se llama antes de terminar el loop.
