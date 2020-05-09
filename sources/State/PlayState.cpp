@@ -29,20 +29,26 @@ void PlayState::initState()
 
 void PlayState::update(float dt)
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-    
-        Game::getInstance()->setState(State::stateType::MENUFINAL);
-    }
-
-    if(!Map::getInstance()->update(dt))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
-        loaded = false;
+        paused = !paused;
+    }
+    if(!paused)
+    {
+        if(!Map::getInstance()->update(dt))
+        {
+            loaded = false;
+        }
     }
 }
 
 void PlayState::draw()
 {
     Map::getInstance()->draw();
+    if(paused)
+    {
+        
+    }
 }
 
 void PlayState::clear()
