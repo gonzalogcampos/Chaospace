@@ -31,7 +31,7 @@ Npc::Npc(int IA, float posX, float posY){
     tipo=IA;
     int nivel = Map::getInstance()->getLevel()+1;
     if(nivel>4){
-        nivel=nivel%4;
+        nivel=nivel%5+1 ;
     }
     std::cout<<tipo<<std::endl;
     switch (tipo)
@@ -517,14 +517,18 @@ Npc::Npc(int IA, float posX, float posY){
     {
         
         animation = Render::getInstance()->createAnimation(15);
+         if(tipo==10){
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        
+        }
         if(tipo==9){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
-        std::cout<<" soy el gurdo"<<std::endl;
+       
         }
         
         if(tipo==8){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
-        std::cout<<"No soy el gurdo"<<std::endl;
+        
         }
         
         physics->setPosition(Pvect(X, Y));
@@ -543,10 +547,21 @@ Npc::Npc(int IA, float posX, float posY){
 
 Npc::~Npc(){
     float r = random()%100;
-    if(r<10)
+    float elegir = random()%3;
+    if(r<20 && elegir==1)
     {
         Map::getInstance()->createLife(physics->getPosition().x, physics->getPosition().y);
     }
+    if(r<20 && elegir == 0)
+    {
+        Map::getInstance()->createMaxLife(physics->getPosition().x, physics->getPosition().y);
+    }
+    if(r<20 && elegir ==2)
+    {
+        Map::getInstance()->createSpeed(physics->getPosition().x, physics->getPosition().y);
+    }  
+        
+    
 } //Metodo destructor de la clase NPC.
 
 void Npc::IA(int tipo){

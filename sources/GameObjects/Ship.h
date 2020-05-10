@@ -4,6 +4,7 @@
 #include <GameObject.h>
 
 //External headers
+#include <SFML/Audio.hpp>
 #include <vector>
 
 //Forward declarations
@@ -43,4 +44,6 @@ class Ship: public GameObject{
         float cadencia;
         float shootAnimTime = 0.f;
         unsigned int shootAnim;
+        sf::Sound sound;
+        sf::SoundBuffer buffer;
 };

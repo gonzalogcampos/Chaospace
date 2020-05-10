@@ -26,7 +26,16 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/health3.png"));
         break;
     case VELDIS:
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed/att-speed.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed/att-speed3.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed/att-speed2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed/att-speed3.png"));
+        break;
+    case MAX_LIFE:
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/maxHealth.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/maxHealth3.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/maxHealth2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/maxHealth3.png"));
         break;
 
     default:

@@ -23,6 +23,10 @@ class Player : public Ship {
         void setPUp(int i); //Metodo para cambiar el powerUp pasivo actual del Player.
 
         void hpUp(int hp);
+
+        void speedUp(int vx,int vy);
+
+        void setHp(int nu);
         
         void update(float dt);
 };

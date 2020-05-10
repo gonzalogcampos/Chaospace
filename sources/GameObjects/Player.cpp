@@ -68,6 +68,18 @@ void Player::hpUp(int hp)
         this->hp = _Player_InitHP;
 }
 
+void Player::setHp(int nu)
+{
+    hp=nu;
+}
+
+void Player::speedUp(int vx,int vy)
+{
+    _Player_vx = _Player_vx + vx;
+    _Player_vy = _Player_vy + vy;
+
+}
+
 
 void Player::move()
 {
