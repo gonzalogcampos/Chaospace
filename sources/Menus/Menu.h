@@ -50,7 +50,9 @@ class Menu
         sf::Text *texto_puntuacion1;
         sf::Text *texto_level1;
         sf::Font *fuente;
+        sf::Font *fuente2;
         std::string puntuacion_text2;
+        std::string nivel_text2;
 
     public:
 

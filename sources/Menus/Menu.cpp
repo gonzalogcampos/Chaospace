@@ -89,9 +89,19 @@ void Menu::update(float dt)
 
 void Menu::draw()
 {
+   
     //Render::getInstance()->drawText(*texto_puntuacion1);
     Render::getInstance() -> drawSprite(background, Rvect(540.f,360.f));
     Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
+    if(texto_puntuacion1!=NULL)
+    {
+        Render::getInstance()->drawText(*texto_puntuacion1);
+    }
+
+    if(texto_level1!=NULL)
+    {
+        Render::getInstance()->drawText(*texto_level1);
+    }
     
      
 
