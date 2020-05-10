@@ -5,6 +5,7 @@
 #include <Render.h>
 #include <Physics.h>
 #include <Map.h>
+#include <iostream>
 
 
 
@@ -28,47 +29,49 @@ Npc::Npc()
 
 Npc::Npc(int IA, float posX, float posY){
     tipo=IA;
+    int nivel = Map::getInstance()->getLevel()+1;
+    std::cout<<nivel<<std::endl;
     switch (tipo)
     {
     case 1:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 2:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 3:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 4:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png");
         hp = 1;
         cadencia=10;
         break;
     case 5:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png");
         hp = 1;
         cadencia=5;
         break;
     case 6:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png");
         hp = 1;
         cadencia=5;
         break;
     case 7:
         setWeaponType(1);
-        //nave=Render::getInstance()->createSprite("resources/naveE.png");
+        //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png");
         hp = 1;        
         cadencia=5;
         break;
@@ -91,14 +94,71 @@ Npc::Npc(int IA, float posX, float posY){
     
     X=posX;
     Y=posY;
-
-    if(tipo<8)
+        switch (nivel)
+        {
+        case 1:
+        if(tipo<8)
     {
+        switch (tipo)
+        {
+        case 1:
         animation = Render::getInstance()->createAnimation(15);
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/naveE.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
         physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 2:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 3:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 4:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 5:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 6:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 7:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+                
+        default:
+            break;
+        }
+        
     }
     else
     {
@@ -108,6 +168,302 @@ Npc::Npc(int IA, float posX, float posY){
         physics->setOrient(180.f);
         physics->setRectangleBB(Pvect(220.f,220.f));
     }
+            break;
+        case 2:
+        if(tipo<8)
+    {
+        switch (tipo)
+        {
+        case 1:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 2:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 3:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 4:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile001.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 5:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile002.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 6:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile003.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 7:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase12tile004.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+                
+        default:
+            break;
+        }
+        
+    }
+    else
+    {
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(220.f,220.f));
+    }
+            break;
+        case 3:
+        if(tipo<8)
+    {
+        switch (tipo)
+        {
+        case 1:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 2:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 3:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 4:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile001.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 5:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile002.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 6:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile003.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 7:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile004.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+                
+        default:
+            break;
+        }
+        
+    }
+    else
+    {
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(220.f,220.f));
+    }
+            break;
+        case 4:
+        if(tipo<8)
+    {
+        switch (tipo)
+        {
+        case 1:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 2:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 3:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 4:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile001.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 5:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile002.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 6:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile003.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 7:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile004.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+                
+        default:
+            break;
+        }
+        
+    }
+    else
+    {
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(220.f,220.f));
+    }
+            break;
+        
+        default:
+        if(tipo<8)
+    {
+        switch (tipo)
+        {
+        case 1:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 2:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 3:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 4:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+           
+            break;
+        case 5:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 6:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+        case 7:
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(123.f,115.f));
+            break;
+                
+        default:
+            break;
+        }
+        
+    }
+    else
+    {
+        animation = Render::getInstance()->createAnimation(15);
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        physics->setPosition(Pvect(X, Y));
+        physics->setOrient(180.f);
+        physics->setRectangleBB(Pvect(220.f,220.f));
+    }
+            break;
+        }
+    
 
 }
 
