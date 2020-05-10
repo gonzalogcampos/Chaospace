@@ -225,7 +225,7 @@ Npc::Npc(int IA, float posX, float posY){
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2tile004.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
         physics->setRectangleBB(Pvect(123.f,115.f));
