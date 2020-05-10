@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="36" height="24" tilewidth="30" tileheight="30" infinite="0" nextlayerid="4" nextobjectid="1">
+ <imagelayer id="3" name="fondo">
+  <image source="fondo2.png" width="1080" height="720"/>
+ </imagelayer>
+</map>
