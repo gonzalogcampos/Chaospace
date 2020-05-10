@@ -1,3 +1,4 @@
+
 //Main header
 #include <Menu.h>
 
@@ -74,8 +75,13 @@ void Menu::clear()
 
     Render::getInstance()->deleteSprite(titulo);
     Render::getInstance()->deleteSprite(background);
-    
-}
+    delete texto_level1; 
+    delete fuente;
+    delete texto_puntuacion1;
+    delete fuente2;
+    puntuacion_text2.clear();
+    nivel_text2.clear();
+}   
 
 void Menu::update(float dt)
 {
@@ -90,7 +96,6 @@ void Menu::update(float dt)
 void Menu::draw()
 {
    
-    //Render::getInstance()->drawText(*texto_puntuacion1);
     Render::getInstance() -> drawSprite(background, Rvect(540.f,360.f));
     Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
     if(texto_puntuacion1!=NULL)
