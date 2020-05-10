@@ -2,6 +2,15 @@
 
 //External headers
 #include <vector>
+#include <string>
+
+
+namespace sf
+{
+class Font;
+class Text;
+class RectangleShape;
+}
 
 class Button
 {
@@ -38,6 +47,10 @@ class Menu
         float at;
         unsigned int titulo;
         unsigned int background;
+        sf::Text *texto_puntuacion1;
+        sf::Text *texto_level1;
+        sf::Font *fuente;
+        std::string puntuacion_text2;
 
     public:
 
