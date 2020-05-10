@@ -32,7 +32,7 @@ class FinalMenu : public Menu
         
         void draw(){
             Menu::draw();
-            Render::getInstance()->drawSprite(titulo);
+            Render::getInstance()->drawSprite(titulo, Rvect(900,650), 0.f, 0.6, true);
         }
 
         void clear(){
