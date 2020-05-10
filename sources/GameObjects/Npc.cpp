@@ -81,17 +81,17 @@ Npc::Npc(int IA, float posX, float posY){
     case 8:
     //boss
         setWeaponType(nivel);
-        hp=10;
+        hp=300;
         cadencia=10;
         break;
     case 9:
         setWeaponType(5);
-        hp=10;
+        hp=350;
         cadencia=10;
         break;
      case 10:
         setWeaponType(6);
-        hp=10;
+        hp=400;
         cadencia=10;
         break;
     default:
@@ -701,9 +701,8 @@ void Npc::update(float dt){
 
         break;
     case 8: //IA Del boss
-        if(Map::getInstance()->getPlayerX()>physics->getPosition().x)
-             vx=1000.f;
-
+    
+        
         if(physics->getPosition().x<100)
             vx=1000.f;
         
@@ -719,6 +718,10 @@ void Npc::update(float dt){
          if(physics->getPosition().y>620)
              physics->setPosition(Pvect(physics->getPosition().x,720/2));
         //Ataque1
+          if(Map::getInstance()->getPlayerX()>physics->getPosition().x){
+        
+             vx=1000.f;
+        }
         if(ataqueboss==1)
         {
             movboss++;
@@ -831,9 +834,7 @@ void Npc::update(float dt){
 
 
     case 9: //IA Del boss 2
-        if(Map::getInstance()->getPlayerX()>physics->getPosition().x)
-             vx=1000.f;
-
+      
         if(physics->getPosition().x<100)
             vx=1000.f;
         
@@ -849,7 +850,10 @@ void Npc::update(float dt){
          if(physics->getPosition().y>620)
              physics->setPosition(Pvect(physics->getPosition().x,720/2));
 
+          if(Map::getInstance()->getPlayerX()>physics->getPosition().x){
         
+             vx=1000.f;
+        }
         
         //Ataque1
         if(ataqueboss==1)
@@ -858,7 +862,7 @@ void Npc::update(float dt){
 
             //for(int i=0;i<30;i++){
             if(movboss<30)
-            vy = -400.f;
+            vy = -300.f;
 
             if(movboss==5 || movboss==10 || movboss== 15 ||movboss==20 || movboss ==25){
                
@@ -890,7 +894,7 @@ void Npc::update(float dt){
             movboss++;
             //for(int i=0;i<30;i++){
             if(movboss<30)
-                vy = +400.f;
+                vy = +300.f;
 
             if(movboss==5 || movboss==10 || movboss== 15 ||movboss==20 || movboss ==25){
                 
@@ -899,7 +903,7 @@ void Npc::update(float dt){
             //}
                 //for(int i=0;i<30;i++){
             if(movboss<60 && movboss>=30)
-            vy = -400.f;
+            vy = -300.f;
 
             if(movboss==35 || movboss== 45 || movboss ==55 || movboss==40 || movboss== 50 || movboss ==59){
                 
@@ -949,7 +953,7 @@ void Npc::update(float dt){
             movboss++;
             if(physics->getPosition().x<=700)
             {
-                vx=400.f;
+                vx=300.f;
 
                 if(movboss%2==0){
                     
@@ -974,19 +978,17 @@ void Npc::update(float dt){
              movboss++;
              Ship::shoot();
              if(Map::getInstance()->getPlayerY()>physics->getPosition().y)
-             vy=+300.f;
+             vy=+200.f;
          }
          if(Map::getInstance()->getPlayerY()<=physics->getPosition().y)
-             vy=-300.f;
+             vy=-200.f;
          if(contador>60){
               ataqueboss = rand() % 5 + 1;
          }
         break;
 
      case 10: //IA Del boss 3
-        if(Map::getInstance()->getPlayerX()>physics->getPosition().x)
-             vx=1000.f;
-
+     
         if(physics->getPosition().x<100)
             vx=1000.f;
         
@@ -1002,7 +1004,10 @@ void Npc::update(float dt){
          if(physics->getPosition().y>620)
              physics->setPosition(Pvect(physics->getPosition().x,720/2));
 
+           if(Map::getInstance()->getPlayerX()>physics->getPosition().x){
         
+             vx=1000.f;
+        }
         
         //Ataque1
         if(ataqueboss==1)

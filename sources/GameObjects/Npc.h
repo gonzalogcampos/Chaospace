@@ -15,6 +15,7 @@ class Npc : public Ship {
     int contador=0;
     unsigned int nave;
     std::vector<Bullet*> Bullets;
+    
     public: 
     Npc(); //Cosntructor por defecto de la clase Player.
     
