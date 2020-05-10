@@ -511,7 +511,7 @@ void Map::updateColisions()
                 player->setHp(100);
                 break;
             case VELDIS:
-                player->speedUp(100,100);
+                player->speedUp();
                 break;
             case SHIELD:
                 player->setShield();

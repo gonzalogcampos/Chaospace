@@ -14,11 +14,15 @@
 
 float _Player_vx = 200.f;
 float _Player_vy = 400.f;
+
+float _Player_SpeedUpX = 300.f;
+float _Player_SpeedUpY = 300.f; 
+
 float _Player_Acel = 30.f;
 float _Player_Dcel = 30.f;
 float _Player_VToStop = 5.f;
 float _Player_MAXRight = 200.f;
-float _Player_VToCenter = .01f;
+float _Player_VToCenter = .02f;
 float _Player_BBX = 123.f;
 float _Player_BBY = 115.f;
 float _Player_InitHP = 100.f;
@@ -96,11 +100,9 @@ void Player::setHp(int nu)
     hp=nu;
 }
 
-void Player::speedUp(int vx,int vy)
+void Player::speedUp()
 {
-    _Player_vx = _Player_vx + vx;
-    _Player_vy = _Player_vy + vy;
-
+    vtime = 5.f;
 }
 
 
@@ -155,15 +157,25 @@ void Player::move()
     */
     vx += ax;
     vy += ay;
-    if(vx<(-_Player_vx))
-        vx = -_Player_vx;
-    else if(vx>_Player_vx)
-        vx = _Player_vx;
+
+    float dvx = _Player_vx;
+    float dvy = _Player_vy;
+
+    if(vtime>0.f)
+    { 
+        dvx += _Player_SpeedUpX;
+        dvy += _Player_SpeedUpY;
+    }
+
+    if(vx<(-dvx))
+        vx = -dvx;
+    else if(vx>dvx)
+        vx = dvx;
     
-    if(vy<(-_Player_vy))
-        vy = -_Player_vy;
-    else if(vy>_Player_vy)
-        vy = _Player_vy;
+    if(vy<(-dvy))
+        vy = -dvy;
+    else if(vy>dvy)
+        vy = dvy;
 
 
     /*
@@ -217,6 +229,9 @@ void Player::move()
 void Player::update(float dt)
 {
     move();
+
+    if(vtime>0.f)
+        vtime -= dt;
 
     if(physics->getPosition().x>_Player_MAXRight)
     { 

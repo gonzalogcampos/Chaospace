@@ -7,6 +7,7 @@ class Player : public Ship {
     protected:
         int powerUp; //Variable que dicta si el Player ha cogido un powerUp pasivo, y lo identifica mediante un numero.
         int shield = 0;
+        float vtime = 0;
     public: 
         Player(float x, float y); //Constructor por defecto de la clase Player.
 
@@ -24,10 +25,12 @@ class Player : public Ship {
 
         void hpUp(int hp);
 
-        void speedUp(int vx,int vy);
+        void speedUp();
         
         void setShield();
+
         bool hpDown(int hp);
+
         void setHp(int nu);
         
         void update(float dt);
