@@ -6,6 +6,12 @@
 //Forward declarations
 class Bullet;
 
+namespace sf
+{
+class RectangleShape;
+}
+
+
 class Npc : public Ship {
     private:
     int ataqueboss=1;
@@ -15,6 +21,9 @@ class Npc : public Ship {
     int contador=0;
     unsigned int nave;
     std::vector<Bullet*> Bullets;
+    sf::RectangleShape *rectangulo_relleno;
+    sf::RectangleShape *rectangulo_vida;
+    int hpmax;
     
     public: 
     Npc(); //Cosntructor por defecto de la clase Player.
@@ -32,6 +41,9 @@ class Npc : public Ship {
     void enemigo5();
     void enemigo6();
 
+    void setLife();
 
+    void clear();
+    void draw();
     void update(float dt);
 };

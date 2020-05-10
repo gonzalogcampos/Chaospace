@@ -33,7 +33,15 @@ Npc::Npc(int IA, float posX, float posY){
     if(nivel>4){
         nivel=nivel%5+1 ;
     }
-    std::cout<<tipo<<std::endl;
+
+    rectangulo_relleno = new sf::RectangleShape(sf::Vector2f(102,12));
+    rectangulo_relleno->setPosition((float)physics->getPosition().x, (float)physics->getPosition().y);
+    rectangulo_relleno->setFillColor(sf::Color::White);
+
+    rectangulo_vida = new sf::RectangleShape(sf::Vector2f(100,10));
+    rectangulo_vida->setPosition((float)physics->getPosition().x, (float)physics->getPosition().y);
+    rectangulo_vida->setFillColor(sf::Color::Green);
+
     switch (tipo)
     {
     case 1:
@@ -102,7 +110,7 @@ Npc::Npc(int IA, float posX, float posY){
         break;
     }
     
-
+    hpmax=hp;
     
     X=posX;
     Y=posY;
@@ -564,6 +572,9 @@ Npc::~Npc(){
     {
         Map::getInstance()->createShield(physics->getPosition().x, physics->getPosition().y);
     }
+
+    delete rectangulo_vida;
+    delete rectangulo_relleno;
         
     
 } //Metodo destructor de la clase NPC.
@@ -1151,5 +1162,33 @@ void Npc::update(float dt){
 
     physics->setVelocity(Pvect(vx, vy));
 
+    setLife();
+    rectangulo_relleno->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
+    rectangulo_vida->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
     Ship::update(dt);
+}
+
+void Npc::draw(){
+    Ship::draw();
+    if(tipo==8 || tipo==9 || tipo==10){
+        Render::getInstance()->drawRectangle(*rectangulo_relleno);
+        Render::getInstance()->drawRectangle(*rectangulo_vida);
+    }
+}
+
+void Npc::setLife()
+{
+
+    int i = (Ship::getHp()/hpmax)*100;
+    std::cout<< i<< std::endl;
+    rectangulo_vida->setSize(sf::Vector2f((float)i,10));
+
+    if(i>=70){
+        rectangulo_vida->setFillColor(sf::Color::Green);
+    }else if(i<70 && i>=30){
+        rectangulo_vida->setFillColor(sf::Color::Yellow);
+    }else if(i>0 && i<30){
+        rectangulo_vida->setFillColor(sf::Color::Red);
+    }
+
 }
