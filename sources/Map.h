@@ -38,11 +38,11 @@ class Map
         int playerHp = 100;
 
         int level = -1;
-        int lvlMap = 1;
         unsigned int fondo;
-        unsigned int paredes;
-        int mapaAnterior = 0;
-        int mapaAnteriorAnterior = 0;
+        unsigned int fondo2;
+        int veces = 0;
+        bool mapa1_cargado = false;
+        bool sumado = false;
 
         int _score;
         int _level;
@@ -82,6 +82,7 @@ class Map
         void loadLevel(int tipo);
 
         void loadMapInfo(int lvl);
+        void loadMapInfo2(int lvl);
 
         void draw();
 
