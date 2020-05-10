@@ -148,7 +148,8 @@ Inicia el mapa
 */
 void Map::init()
 {
-    loadLevel();
+    int estilo_mapa = rand() % 2 + 1;
+    loadLevel(estilo_mapa);
 }
 
 /*
@@ -219,31 +220,22 @@ void Map::loadMapInfo(int lvl)
     tinyxml2::XMLDocument document;
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
-    std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
+    //std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
+    //int escenario = rand()% 1 + 1;
+
+    int escenario = 1;
+    std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
     
+
+
     document.LoadFile(rutaMapa.c_str());
 
     xmlMap = document.FirstChildElement("map");
 
     imageLayer = xmlMap->FirstChildElement("imagelayer");
-
-    while(imageLayer)
-    {
-        if(((std::string)imageLayer->Attribute("name")).compare("fondo") == 0) 
-        {
-            // fondo = Render::getInstance()->createSprite("resources/maps/mapa1/fondo1.png");
-            std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
-            fondo = Render::getInstance()->createSprite(ruta);
-        }
-        else if(((std::string)imageLayer->Attribute("name")).compare("paredes") == 0) 
-        {
-            //std::string ruta = "resources/maps/mapa" + std::to_string(lvl) + "/" + imageLayer->FirstChildElement("image")->Attribute("source");
-            //paredes = Render::getInstance()->createSprite(ruta);
-            
-        }
-
-        imageLayer = imageLayer->NextSiblingElement("imagelayer");
-    }  
+    std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
+    fondo = Render::getInstance()->createSprite(ruta);
+     
 
 }
 
@@ -588,10 +580,18 @@ void Map::updateColisions()
 /*
 Carga un nivel
 */
-void Map::loadLevel()
+void Map::loadLevel(int tipo)
 {
     clear();
-    loadMapInfo(1); 
+    if(level >= 3)
+    {
+        loadMapInfo(1);
+    }
+    else
+    {
+        loadMapInfo(tipo);
+    }
+    
     mapPosition = 0.f;
     level++;
     if(level == 0)
