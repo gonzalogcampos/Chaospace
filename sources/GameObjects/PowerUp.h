@@ -4,6 +4,7 @@
 enum PowerUpType
 {
     LIFE,
+    MAX_LIFE,
     WEAPON1,
     WEAPON2,
     WEAPON3,

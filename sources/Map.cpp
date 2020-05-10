@@ -221,6 +221,19 @@ void Map::createLife(float x, float y)
     powerUps.push_back(p);
 }
 
+void Map::createMaxLife(float x, float y)
+{
+    PowerUp* p = new PowerUp(MAX_LIFE, x, y);
+    powerUps.push_back(p);
+}
+
+void Map::createSpeed(float x, float y)
+{
+    PowerUp* p = new PowerUp(VELDIS, x, y);
+    powerUps.push_back(p);
+}
+
+
 /*
 Carga toda la información del mapa
 */
@@ -447,6 +460,12 @@ void Map::updateColisions()
             {
             case LIFE:
                 player->hpUp(10);
+                break;
+            case MAX_LIFE:
+                player->setHp(100);
+                break;
+            case VELDIS:
+                player->speedUp(100,100);
                 break;
             case WEAPON1:
                 /* code */

@@ -79,6 +79,10 @@ class Map
 
         void createLife(float x, float y);
 
+        void createMaxLife(float x, float y);
+
+        void createSpeed(float x, float y);
+
         void loadLevel(int tipo);
 
         void loadMapInfo(int lvl);

@@ -50,7 +50,7 @@ Hud::Hud(){
 
     rectangulo_objetos = new sf::RectangleShape(sf::Vector2f(85,85));
     rectangulo_objetos->setPosition((float)31, (float)620);
-    rectangulo_objetos->setFillColor(sf::Color::Black);
+    //rectangulo_objetos->setFillColor(sf::Color::Black);
 
 }
 
