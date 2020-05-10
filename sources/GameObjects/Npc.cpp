@@ -37,50 +37,50 @@ Npc::Npc(int IA, float posX, float posY){
     switch (tipo)
     {
     case 1:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 2:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 3:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png");
         hp = 1;
         cadencia=10;
         break;
     case 4:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png");
         hp = 1;
         cadencia=10;
         break;
     case 5:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png");
         hp = 1;
         cadencia=5;
         break;
     case 6:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png");
         hp = 1;
         cadencia=5;
         break;
     case 7:
-        setWeaponType(1);
+        setWeaponType(nivel);
         //nave=Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png");
         hp = 1;        
         cadencia=5;
         break;
     case 8:
     //boss
-        setWeaponType(1);
+        setWeaponType(nivel);
         hp=10;
         cadencia=10;
        
