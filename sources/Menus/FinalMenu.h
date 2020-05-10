@@ -6,6 +6,9 @@
 
 class FinalMenu : public Menu
 {
+    private:
+        unsigned int titulo;
+    
     public:
         FinalMenu() : Menu()
         {

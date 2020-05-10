@@ -6,6 +6,10 @@
 
 class MainMenu : public Menu
 {
+
+    private:
+        unsigned int titulo;
+
     public:
         MainMenu() : Menu()
         {   
