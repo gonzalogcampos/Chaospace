@@ -29,7 +29,7 @@ const float _Player_InitY = 360.f;
 
 //Level Values
 
-const float baseDistance = 200.f;
+const float baseDistance = 20000.f;
 const float incDisctance = 100.f;
 
 const float bossMaxDist = 400.f;
@@ -93,35 +93,6 @@ bool Map::update(float dt)
     float xpos = (1080 * n) - mapPosition*v1;
 
     //std::cout << xpos << std::endl;
-
-
-    if(xpos <= -1070 && !sumado)
-    {
-        veces ++;
-        sumado = true;
-        std::cout << "llamado" << std::endl;
-    }
-    else if (xpos >= -1070 && sumado)
-    {
-        sumado = false;
-    }
-
-    if(veces == 1 && !mapa1_cargado)
-    {
-        loadMapInfoEntrada(1);
-        mapa1_cargado = true;
-    }
-    else if(veces == 2)
-    {
-        loadMapInfo2(1);
-        veces = 0;
-        mapa1_cargado = false;
-    }
-    
-    
-
-
-
 
     if(!boss)
         tryCreate();
@@ -316,6 +287,7 @@ void Map::changeBackground()
     // fodosalida = fondoentrada;
     // fondoentrada cargar un fondo;
 
+    Render::getInstance()->deleteSprite(fondoSalida);
     fondoSalida = fondoEntrada;
     loadMapInfoEntrada(1);
 }
@@ -348,23 +320,19 @@ Dibujado del mapa
 */  
 void Map::draw()
 {
-    float v1 = .1;
+    float v1 = .8;
 
     int n = v1*mapPosition/1080;
-    float xpos = (1080 * n) - mapPosition*v1;
-    
-    if(veces == 0)
+    if(veces!=n)
     {
-        Render::getInstance()->drawSprite(fondoEntrada, Rvect(xpos, 0), 0.f, 1.f, false);
-        Render::getInstance()->drawSprite(fondoSalida, Rvect(xpos+1080, 0), 0.f, 1.f, false);
-        
+        changeBackground();
+        veces = n;
     }
-    if(veces == 1)
-    {
-        Render::getInstance()->drawSprite(fondoSalida, Rvect(xpos, 0), 0.f, 1.f, false);
-        Render::getInstance()->drawSprite(fondoEntrada, Rvect(xpos +1080 , 0), 0.f, 1.f, false);
-    }    
 
+    float xpos = (1080 * n) - mapPosition*v1;
+
+    Render::getInstance()->drawSprite(fondoSalida, Rvect(xpos, 0), 0.f, 1.f, false);
+    Render::getInstance()->drawSprite(fondoEntrada, Rvect(xpos +1080 , 0), 0.f, 1.f, false);   
 
     drawObjects();
 
