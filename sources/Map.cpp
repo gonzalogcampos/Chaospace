@@ -607,5 +607,5 @@ int Map::getScore()
 
 int Map::getLevel()
 {
-    return _level;
+    return level;
 }
