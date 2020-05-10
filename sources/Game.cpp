@@ -41,6 +41,7 @@ void Game::inicio()
     Render::getInstance()->init(Rvect(1080, 720),  "Chaospace | The game 2020");
     clock = new Clock();
     setState(State::stateType::MENUINICIAL);
+    
 }
 
 

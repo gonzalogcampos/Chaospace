@@ -18,6 +18,8 @@ void MenuState::initState(){
     type = State::MENUINICIAL;
 
      menu = new MainMenu();
+     cursor = Render::getInstance() -> createSprite("resources/cursor.png");
+     
 } 
 
 

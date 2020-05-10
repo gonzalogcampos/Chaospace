@@ -9,7 +9,8 @@ class Menu;
 class NextLevelState : public State 
 {
     private: 
-        Menu* menu; 
+        Menu* menu;
+        unsigned int cursor; 
         NextLevelState(){}         
     public:
 
