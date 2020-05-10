@@ -38,6 +38,7 @@ class Map
         int playerHp = 100;
 
         int level = -1;
+        int lvlMap = 1;
         unsigned int fondo;
         unsigned int paredes;
 
@@ -76,7 +77,7 @@ class Map
 
         void createLife(float x, float y);
 
-        void loadLevel();
+        void loadLevel(int tipo);
 
         void loadMapInfo(int lvl);
 

@@ -5,6 +5,10 @@ enum PowerUpType
 {
     LIFE,
     WEAPON1,
+    WEAPON2,
+    WEAPON3,
+    WEAPON4,
+    WEAPON5,
     VELDIS
 };
 
