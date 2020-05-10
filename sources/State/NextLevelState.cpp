@@ -22,8 +22,7 @@ void NextLevelState::initState(){
 
 void NextLevelState::update(float dt)
 {
-        menu->update(dt);
-
+    menu->update(dt);
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
         switch (menu->click()){

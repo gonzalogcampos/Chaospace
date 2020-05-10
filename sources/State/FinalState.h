@@ -4,12 +4,12 @@
 #include <State.h>
 
 //Forward declarations
-class Menu;
+class FinalMenu;
 
 class FinalState : public State 
 {
     private: 
-        Menu* menu;
+        FinalMenu* menu;
         unsigned int cursor;
         FinalState(){}         
     public:
