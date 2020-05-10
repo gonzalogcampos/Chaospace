@@ -16,11 +16,9 @@ class Hud{
         sf::Text *texto_niveles;
         sf::Text *texto_fps;
         sf::Text *texto_distance;
-        sf::RectangleShape *rectangulo_objetos;
         sf::RectangleShape *rectangulo_relleno;
         sf::RectangleShape *rectangulo_vida;
         unsigned int sprite_explosion;
-        unsigned int sprite_objeto;
        
         int puntuacion=0;
         
@@ -34,7 +32,6 @@ class Hud{
         void setLevel(int level);
         void setTextNPCs(int kills);
         void setTextDistance(int done, int to_do);
-        void setObjeto(int object);
 
 
         void update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps, int object); 

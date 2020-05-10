@@ -40,7 +40,7 @@ class MainMenu : public Menu
 
         void draw(){
             Menu::draw();
-            Render::getInstance()->drawSprite(titulo);
+            Render::getInstance()->drawSprite(titulo, Rvect(540,130), 0.f, 1.f, true);
         }
 
         void clear(){
