@@ -38,8 +38,8 @@ class Map
         int playerHp = 100;
 
         int level = -1;
-        unsigned int fondo;
-        unsigned int fondo2;
+        unsigned int fondoEntrada;
+        unsigned int fondoSalida;
         int veces = 0;
         bool mapa1_cargado = false;
         bool sumado = false;
@@ -82,14 +82,18 @@ class Map
         void createMaxLife(float x, float y);
 
         void createSpeed(float x, float y);
+       
         void createShield(float x, float y);
 
         void loadLevel(int tipo);
 
-        void loadMapInfo(int lvl);
+        void loadMapInfoEntrada(int lvl);
+       
         void loadMapInfo2(int lvl);
 
         void draw();
+        
+        void changeBackground();
 
         void drawObjects();
 

@@ -108,7 +108,7 @@ bool Map::update(float dt)
 
     if(veces == 1 && !mapa1_cargado)
     {
-        loadMapInfo(1);
+        loadMapInfoEntrada(1);
         mapa1_cargado = true;
     }
     else if(veces == 2)
@@ -145,8 +145,8 @@ Borra toda la informacion del mapa
 */
 void Map::clear()
 { 
-    Render::getInstance()->deleteSprite(fondo);
-    // Render::getInstance()->deleteSprite(fondo2);
+    Render::getInstance()->deleteSprite(fondoEntrada);
+    // Render::getInstance()->deleteSprite(fondoSalida);
     for(auto it = npcs.begin(); it<npcs.end(); it++)
     {
         delete *it;
@@ -285,7 +285,7 @@ void Map::createShield(float x, float y)
 /*
 Carga toda la información del mapa
 */
-void Map::loadMapInfo(int lvl)
+void Map::loadMapInfoEntrada(int lvl)
 {   
 
     tinyxml2::XMLDocument document;
@@ -308,7 +308,16 @@ void Map::loadMapInfo(int lvl)
 
     imageLayer = xmlMap->FirstChildElement("imagelayer");
     std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
-    fondo = Render::getInstance()->createSprite(ruta);
+    fondoEntrada = Render::getInstance()->createSprite(ruta);
+}
+
+void Map::changeBackground()
+{
+    // fodosalida = fondoentrada;
+    // fondoentrada cargar un fondo;
+
+    fondoSalida = fondoEntrada;
+    loadMapInfoEntrada(1);
 }
 
 void Map::loadMapInfo2(int lvl)
@@ -331,7 +340,7 @@ void Map::loadMapInfo2(int lvl)
 
     imageLayer = xmlMap->FirstChildElement("imagelayer");
     std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
-    fondo2 = Render::getInstance()->createSprite(ruta);
+    fondoSalida = Render::getInstance()->createSprite(ruta);
 }
 
 /*
@@ -346,14 +355,14 @@ void Map::draw()
     
     if(veces == 0)
     {
-        Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
-        Render::getInstance()->drawSprite(fondo2, Rvect(xpos+1080, 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondoEntrada, Rvect(xpos, 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondoSalida, Rvect(xpos+1080, 0), 0.f, 1.f, false);
         
     }
     if(veces == 1)
     {
-        Render::getInstance()->drawSprite(fondo2, Rvect(xpos, 0), 0.f, 1.f, false);
-        Render::getInstance()->drawSprite(fondo, Rvect(xpos +1080 , 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondoSalida, Rvect(xpos, 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondoEntrada, Rvect(xpos +1080 , 0), 0.f, 1.f, false);
     }    
 
 
@@ -690,7 +699,7 @@ void Map::loadLevel(int tipo)
 {
     clear();
 
-    loadMapInfo(1);
+    loadMapInfoEntrada(1);
     loadMapInfo2(1);
     
     mapPosition = 0.f;
