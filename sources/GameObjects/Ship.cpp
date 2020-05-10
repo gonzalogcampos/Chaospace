@@ -199,6 +199,6 @@ void Ship::draw()
     Rvect d = Render::getInstance()->polarToCartesian(80.f,  physics->getOrient());
     if(shootAnimTime>0.f)
         Render::getInstance()->drawAnimation(shootAnim, Rvect(physics->getPosition().x+d.x, physics->getPosition().y+d.y), physics->getOrient() + 90.f);
-    
+        
     GameObject::draw();
 }

@@ -17,7 +17,7 @@ class GameObject{
         bool checkColision(GameObject* object);
         void update(float dt);
         void draw();    
-        
+        static void setDrawBB();
 
     protected:
         Physics* physics; 

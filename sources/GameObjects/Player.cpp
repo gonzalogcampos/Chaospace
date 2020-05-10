@@ -45,6 +45,17 @@ Player::Player(float x, float y)
 
     animation = Render::getInstance()->createAnimation(15);
     Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/player.png"));
+
+    escudo = Render::getInstance()->createAnimation(15);
+    Render::getInstance()->addFrameToAnimation(escudo, Render::getInstance()->createSprite("resources/energy.png",Rrect(100,0,50,50)));
+    Render::getInstance()->addFrameToAnimation(escudo, Render::getInstance()->createSprite("resources/energy.png",Rrect(150,0,50,50)));
+    Render::getInstance()->addFrameToAnimation(escudo, Render::getInstance()->createSprite("resources/energy.png",Rrect(200,0,50,50)));
+
+    velocity = Render::getInstance()->createAnimation(15);
+    Render::getInstance()->addFrameToAnimation(velocity, Render::getInstance()->createSprite("resources/fuego.png",Rrect(0,0,12,21)));
+    Render::getInstance()->addFrameToAnimation(velocity, Render::getInstance()->createSprite("resources/fuego.png",Rrect(123,0,20,21)));
+    Render::getInstance()->addFrameToAnimation(velocity, Render::getInstance()->createSprite("resources/fuego.png",Rrect(250,0,21,21)));
+    Render::getInstance()->addFrameToAnimation(velocity, Render::getInstance()->createSprite("resources/fuego.png",Rrect(376,0,36,21)));
 }
 
 //Metodo destructor de la clase Player.
@@ -165,6 +176,10 @@ void Player::move()
     { 
         dvx += _Player_SpeedUpX;
         dvy += _Player_SpeedUpY;
+        show_velocity=true;
+    }else
+    {
+        show_velocity=false;
     }
 
     if(vx<(-dvx))
@@ -262,4 +277,21 @@ void Player::update(float dt)
 void Player::shoot(bool p)
 {
     Ship::shoot(p);
+}
+
+void Player::draw()
+{
+    Ship::draw();
+    Rvect de = Render::getInstance()->polarToCartesian(50.f,  physics->getOrient());
+    if(shield>0)
+    {
+        Render::getInstance()->drawAnimation(escudo,Rvect(physics->getPosition().x,physics->getPosition().y),physics->getOrient(),2.5);
+
+    }
+
+    if(show_velocity==true)
+    {
+        Render::getInstance()->drawAnimation(velocity, Rvect(physics->getPosition().x-de.x, physics->getPosition().y-de.y), physics->getOrient());
+
+    }
 }

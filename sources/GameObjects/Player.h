@@ -8,6 +8,9 @@ class Player : public Ship {
         int powerUp; //Variable que dicta si el Player ha cogido un powerUp pasivo, y lo identifica mediante un numero.
         int shield = 0;
         float vtime = 0;
+        unsigned int escudo;
+        unsigned int velocity;
+        bool show_velocity=false;
     public: 
         Player(float x, float y); //Constructor por defecto de la clase Player.
 
@@ -34,5 +37,8 @@ class Player : public Ship {
         void setHp(int nu);
         
         void update(float dt);
+
+        void draw();
+
 };
 
