@@ -48,10 +48,6 @@ Hud::Hud(){
     rectangulo_vida->setPosition((float)31, (float)21);
     rectangulo_vida->setFillColor(sf::Color::Green);
 
-    rectangulo_objetos = new sf::RectangleShape(sf::Vector2f(85,85));
-    rectangulo_objetos->setPosition((float)31, (float)620);
-    rectangulo_objetos->setFillColor(sf::Color::Black);
-
 }
 
 Hud::~Hud(){
@@ -64,7 +60,6 @@ Hud::~Hud(){
     delete texto_puntuacion;
     delete rectangulo_relleno;
     delete rectangulo_vida;
-    delete rectangulo_objetos;
 }
 
 void Hud::setPuntuacion(int sumar)
@@ -108,20 +103,6 @@ void Hud::setTextDistance(int done, int to_do){
     texto_distance->setString(puntuacion_text);
 }
 
-void Hud::setObjeto(int object){
-
-    switch (object)
-    {
-    case 1:
-        sprite_objeto = Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Animacion explosion/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
-    break;
-    
-    default:
-        break;
-    }
-
-}
-
 
 void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps, int object)
 {
@@ -132,7 +113,6 @@ void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, floa
     setLife(porcentaje_vida);
     texto_fps->setString("FPS: " + std::to_string((int)fps));
     setTextDistance(distance, levelDistance);
-    setObjeto(object);
 
 }
 
@@ -140,9 +120,7 @@ void Hud::draw()
 {
     Render::getInstance()->drawText(*texto_puntuacion);
     Render::getInstance()->drawRectangle(*rectangulo_relleno);
-    Render::getInstance()->drawRectangle(*rectangulo_vida);
-    Render::getInstance()->drawRectangle(*rectangulo_objetos);
-    Render::getInstance()->drawSprite(sprite_objeto, Rvect(42,632), 0.f, 0.5, false);
+    Render::getInstance()->drawRectangle(*rectangulo_vida);   
     Render::getInstance()->drawText(*texto_niveles);
     Render::getInstance()->drawText(*texto_enemigos);
     Render::getInstance()->drawText(*texto_fps);
