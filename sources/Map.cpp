@@ -176,7 +176,16 @@ Crea un jefe
 */
 void Map::createBoss()
 {
+       int jefeTipo =  rand() % 3; 
+    if(jefeTipo==0){
     boss = new Npc(8, 1200.f, 720/2);
+    }
+    if(jefeTipo==1){
+    boss = new Npc(9, 1200.f, 720/2);
+    }
+    if(jefeTipo==2){
+    boss = new Npc(10, 1200.f, 720/2);
+    }
 }
 
 /*
