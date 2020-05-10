@@ -547,7 +547,7 @@ Npc::Npc(int IA, float posX, float posY){
 
 Npc::~Npc(){
     float r = random()%100;
-    float elegir = random()%3;
+    float elegir = random()%4;
     if(r<20 && elegir==1)
     {
         Map::getInstance()->createLife(physics->getPosition().x, physics->getPosition().y);
@@ -560,6 +560,10 @@ Npc::~Npc(){
     {
         Map::getInstance()->createSpeed(physics->getPosition().x, physics->getPosition().y);
     }  
+    if(r<20 & elegir == 3)
+    {
+        Map::getInstance()->createShield(physics->getPosition().x, physics->getPosition().y);
+    }
         
     
 } //Metodo destructor de la clase NPC.

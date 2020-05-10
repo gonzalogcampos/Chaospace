@@ -276,6 +276,11 @@ void Map::createSpeed(float x, float y)
     powerUps.push_back(p);
 }
 
+void Map::createShield(float x, float y)
+{
+    PowerUp* p = new PowerUp(SHIELD, x, y);
+    powerUps.push_back(p);
+}
 
 /*
 Carga toda la información del mapa
@@ -338,7 +343,7 @@ void Map::draw()
 
     int n = v1*mapPosition/1080;
     float xpos = (1080 * n) - mapPosition*v1;
-
+    
     if(veces == 0)
     {
         Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
@@ -531,8 +536,8 @@ void Map::updateColisions()
             case VELDIS:
                 player->speedUp(100,100);
                 break;
-            case WEAPON1:
-                /* code */
+            case SHIELD:
+                player->setShield();
                 break;
             
             default:
@@ -632,7 +637,9 @@ void Map::updateColisions()
                 }
             }
 
-        }else{
+        }
+        else
+        {
             if(player && player->getPhysics()->colides((*it)->getPhysics()))
             {
                 colision = true;

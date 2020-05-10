@@ -113,11 +113,8 @@ void Ship::hpUp(int hp)
 bool Ship::hpDown(int hp)
 {
     this->hp -= hp;
-
     if(this->hp<=0)
         return true;
-    
-
     return false;
 }
 

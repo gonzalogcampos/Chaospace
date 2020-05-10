@@ -67,6 +67,29 @@ void Player::hpUp(int hp)
     if(this->hp >_Player_InitHP)
         this->hp = _Player_InitHP;
 }
+/*
+Le coloca un escudo de 3 golpes al player
+*/
+void Player::setShield()
+{
+    shield = 3;
+}
+
+bool Player::hpDown(int hp)
+{
+    if(shield > 0)
+    {
+        shield--;
+    }
+    else
+    {
+        this->hp -= hp;
+        if(this->hp<=0)
+            return true;
+    }
+    
+    return false;
+}
 
 void Player::setHp(int nu)
 {

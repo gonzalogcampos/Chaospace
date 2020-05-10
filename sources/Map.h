@@ -82,6 +82,7 @@ class Map
         void createMaxLife(float x, float y);
 
         void createSpeed(float x, float y);
+        void createShield(float x, float y);
 
         void loadLevel(int tipo);
 
