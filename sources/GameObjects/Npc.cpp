@@ -6,6 +6,7 @@
 #include <Physics.h>
 #include <Map.h>
 #include <iostream>
+#include "math.h"
 
 
 
@@ -39,7 +40,7 @@ Npc::Npc(int IA, float posX, float posY){
     rectangulo_relleno->setFillColor(sf::Color::White);
 
     rectangulo_vida = new sf::RectangleShape(sf::Vector2f(100,10));
-    rectangulo_vida->setPosition((float)physics->getPosition().x, (float)physics->getPosition().y);
+    rectangulo_vida->setPosition((float)physics->getPosition().x+1, (float)physics->getPosition().y+1);
     rectangulo_vida->setFillColor(sf::Color::Green);
 
     switch (tipo)
@@ -1163,8 +1164,6 @@ void Npc::update(float dt){
     physics->setVelocity(Pvect(vx, vy));
 
     setLife();
-    rectangulo_relleno->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
-    rectangulo_vida->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
     Ship::update(dt);
 }
 
@@ -1179,16 +1178,18 @@ void Npc::draw(){
 void Npc::setLife()
 {
 
-    int i = (Ship::getHp()/hpmax)*100;
-    std::cout<< i<< std::endl;
-    rectangulo_vida->setSize(sf::Vector2f((float)i,10));
+    float porcentaje = ((float)Ship::getHp()/(float)hpmax)*100;
+    rectangulo_vida->setSize(sf::Vector2f((float)porcentaje,10));
 
-    if(i>=70){
+    if(porcentaje>=70){
         rectangulo_vida->setFillColor(sf::Color::Green);
-    }else if(i<70 && i>=30){
+    }else if(porcentaje<70 && porcentaje>=30){
         rectangulo_vida->setFillColor(sf::Color::Yellow);
-    }else if(i>0 && i<30){
+    }else if(porcentaje>0 && porcentaje<30){
         rectangulo_vida->setFillColor(sf::Color::Red);
     }
+
+    rectangulo_relleno->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
+    rectangulo_vida->setPosition((float)physics->getPosition().x-44, (float)physics->getPosition().y-119);
 
 }
