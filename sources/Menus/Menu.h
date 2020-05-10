@@ -45,14 +45,8 @@ class Menu
         std::vector<Button*> buttons;
         std::size_t focus;
         float at;
-        unsigned int titulo;
         unsigned int background;
-        sf::Text *texto_puntuacion1;
-        sf::Text *texto_level1;
-        sf::Font *fuente;
-        sf::Font *fuente2;
-        std::string puntuacion_text2;
-        std::string nivel_text2;
+        unsigned int titulo;
 
     public:
 

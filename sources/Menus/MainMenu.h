@@ -34,4 +34,14 @@ class MainMenu : public Menu
         {
         }
 
+        void draw(){
+            Menu::draw();
+            Render::getInstance()->drawSprite(titulo);
+        }
+
+        void clear(){
+            Menu::clear();
+            Render::getInstance()->deleteSprite(titulo);
+        }
+
 };

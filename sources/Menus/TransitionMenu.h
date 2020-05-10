@@ -10,6 +10,17 @@
 
 class TransitionMenu : public Menu
 {
+    
+    private:
+        
+        sf::Text *texto_puntuacion1;
+        sf::Text *texto_level1;
+        sf::Font *fuente;
+        sf::Font *fuente2;
+        std::string puntuacion_text2;
+        std::string nivel_text2;
+    
+    
     public:
         TransitionMenu() : Menu()
         {
@@ -55,4 +66,20 @@ class TransitionMenu : public Menu
         }
 
         ~TransitionMenu(){}
+
+        void draw(){
+            Menu::draw();
+            Render::getInstance()->drawText(*texto_puntuacion1);
+            Render::getInstance()->drawText(*texto_level1);
+        }
+
+        void clear(){
+            Menu::clear();
+            delete texto_level1; 
+            delete fuente;
+            delete texto_puntuacion1;
+            delete fuente2;
+            puntuacion_text2.clear();
+            nivel_text2.clear();
+        }
 };
