@@ -4,7 +4,7 @@
 //Headers
 #include <Render.h>
 #include <Map.h>
-
+#include <string>
 
 /*=================================================*/
 /*==================   Values   ===================*/
@@ -89,8 +89,11 @@ void Menu::update(float dt)
 
 void Menu::draw()
 {
+    //Render::getInstance()->drawText(*texto_puntuacion1);
     Render::getInstance() -> drawSprite(background, Rvect(540.f,360.f));
     Render::getInstance() -> drawSprite(titulo, Rvect(540.f, 150.f));
+    
+     
 
     for(size_t i=0; i<buttons.size(); i++)
         buttons.at(i)->draw();

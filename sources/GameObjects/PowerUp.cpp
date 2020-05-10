@@ -40,7 +40,7 @@ PowerUp::~PowerUp()
     
 }
 
-PowerUpType PowerUp::getType()s
+PowerUpType PowerUp::getType()
 {
     return t;
 }

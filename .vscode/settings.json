@@ -38,6 +38,7 @@
         "utility": "cpp",
         "typeinfo": "cpp",
         "chrono": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "string": "cpp"
     }
 }
