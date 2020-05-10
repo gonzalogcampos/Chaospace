@@ -385,6 +385,13 @@ void Map::tryCreate()
 
 void Map::updateObjects(float dt)
 {
+
+    if(Render::getInstance()->isKPressed())
+    {
+        Render::getInstance()->setKPressed(false);
+        GameObject::setDrawBB();
+    }
+
     player->update (dt);
 
     if(boss)boss->update(dt);

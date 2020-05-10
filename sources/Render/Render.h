@@ -76,10 +76,12 @@ class Render
 
         bool enter_pressed=false;
         bool escape_pressed=false;
+        bool k_pressed = false;
         sf::Sprite cursorSprite;
         sf::Texture cursor;
 
-        
+        sf::RectangleShape r;
+        sf::CircleShape c;
 
     public:
         static Render* getInstance()
@@ -163,7 +165,11 @@ class Render
         void setEnterPressed(bool press);
         bool isEscapePressed();
         void setEscapePressed(bool press);
+        bool isKPressed();
+        void setKPressed(bool press);
         void setMouse(bool mouse);
+        void drawCircle(Rvect position, float radious, bool centered = true);
+        void drawRectangle(Rvect position, Rvect size, bool centered = true);
 
 
 };

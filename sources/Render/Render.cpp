@@ -37,9 +37,7 @@ void Render::init(Rvect size, std::string title)
     spritesCont = 1;
 
     globalScale = Rvect(1.f, 1.f);
-    Render::getInstance()-> setMouse(false);
-    
-    
+    Render::getInstance()-> setMouse(false);    
 }
 
 /*
@@ -97,6 +95,9 @@ void Render::preLoop(float dt)
                 if(event.key.code == sf::Keyboard::Escape){
                     escape_pressed=true;
                 }
+                if(event.key.code == sf::Keyboard::K){
+                    k_pressed=true;
+                }
             }    
             //else if(event.type == sf::Event::Resized)
             //{
@@ -142,6 +143,24 @@ Funcion que cambia el valor de la variable enter_pressed.
 void Render::setEscapePressed(bool press)
 {
     escape_pressed=press;
+}
+
+
+/*
+Funcion que devuelve el valor de k_pressed, para 
+saber si la K ha sido pulsado.
+*/
+bool Render::isKPressed()
+{
+    return k_pressed;
+}
+
+/*
+Funcion que cambia el valor de la variable k_pressed.
+*/
+void Render::setKPressed(bool press)
+{
+    k_pressed=press;
 }
 
 void Render::setMouse(bool mouse)
@@ -510,6 +529,41 @@ void Render::drawRectangle(sf::RectangleShape rectangle)
 {
     window->draw(rectangle);
 
+}
+
+void Render::drawCircle(Rvect position, float radious, bool centered)
+{
+    float x = position.x;
+    float y = position.y;
+    c.setRadius(radious);
+    if(centered)
+    {
+        x -= radious;
+        y -= radious;
+    }
+    c.setPosition(sf::Vector2f(x, y));
+    c.setOutlineThickness(1);
+    c.setOutlineColor(sf::Color(0, 225, 0));
+    c.setFillColor(sf::Color(0, 0, 0, 0));
+    window->draw(c);
+}
+
+void Render::drawRectangle(Rvect position, Rvect size, bool centered)
+{
+    r.setSize(sf::Vector2f(size.x, size.y));
+    float x = position.x;
+    float y = position.y;
+    if(centered)
+    {
+        x -= size.x/2;
+        y -= size.y/2;
+    }
+
+    r.setPosition(sf::Vector2f(x, y));
+    r.setOutlineThickness(1);
+    r.setOutlineColor(sf::Color(0, 225, 0));
+    r.setFillColor(sf::Color(0, 0, 0, 0));
+    window->draw(r);
 }
 
 
