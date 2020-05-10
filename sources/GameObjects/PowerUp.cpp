@@ -21,7 +21,9 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/energy.png", Rrect(50*4, 0, 50, 50)));
         */
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/health.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/health3.png"));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/health2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/health3.png"));
         break;
     case VELDIS:
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/att-speed.png"));
@@ -38,7 +40,7 @@ PowerUp::~PowerUp()
     
 }
 
-PowerUpType PowerUp::getType()
+PowerUpType PowerUp::getType()s
 {
     return t;
 }
