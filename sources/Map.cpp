@@ -82,6 +82,47 @@ bool Map::update(float dt)
         createBoss();
     }
 
+    /*
+    int n = v1*mapPosition/1080;
+    float xpos = (1080 * n) - mapPosition*v1;
+
+    */
+    float v1 = .1;
+
+    int n = v1*mapPosition/1080;
+    float xpos = (1080 * n) - mapPosition*v1;
+
+    //std::cout << xpos << std::endl;
+
+
+    if(xpos <= -1070 && !sumado)
+    {
+        veces ++;
+        sumado = true;
+        std::cout << "llamado" << std::endl;
+    }
+    else if (xpos >= -1070 && sumado)
+    {
+        sumado = false;
+    }
+
+    if(veces == 1 && !mapa1_cargado)
+    {
+        loadMapInfo(1);
+        mapa1_cargado = true;
+    }
+    else if(veces == 2)
+    {
+        loadMapInfo2(1);
+        veces = 0;
+        mapa1_cargado = false;
+    }
+    
+    
+
+
+
+
     if(!boss)
         tryCreate();
 
@@ -94,6 +135,8 @@ bool Map::update(float dt)
 
     hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt, 1);
 
+
+
     return true;
 }
 
@@ -103,7 +146,7 @@ Borra toda la informacion del mapa
 void Map::clear()
 { 
     Render::getInstance()->deleteSprite(fondo);
-    Render::getInstance()->deleteSprite(paredes);
+    // Render::getInstance()->deleteSprite(fondo2);
     for(auto it = npcs.begin(); it<npcs.end(); it++)
     {
         delete *it;
@@ -239,22 +282,19 @@ Carga toda la información del mapa
 */
 void Map::loadMapInfo(int lvl)
 {   
+
     tinyxml2::XMLDocument document;
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
     //std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
     int escenario;
-    do
-    {
-        escenario = rand()% 4 + 1;
-    } while (escenario == mapaAnterior);
 
-    mapaAnterior = escenario;
-    
+    escenario = rand()% 4 + 1;
+    //escenario = 1;
 
     //int escenario = 1;
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
-    
+    std::cout << "RUTAMAPA: " << rutaMapa << std::endl; 
 
 
     document.LoadFile(rutaMapa.c_str());
@@ -264,8 +304,29 @@ void Map::loadMapInfo(int lvl)
     imageLayer = xmlMap->FirstChildElement("imagelayer");
     std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
     fondo = Render::getInstance()->createSprite(ruta);
-     
+}
 
+void Map::loadMapInfo2(int lvl)
+{   
+    tinyxml2::XMLDocument document;
+    tinyxml2::XMLElement* xmlMap;
+    tinyxml2::XMLElement* imageLayer;
+    //std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
+    int escenario;
+
+    escenario = rand()% 4 + 1;
+    
+    std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
+    std::cout << "RUTAMAPA: " << rutaMapa << std::endl; 
+
+
+    document.LoadFile(rutaMapa.c_str());
+
+    xmlMap = document.FirstChildElement("map");
+
+    imageLayer = xmlMap->FirstChildElement("imagelayer");
+    std::string ruta = "resources/maps/mapa" + std::to_string(lvl) +"/" + imageLayer->FirstChildElement("image")->Attribute("source");
+    fondo2 = Render::getInstance()->createSprite(ruta);
 }
 
 /*
@@ -274,19 +335,22 @@ Dibujado del mapa
 void Map::draw()
 {
     float v1 = .1;
-    float v2 = .9;
 
     int n = v1*mapPosition/1080;
     float xpos = (1080 * n) - mapPosition*v1;
 
-    Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
-    Render::getInstance()->drawSprite(fondo, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
+    if(veces == 0)
+    {
+        Render::getInstance()->drawSprite(fondo, Rvect(xpos, 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondo2, Rvect(xpos+1080, 0), 0.f, 1.f, false);
+        
+    }
+    if(veces == 1)
+    {
+        Render::getInstance()->drawSprite(fondo2, Rvect(xpos, 0), 0.f, 1.f, false);
+        Render::getInstance()->drawSprite(fondo, Rvect(xpos +1080 , 0), 0.f, 1.f, false);
+    }    
 
-    n = v2*mapPosition/1080;
-    xpos = (1080 * n) - mapPosition*v2;
-
-    Render::getInstance()->drawSprite(paredes, Rvect(xpos, 0), 0.f, 1.f, false);
-    Render::getInstance()->drawSprite(paredes, Rvect(xpos + 1080, 0), 0.f, 1.f, false);
 
     drawObjects();
 
@@ -618,14 +682,9 @@ Carga un nivel
 void Map::loadLevel(int tipo)
 {
     clear();
-    if(level >= 3)
-    {
-        loadMapInfo(1);
-    }
-    else
-    {
-        loadMapInfo(1);
-    }
+
+    loadMapInfo(1);
+    loadMapInfo2(1);
     
     mapPosition = 0.f;
     level++;

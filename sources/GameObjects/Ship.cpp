@@ -7,6 +7,8 @@
 #include <Map.h>
 #include <weapons.h>
 #include <Render.h>
+#include <iostream>
+
 
 /*=================================================*/
 /*==================   Metodos   ==================*/
@@ -19,6 +21,7 @@ Ship::Ship()
     hp = 1;
     weaponType = 1;
     shootAnim = Render::getInstance()->createAnimation(120);
+    
 }
 
  //Metodo destructor de un Ship.
@@ -33,6 +36,67 @@ void Ship::shoot(bool p)
 {
     if(st>cadencia)
     {
+        switch (weaponType)
+        {
+        case 1:
+            if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+            break;
+
+        case 2:
+        
+            if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+        break;
+
+        case 3:
+         if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+            break;
+        break;
+
+        case 4:
+         if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+        break;
+
+        case 5:
+         if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+        break;
+
+        case 6:
+         if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+        break;
+
+        case 7:
+         if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+        break;
+        default:
+        if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
+	{
+		std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+            break;
+        }
+        sound.setBuffer(buffer);
+        sound.play();
         st = 0.f;
         shootAnimTime = .1f;
         Map::getInstance()->createBullet(physics->getPosition().x, physics->getPosition().y, physics->getOrient(), weaponType, p);
