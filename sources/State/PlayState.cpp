@@ -57,4 +57,5 @@ void PlayState::clear()
 {
 
     loaded=false;
+    Render::getInstance()->deleteSprite(sprite_pausa);
 }
