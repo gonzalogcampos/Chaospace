@@ -41,6 +41,8 @@ class Map
         int lvlMap = 1;
         unsigned int fondo;
         unsigned int paredes;
+        int mapaAnterior = 0;
+        int mapaAnteriorAnterior = 0;
 
         int _score;
         int _level;

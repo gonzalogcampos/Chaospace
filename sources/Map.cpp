@@ -221,9 +221,16 @@ void Map::loadMapInfo(int lvl)
     tinyxml2::XMLElement* xmlMap;
     tinyxml2::XMLElement* imageLayer;
     //std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) + "/mapa.tmx";
-    //int escenario = rand()% 1 + 1;
+    int escenario;
+    do
+    {
+        escenario = rand()% 4 + 1;
+    } while (escenario == mapaAnterior);
 
-    int escenario = 1;
+    mapaAnterior = escenario;
+    
+
+    //int escenario = 1;
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
     
 
@@ -589,7 +596,7 @@ void Map::loadLevel(int tipo)
     }
     else
     {
-        loadMapInfo(tipo);
+        loadMapInfo(1);
     }
     
     mapPosition = 0.f;

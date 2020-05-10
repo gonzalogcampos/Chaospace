@@ -18,7 +18,6 @@ class PowerUp : public GameObject
 
         PowerUp(PowerUpType t, float x, float y);
         ~PowerUp();
-        
         PowerUpType getType();
 
     private:
