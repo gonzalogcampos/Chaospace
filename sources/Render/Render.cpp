@@ -37,6 +37,9 @@ void Render::init(Rvect size, std::string title)
     spritesCont = 1;
 
     globalScale = Rvect(1.f, 1.f);
+    Render::getInstance()-> setMouse(false);
+    
+    
 }
 
 /*
@@ -128,15 +131,22 @@ void Render::setEnterPressed(bool press){
 Funcion que devuelve el valor de enter_pressed, para 
 saber si el Escape ha sido pulsado.
 */
-bool Render::isEscapePressed(){
+bool Render::isEscapePressed()
+{
     return escape_pressed;
 }
 
 /*
 Funcion que cambia el valor de la variable enter_pressed.
 */
-void Render::setEscapePressed(bool press){
+void Render::setEscapePressed(bool press)
+{
     escape_pressed=press;
+}
+
+void Render::setMouse(bool mouse)
+{
+    window->setMouseCursorVisible(mouse);
 }
 
 
@@ -499,6 +509,7 @@ void Render::drawText(sf::Text text)
 void Render::drawRectangle(sf::RectangleShape rectangle)
 {
     window->draw(rectangle);
+
 }
 
 
@@ -573,6 +584,7 @@ void Animation::draw(float dt)
             drawing = 0;
     }
     Render::getInstance()->drawSprite(sprites.at(drawing));
+
 }
 
 /*

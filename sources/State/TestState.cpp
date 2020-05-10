@@ -10,6 +10,7 @@
 void TestState::initState()
 {
     type = State::TEST;
+    
 } 
 
 

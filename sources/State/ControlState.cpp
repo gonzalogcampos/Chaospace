@@ -40,6 +40,7 @@ void ControlState::update(float dt){
 void ControlState::draw()
 {
     menu->draw();
+    
 }
 
 void ControlState::clear()

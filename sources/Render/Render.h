@@ -76,6 +76,10 @@ class Render
 
         bool enter_pressed=false;
         bool escape_pressed=false;
+        sf::Sprite cursorSprite;
+        sf::Texture cursor;
+
+        
 
     public:
         static Render* getInstance()
@@ -159,6 +163,7 @@ class Render
         void setEnterPressed(bool press);
         bool isEscapePressed();
         void setEscapePressed(bool press);
+        void setMouse(bool mouse);
 
 
 };

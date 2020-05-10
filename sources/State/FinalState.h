@@ -10,6 +10,7 @@ class FinalState : public State
 {
     private: 
         Menu* menu;
+        unsigned int cursor;
         FinalState(){}         
     public:
 

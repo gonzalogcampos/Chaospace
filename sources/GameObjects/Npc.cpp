@@ -556,7 +556,7 @@ Npc::~Npc(){
     {
         Map::getInstance()->createMaxLife(physics->getPosition().x, physics->getPosition().y);
     }
-    if(r<20 && elegir ==2)
+    if(r<20 && elegir == 2)
     {
         Map::getInstance()->createSpeed(physics->getPosition().x, physics->getPosition().y);
     }  

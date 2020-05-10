@@ -22,6 +22,7 @@ class PlayState : public State
         Map* map;
         bool paused;
         unsigned int sprite_pausa;
+        unsigned int punto_mira;
         PlayState(){}         
     public:
          static PlayState* getInstance(){
