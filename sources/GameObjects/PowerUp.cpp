@@ -10,7 +10,7 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
 
     this->t = t;
 
-    animation = Render::getInstance()->createAnimation(5);
+    animation = Render::getInstance()->createAnimation(10);
 
     switch (t)
     {
@@ -40,7 +40,7 @@ PowerUp::~PowerUp()
     
 }
 
-PowerUpType PowerUp::getType()s
+PowerUpType PowerUp::getType()
 {
     return t;
 }
