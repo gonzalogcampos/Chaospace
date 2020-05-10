@@ -6,6 +6,10 @@
 
 class MainMenu : public Menu
 {
+
+    private:
+        unsigned int titulo;
+
     public:
         MainMenu() : Menu()
         {   
@@ -32,6 +36,16 @@ class MainMenu : public Menu
 
         ~MainMenu()
         {
+        }
+
+        void draw(){
+            Menu::draw();
+            Render::getInstance()->drawSprite(titulo);
+        }
+
+        void clear(){
+            Menu::clear();
+            Render::getInstance()->deleteSprite(titulo);
         }
 
 };

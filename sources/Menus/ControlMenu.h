@@ -11,11 +11,18 @@ class ControlMenu : public Menu
         {
             //Buttons
         
-            //titulo = Render::getInstance() -> createSprite("resources/Titulo.png");
             background = Render::getInstance() -> createSprite("resources/MenuElements/CONTROLES.png");
             
 
         }
 
         ~ControlMenu(){}
+
+        void draw(){
+            Menu::draw();
+        }
+
+        void clear(){
+            Menu::clear();
+        }
 };

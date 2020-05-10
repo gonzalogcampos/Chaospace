@@ -6,6 +6,9 @@
 
 class FinalMenu : public Menu
 {
+    private:
+        unsigned int titulo;
+    
     public:
         FinalMenu() : Menu()
         {
@@ -26,4 +29,14 @@ class FinalMenu : public Menu
         }
 
         ~FinalMenu(){}
+        
+        void draw(){
+            Menu::draw();
+            Render::getInstance()->drawSprite(titulo);
+        }
+
+        void clear(){
+            Menu::clear();
+            Render::getInstance()->deleteSprite(titulo);
+        }
 };
