@@ -5,8 +5,7 @@
 #include <Render.h>
 #include <Physics.h>
 #include <Map.h>
-#include <iostream>
-#include "math.h"
+#include <math.h>
 
 
 

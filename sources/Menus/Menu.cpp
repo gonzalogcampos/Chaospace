@@ -128,11 +128,6 @@ void Menu::draw()
         buttons.at(i)->draw();
 }
 
-void Menu::setBackground(char* b)
-{
-
-}
-
 Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)
 {
     this->id = id;
