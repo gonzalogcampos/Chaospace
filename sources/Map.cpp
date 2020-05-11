@@ -17,7 +17,6 @@
 //External headers
 #include <tinyxml2.h>
 #include <cstdlib>
-#include <iostream>
 
 /*=================================================*/
 /*==================   Values   ===================*/
@@ -258,7 +257,6 @@ void Map::loadMapInfoEntrada(int lvl)
 
     //int escenario = 1;
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
-    std::cout << "RUTAMAPA: " << rutaMapa << std::endl; 
 
 
     document.LoadFile(rutaMapa.c_str());
@@ -291,7 +289,6 @@ void Map::loadMapInfo2(int lvl)
     escenario = rand()% 4 + 1;
     
     std::string rutaMapa = "resources/maps/mapa" + std::to_string(lvl) +"/mapa" + std::to_string(escenario) + ".tmx";
-    std::cout << "RUTAMAPA: " << rutaMapa << std::endl; 
 
 
     document.LoadFile(rutaMapa.c_str());
