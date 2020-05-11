@@ -7,10 +7,7 @@
 
 #Especificar donde se encuentran los ficheros cpp a compilar
 target_sources(modulos PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}/Components/Ai.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Components/Controller.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Components/Physics.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Components/Life.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Physics/Physics.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/Bullet.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/GameObject.cpp"
@@ -22,7 +19,6 @@ target_sources(modulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects/EmptyAnimation.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/GUI/Hud.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/GUI/Interface.cpp"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/State/PlayState.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/State/MenuState.cpp"
@@ -43,7 +39,7 @@ target_sources(modulos PRIVATE
 
 #Y donde se encuentran los .h
 target_include_directories(modulos PUBLIC 
-    "${CMAKE_CURRENT_SOURCE_DIR}/Components"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Physics"
     "${CMAKE_CURRENT_SOURCE_DIR}/GameObjects"
     "${CMAKE_CURRENT_SOURCE_DIR}/GUI"
     "${CMAKE_CURRENT_SOURCE_DIR}/State"
