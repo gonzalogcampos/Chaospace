@@ -32,8 +32,6 @@ class Npc : public Ship {
 
     ~Npc(); //Metodo destructor de la clase Player.
 
-    void IA(int tipo);
-
     void enemigo1();
     void enemigo2();
     void enemigo3();

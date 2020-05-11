@@ -7,14 +7,10 @@ public:
 
     enum stateType {
         PLAY,
-        TEST,
         MENUINICIAL,
         MENUFINAL,
-        MENUPAUSE,
         NEXTLEVEL,
-        CONTROLES,
-        LOADING_CONTROLES,
-        LOADING_FINAL
+        CONTROLES
     };
 
     virtual ~State() {};

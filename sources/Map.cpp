@@ -82,17 +82,6 @@ bool Map::update(float dt)
         createBoss();
     }
 
-    /*
-    int n = v1*mapPosition/1080;
-    float xpos = (1080 * n) - mapPosition*v1;
-
-    */
-    float v1 = .1;
-
-    int n = v1*mapPosition/1080;
-    float xpos = (1080 * n) - mapPosition*v1;
-
-    //std::cout << xpos << std::endl;
 
     if(!boss)
         tryCreate();
@@ -104,7 +93,7 @@ bool Map::update(float dt)
     if(player)
         hp = player->getHp();
 
-    hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt, 1);
+    hud->update(score, level+1, kills, hp, mapPosition, baseDistance+(level * incDisctance), 1.f/dt);
 
 
 
@@ -162,8 +151,7 @@ Inicia el mapa
 */
 void Map::init()
 {
-    int estilo_mapa = rand() % 2 + 1;
-    loadLevel(estilo_mapa);
+    loadLevel();
 }
 
 /*
@@ -670,7 +658,7 @@ void Map::updateColisions()
 /*
 Carga un nivel
 */
-void Map::loadLevel(int tipo)
+void Map::loadLevel()
 {
     clear();
 
