@@ -644,7 +644,8 @@ void Map::updateColisions()
                 if(!(*it)->getHasColided())
                 {
                     float orient = player->getPhysics()->getOrient() + (rand() % 21 + (-10));
-                    (*it)->changeOrientation(orient);
+                    //(*it)->changeOrientation(orient);
+                    (*it)->getPhysics()->setPolarVelocity(orient, 600.f);
                     player->hpDown(2);
                     Render::getInstance()->shake();
                 }

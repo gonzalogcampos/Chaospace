@@ -316,5 +316,3 @@ void Asteroid::draw()
     GameObject::draw();
 }
 
-// En update object de mapa tengo que comprobar colisión con el jugador
-// En update colisions tengo que comprobar que colisionan con el meteorito
