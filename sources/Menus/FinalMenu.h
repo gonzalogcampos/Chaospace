@@ -57,7 +57,7 @@ class FinalMenu : public Menu
         
         void draw(){
             Menu::draw();
-            Render::getInstance()->drawSprite(titulo, Rvect(900,650), 0.f, 0.6, true);
+            Render::getInstance()->drawSprite(titulo, Rvect(980,690), 0.f, 0.4, true);
             Render::getInstance()->drawSprite(over, Rvect(550,150), 0.f, 0.8, true);
             Render::getInstance()->drawText(*final_texto_puntuacion1);
             //Render::getInstance()->drawText(*final_texto_level1);
