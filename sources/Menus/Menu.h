@@ -58,7 +58,6 @@ class Menu
         void clear();
         void down();
         void up();
-        void setBackground(char* b);
         void update(float dt);
         void draw();
 

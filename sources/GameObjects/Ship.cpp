@@ -7,7 +7,6 @@
 #include <Map.h>
 #include <weapons.h>
 #include <Render.h>
-#include <iostream>
 
 
 /*=================================================*/
@@ -61,7 +60,6 @@ void Ship::shoot(bool p)
         case 1:
             if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
             break;
 
@@ -69,14 +67,12 @@ void Ship::shoot(bool p)
         
             if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
         break;
 
         case 3:
          if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
             break;
         break;
@@ -84,34 +80,29 @@ void Ship::shoot(bool p)
         case 4:
          if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
         break;
 
         case 5:
          if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
         break;
 
         case 6:
          if (!buffer.loadFromFile("resources/audios/sfx_laser2.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
         break;
 
         case 7:
          if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
         break;
         default:
         if (!buffer.loadFromFile("resources/audios/sfx_laser1.ogg"))
 	{
-		std::cout<<"Error al cargar el sonido"<<std::endl;
 	}
             break;
         }
