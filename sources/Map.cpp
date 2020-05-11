@@ -29,7 +29,7 @@ const float _Player_InitY = 360.f;
 //Level Values
 
 const float baseDistance = 10000.f;
-const float incDisctance = 5000.f;
+const float incDisctance = 2500.f;
 
 const float bossMaxDist = 400.f;
 
