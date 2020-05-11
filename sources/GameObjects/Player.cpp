@@ -23,8 +23,8 @@ float _Player_Dcel = 30.f;
 float _Player_VToStop = 5.f;
 float _Player_MAXRight = 200.f;
 float _Player_VToCenter = .02f;
-float _Player_BBX = 123.f;
-float _Player_BBY = 115.f;
+float _Player_BBX = 70.f;
+float _Player_BBY = 75.f;
 float _Player_InitHP = 100.f;
 
 
