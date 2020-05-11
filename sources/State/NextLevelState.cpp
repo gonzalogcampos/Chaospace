@@ -24,7 +24,7 @@ void NextLevelState::update(float dt)
 {
     menu->update(dt);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+    if(Render::getInstance()->isEnterPressed()==true){
         switch (menu->click()){
             case 1: 
                 /*PLAY*/

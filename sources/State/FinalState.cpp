@@ -27,6 +27,7 @@ void FinalState::update(float dt){
 
     menu->update(dt);
 
+
     if(Render::getInstance()->isEnterPressed()==true){
         switch (menu->click()){
             case 1: 
