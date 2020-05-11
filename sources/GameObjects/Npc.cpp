@@ -181,16 +181,16 @@ Npc::Npc(int IA, float posX, float posY){
     {
         animation = Render::getInstance()->createAnimation(15);
          if(tipo==10){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/15.png"));
         
         }
         if(tipo==9){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/11.png"));
        
         }
         
         if(tipo==8){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/7.png"));
         
         }
         physics->setPosition(Pvect(X, Y));
@@ -267,16 +267,16 @@ Npc::Npc(int IA, float posX, float posY){
     {
         animation = Render::getInstance()->createAnimation(15);
           if(tipo==10){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/15.png"));
         
         }
         if(tipo==9){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/11.png"));
        
         }
         
         if(tipo==8){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/7.png"));
         
         }      
         physics->setPosition(Pvect(X, Y));
@@ -352,16 +352,16 @@ Npc::Npc(int IA, float posX, float posY){
     {
         animation = Render::getInstance()->createAnimation(15);
           if(tipo==10){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/15.png"));
         
         }
         if(tipo==9){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/11.png"));
        
         }
         
         if(tipo==8){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/7.png"));
         
         }
         physics->setPosition(Pvect(X, Y));
@@ -437,16 +437,16 @@ Npc::Npc(int IA, float posX, float posY){
     {
         animation = Render::getInstance()->createAnimation(15);
         if(tipo==10){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/15.png"));
         
         }
         if(tipo==9){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/11.png"));
        
         }
         
         if(tipo==8){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/7.png"));
         
         }
         physics->setPosition(Pvect(X, Y));
@@ -524,16 +524,16 @@ Npc::Npc(int IA, float posX, float posY){
         
         animation = Render::getInstance()->createAnimation(15);
          if(tipo==10){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/15.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/15.png"));
         
         }
         if(tipo==9){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/11.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/11.png"));
        
         }
         
         if(tipo==8){
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Bosses/7.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Bosses/7.png"));
         
         }
         
