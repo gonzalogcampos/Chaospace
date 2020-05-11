@@ -85,7 +85,7 @@ class Map
        
         void createShield(float x, float y);
 
-        void loadLevel(int tipo);
+        void loadLevel();
 
         void loadMapInfoEntrada(int lvl);
        

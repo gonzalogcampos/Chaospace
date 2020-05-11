@@ -578,11 +578,7 @@ Npc::~Npc(){
     delete rectangulo_relleno;
         
     
-} //Metodo destructor de la clase NPC.
-
-void Npc::IA(int tipo){
-
-}
+} 
 
 void Npc::enemigo1(){}
 void Npc::enemigo2(){}

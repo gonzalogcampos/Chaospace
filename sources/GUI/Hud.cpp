@@ -104,7 +104,7 @@ void Hud::setTextDistance(int done, int to_do){
 }
 
 
-void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps, int object)
+void Hud::update(int puntuacion, int level, int kills, int porcentaje_vida, float distance, float levelDistance, float fps)
 {
 
     setLevel(level);

@@ -13,7 +13,7 @@ Asteroid::Asteroid(float X, float Y)
     int tipo = rand() % 2 + 1;
     animation = Render::getInstance()->createAnimation(1.f);
 
-    Rint spriteActual;
+    Rint spriteActual = -1;
     
     if(tipo == 1)
     {
@@ -239,7 +239,7 @@ tam: 5 <= tam >= 1 (entre 1 y 5 incluidos)
 Asteroid::Asteroid(int color, int tam, float X, float Y, float orientation)
 {
     animation = Render::getInstance()->createAnimation(1.f);
-    Rint spriteActual;
+    Rint spriteActual = -1;
     
     // Si el color es marrón
     if(color == 0)
