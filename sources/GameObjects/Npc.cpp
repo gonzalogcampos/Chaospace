@@ -89,7 +89,7 @@ Npc::Npc(int IA, float posX, float posY){
         break;
     case 8:
     //boss
-        setWeaponType(nivel);
+        setWeaponType(5);
         hp=100;
         cadencia=10;
         break;
@@ -99,8 +99,8 @@ Npc::Npc(int IA, float posX, float posY){
         cadencia=10;
         break;
      case 10:
-        setWeaponType(6);
-        hp=200;
+        setWeaponType(7);
+        hp=180;
         cadencia=10;
         break;
     default:
@@ -199,7 +199,8 @@ Npc::Npc(int IA, float posX, float posY){
         }
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(140.f,200.f
+        ));
     }
             break;
         case 2:
@@ -284,7 +285,7 @@ Npc::Npc(int IA, float posX, float posY){
         }      
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(140.f,200.f));
     }
             break;
         case 3:
@@ -369,7 +370,7 @@ Npc::Npc(int IA, float posX, float posY){
         }
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(140.f,200.f));
     }
             break;
         case 4:
@@ -454,7 +455,7 @@ Npc::Npc(int IA, float posX, float posY){
         }
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(140.f,200.f));
     }
             break;
         
@@ -542,7 +543,7 @@ Npc::Npc(int IA, float posX, float posY){
         
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(220.f,220.f));
+        physics->setRectangleBB(Pvect(140.f,200.f));
     
     }
             break;
