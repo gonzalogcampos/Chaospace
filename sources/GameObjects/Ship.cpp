@@ -21,6 +21,26 @@ Ship::Ship()
     hp = 1;
     weaponType = 1;
     shootAnim = Render::getInstance()->createAnimation(120);
+
+    Render* r = Render::getInstance();
+
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 3*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 3*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 4*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 4*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 4*50, 50, 50))); 
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 5*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 5*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 6*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 6*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 6*50, 50, 50)));  
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 7*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 7*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 8*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 8*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 8*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 9*50, 50, 50)));
+    r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 9*50, 50, 50)));
     
 }
 
@@ -140,8 +160,6 @@ void Ship::update(float dt)
 void Ship::setWeaponType(int t)
 {
     weaponType = t;
-    Render* r = Render::getInstance();
-    r->clearAnimation(shootAnim);
     switch (weaponType)
     {
     case 1:
@@ -170,23 +188,6 @@ void Ship::setWeaponType(int t)
         break;
     }
 
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 3*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 3*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 4*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 4*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 4*50, 50, 50))); 
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 5*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 5*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 6*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 6*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 6*50, 50, 50)));  
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 7*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 7*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(0*50, 8*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(2*50, 8*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(4*50, 8*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(1*50, 9*50, 50, 50)));
-   r->addFrameToAnimation(shootAnim,r->createSprite("resources/lightsplash2.png", Rrect(3*50, 9*50, 50, 50)));
 }
 
 int Ship::getWeaponType()

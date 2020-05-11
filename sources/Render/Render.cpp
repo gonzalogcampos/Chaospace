@@ -484,6 +484,7 @@ bool Render::drawAnimation(Rint animation, Rvect position, float rotation, float
     {
         animations.find(animation)->second->draw(dt, position, rotation, scale, centered);        
         r=true;
+     
     }
 
     return r;
