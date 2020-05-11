@@ -10,7 +10,7 @@ Hud::Hud(){
     fuente2 = new sf::Font();
     fuente2->loadFromFile("resources/Long_Shot.ttf");
 
-    sprite_explosion = Render::getInstance()->createSprite("resources/SPRITES NUESTROS/Animacion explosion/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
+    sprite_explosion = Render::getInstance()->createSprite("resources/Explosion.png", Rrect((float)30,(float)251, (float)130, (float)130));
     
     texto_puntuacion = new sf::Text();
     texto_puntuacion->setFont(*fuente);
