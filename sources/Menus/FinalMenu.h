@@ -49,9 +49,6 @@ class FinalMenu : public Menu
             final_texto_puntuacion1->setPosition((float)250, (float)350);
             final_texto_puntuacion1->setCharacterSize(50);
             //texto_puntuacion1->setColor(sf::Color::Black);
-
-            final_texto_level1 = new sf::Text();
-            final_texto_level1->setFont(*final_fuente);
           
 
         }
@@ -63,7 +60,7 @@ class FinalMenu : public Menu
             Render::getInstance()->drawSprite(titulo, Rvect(900,650), 0.f, 0.6, true);
             Render::getInstance()->drawSprite(over, Rvect(550,150), 0.f, 0.8, true);
             Render::getInstance()->drawText(*final_texto_puntuacion1);
-            Render::getInstance()->drawText(*final_texto_level1);
+            //Render::getInstance()->drawText(*final_texto_level1);
         }
 
         void clear(){

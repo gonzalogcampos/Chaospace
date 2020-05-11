@@ -31,7 +31,7 @@ void ControlState::update(float dt){
         Game::getInstance()->setState(State::stateType::MENUINICIAL);
                 
     }
-    
+}   
 
 
 void ControlState::draw()
