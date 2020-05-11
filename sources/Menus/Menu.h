@@ -3,7 +3,7 @@
 //External headers
 #include <vector>
 #include <string>
-
+#include <SFML/Audio.hpp>
 
 namespace sf
 {
@@ -20,6 +20,7 @@ class Button
         unsigned int spritenormal;
         unsigned int spritefocus;
         int id;
+        
         
 
     public:
@@ -46,6 +47,8 @@ class Menu
         std::size_t focus;
         float at;
         unsigned int background;
+        sf::Sound sound;
+        sf::SoundBuffer buffer;
         
 
     public:
@@ -55,6 +58,7 @@ class Menu
         void clear();
         void down();
         void up();
+        void setBackground(char* b);
         void update(float dt);
         void draw();
 
