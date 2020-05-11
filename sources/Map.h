@@ -43,6 +43,8 @@ class Map
         int veces = 0;
         bool mapa1_cargado = false;
         bool sumado = false;
+        int tipo_lvl = 0;
+
 
         int _score;
         int _level;
@@ -89,7 +91,7 @@ class Map
 
         void loadMapInfoEntrada(int lvl);
        
-        void loadMapInfo2(int lvl);
+        void loadMapInfoSalida(int lvl);
 
         void draw();
         

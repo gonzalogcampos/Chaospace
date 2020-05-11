@@ -277,10 +277,10 @@ void Map::changeBackground()
 
     Render::getInstance()->deleteSprite(fondoSalida);
     fondoSalida = fondoEntrada;
-    loadMapInfoEntrada(1);
+    loadMapInfoEntrada(tipo_lvl);
 }
 
-void Map::loadMapInfo2(int lvl)
+void Map::loadMapInfoSalida(int lvl)
 {   
     tinyxml2::XMLDocument document;
     tinyxml2::XMLElement* xmlMap;
@@ -662,9 +662,10 @@ Carga un nivel
 void Map::loadLevel()
 {
     clear();
-
-    loadMapInfoEntrada(1);
-    loadMapInfo2(1);
+    int lvl = rand() % 2 + 1;
+    tipo_lvl = lvl;
+    loadMapInfoEntrada(tipo_lvl);
+    loadMapInfoSalida(tipo_lvl);
     
     mapPosition = 0.f;
     level++;
