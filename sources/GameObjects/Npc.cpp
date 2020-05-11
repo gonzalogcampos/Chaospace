@@ -90,17 +90,17 @@ Npc::Npc(int IA, float posX, float posY){
     case 8:
     //boss
         setWeaponType(nivel);
-        hp=300;
+        hp=100;
         cadencia=10;
         break;
     case 9:
         setWeaponType(5);
-        hp=350;
+        hp=150;
         cadencia=10;
         break;
      case 10:
         setWeaponType(6);
-        hp=400;
+        hp=200;
         cadencia=10;
         break;
     default:
@@ -127,7 +127,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 2:
@@ -135,7 +135,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f, 75.f));
            
             break;
         case 3:
@@ -143,7 +143,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 4:
@@ -151,7 +151,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 5:
@@ -159,21 +159,21 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 6:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
                 
         default:
@@ -212,7 +212,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 2:
@@ -220,7 +220,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 3:
@@ -228,7 +228,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 4:
@@ -236,7 +236,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile001.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 5:
@@ -244,21 +244,21 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile002.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 6:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile003.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase2/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
                 
         default:
@@ -297,7 +297,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 2:
@@ -305,7 +305,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 3:
@@ -313,7 +313,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 4:
@@ -321,7 +321,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile001.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 5:
@@ -329,21 +329,21 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile002.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 6:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile003.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase3/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
                 
         default:
@@ -382,7 +382,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 2:
@@ -390,7 +390,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 3:
@@ -398,7 +398,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 4:
@@ -406,7 +406,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile001.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 5:
@@ -414,21 +414,21 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile002.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 6:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile003.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase4/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
                 
         default:
@@ -468,7 +468,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 2:
@@ -476,7 +476,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 3:
@@ -484,7 +484,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile000.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 4:
@@ -492,7 +492,7 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile001.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
            
             break;
         case 5:
@@ -500,21 +500,21 @@ Npc::Npc(int IA, float posX, float posY){
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile002.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 6:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile003.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
         case 7:
         animation = Render::getInstance()->createAnimation(15);
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/Enemigos/Fase1/tile004.png"));
         physics->setPosition(Pvect(X, Y));
         physics->setOrient(180.f);
-        physics->setRectangleBB(Pvect(123.f,115.f));
+        physics->setRectangleBB(Pvect(70.f,75.f));
             break;
                 
         default:

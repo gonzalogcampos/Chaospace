@@ -29,7 +29,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 10.f;
             type = 0;
             size = 5;
-            physics->setCircleBB(109.f);
+            physics->setCircleBB(50.f);
             break;
         case 2:
             // Primera columna segundo sprite
@@ -38,7 +38,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 30.f;
             type = 0;
             size = 4;
-            physics->setCircleBB(94.f);
+            physics->setCircleBB(32.f);
             break;
         
         case 3:
@@ -48,7 +48,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 50.f;
             type = 0;
             size = 3;
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(28.f);
             break;
         
         case 4:
@@ -58,7 +58,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 100.f;
             type = 0;
             size = 2;
-            physics->setCircleBB(27.f);
+            physics->setCircleBB(11.f);
             break;
         case 5:
             // Primera columna quinto sprite
@@ -76,7 +76,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 10.f;
             type = 0;
             size = 5;
-            physics->setCircleBB(109.f);
+            physics->setCircleBB(50.3f);
             break;
         case 7:
             // Segunda columna segundo sprite
@@ -85,7 +85,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 30.f;
             type = 0;
             size = 4;
-            physics->setCircleBB(94.f);
+            physics->setCircleBB(31.f);
             break;
         case 8:
             // Segunda columna tercer sprite
@@ -94,7 +94,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 50.f;
             type = 0;
             size = 3;
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(22.f);
             break;
         case 9:
             // Segunda columna cuarto sprite
@@ -103,7 +103,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 100.f;
             type = 0;
             size = 2;
-            physics->setCircleBB(27.f);
+            physics->setCircleBB(11.f);
             break;
         case 10:
             // Tercera columna quinto sprite
@@ -133,7 +133,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 10.f;
             type = 1;
             size = 5;
-            physics->setCircleBB(109.f);
+            physics->setCircleBB(40.f);
             break;
         case 2:
             // Primera columna segundo sprite
@@ -142,7 +142,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 30.f;
             type = 1;
             size = 4;
-            physics->setCircleBB(94.f);
+            physics->setCircleBB(32.f);
             break;
         
         case 3:
@@ -152,7 +152,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 50.f;
             type = 1;
             size = 3;
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(12.f);
             break;
         
         case 4:
@@ -162,7 +162,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 100.f;
             type = 1;
             size = 2;
-            physics->setCircleBB(27.f);
+            physics->setCircleBB(11.f);
             break;
         case 5:
             // Primera columna quinto sprite
@@ -180,7 +180,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 10.f;
             type = 1;
             size = 5;
-            physics->setCircleBB(109.f);
+            physics->setCircleBB(50.f);
             break;
         case 7:
             // Segunda columna segundo sprite
@@ -189,7 +189,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 30.f;
             type = 1;
             size = 4;
-            physics->setCircleBB(94.f);
+            physics->setCircleBB(40.f);
             break;
         case 8:
             // Segunda columna tercer sprite
@@ -198,7 +198,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 50.f;
             type = 1;
             size = 3;
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(22.f);
             break;
         case 9:
             // Segunda columna cuarto sprite
@@ -207,7 +207,7 @@ Asteroid::Asteroid(float X, float Y)
             velocity = 100.f;
             type = 1;
             size = 2;
-            physics->setCircleBB(27.f);
+            physics->setCircleBB(11.f);
             break;
         case 10:
             // Tercera columna quinto sprite
@@ -247,7 +247,7 @@ Asteroid::Asteroid(int color, int tam, float X, float Y, float orientation)
         if(tam == 3)
         {
             spriteActual = Render::getInstance()->createSprite("resources/Mmarron.png", Rrect(0, 186, 60, 64));
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(25.f);
         }
         else if(tam == 1)
         {
@@ -261,7 +261,7 @@ Asteroid::Asteroid(int color, int tam, float X, float Y, float orientation)
         if(tam == 3)
         {
             spriteActual = Render::getInstance()->createSprite("resources/Mgris.png", Rrect(117, 195, 51, 43));
-            physics->setCircleBB(44.f);
+            physics->setCircleBB(25.f);
         }
         else if(tam == 1)
         {
