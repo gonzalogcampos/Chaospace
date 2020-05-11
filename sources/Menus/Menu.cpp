@@ -22,7 +22,18 @@ float WIDTH_MODEL_SCALE = 1.f;
 
 
 void Menu::down(){
-    
+   
+     if (!buffer.loadFromFile("resources/audios/sfx_twoTone.ogg"))
+	{
+		//std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+    sound.stop();
+    //sound.openFromMemory(&fileData[0], fileData.size());
+   if(sound.getStatus()==sf::SoundSource::Stopped ){
+    sound.setBuffer(buffer);
+    sound.play();
+   
+    }
     if(at<0.2)
         return;
 
@@ -40,6 +51,17 @@ void Menu::down(){
 
 void Menu::up()
 {   
+    
+     if (!buffer.loadFromFile("resources/audios/sfx_twoTone.ogg"))
+	{
+		//std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+    sound.stop();
+    if(sound.getStatus()==sf::SoundSource::Stopped ){
+    sound.setBuffer(buffer);
+    sound.play();
+    
+    }
     if(at<0.2)
         return;
 
@@ -60,6 +82,17 @@ void Menu::up()
 
 int Menu::click()
 {
+    
+     if (!buffer.loadFromFile("resources/audios/sfx_twoTone.ogg"))
+	{
+		//std::cout<<"Error al cargar el sonido"<<std::endl;
+	}
+    sound.stop();
+    if(sound.getStatus()==sf::SoundSource::Stopped ){
+    sound.setBuffer(buffer);
+    sound.play();
+    
+    }
     if(!buttons.empty() && focus<buttons.size())
         return buttons.at(focus)->getID();
 
@@ -93,6 +126,11 @@ void Menu::draw()
 
     for(size_t i=0; i<buttons.size(); i++)
         buttons.at(i)->draw();
+}
+
+void Menu::setBackground(char* b)
+{
+
 }
 
 Button::Button(int id, char* pathnormal, char* pathfocus, float x, float y)
