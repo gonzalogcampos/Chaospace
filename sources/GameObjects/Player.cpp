@@ -116,6 +116,17 @@ void Player::speedUp()
     vtime = 5.f;
 }
 
+void Player::cambioArma()
+{
+    //float r = random()%;
+
+    //if(r!=getWeaponType())
+    //{
+        //setWeaponType(2);
+    //}
+
+}
+
 
 void Player::move()
 {

@@ -35,10 +35,14 @@ class Player : public Ship {
         bool hpDown(int hp);
 
         void setHp(int nu);
+
+        void cambioArma();
         
         void update(float dt);
 
         void draw();
+
+        
 
 };
 

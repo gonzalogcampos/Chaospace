@@ -38,11 +38,16 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/health/maxHealth3.png"));
         break;
     case SHIELD:
-         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield1.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield1.png"));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield3.png"));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield2.png"));
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield3.png"));
         break;
+    case WEAPONCHAN:
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield1.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield3.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield3.png"));
 
     default:
         break;

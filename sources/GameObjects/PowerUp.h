@@ -11,7 +11,8 @@ enum PowerUpType
     WEAPON4,
     WEAPON5,
     VELDIS,
-    SHIELD
+    SHIELD,
+    WEAPONCHAN
 };
 
 class PowerUp : public GameObject

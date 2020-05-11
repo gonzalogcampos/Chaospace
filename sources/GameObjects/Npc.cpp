@@ -553,7 +553,7 @@ Npc::Npc(int IA, float posX, float posY){
 
 Npc::~Npc(){
     float r = random()%100;
-    float elegir = random()%4;
+    float elegir = random()%5;
     if(r<30 && elegir==1)
     {
         Map::getInstance()->createLife(physics->getPosition().x, physics->getPosition().y);
@@ -569,6 +569,11 @@ Npc::~Npc(){
     if(r<20 && elegir == 3)
     {
         Map::getInstance()->createShield(physics->getPosition().x, physics->getPosition().y);
+    }
+
+    if(r<100 && elegir == 4)
+    {
+        Map::getInstance()->createWeapon(physics->getPosition().x, physics->getPosition().y);
     }
 
     delete rectangulo_vida;

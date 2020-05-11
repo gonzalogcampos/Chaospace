@@ -240,6 +240,12 @@ void Map::createShield(float x, float y)
     powerUps.push_back(p);
 }
 
+void Map::createWeapon(float x, float y)
+{
+    PowerUp* p = new PowerUp(WEAPONCHAN, x, y);
+    powerUps.push_back(p);
+}
+
 /*
 Carga toda la información del mapa
 */
@@ -507,6 +513,10 @@ void Map::updateColisions()
                 break;
             case SHIELD:
                 player->setShield();
+                break;
+
+            case WEAPONCHAN:
+                player->cambioArma();
                 break;
             
             default:
