@@ -28,15 +28,15 @@ const float _Player_InitY = 360.f;
 
 //Level Values
 
-const float baseDistance = 1000.f;
-const float incDisctance = 100.f;
+const float baseDistance = 10000.f;
+const float incDisctance = 2500.f;
 
 const float bossMaxDist = 400.f;
 
-const float baseEnemy = 50.f;
+const float baseEnemy = 80.f;
 const float baseAsteroid = 50.f;
 
-const float incEnemy = 10.f;
+const float incEnemy = 20.f;
 const float incAsteroid = 0.f;
 
 const unsigned int enemyScore = 100;

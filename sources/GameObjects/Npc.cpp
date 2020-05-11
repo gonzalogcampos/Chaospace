@@ -86,17 +86,17 @@ Npc::Npc(int IA, float posX, float posY){
     case 8:
     //boss
         setWeaponType(5);
-        hp=100;
+        hp=80;
         cadencia=10;
         break;
     case 9:
         setWeaponType(5);
-        hp=150;
+        hp=100;
         cadencia=10;
         break;
      case 10:
         setWeaponType(7);
-        hp=180;
+        hp=80;
         cadencia=10;
         break;
     default:
@@ -552,26 +552,28 @@ Npc::Npc(int IA, float posX, float posY){
 
 
 Npc::~Npc(){
-    float r = random()%100;
+
+    float r = random()%1000;
     float elegir = random()%5;
-    if(r<30 && elegir==1)
+    if(r<200 && elegir==1)
+
     {
         Map::getInstance()->createLife(physics->getPosition().x, physics->getPosition().y);
     }
-    if(r<10 && elegir == 0)
+    if(r<50 && elegir == 0)
     {
         Map::getInstance()->createMaxLife(physics->getPosition().x, physics->getPosition().y);
     }
-    if(r<30 && elegir == 2)
+    if(r<50 && elegir == 2)
     {
         Map::getInstance()->createSpeed(physics->getPosition().x, physics->getPosition().y);
     }  
-    if(r<20 && elegir == 3)
+    if(r<50 && elegir == 3)
     {
         Map::getInstance()->createShield(physics->getPosition().x, physics->getPosition().y);
     }
 
-    if(r<100 && elegir == 4)
+    if(r<900 && elegir == 4)
     {
         Map::getInstance()->createWeapon(physics->getPosition().x, physics->getPosition().y);
     }
