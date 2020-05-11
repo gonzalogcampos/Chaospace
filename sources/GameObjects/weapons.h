@@ -18,7 +18,7 @@ const float w4_Velocidad = 1500.f;
 const int w4_Fuerza = 20;
 
 const float w5_Cadencia = 0.4f;
-const float w5_Velocidad = 1600.f;
+const float w5_Velocidad = 1300.f;
 const int w5_Fuerza = 20;
 
 const float w6_Cadencia = 0.7f;
