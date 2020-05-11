@@ -118,14 +118,9 @@ Funcion que devuelve el valor de enter_pressed, para
 saber si el Enter ha sido pulsado.
 */
 bool Render::isEnterPressed(){
-    return enter_pressed;
-}
-
-/*
-Funcion que cambia el valor de la variable enter_pressed.
-*/
-void Render::setEnterPressed(bool press){
-    enter_pressed=press;
+    bool aux = enter_pressed;
+    enter_pressed=false;
+    return aux;
 }
 
 /*

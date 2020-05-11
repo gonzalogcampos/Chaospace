@@ -32,14 +32,12 @@ void FinalState::update(float dt){
             case 1: 
                 /*MENU INICIAL*/
                 delete menu; 
-                Render::getInstance()->setEnterPressed(false);
                 Game::getInstance()->setState(State::stateType::MENUINICIAL);
                 break;
 
             case 2: 
                 /*EXIT*/
                 delete menu; 
-                Render::getInstance()->setEnterPressed(false);
                 Render::getInstance()->close();
                 break;
             

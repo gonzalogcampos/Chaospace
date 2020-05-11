@@ -28,12 +28,9 @@ void ControlState::update(float dt){
 
     if(Render::getInstance()->isEnterPressed()==true){
         delete menu; 
-        Render::getInstance() -> setEnterPressed(false);
         Game::getInstance()->setState(State::stateType::MENUINICIAL);
                 
     }
-
-}
     
 
 

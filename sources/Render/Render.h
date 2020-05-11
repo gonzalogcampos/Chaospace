@@ -162,7 +162,6 @@ class Render
         void drawText(sf::Text text);
         void drawRectangle(sf::RectangleShape rectangle);
         bool isEnterPressed();
-        void setEnterPressed(bool press);
         bool isEscapePressed();
         void setEscapePressed(bool press);
         bool isKPressed();

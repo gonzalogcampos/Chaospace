@@ -35,10 +35,6 @@ Npc::Npc(int IA, float posX, float posY){
         nivel=nivel%5+1 ;
     }
 
-    rectangulo_relleno = new sf::RectangleShape(sf::Vector2f(102,12));
-    rectangulo_relleno->setPosition((float)physics->getPosition().x, (float)physics->getPosition().y);
-    rectangulo_relleno->setFillColor(sf::Color::White);
-
     rectangulo_vida = new sf::RectangleShape(sf::Vector2f(100,10));
     rectangulo_vida->setPosition((float)physics->getPosition().x+1, (float)physics->getPosition().y+1);
     rectangulo_vida->setFillColor(sf::Color::Green);
@@ -576,7 +572,6 @@ Npc::~Npc(){
     }
 
     delete rectangulo_vida;
-    delete rectangulo_relleno;
         
     
 } 
@@ -1167,7 +1162,6 @@ void Npc::update(float dt){
 void Npc::draw(){
     Ship::draw();
     if(tipo==8 || tipo==9 || tipo==10){
-        Render::getInstance()->drawRectangle(*rectangulo_relleno);
         Render::getInstance()->drawRectangle(*rectangulo_vida);
     }
 }
@@ -1186,7 +1180,6 @@ void Npc::setLife()
         rectangulo_vida->setFillColor(sf::Color::Red);
     }
 
-    rectangulo_relleno->setPosition((float)physics->getPosition().x-45, (float)physics->getPosition().y-120);
     rectangulo_vida->setPosition((float)physics->getPosition().x-44, (float)physics->getPosition().y-119);
 
 }

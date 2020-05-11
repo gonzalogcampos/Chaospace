@@ -21,7 +21,6 @@ class Npc : public Ship {
     int contador=0;
     unsigned int nave;
     std::vector<Bullet*> Bullets;
-    sf::RectangleShape *rectangulo_relleno;
     sf::RectangleShape *rectangulo_vida;
     int hpmax;
     
