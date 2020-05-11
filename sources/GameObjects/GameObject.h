@@ -22,4 +22,5 @@ class GameObject{
     protected:
         Physics* physics; 
         unsigned int animation;
+        unsigned int bala;
 };

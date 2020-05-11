@@ -573,7 +573,7 @@ Npc::~Npc(){
         Map::getInstance()->createShield(physics->getPosition().x, physics->getPosition().y);
     }
 
-    if(r<900 && elegir == 4)
+    if(r<50 && elegir == 4)
     {
         Map::getInstance()->createWeapon(physics->getPosition().x, physics->getPosition().y);
     }

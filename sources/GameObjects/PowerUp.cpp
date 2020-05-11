@@ -44,10 +44,10 @@ PowerUp::PowerUp(PowerUpType t, float x, float y) : GameObject()
         Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/shield/shield3.png"));
         break;
     case WEAPONCHAN:
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala_power1.png"));
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala_power3.png"));
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala_power2.png"));
-        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala_power3.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala2_3.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala2_2.png"));
+        Render::getInstance()->addFrameToAnimation(animation, Render::getInstance()->createSprite("resources/bala_power/bala2_3.png"));
 
     default:
         break;

@@ -118,12 +118,9 @@ void Player::speedUp()
 
 void Player::cambioArma()
 {
-    float r = random()%4;
+    float r = 1 + random()%7;
 
-    if(r!=getWeaponType())
-    {
-        setWeaponType(2);
-    }
+    setWeaponType(r);
 
 }
 
